@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "scripts": {
+    "build:tokens": "node build-tokens.js",
+    "sync:tokens": "./sync-tokens.sh",
+    "watch:tokens": "./watch-tokens.sh"
+  },
+  "dependencies": {
+    "@tokens-studio/sd-transforms": "^2.0.1"
+  }
+}

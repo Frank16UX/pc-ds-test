@@ -1,0 +1,833 @@
+// Do not edit directly, this file was auto-generated.
+
+
+// ============================================
+// font-weight
+// ============================================
+
+$font-weight-medium-italic-weight: 500;
+$font-weight-medium-italic-style: italic;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-medium: 500;
+
+
+// ============================================
+// text-decoration
+// ============================================
+
+$text-decoration-underline: underline;
+$text-decoration-line-through: line-through;
+$text-decoration-none: none;
+
+
+// ============================================
+// text-transform
+// ============================================
+
+$text-transform-uppercase: uppercase;
+$text-transform-none: none;
+
+
+// ============================================
+// font-family
+// ============================================
+
+$font-family-primary: Questa;
+$font-family-secondary: Lexend;
+
+
+// ============================================
+// Tokens
+// ============================================
+
+$tokens-color-text-default-primary: $neutral-900;
+$tokens-color-text-default-primary-inverted: $base-white;
+$tokens-color-text-default-disabled-on-surface: $neutral-700;
+$tokens-color-text-default-secondary: $neutral-800;
+$tokens-color-text-default-tertiary: $neutral-700;
+$tokens-color-text-default-disabled: $neutral-500;
+$tokens-color-text-accent-default: $teal-700;
+$tokens-color-text-accent-on-surface: $teal-800;
+$tokens-color-text-accent-high-contrast: $teal-900;
+$tokens-color-text-error-default: $red-700;
+$tokens-color-text-error-high-contrast: $red-900;
+$tokens-color-text-error-high-contrast-inverted: $red-400;
+$tokens-color-text-info-default: $blue-700;
+$tokens-color-text-info-high-contrast: $blue-900;
+$tokens-color-text-success-default: $green-700;
+$tokens-color-text-success-high-contrast: $green-900;
+$tokens-color-text-warning-default: $orange-700;
+$tokens-color-text-warning-high-contrast: $orange-900;
+$tokens-color-text-emphasis-default: $purple-700;
+$tokens-color-text-emphasis-high-contrast: $purple-900;
+$tokens-color-buttons-primary-default: $gold-500;
+$tokens-color-buttons-primary-hovered: $gold-600;
+$tokens-color-buttons-primary-disabled: $neutral-300;
+$tokens-color-buttons-primary-pressed: $gold-700;
+$tokens-color-buttons-secondary-hovered: $teal-50;
+$tokens-color-buttons-secondary-pressed: $teal-100;
+$tokens-color-buttons-secondary-disabled: $neutral-100;
+$tokens-color-buttons-secondary-default: $alpha-white-50;
+$tokens-color-buttons-destructive-default: $red-700;
+$tokens-color-buttons-destructive-hovered: $red-800;
+$tokens-color-buttons-destructive-pressed: $red-900;
+$tokens-color-border-button-default: $teal-700;
+$tokens-color-border-button-disabled: $neutral-500;
+$tokens-color-border-button-hovered: $teal-800;
+$tokens-color-border-focus-default: $neutral-900;
+$tokens-color-border-focus-error: $red-900;
+$tokens-color-border-focus-accent: $teal-700;
+$tokens-color-border-focus-error-inverted: $red-700;
+$tokens-color-border-scroll-active: $teal-700;
+$tokens-color-border-scroll-inactive: $neutral-tinted-200;
+$tokens-color-border-input-error: $red-700;
+$tokens-color-border-input-default: $neutral-400;
+$tokens-color-border-input-disabled: $neutral-tinted-200;
+$tokens-color-border-input-active: $neutral-900;
+$tokens-color-border-icon-button-default: $neutral-400;
+$tokens-color-border-icon-button-hovered: $teal-700;
+$tokens-color-border-icon-button-active: $teal-800;
+$tokens-color-border-divider-subtle: $neutral-tinted-100;
+$tokens-color-border-divider-strong: $neutral-tinted-400;
+$tokens-color-border-divider-inverted: $base-white;
+$tokens-color-border-accent-default: $teal-700;
+$tokens-color-border-accent-strong: $teal-900;
+$tokens-color-links-default: $teal-700;
+$tokens-color-links-hovered: $teal-800;
+$tokens-color-links-disabled: $neutral-500;
+$tokens-color-links-pressed: $teal-900;
+$tokens-color-surface-primary: $base-white;
+$tokens-color-surface-secondary: $neutral-50;
+$tokens-color-surface-interactive-selected: $teal-100;
+$tokens-color-surface-interactive-selected-hover: $teal-200;
+$tokens-color-surface-interactive-default: $base-white;
+$tokens-color-surface-interactive-disabled: $neutral-100;
+$tokens-color-surface-interactive-hovered: $teal-50;
+$tokens-color-surface-tinted-1: $neutral-tinted-50;
+$tokens-color-surface-tinted-2: $neutral-tinted-100;
+$tokens-color-surface-overlay: $alpha-grey-600;
+$tokens-color-background-accent-solid: $teal-800;
+$tokens-color-background-accent-subtle: $teal-50;
+$tokens-color-background-default-static-black: $neutral-900;
+$tokens-color-background-default-static-white: $base-white;
+$tokens-color-background-default-solid: $base-white;
+$tokens-color-background-default-subtle: $neutral-50;
+$tokens-color-background-alt-subtle: $limited-themes-standard-cream-beige;
+$tokens-color-background-alt-solid: $limited-themes-standard-golden-cream;
+$tokens-color-icon-default-primary: $neutral-900;
+$tokens-color-icon-default-primary-inverted: $base-white;
+$tokens-color-icon-default-secondary: $neutral-800;
+$tokens-color-icon-default-tertiary: $neutral-700;
+$tokens-color-icon-default-disabled-on-surface: $neutral-700;
+$tokens-color-icon-default-disabled: $neutral-500;
+$tokens-color-icon-accent-default: $teal-700;
+$tokens-color-icon-accent-on-surface: $teal-800;
+$tokens-color-icon-accent-high-contrast: $teal-900;
+$tokens-color-icon-error-default: $red-700;
+$tokens-color-icon-error-high-contrast: $red-900;
+$tokens-color-icon-info-default: $blue-700;
+$tokens-color-icon-info-high-contrast: $blue-900;
+$tokens-color-icon-warning-default: $orange-700;
+$tokens-color-icon-warning-high-contrast: $orange-900;
+$tokens-color-icon-success-default: $green-700;
+$tokens-color-icon-success-high-contrast: $green-900;
+$tokens-color-icon-emphasis-default: $purple-700;
+$tokens-color-icon-emphasis-high-contrast: $purple-900;
+$tokens-color-graphics-complementary-1: $teal-900;
+$tokens-color-graphics-complementary-2: $limited-complementary-emerald;
+$tokens-color-graphics-complementary-3: $limited-complementary-sage-green;
+$tokens-color-graphics-complementary-4: $limited-complementary-lime-green;
+$tokens-color-graphics-complementary-5: $limited-complementary-light-green;
+$tokens-color-graphics-complementary-6: $limited-complementary-aqua;
+$tokens-color-graphics-complementary-7: $limited-complementary-powder-blue;
+$tokens-color-graphics-complementary-8: $purple-700;
+$tokens-color-graphics-complementary-9: $purple-50;
+$tokens-color-graphics-complementary-10: $limited-complementary-golden-yellow;
+$tokens-color-graphics-complementary-11: $limited-complementary-coral-red;
+$tokens-color-graphics-complementary-12: $limited-complementary-salmon;
+$tokens-color-graphics-complementary-13: $limited-complementary-peach;
+$tokens-color-graphics-complementary-14: $limited-complementary-navy-blue;
+$tokens-color-graphics-complementary-15: $limited-complementary-royal-blue;
+$tokens-color-graphics-complementary-16: $limited-complementary-light-blue;
+$tokens-color-graphics-consultant-advanced-director: $limited-consultants-dark-navy;
+$tokens-color-graphics-consultant-consultant: $limited-consultants-light-sage;
+$tokens-color-graphics-consultant-director: $limited-consultants-crimson-red;
+$tokens-color-graphics-consultant-executive-director: $limited-consultants-turquoise;
+$tokens-color-graphics-consultant-national-executive-director: $limited-consultants-cyan-blue;
+$tokens-color-graphics-consultant-senior-consultant: $limited-consultants-sky-blue;
+$tokens-color-graphics-consultant-senior-director: $limited-consultants-golden-amber;
+$tokens-color-graphics-consultant-senior-executive-director: $limited-consultants-royal-purple;
+$tokens-color-graphics-consultant-team-leader: $limited-consultants-bright-pink;
+$tokens-color-graphics-party-status-coming-up: $limited-party-status-olive-yellow;
+$tokens-color-graphics-party-status-needs-attention: $limited-party-status-alert-red;
+$tokens-color-graphics-party-status-open: $limited-party-status-teal-blue;
+$tokens-color-graphics-party-status-submitted: $limited-party-status-neutral-gray;
+$tokens-color-graphics-party-status-unsubmitted: $limited-party-status-bright-orange;
+$tokens-color-graphics-themes-fall-winter-graphic: $limited-themes-fall-winter-sea-foam;
+$tokens-color-graphics-themes-fall-winter-line: $limited-themes-fall-winter-ice-blue;
+$tokens-color-graphics-themes-fall-winter-primary-background: $limited-themes-fall-winter-cool-mint;
+$tokens-color-graphics-themes-fall-winter-secondary-background: $limited-themes-fall-winter-pale-blue;
+$tokens-color-graphics-themes-fall-winter-shape: $limited-themes-fall-winter-frost-blue;
+$tokens-color-graphics-themes-fall-winter-surface: $limited-themes-fall-winter-aqua-mint;
+$tokens-color-graphics-themes-spring-summer-graphic: $limited-themes-spring-summer-warm-yellow;
+$tokens-color-graphics-themes-spring-summer-line: $limited-themes-spring-summer-light-moss;
+$tokens-color-graphics-themes-spring-summer-primary-background: $limited-themes-spring-summer-pale-mint;
+$tokens-color-graphics-themes-spring-summer-secondary-background: $limited-themes-spring-summer-soft-white;
+$tokens-color-graphics-themes-spring-summer-shape: $limited-themes-spring-summer-pale-sage;
+$tokens-color-graphics-themes-spring-summer-surface: $limited-themes-spring-summer-light-peach;
+$tokens-color-graphics-themes-standard-graphic: $gold-600;
+$tokens-color-graphics-themes-standard-line: $limited-themes-standard-soft-beige;
+$tokens-color-graphics-themes-standard-primary-background: $limited-themes-standard-cream-beige;
+$tokens-color-graphics-themes-standard-secondary-background: $limited-themes-standard-warm-ivory;
+$tokens-color-graphics-themes-standard-shape: $limited-themes-standard-light-tan;
+$tokens-color-graphics-themes-standard-surface: $limited-themes-standard-golden-cream;
+$tokens-color-graphics-themes-summer-fall-graphic: $limited-themes-summer-fall-terracotta;
+$tokens-color-graphics-themes-summer-fall-line: $limited-themes-summer-fall-sandy-beige;
+$tokens-color-graphics-themes-summer-fall-primary-background: $limited-themes-summer-fall-warm-cream;
+$tokens-color-graphics-themes-summer-fall-secondary-background: $limited-themes-summer-fall-soft-ivory;
+$tokens-color-graphics-themes-summer-fall-shape: $limited-themes-summer-fall-dusty-cream;
+$tokens-color-graphics-themes-summer-fall-surface: $limited-themes-summer-fall-coral-cream;
+$tokens-focus-fx-default: 0 0 0 2px #ffffff, 0 0 0 6px #2e3030;
+$tokens-focus-fx-error: 0 0 0 2px #ffffff, 0 0 0 6px #7a0f00;
+
+
+// ============================================
+// Breakpoints
+// ============================================
+
+$breakpoints-xs: 360px;
+$breakpoints-sm: 576px;
+$breakpoints-md: 768px;
+$breakpoints-lg: 992px;
+$breakpoints-xl: 1200px;
+$breakpoints-xxl: 1728px;
+
+
+// ============================================
+// Container
+// ============================================
+
+$container-sm: 540px;
+$container-md: 752px;
+$container-lg: 976px;
+$container-xl: 1184px;
+$container-xxl: 1648px;
+
+
+// ============================================
+// Motion
+// ============================================
+
+$motion-durations-productive-xs: 150;
+$motion-durations-productive-sm: 250;
+$motion-durations-productive-md: 350;
+$motion-durations-productive-lg: 450;
+$motion-durations-productive-xl: 550;
+$motion-durations-productive-xxl: 650;
+$motion-durations-expressive-xs: 300;
+$motion-durations-expressive-sm: 500;
+$motion-durations-expressive-md: 700;
+$motion-durations-expressive-lg: 900;
+$motion-durations-expressive-xl: 1100;
+$motion-durations-expressive-xxl: 1300;
+$motion-easings-direct-direct-curve-0: 0.1;
+$motion-easings-direct-direct-curve-1: 0.25;
+$motion-easings-direct-direct-curve-2: 0.25;
+$motion-easings-direct-direct-curve-3: 1;
+$motion-easings-indirect-enter-curve-0: 0.2;
+$motion-easings-indirect-enter-curve-1: 0.6;
+$motion-easings-indirect-enter-curve-2: 0.25;
+$motion-easings-indirect-enter-curve-3: 1;
+$motion-easings-indirect-exit-curve-0: 0.65;
+$motion-easings-indirect-exit-curve-1: 0;
+$motion-easings-indirect-exit-curve-2: 0.75;
+$motion-easings-indirect-exit-curve-3: 0;
+$motion-easings-indirect-standard-curve-0: 0.5;
+$motion-easings-indirect-standard-curve-1: 0;
+$motion-easings-indirect-standard-curve-2: 0;
+$motion-easings-indirect-standard-curve-3: 1;
+$motion-easings-indirect-linear-curve-0: 0;
+$motion-easings-indirect-linear-curve-1: 0;
+$motion-easings-indirect-linear-curve-2: 1;
+$motion-easings-indirect-linear-curve-3: 1;
+$motion-delays-productive-xs: 30;
+$motion-delays-productive-sm: 50;
+$motion-delays-productive-md: 70;
+$motion-delays-productive-lg: 90;
+$motion-delays-productive-xl: 110;
+$motion-delays-productive-xxl: 130;
+$motion-delays-expressive-xs: 60;
+$motion-delays-expressive-sm: 100;
+$motion-delays-expressive-md: 140;
+$motion-delays-expressive-lg: 180;
+$motion-delays-expressive-xl: 220;
+$motion-delays-expressive-xxl: 260;
+
+
+// ============================================
+// Ratios
+// ============================================
+
+$ratios-vertical-2-3: '2 / 3';
+$ratios-vertical-9-16: '9 / 16';
+$ratios-vertical-3-4: '3 / 4';
+$ratios-vertical-1-1: '1 / 1';
+$ratios-horizontal-3-2: '3 / 2';
+$ratios-horizontal-16-9: '16 / 9';
+$ratios-horizontal-4-3: '4 / 3';
+$ratios-horizontal-1-1: '1 / 1';
+
+
+// ============================================
+// Responsive/Desktop
+// ============================================
+
+$responsive-desktop-typography-display-xl: italic 500 104px/104px Questa;
+$responsive-desktop-typography-display-lg: italic 500 80px/80px Questa;
+$responsive-desktop-typography-display-md: italic 500 64px/64px Questa;
+$responsive-desktop-typography-display-sm: italic 500 48px/48px Questa;
+$responsive-desktop-typography-display-xs: italic 500 40px/48px Questa;
+$responsive-desktop-typography-headline-xl: 400 36px/44px Questa;
+$responsive-desktop-typography-headline-lg: 400 32px/38px Questa;
+$responsive-desktop-typography-headline-md: 400 28px/34px Questa;
+$responsive-desktop-typography-headline-sm: 400 24px/1.2 Questa;
+$responsive-desktop-typography-price-lg: 400 32px/1.5 Lexend;
+$responsive-desktop-typography-price-lg-strikethrough: 400 32px/1.5 Lexend;
+$responsive-desktop-typography-price-md: 400 24px/1.5 Lexend;
+$responsive-desktop-typography-price-md-strikethrough: 400 24px/1.5 Lexend;
+$responsive-desktop-typography-price-sm: 500 18px/1.5 Lexend;
+$responsive-desktop-typography-price-sm-srikethrough: 400 18px/1.5 Lexend;
+$responsive-desktop-typography-text-xl-regular: 400 20px/1.5 Lexend;
+$responsive-desktop-typography-text-xl-bold: 700 20px/1.5 Lexend;
+$responsive-desktop-typography-text-xl-underline: 400 20px/1.5 Lexend;
+$responsive-desktop-typography-text-lg-regular: 400 18px/1.5 Lexend;
+$responsive-desktop-typography-text-lg-bold: 700 18px/1.5 Lexend;
+$responsive-desktop-typography-text-lg-underline: 400 18px/1.5 Lexend;
+$responsive-desktop-typography-text-md-regular: 400 16px/1.5 Lexend;
+$responsive-desktop-typography-text-md-bold: 700 16px/1.5 Lexend;
+$responsive-desktop-typography-text-md-underline: 400 16px/1.5 Lexend;
+$responsive-desktop-typography-text-sm-regular: 400 14px/1.5 Lexend;
+$responsive-desktop-typography-text-sm-bold: 700 14px/1.5 Lexend;
+$responsive-desktop-typography-text-sm-underline: 400 14px/1.5 Lexend;
+$responsive-desktop-typography-other-cta-md: 500 16px/1 Lexend;
+$responsive-desktop-typography-other-cta-sm: 500 14px/1 Lexend;
+$responsive-desktop-typography-other-eyebrow: 500 14px/1.5 Lexend;
+$responsive-desktop-section-padding-vertical-lg: $scale-20;
+$responsive-desktop-section-padding-vertical-md: $scale-16;
+$responsive-desktop-section-padding-vertical-sm: $scale-14;
+$responsive-desktop-section-padding-vertical-xs: $scale-10;
+$responsive-desktop-section-padding-vertical-xl: $scale-32;
+$responsive-desktop-section-padding-horizontal-lg: $scale-50;
+$responsive-desktop-section-padding-horizontal-sm: $scale-32;
+$responsive-desktop-section-padding-horizontal-xs: $scale-24;
+$responsive-desktop-section-padding-horizontal-md: $scale-42;
+$responsive-desktop-typescale-font-size-xs: $scale-3;
+$responsive-desktop-typescale-font-size-sm: $scale-custom-3a;
+$responsive-desktop-typescale-font-size-md: $scale-4;
+$responsive-desktop-typescale-font-size-lg: $scale-custom-4a;
+$responsive-desktop-typescale-font-size-xl: $scale-5;
+$responsive-desktop-typescale-font-size-2xl: $scale-6;
+$responsive-desktop-typescale-font-size-3xl: $scale-custom-6a;
+$responsive-desktop-typescale-font-size-4xl: $scale-8;
+$responsive-desktop-typescale-font-size-5xl: $scale-custom-8a;
+$responsive-desktop-typescale-font-size-6xl: $scale-10;
+$responsive-desktop-typescale-font-size-7xl: $scale-12;
+$responsive-desktop-typescale-font-size-8xl: $scale-16;
+$responsive-desktop-typescale-font-size-9xl: $scale-20;
+$responsive-desktop-typescale-font-size-10xl: $scale-26;
+$responsive-desktop-typescale-line-height-3xl: $scale-custom-7a;
+$responsive-desktop-typescale-line-height-4xl: $scale-custom-9a;
+$responsive-desktop-typescale-line-height-5xl: $scale-custom-11a;
+$responsive-desktop-typescale-line-height-6xl: $scale-12;
+$responsive-desktop-typescale-line-height-7xl: $scale-12;
+$responsive-desktop-typescale-line-height-8xl: $scale-16;
+$responsive-desktop-typescale-line-height-9xl: $scale-20;
+$responsive-desktop-typescale-line-height-10xl: $scale-26;
+
+
+// ============================================
+// Responsive/Mobile
+// ============================================
+
+$responsive-mobile-section-padding-vertical-lg: $scale-16;
+$responsive-mobile-section-padding-vertical-md: $scale-12;
+$responsive-mobile-section-padding-vertical-sm: $scale-10;
+$responsive-mobile-section-padding-vertical-xs: $scale-8;
+$responsive-mobile-section-padding-vertical-xl: $scale-18;
+$responsive-mobile-section-padding-horizontal-lg: $scale-12;
+$responsive-mobile-section-padding-horizontal-sm: $scale-6;
+$responsive-mobile-section-padding-horizontal-xs: $scale-4;
+$responsive-mobile-section-padding-horizontal-md: $scale-6;
+$responsive-mobile-typescale-font-size-xs: $scale-3;
+$responsive-mobile-typescale-font-size-sm: $scale-custom-3a;
+$responsive-mobile-typescale-font-size-md: $scale-4;
+$responsive-mobile-typescale-font-size-lg: $scale-custom-4a;
+$responsive-mobile-typescale-font-size-xl: $scale-5;
+$responsive-mobile-typescale-font-size-2xl: $scale-custom-5a;
+$responsive-mobile-typescale-font-size-3xl: $scale-6;
+$responsive-mobile-typescale-font-size-4xl: $scale-custom-6a;
+$responsive-mobile-typescale-font-size-5xl: $scale-8;
+$responsive-mobile-typescale-font-size-6xl: $scale-custom-8a;
+$responsive-mobile-typescale-font-size-7xl: $scale-10;
+$responsive-mobile-typescale-font-size-8xl: $scale-12;
+$responsive-mobile-typescale-font-size-9xl: $scale-14;
+$responsive-mobile-typescale-font-size-10xl: $scale-16;
+$responsive-mobile-typescale-line-height-3xl: $scale-custom-6a;
+$responsive-mobile-typescale-line-height-4xl: $scale-custom-7a;
+$responsive-mobile-typescale-line-height-5xl: $scale-custom-9a;
+$responsive-mobile-typescale-line-height-6xl: $scale-custom-11a;
+$responsive-mobile-typescale-line-height-7xl: $scale-10;
+$responsive-mobile-typescale-line-height-8xl: $scale-12;
+$responsive-mobile-typescale-line-height-9xl: $scale-14;
+$responsive-mobile-typescale-line-height-10xl: $scale-16;
+$responsive-mobile-typography-display-xl: italic 500 64px/64px Questa;
+$responsive-mobile-typography-display-lg: italic 500 56px/56px Questa;
+$responsive-mobile-typography-display-md: italic 500 48px/48px Questa;
+$responsive-mobile-typography-display-sm: italic 500 40px/40px Questa;
+$responsive-mobile-typography-display-xs: italic 500 36px/44px Questa;
+$responsive-mobile-typography-headline-xl: 400 32px/38px Questa;
+$responsive-mobile-typography-headline-lg: 400 28px/34px Questa;
+$responsive-mobile-typography-headline-md: 400 24px/28px Questa;
+$responsive-mobile-typography-headline-sm: 400 22px/1.2 Questa;
+$responsive-mobile-typography-price-lg: 400 28px/1.5 Lexend;
+$responsive-mobile-typography-price-lg-strikethrough: 400 28px/1.5 Lexend;
+$responsive-mobile-typography-price-md: 400 22px/1.5 Lexend;
+$responsive-mobile-typography-price-md-strikethrough: 400 22px/1.5 Lexend;
+$responsive-mobile-typography-price-sm: 500 18px/1.5 Lexend;
+$responsive-mobile-typography-price-sm-srikethrough: 400 18px/1.5 Lexend;
+$responsive-mobile-typography-text-xl-regular: 400 20px/1.5 Lexend;
+$responsive-mobile-typography-text-xl-bold: 700 20px/1.5 Lexend;
+$responsive-mobile-typography-text-xl-underline: 400 20px/1.5 Lexend;
+$responsive-mobile-typography-text-lg-regular: 400 18px/1.5 Lexend;
+$responsive-mobile-typography-text-lg-bold: 700 18px/1.5 Lexend;
+$responsive-mobile-typography-text-lg-underline: 400 18px/1.5 Lexend;
+$responsive-mobile-typography-text-md-regular: 400 16px/1.5 Lexend;
+$responsive-mobile-typography-text-md-bold: 700 16px/1.5 Lexend;
+$responsive-mobile-typography-text-md-underline: 400 16px/1.5 Lexend;
+$responsive-mobile-typography-text-sm-regular: 400 14px/1.5 Lexend;
+$responsive-mobile-typography-text-sm-bold: 700 14px/1.5 Lexend;
+$responsive-mobile-typography-text-sm-underline: 400 14px/1.5 Lexend;
+$responsive-mobile-typography-other-cta-md: 500 16px/1 Lexend;
+$responsive-mobile-typography-other-cta-sm: 500 14px/1 Lexend;
+$responsive-mobile-typography-other-eyebrow: 500 12px/1.5 Lexend;
+
+
+// ============================================
+// Z-Index
+// ============================================
+
+$z-index-z-index-negative: -1;
+$z-index-z-index-basic: 1;
+$z-index-z-index-lowest: 5;
+$z-index-z-index-low: 25;
+$z-index-z-index-intermediate: 50;
+$z-index-z-index-high: 75;
+$z-index-z-index-important: 100;
+
+
+// ============================================
+// elevation
+// ============================================
+
+$elevation-primary-button: 0 1px 2px 0 rgba(0,0,0,0.4), 0 4px 6px 0 rgba(0,0,0,0.15);
+$elevation-sharp-sm: 0 4px 4px 0 #21212105, 0 3px 3px 0 #2121210a, 0 1px 1px 0 #2121210f, 0 1px 1px 0 #21212114, 0 0 0 0 #2121211a;
+$elevation-sharp-md: 0 8px 8px 0 #21212105, 0 5px 5px 0 #2121210a, 0 3px 3px 0 #2121210f, 0 1px 1px 0 #21212114, 0 0 0 0 #2121211a;
+$elevation-sharp-lg: 0 16px 16px 0 #21212105, 0 10px 10px 0 #2121210a, 0 6px 6px 0 #2121210f, 0 3px 3px 0 #21212114, 0 1px 1px 0 #2121211a;
+$elevation-sharp-xl: 0 32px 32px 0 #21212105, 0 20px 20px 0 #2121210a, 0 12px 12px 0 #2121210f, 0 5px 5px 0 #21212114, 0 1px 1px 0 #2121211a;
+
+
+// ============================================
+// fonts
+// ============================================
+
+$fonts-primary-name: 'Questa';
+$fonts-primary-src-0-url: '~design-system/assets/fonts/Questa_Regular.otf';
+$fonts-primary-src-0-format: 'opentype';
+$fonts-primary-fallbacks-0: 'Times New Roman';
+$fonts-primary-fallbacks-1: Times;
+$fonts-primary-fallbacks-2: serif;
+$fonts-primary-variants-0-weight: 300;
+$fonts-primary-variants-0-src-0-url: '~design-system/assets/fonts/Questa_Light.otf';
+$fonts-primary-variants-0-src-0-format: 'opentype';
+$fonts-primary-variants-1-weight: 300;
+$fonts-primary-variants-1-style: italic;
+$fonts-primary-variants-1-src-0-url: '~design-system/assets/fonts/Questa_Light_Italic.otf';
+$fonts-primary-variants-1-src-0-format: 'opentype';
+$fonts-primary-variants-2-weight: 500;
+$fonts-primary-variants-2-src-0-url: '~design-system/assets/fonts/Questa_Medium.otf';
+$fonts-primary-variants-2-src-0-format: 'opentype';
+$fonts-primary-variants-3-weight: 500;
+$fonts-primary-variants-3-style: italic;
+$fonts-primary-variants-3-src-0-url: '~design-system/assets/fonts/Questa_Medium_Italic.otf';
+$fonts-primary-variants-3-src-0-format: 'opentype';
+$fonts-primary-variants-4-weight: 700;
+$fonts-primary-variants-4-src-0-url: '~design-system/assets/fonts/Questa_Bold.otf';
+$fonts-primary-variants-4-src-0-format: 'opentype';
+$fonts-primary-variants-5-weight: 700;
+$fonts-primary-variants-5-style: italic;
+$fonts-primary-variants-5-src-0-url: '~design-system/assets/fonts/Questa_Bold_Italic.otf';
+$fonts-primary-variants-5-src-0-format: 'opentype';
+$fonts-primary-variants-6-weight: 900;
+$fonts-primary-variants-6-src-0-url: '~design-system/assets/fonts/Questa_Black.otf';
+$fonts-primary-variants-6-src-0-format: 'opentype';
+$fonts-primary-variants-7-weight: 900;
+$fonts-primary-variants-7-style: italic;
+$fonts-primary-variants-7-src-0-url: '~design-system/assets/fonts/Questa_Black_Italic.otf';
+$fonts-primary-variants-7-src-0-format: 'opentype';
+$fonts-secondary-name: 'Lexend';
+$fonts-secondary-src-0-url: '~design-system/assets/fonts/Lexend-Regular.woff2';
+$fonts-secondary-src-0-format: 'woff2';
+$fonts-secondary-src-1-url: '~design-system/assets/fonts/Lexend-Regular.woff';
+$fonts-secondary-src-1-format: 'woff';
+$fonts-secondary-fallbacks-0: 'Arial';
+$fonts-secondary-fallbacks-1: Helvetica;
+$fonts-secondary-fallbacks-2: sans-serif;
+$fonts-secondary-variants-0-weight: 300;
+$fonts-secondary-variants-0-src-0-url: '~design-system/assets/fonts/Lexend-Light.woff2';
+$fonts-secondary-variants-0-src-0-format: 'woff2';
+$fonts-secondary-variants-0-src-1-url: '~design-system/assets/fonts/Lexend-Light.woff';
+$fonts-secondary-variants-0-src-1-format: 'woff';
+$fonts-secondary-variants-1-weight: 500;
+$fonts-secondary-variants-1-src-0-url: '~design-system/assets/fonts/Lexend-Medium.woff2';
+$fonts-secondary-variants-1-src-0-format: 'woff2';
+$fonts-secondary-variants-1-src-1-url: '~design-system/assets/fonts/Lexend-Medium.woff';
+$fonts-secondary-variants-1-src-1-format: 'woff';
+$fonts-secondary-variants-2-weight: 600;
+$fonts-secondary-variants-2-src-0-url: '~design-system/assets/fonts/Lexend-SemiBold.woff2';
+$fonts-secondary-variants-2-src-0-format: 'woff2';
+$fonts-secondary-variants-2-src-1-url: '~design-system/assets/fonts/Lexend-SemiBold.woff';
+$fonts-secondary-variants-2-src-1-format: 'woff';
+$fonts-secondary-variants-3-weight: 700;
+$fonts-secondary-variants-3-src-0-url: '~design-system/assets/fonts/Lexend-Bold.woff2';
+$fonts-secondary-variants-3-src-0-format: 'woff2';
+$fonts-secondary-variants-3-src-1-url: '~design-system/assets/fonts/Lexend-Bold.woff';
+$fonts-secondary-variants-3-src-1-format: 'woff';
+$fonts-secondary-variants-4-weight: 800;
+$fonts-secondary-variants-4-src-0-url: '~design-system/assets/fonts/Lexend-ExtraBold.woff2';
+$fonts-secondary-variants-4-src-0-format: 'woff2';
+$fonts-secondary-variants-4-src-1-url: '~design-system/assets/fonts/Lexend-ExtraBold.woff';
+$fonts-secondary-variants-4-src-1-format: 'woff';
+$fonts-secondary-variants-5-weight: 900;
+$fonts-secondary-variants-5-src-0-url: '~design-system/assets/fonts/Lexend-Black.woff2';
+$fonts-secondary-variants-5-src-0-format: 'woff2';
+$fonts-secondary-variants-5-src-1-url: '~design-system/assets/fonts/Lexend-Black.woff';
+$fonts-secondary-variants-5-src-1-format: 'woff';
+
+
+// ============================================
+// radius
+// ============================================
+
+$radius-square: $scale-0;
+$radius-sm: $scale-custom-min;
+$radius-md: $scale-2;
+$radius-full: $scale-custom-max;
+
+
+// ============================================
+// size
+// ============================================
+
+$size-height-lg: $scale-12;
+$size-height-sm: $scale-8;
+$size-height-xs: $scale-6;
+$size-height-md: $scale-10;
+$size-height-icon-sm: $scale-5;
+$size-height-icon-xs: $scale-4;
+$size-height-icon-md: $scale-6;
+$size-height-icon-lg: $scale-8;
+$size-height-icon-2xl: $scale-16;
+$size-height-icon-4xl: $scale-20;
+$size-width-button-mw-lg: $scale-32;
+$size-width-button-mw-sm: $scale-24;
+
+
+// ============================================
+// spacing
+// ============================================
+
+$spacing-none: $scale-0;
+$spacing-2xs: $scale-1;
+$spacing-xs: $scale-2;
+$spacing-sm: $scale-3;
+$spacing-md: $scale-4;
+$spacing-lg: $scale-6;
+$spacing-xl: $scale-8;
+$spacing-2xl: $scale-10;
+$spacing-3xl: $scale-12;
+$spacing-4xl: $scale-16;
+
+
+// ============================================
+// alpha
+// ============================================
+
+$alpha-grey-50: rgba(5, 5, 5, 0.04);
+$alpha-grey-100: rgba(10, 10, 10, 0.09);
+$alpha-grey-200: rgba(15, 15, 15, 0.15);
+$alpha-grey-300: rgba(0, 0, 0, 0.2);
+$alpha-grey-400: rgba(8, 8, 8, 0.29);
+$alpha-grey-500: rgba(0, 0, 0, 0.35);
+$alpha-grey-600: rgba(0, 0, 0, 0.5);
+$alpha-grey-700: rgba(0, 0, 0, 0.57);
+$alpha-grey-800: rgba(0, 0, 0, 0.72);
+$alpha-grey-900: rgba(3, 3, 3, 0.82);
+$alpha-white-50: rgba(255, 255, 255, 0.04);
+$alpha-white-100: rgba(255, 255, 255, 0.09);
+$alpha-white-200: rgba(255, 255, 255, 0.15);
+$alpha-white-300: rgba(255, 255, 255, 0.2);
+$alpha-white-400: rgba(255, 255, 255, 0.29);
+$alpha-white-500: rgba(255, 255, 255, 0.35);
+$alpha-white-600: rgba(255, 255, 255, 0.5);
+$alpha-white-700: rgba(255, 255, 255, 0.57);
+$alpha-white-800: rgba(255, 255, 255, 0.72);
+$alpha-white-900: rgba(255, 255, 255, 0.82);
+
+
+// ============================================
+// base
+// ============================================
+
+$base-white: #ffffff;
+$base-black: #000000;
+
+
+// ============================================
+// blue
+// ============================================
+
+$blue-50: #f0f7ff;
+$blue-100: #d1ebff;
+$blue-200: #a6d9ff;
+$blue-300: #73bffc;
+$blue-400: #4dabf7;
+$blue-500: #3399f0;
+$blue-600: #248ce6;
+$blue-700: #1c78cc;
+$blue-800: #1766b0;
+$blue-900: #124a7d;
+
+
+// ============================================
+// gold
+// ============================================
+
+$gold-50: #fffaeb;
+$gold-100: #fff0cf;
+$gold-200: #ffe8b2;
+$gold-300: #fcde99;
+$gold-400: #fcd17d;
+$gold-500: #fac761;
+$gold-600: #f5b83d;
+$gold-700: #eda31c;
+$gold-800: #a8661a;
+$gold-900: #784717;
+
+
+// ============================================
+// green
+// ============================================
+
+$green-50: #edfcf2;
+$green-100: #d4fad9;
+$green-200: #b2f2ba;
+$green-300: #8ce899;
+$green-400: #69db7d;
+$green-500: #52cf66;
+$green-600: #40bf57;
+$green-700: #298538;
+$green-800: #216e30;
+$green-900: #1c5929;
+
+
+// ============================================
+// neutral
+// ============================================
+
+$neutral-50: #f5f5f5;
+$neutral-100: #e8e8eb;
+$neutral-200: #d9dbdb;
+$neutral-300: #c9cccf;
+$neutral-400: #b5b8ba;
+$neutral-500: #a3a6a8;
+$neutral-600: #919496;
+$neutral-700: #6b6e70;
+$neutral-800: #45474a;
+$neutral-900: #2e3030;
+
+
+// ============================================
+// neutral-tinted
+// ============================================
+
+$neutral-tinted-50: #f2f7f7;
+$neutral-tinted-100: #e3ebed;
+$neutral-tinted-200: #d6dbdb;
+$neutral-tinted-300: #c9cfcf;
+$neutral-tinted-400: #b2bdbd;
+$neutral-tinted-500: #a1abab;
+$neutral-tinted-600: #8f9c9c;
+$neutral-tinted-700: #697073;
+$neutral-tinted-800: #454a4a;
+$neutral-tinted-900: #2e3333;
+
+
+// ============================================
+// orange
+// ============================================
+
+$orange-50: #fff5e5;
+$orange-100: #ffe8cc;
+$orange-200: #ffd9a8;
+$orange-300: #ffbf78;
+$orange-400: #ffa84d;
+$orange-500: #ff912b;
+$orange-600: #fc7d14;
+$orange-700: #c74f00;
+$orange-800: #a84200;
+$orange-900: #803300;
+
+
+// ============================================
+// purple
+// ============================================
+
+$purple-50: #f7f2f7;
+$purple-100: #eddeeb;
+$purple-200: #e0c4de;
+$purple-300: #cfa3c9;
+$purple-400: #bd87ba;
+$purple-500: #b370ad;
+$purple-600: #a861a3;
+$purple-700: #73296e;
+$purple-800: #63215e;
+$purple-900: #541c4f;
+
+
+// ============================================
+// red
+// ============================================
+
+$red-50: #fff7f5;
+$red-100: #ffe6e3;
+$red-200: #ffcfc9;
+$red-300: #ffb3a8;
+$red-400: #ff9487;
+$red-500: #ff7d6b;
+$red-600: #fa6652;
+$red-700: #cc1700;
+$red-800: #a81400;
+$red-900: #7a0f00;
+
+
+// ============================================
+// teal
+// ============================================
+
+$teal-50: #f0f7f7;
+$teal-100: #e0edf0;
+$teal-200: #d9e8ed;
+$teal-300: #bfe3e8;
+$teal-400: #a6d9de;
+$teal-500: #87ccd4;
+$teal-600: #61bac7;
+$teal-700: #2b7a87;
+$teal-800: #1a5961;
+$teal-900: #0f3d42;
+
+
+// ============================================
+// limited
+// ============================================
+
+$limited-complementary-emerald: #0ab28a;
+$limited-complementary-sage-green: #b0d9c7;
+$limited-complementary-lime-green: #a3d161;
+$limited-complementary-light-green: #d9e8bd;
+$limited-complementary-aqua: #00adad;
+$limited-complementary-powder-blue: #94c9d1;
+$limited-complementary-light-blue: #e0edf0;
+$limited-complementary-peach: #f2d6cc;
+$limited-complementary-golden-yellow: #ebb363;
+$limited-complementary-coral-red: #c7404f;
+$limited-complementary-navy-blue: #031738;
+$limited-complementary-salmon: #f58c6e;
+$limited-complementary-royal-blue: #0a66a8;
+$limited-party-status-olive-yellow: #c2bd38;
+$limited-party-status-teal-blue: #2e7d8c;
+$limited-party-status-bright-orange: #f55900;
+$limited-party-status-neutral-gray: #969699;
+$limited-party-status-alert-red: #e31a00;
+$limited-consultants-light-sage: #b8cf94;
+$limited-consultants-sky-blue: #5e8fb5;
+$limited-consultants-bright-pink: #e66eb0;
+$limited-consultants-crimson-red: #bf0d3d;
+$limited-consultants-dark-navy: #003866;
+$limited-consultants-golden-amber: #f2c75c;
+$limited-consultants-turquoise: #008c94;
+$limited-consultants-royal-purple: #573d82;
+$limited-consultants-cyan-blue: #00a8cf;
+$limited-themes-standard-cream-beige: #faf5eb;
+$limited-themes-standard-warm-ivory: #faf7f5;
+$limited-themes-standard-light-tan: #f7edde;
+$limited-themes-standard-soft-beige: #eddecc;
+$limited-themes-standard-golden-cream: #fce8bf;
+$limited-themes-spring-summer-soft-white: #fcfcf7;
+$limited-themes-spring-summer-pale-mint: #f5f7ed;
+$limited-themes-spring-summer-pale-sage: #f0f2de;
+$limited-themes-spring-summer-light-moss: #dee6c2;
+$limited-themes-spring-summer-warm-yellow: #fcc482;
+$limited-themes-spring-summer-light-peach: #ffebd1;
+$limited-themes-summer-fall-warm-cream: #f5f2ed;
+$limited-themes-summer-fall-soft-ivory: #faf7f5;
+$limited-themes-summer-fall-dusty-cream: #f2ede3;
+$limited-themes-summer-fall-sandy-beige: #ede3cc;
+$limited-themes-summer-fall-terracotta: #edbfa6;
+$limited-themes-summer-fall-coral-cream: #fae0d1;
+$limited-themes-fall-winter-cool-mint: #f2f7f7;
+$limited-themes-fall-winter-pale-blue: #ebf0f2;
+$limited-themes-fall-winter-frost-blue: #e8f2f5;
+$limited-themes-fall-winter-ice-blue: #d6e3e3;
+$limited-themes-fall-winter-sea-foam: #b5e6d9;
+$limited-themes-fall-winter-aqua-mint: #e3fcf5;
+
+
+// ============================================
+// scale
+// ============================================
+
+$scale-0: 0px;
+$scale-1: 4px;
+$scale-2: 8px;
+$scale-3: 12px;
+$scale-4: 16px;
+$scale-5: 20px;
+$scale-6: 24px;
+$scale-8: 32px;
+$scale-10: 40px;
+$scale-12: 48px;
+$scale-14: 56px;
+$scale-16: 64px;
+$scale-18: 72px;
+$scale-20: 80px;
+$scale-22: 88px;
+$scale-24: 96px;
+$scale-26: 104px;
+$scale-32: 128px;
+$scale-40: 160px;
+$scale-42: 168px;
+$scale-48: 192px;
+$scale-50: 200px;
+$scale-custom-min: 6px;
+$scale-custom-max: 1000px;
+$scale-custom-3a: 14px;
+$scale-custom-4a: 18px;
+$scale-custom-5a: 22px;
+$scale-custom-8a: 36px;
+$scale-custom-4b: 19px;
+$scale-custom-7a: 34px;
+$scale-custom-9a: 38px;
+$scale-custom-11a: 44px;
+$scale-custom-6a: 28px;
+

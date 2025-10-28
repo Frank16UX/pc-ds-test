@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+# build/ folder is committed for distribution
+
+# Sync script temporary files
+.token-sync-temp/
+.last-commit-hash
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

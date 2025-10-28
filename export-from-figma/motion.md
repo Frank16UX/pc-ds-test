@@ -1,0 +1,54 @@
+// Add these values manually to the **Motion** group in tokens-from-ts.json file
+
+
+{
+  "Motion": {
+    "durations": {
+      "productive": {
+        "xs": 150,
+        "sm": 250,
+        "md": 350,
+        "lg": 450,
+        "xl": 550,
+        "xxl": 650
+      },
+      "expressive": {
+        "xs": 300,
+        "sm": 500,
+        "md": 700,
+        "lg": 900,
+        "xl": 1100,
+        "xxl": 1300
+      }
+    },
+    "easings": {
+      "direct": {
+        "direct-curve": [0.1, 0.25, 0.25, 1]
+      },
+      "indirect": {
+        "enter-curve": [0.2, 0.6, 0.25, 1],
+        "exit-curve": [0.65, 0, 0.75, 0],
+        "standard-curve": [0.5, 0, 0, 1],
+        "linear-curve": [0, 0, 1, 1]
+      }
+    },
+    "delays": {
+      "productive": {
+        "xs": 30,
+        "sm": 50,
+        "md": 70,
+        "lg": 90,
+        "xl": 110,
+        "xxl": 130
+      },
+      "expressive": {
+        "xs": 60,
+        "sm": 100,
+        "md": 140,
+        "lg": 180,
+        "xl": 220,
+        "xxl": 260
+      }
+    }
+  }
+}

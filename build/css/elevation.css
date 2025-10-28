@@ -1,0 +1,13 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ * Generated: 2025-10-28 T 12:13:46
+ * Group: Elevation
+ */
+
+:root {
+  --elevation-elevation-primary-button: [{"color":"rgba(0,0,0,0.4)","type":"dropShadow","x":"0","y":"1","blur":"2","spread":"0"},{"color":"rgba(0,0,0,0.15)","type":"dropShadow","x":"0","y":"4","blur":"6","spread":"0"}];
+  --elevation-elevation-sharp-sm: [{"color":"#21212105","type":"dropShadow","x":"0","y":"4","blur":"4","spread":"0"},{"color":"#2121210a","type":"dropShadow","x":"0","y":"3","blur":"3","spread":"0"},{"color":"#2121210f","type":"dropShadow","x":"0","y":"1","blur":"1","spread":"0"},{"color":"#21212114","type":"dropShadow","x":"0","y":"1","blur":"1","spread":"0"},{"color":"#2121211a","type":"dropShadow","x":"0","y":"0","blur":"0","spread":"0"}];
+  --elevation-elevation-sharp-md: [{"color":"#21212105","type":"dropShadow","x":"0","y":"8","blur":"8","spread":"0"},{"color":"#2121210a","type":"dropShadow","x":"0","y":"5","blur":"5","spread":"0"},{"color":"#2121210f","type":"dropShadow","x":"0","y":"3","blur":"3","spread":"0"},{"color":"#21212114","type":"dropShadow","x":"0","y":"1","blur":"1","spread":"0"},{"color":"#2121211a","type":"dropShadow","x":"0","y":"0","blur":"0","spread":"0"}];
+  --elevation-elevation-sharp-lg: [{"color":"#21212105","type":"dropShadow","x":"0","y":"16","blur":"16","spread":"0"},{"color":"#2121210a","type":"dropShadow","x":"0","y":"10","blur":"10","spread":"0"},{"color":"#2121210f","type":"dropShadow","x":"0","y":"6","blur":"6","spread":"0"},{"color":"#21212114","type":"dropShadow","x":"0","y":"3","blur":"3","spread":"0"},{"color":"#2121211a","type":"dropShadow","x":"0","y":"1","blur":"1","spread":"0"}];
+  --elevation-elevation-sharp-xl: [{"color":"#21212105","type":"dropShadow","x":"0","y":"32","blur":"32","spread":"0"},{"color":"#2121210a","type":"dropShadow","x":"0","y":"20","blur":"20","spread":"0"},{"color":"#2121210f","type":"dropShadow","x":"0","y":"12","blur":"12","spread":"0"},{"color":"#21212114","type":"dropShadow","x":"0","y":"5","blur":"5","spread":"0"},{"color":"#2121211a","type":"dropShadow","x":"0","y":"1","blur":"1","spread":"0"}];
+}
