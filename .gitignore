@@ -1,9 +1,6 @@
 # Dependencies
 node_modules/
 
-# Build artifacts
-# build/ folder is committed for distribution
-
 # Sync script temporary files
 .token-sync-temp/
 .last-commit-hash
