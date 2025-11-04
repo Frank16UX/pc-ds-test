@@ -16,22 +16,24 @@ This project converts design tokens exported from Tokens Studio (Figma plugin) i
   - Size tokens (heights, widths, icons)
   - Motion tokens (durations, delays, easing curves)
 
-## � Token Organization
+## 🛠 Token Organization
 
-### ⚠️ Primitives (Internal Use Only)
-- Located in `build/scss/_primitives.scss` and `build/css/primitives.css`
-- **Do not use these directly in your code**
-- These are base values (colors, raw numbers) that semantic tokens reference
-- Examples: `$gold-500`, `$teal-700`, `$neutral-900`
+### ⚠️ Primitives (Hidden - Not for Developer Use)
+- Primitive tokens (`$gold-500`, `$teal-700`, `$neutral-900`) are **intentionally hidden** and should never be used directly in your code
+- While primitive files are generated during the build process, they are:
+  - Not imported in `build/scss/index.scss`
+  - Not imported in Storybook utilities
+  - Not documented in Storybook stories
+- **All semantic tokens now contain flat values** (no references to primitives) so they work independently
 
 ### ✅ Semantic Tokens (Use These!)
 - Located in `build/scss/_tokens.scss` and `build/css/tokens.css`
-- Context-aware tokens that reference primitives
+- Context-aware tokens with **flat, resolved values** (e.g., `#2e3030` instead of `$neutral-900`)
 - Provide meaning and intent (e.g., "text-default-primary" vs just "neutral-900")
-- Can be themed and updated without changing component code
+- Can be updated without changing component code
 - Examples: `$tokens-color-text-default-primary`, `$tokens-color-background-accent-solid`
 
-**Always use semantic tokens in your components.** They provide better maintainability and allow for future theming capabilities.
+**Always use semantic tokens in your components.** They provide better maintainability and prevent direct coupling to low-level color values.
 
 ## �🚀 Building Tokens
 
@@ -52,9 +54,9 @@ npm run build:tokens
 ```
 
 This generates timestamped bundles for each top-level token group:
-- `build/scss/_<group>.scss` - SCSS partials that preserve references
-- `build/scss/index.scss` - Convenience file that imports every partial
-- `build/css/<group>.css` - CSS custom properties with flattened values
+- `build/scss/_<group>.scss` - SCSS partials with flat, resolved values (no references)
+- `build/scss/index.scss` - Convenience file that imports all semantic token partials (excludes primitives)
+- `build/css/<group>.css` - CSS custom properties with flat, resolved values
 
 ## 🔄 Syncing Tokens from GitHub
 
@@ -138,48 +140,42 @@ The build process uses the **sd-transforms preprocessor** which:
    - Color modifiers (lighten/darken)
    - Dimensions (adds `px` units)
 4. **Normalizes responsive references** so typography typescales resolve per breakpoint
-5. **Generates paired outputs** for each token group:
-  - **SCSS partials with preserved references** (`outputReferences: true`)
-  - **CSS files with flat values** (`outputReferences: false`)
-  6. **Writes an aggregated index** that mirrors the SCSS folder structure
-  7. **Transforms external motion tokens** (durations, delays, easings) into matching SCSS/CSS outputs with the same headers
+5. **Generates flat outputs** for each token group:
+  - **SCSS partials with resolved values** (`outputReferences: false`)
+  - **CSS files with resolved values** (`outputReferences: false`)
+  - Both SCSS and CSS now use flat values to prevent coupling to primitive tokens
+6. **Writes an aggregated index** (`build/scss/index.scss`) that imports all semantic token files (excludes primitives)
+7. **Transforms external motion tokens** (durations, delays, easings) into matching SCSS/CSS outputs with the same headers
 
-### Output Differences
+### Output Format (SCSS & CSS)
+
+All tokens now output with **flat, resolved values** instead of references:
 
 #### SCSS (build/scss/_tokens.scss)
 ```scss
-// ============================================
-// Tokens
-// ============================================
-
-$tokens-color-text-default-primary: $neutral-900;  // ← References primitive
-$tokens-color-buttons-primary-default: $gold-500;
-
-// ============================================
-// gold
-// ============================================
-
-$gold-500: #fac761;  // ← Primitive definition in build/scss/_primitives.scss
+// All values are resolved - no references to primitives
+$tokens-color-text-default-primary: #2e3030;
+$tokens-color-text-default-primary-inverted: #ffffff;
+$tokens-color-buttons-primary-default: #fac761;
+$tokens-color-buttons-primary-hovered: #f5b83d;
 ```
-
-**Benefits:**
-- **Maintainable**: Change one primitive, update all semantics
-- **Theme-friendly**: Override primitives for different themes
-- **Readable**: Clear token relationships
 
 #### CSS (build/css/tokens.css)
 ```css
 :root {
-  --tokens-color-text-default-primary: #2e3030;  /* ← Flat hex value */
+  --tokens-color-text-default-primary: #2e3030;
+  --tokens-color-text-default-primary-inverted: #ffffff;
   --tokens-color-buttons-primary-default: #fac761;
-  --gold-500: #fac761;
+  --tokens-color-buttons-primary-hovered: #f5b83d;
 }
 ```
 
 **Benefits:**
-- **Fast**: No reference resolution at runtime
-- **Compatible**: Works everywhere CSS variables work
-- **Simple**: Direct values, no dependencies
+- **Independent**: No dependency on primitive token files
+- **Simple**: Direct values, no reference resolution needed
+- **Consistent**: SCSS and CSS work the same way
+- **Maintainable**: Semantic tokens are the single source of truth
+- **Protected**: Developers can't accidentally use primitive tokens
 
 ### Token Structure Flattening
 
@@ -205,18 +201,14 @@ This allows semantic tokens in the `Tokens` group to reference primitive values 
 
 ## 📊 Token Examples
 
-### Colors
-```scss
-$gold-500: #fac761;
-$teal-700: #2b7a87;
-$neutral-900: #2e3030;
-```
-
-### Semantic Colors
+### Semantic Colors (Use These!)
 ```scss
 $tokens-color-text-default-primary: #2e3030;
+$tokens-color-text-default-primary-inverted: #ffffff;
 $tokens-color-buttons-primary-default: #fac761;
+$tokens-color-buttons-primary-hovered: #f5b83d;
 $tokens-color-surface-primary: #ffffff;
+$tokens-color-background-accent-solid: #1a5961;
 ```
 
 ### Spacing
