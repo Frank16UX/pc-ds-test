@@ -430,6 +430,8 @@ StyleDictionary.registerFormat({
   format: ({ dictionary, options }) => {
     const timestamp = getTimestamp();
     const groupName = options.groupName || 'Tokens';
+    const useReferences = options.outputReferences ?? false;
+    
     let output = `// Do not edit directly, this file was auto-generated.\n`;
     output += `// Generated: ${timestamp}\n`;
     output += `// Group: ${groupName}\n\n`;
@@ -442,8 +444,9 @@ StyleDictionary.registerFormat({
 
         const pathKey = token.path.join('.');
         const entry = tokenEntries.get(pathKey);
+        const target = useReferences ? 'scss' : 'css';
         const resolvedValue = entry
-          ? resolveEntryValue(entry, 'scss')
+          ? resolveEntryValue(entry, target)
           : token.original?.value ?? token.original?.$value ?? token.value;
 
   const valueString = stringifyValue(resolvedValue, 'scss');
@@ -503,7 +506,7 @@ const scssFileDefinitions = STYLE_DICTIONARY_GROUPS.map((group) => ({
   format: 'scss/variables-with-timestamp',
   filter: (token) => tokenBelongsToGroup(token, group.key),
   options: {
-    outputReferences: true,
+    outputReferences: false,
     groupName: group.key,
   },
 }));
