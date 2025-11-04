@@ -1600,19 +1600,19 @@
     },
     "radius": {
       "square": {
-        "$type": "dimension",
+        "$type": "borderRadius",
         "$value": "{scale.0}"
       },
       "sm": {
-        "$type": "dimension",
+        "$type": "borderRadius",
         "$value": "{scale.custom.min}"
       },
       "md": {
-        "$type": "dimension",
+        "$type": "borderRadius",
         "$value": "{scale.2}"
       },
       "full": {
-        "$type": "dimension",
+        "$type": "borderRadius",
         "$value": "{scale.custom.max}"
       }
     },
@@ -1877,6 +1877,113 @@
             }
           ]
         }
+      }
+    },
+    "focus": {
+      "default": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "#ffffff",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 2
+          },
+          {
+            "color": "#2e3030",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 6
+          }
+        ]
+      },
+      "default-inverted": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "#2e3030",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 2
+          },
+          {
+            "color": "#2b7a87",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 6
+          }
+        ]
+      },
+      "accent": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "#ffffff",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 2
+          },
+          {
+            "color": "#2b7a87",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 6
+          }
+        ]
+      },
+      "accent-inverted": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "#2e3030",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 2
+          },
+          {
+            "color": "#2b7a87",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 6
+          }
+        ]
+      },
+      "error": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "#ffffff",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 2
+          },
+          {
+            "color": "#7a0f00",
+            "type": "dropShadow",
+            "x": 0,
+            "y": 0,
+            "blur": 0,
+            "spread": 6
+          }
+        ]
       }
     }
   },
@@ -2996,7 +3103,7 @@
           "$type": "typography",
           "$value": {
             "fontFamily": "{font-family.primary}",
-            "fontWeight": "{font-weight.medium-italic}",
+            "fontWeight": "Medium Italic",
             "fontSize": "{typescale.font-size.10xl}",
             "lineHeight": "{typescale.line-height.10xl}",
             "paragraphSpacing": "20px"
@@ -3006,7 +3113,7 @@
           "$type": "typography",
           "$value": {
             "fontFamily": "{font-family.primary}",
-            "fontWeight": "{font-weight.medium-italic}",
+            "fontWeight": "Medium Italic",
             "fontSize": "{typescale.font-size.9xl}",
             "lineHeight": "{typescale.line-height.9xl}",
             "paragraphSpacing": "20px"
@@ -3016,7 +3123,7 @@
           "$type": "typography",
           "$value": {
             "fontFamily": "{font-family.primary}",
-            "fontWeight": "{font-weight.medium-italic}",
+            "fontWeight": "Medium Italic",
             "fontSize": "{typescale.font-size.8xl}",
             "lineHeight": "{typescale.line-height.8xl}",
             "paragraphSpacing": "20px"
@@ -3026,7 +3133,7 @@
           "$type": "typography",
           "$value": {
             "fontFamily": "{font-family.primary}",
-            "fontWeight": "{font-weight.medium-italic}",
+            "fontWeight": "Medium Italic",
             "fontSize": "{typescale.font-size.7xl}",
             "lineHeight": "{typescale.line-height.7xl}",
             "paragraphSpacing": "20px"
@@ -3036,7 +3143,7 @@
           "$type": "typography",
           "$value": {
             "fontFamily": "{font-family.primary}",
-            "fontWeight": "{font-weight.medium-italic}",
+            "fontWeight": "Medium Italic",
             "fontSize": "{typescale.font-size.6xl}",
             "lineHeight": "{typescale.line-height.6xl}",
             "paragraphSpacing": "20px"
@@ -3322,212 +3429,6 @@
       }
     }
   },
-  "Motion": {
-    "durations": {
-      "productive": {
-        "xs": {
-          "$type": "other",
-          "$value": "150"
-        },
-        "sm": {
-          "$type": "other",
-          "$value": "250"
-        },
-        "md": {
-          "$type": "other",
-          "$value": "350"
-        },
-        "lg": {
-          "$type": "other",
-          "$value": "450"
-        },
-        "xl": {
-          "$type": "other",
-          "$value": "550"
-        },
-        "xxl": {
-          "$type": "other",
-          "$value": "650"
-        }
-      },
-      "expressive": {
-        "xs": {
-          "$type": "other",
-          "$value": "300"
-        },
-        "sm": {
-          "$type": "other",
-          "$value": "500"
-        },
-        "md": {
-          "$type": "other",
-          "$value": "700"
-        },
-        "lg": {
-          "$type": "other",
-          "$value": "900"
-        },
-        "xl": {
-          "$type": "other",
-          "$value": "1100"
-        },
-        "xxl": {
-          "$type": "other",
-          "$value": "1300"
-        }
-      }
-    },
-    "easings": {
-      "direct": {
-        "direct-curve": {
-          "0": {
-            "$type": "other",
-            "$value": "0.1"
-          },
-          "1": {
-            "$type": "other",
-            "$value": "0.25"
-          },
-          "2": {
-            "$type": "other",
-            "$value": "0.25"
-          },
-          "3": {
-            "$type": "other",
-            "$value": "1"
-          }
-        }
-      },
-      "indirect": {
-        "enter-curve": {
-          "0": {
-            "$type": "other",
-            "$value": "0.2"
-          },
-          "1": {
-            "$type": "other",
-            "$value": "0.6"
-          },
-          "2": {
-            "$type": "other",
-            "$value": "0.25"
-          },
-          "3": {
-            "$type": "other",
-            "$value": "1"
-          }
-        },
-        "exit-curve": {
-          "0": {
-            "$type": "other",
-            "$value": "0.65"
-          },
-          "1": {
-            "$type": "other",
-            "$value": "0"
-          },
-          "2": {
-            "$type": "other",
-            "$value": "0.75"
-          },
-          "3": {
-            "$type": "other",
-            "$value": "0"
-          }
-        },
-        "standard-curve": {
-          "0": {
-            "$type": "other",
-            "$value": "0.5"
-          },
-          "1": {
-            "$type": "other",
-            "$value": "0"
-          },
-          "2": {
-            "$type": "other",
-            "$value": "0"
-          },
-          "3": {
-            "$type": "other",
-            "$value": "1"
-          }
-        },
-        "linear-curve": {
-          "0": {
-            "$type": "other",
-            "$value": "0"
-          },
-          "1": {
-            "$type": "other",
-            "$value": "0"
-          },
-          "2": {
-            "$type": "other",
-            "$value": "1"
-          },
-          "3": {
-            "$type": "other",
-            "$value": "1"
-          }
-        }
-      }
-    },
-    "delays": {
-      "productive": {
-        "xs": {
-          "$type": "other",
-          "$value": "30"
-        },
-        "sm": {
-          "$type": "other",
-          "$value": "50"
-        },
-        "md": {
-          "$type": "other",
-          "$value": "70"
-        },
-        "lg": {
-          "$type": "other",
-          "$value": "90"
-        },
-        "xl": {
-          "$type": "other",
-          "$value": "110"
-        },
-        "xxl": {
-          "$type": "other",
-          "$value": "130"
-        }
-      },
-      "expressive": {
-        "xs": {
-          "$type": "other",
-          "$value": "60"
-        },
-        "sm": {
-          "$type": "other",
-          "$value": "100"
-        },
-        "md": {
-          "$type": "other",
-          "$value": "140"
-        },
-        "lg": {
-          "$type": "other",
-          "$value": "180"
-        },
-        "xl": {
-          "$type": "other",
-          "$value": "220"
-        },
-        "xxl": {
-          "$type": "other",
-          "$value": "260"
-        }
-      }
-    }
-  },
   "Breakpoints": {
     "breakpoints": {
       "xs": {
@@ -3559,38 +3460,6 @@
         "$type": "dimension",
         "$value": "1728px",
         "$description": "1728+ - Computers, TVs, laptops, premium tablets (FHD, 2K, 4K, 5K, 8K)"
-      }
-    }
-  },
-  "Z-Index": {
-    "z-index": {
-      "negative": {
-        "$type": "other",
-        "$value": "-1"
-      },
-      "basic": {
-        "$type": "other",
-        "$value": "1"
-      },
-      "lowest": {
-        "$type": "other",
-        "$value": "5"
-      },
-      "low": {
-        "$type": "other",
-        "$value": "25"
-      },
-      "intermediate": {
-        "$type": "other",
-        "$value": "50"
-      },
-      "high": {
-        "$type": "other",
-        "$value": "75"
-      },
-      "important": {
-        "$type": "other",
-        "$value": "100"
       }
     }
   },
@@ -3632,30 +3501,6 @@
       }
     }
   },
-  "Container": {
-    "container": {
-      "sm": {
-        "$type": "dimension",
-        "$value": "540px"
-      },
-      "md": {
-        "$type": "dimension",
-        "$value": "752px"
-      },
-      "lg": {
-        "$type": "dimension",
-        "$value": "976px"
-      },
-      "xl": {
-        "$type": "dimension",
-        "$value": "1184px"
-      },
-      "xxl": {
-        "$type": "dimension",
-        "$value": "1648px"
-      }
-    }
-  },
   "$themes": [],
   "$metadata": {
     "tokenSetOrder": [
@@ -3666,11 +3511,8 @@
       "Fonts",
       "Responsive/Desktop",
       "Responsive/Mobile",
-      "Motion",
       "Breakpoints",
-      "Z-Index",
-      "Ratios",
-      "Container"
+      "Ratios"
     ]
   }
 }

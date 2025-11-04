@@ -6,7 +6,8 @@ This project converts design tokens exported from Tokens Studio (Figma plugin) i
 
 - **529 design tokens** converted to SCSS and CSS variables
 - Core design system tokens:
-  - Color primitives (gold, teal, neutral, blue, green, orange, red, purple, alpha colors)
+  - **Semantic tokens** (use these in your code!)
+  - Color primitives (internal use only - do not reference directly)
   - Semantic color tokens (text, buttons, borders, links, surface, background, icons)
   - Typography tokens (font families, font weights)
   - Scale and spacing tokens
@@ -15,7 +16,24 @@ This project converts design tokens exported from Tokens Studio (Figma plugin) i
   - Size tokens (heights, widths, icons)
   - Motion tokens (durations, delays, easing curves)
 
-## 🚀 Building Tokens
+## � Token Organization
+
+### ⚠️ Primitives (Internal Use Only)
+- Located in `build/scss/_primitives.scss` and `build/css/primitives.css`
+- **Do not use these directly in your code**
+- These are base values (colors, raw numbers) that semantic tokens reference
+- Examples: `$gold-500`, `$teal-700`, `$neutral-900`
+
+### ✅ Semantic Tokens (Use These!)
+- Located in `build/scss/_tokens.scss` and `build/css/tokens.css`
+- Context-aware tokens that reference primitives
+- Provide meaning and intent (e.g., "text-default-primary" vs just "neutral-900")
+- Can be themed and updated without changing component code
+- Examples: `$tokens-color-text-default-primary`, `$tokens-color-background-accent-solid`
+
+**Always use semantic tokens in your components.** They provide better maintainability and allow for future theming capabilities.
+
+## �🚀 Building Tokens
 
 ### Prerequisites
 
