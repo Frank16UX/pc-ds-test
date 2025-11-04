@@ -1,0 +1,411 @@
+@import '../../build/scss/index.scss';
+
+// Desktop Typography Mixins
+
+@mixin typography-desktop-display-xl {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-desktop-typescale-font-size-10xl;
+  line-height: $responsive-desktop-typescale-line-height-10xl;
+}
+
+@mixin typography-desktop-display-lg {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-desktop-typescale-font-size-9xl;
+  line-height: $responsive-desktop-typescale-line-height-9xl;
+}
+
+@mixin typography-desktop-display-md {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-desktop-typescale-font-size-8xl;
+  line-height: $responsive-desktop-typescale-line-height-8xl;
+}
+
+@mixin typography-desktop-display-sm {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-desktop-typescale-font-size-7xl;
+  line-height: $responsive-desktop-typescale-line-height-7xl;
+}
+
+@mixin typography-desktop-display-xs {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-desktop-typescale-font-size-6xl;
+  line-height: $responsive-desktop-typescale-line-height-6xl;
+}
+
+@mixin typography-desktop-headline-xl {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-5xl;
+  line-height: $responsive-desktop-typescale-line-height-5xl;
+}
+
+@mixin typography-desktop-headline-lg {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-4xl;
+  line-height: $responsive-desktop-typescale-line-height-4xl;
+}
+
+@mixin typography-desktop-headline-md {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-3xl;
+  line-height: $responsive-desktop-typescale-line-height-3xl;
+}
+
+@mixin typography-desktop-headline-sm {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-2xl;
+  line-height: 120%;
+}
+
+@mixin typography-desktop-price-lg {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-4xl;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-price-lg-strikethrough {
+  @include typography-desktop-price-lg;
+  text-decoration: $fonts-text-decoration-line-through;
+}
+
+@mixin typography-desktop-price-md {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-2xl;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-price-md-strikethrough {
+  @include typography-desktop-price-md;
+  text-decoration: $fonts-text-decoration-line-through;
+}
+
+@mixin typography-desktop-price-sm {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-medium;
+  font-size: $responsive-desktop-typescale-font-size-lg;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-price-sm-strikethrough {
+  @include typography-desktop-price-sm;
+  text-decoration: $fonts-text-decoration-line-through;
+}
+
+@mixin typography-desktop-text-xl-regular {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-xl;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-text-xl-bold {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-bold;
+  font-size: $responsive-desktop-typescale-font-size-xl;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-text-xl-underline {
+  @include typography-desktop-text-xl-regular;
+  text-decoration: $fonts-text-decoration-underline;
+}
+
+@mixin typography-desktop-text-lg-regular {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-lg;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-text-lg-bold {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-bold;
+  font-size: $responsive-desktop-typescale-font-size-lg;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-text-lg-underline {
+  @include typography-desktop-text-lg-regular;
+  text-decoration: $fonts-text-decoration-underline;
+}
+
+@mixin typography-desktop-text-md-regular {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-md;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-text-md-bold {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-bold;
+  font-size: $responsive-desktop-typescale-font-size-md;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-text-md-underline {
+  @include typography-desktop-text-md-regular;
+  text-decoration: $fonts-text-decoration-underline;
+}
+
+@mixin typography-desktop-text-sm-regular {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-desktop-typescale-font-size-sm;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-text-sm-bold {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-bold;
+  font-size: $responsive-desktop-typescale-font-size-sm;
+  line-height: 150%;
+}
+
+@mixin typography-desktop-text-sm-underline {
+  @include typography-desktop-text-sm-regular;
+  text-decoration: $fonts-text-decoration-underline;
+}
+
+@mixin typography-desktop-cta-md {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-medium;
+  font-size: $responsive-desktop-typescale-font-size-md;
+  line-height: 100%;
+}
+
+@mixin typography-desktop-cta-sm {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-medium;
+  font-size: $responsive-desktop-typescale-font-size-sm;
+  line-height: 100%;
+}
+
+@mixin typography-desktop-eyebrow {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-medium;
+  font-size: $responsive-desktop-typescale-font-size-sm;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  text-transform: $fonts-text-transform-uppercase;
+}
+
+// Mobile Typography Mixins
+
+@mixin typography-mobile-display-xl {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-mobile-typescale-font-size-10xl;
+  line-height: $responsive-mobile-typescale-line-height-10xl;
+}
+
+@mixin typography-mobile-display-lg {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-mobile-typescale-font-size-9xl;
+  line-height: $responsive-mobile-typescale-line-height-9xl;
+}
+
+@mixin typography-mobile-display-md {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-mobile-typescale-font-size-8xl;
+  line-height: $responsive-mobile-typescale-line-height-8xl;
+}
+
+@mixin typography-mobile-display-sm {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-mobile-typescale-font-size-7xl;
+  line-height: $responsive-mobile-typescale-line-height-7xl;
+}
+
+@mixin typography-mobile-display-xs {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $responsive-mobile-typescale-font-size-6xl;
+  line-height: $responsive-mobile-typescale-line-height-6xl;
+}
+
+@mixin typography-mobile-headline-xl {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-5xl;
+  line-height: $responsive-mobile-typescale-line-height-5xl;
+}
+
+@mixin typography-mobile-headline-lg {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-4xl;
+  line-height: $responsive-mobile-typescale-line-height-4xl;
+}
+
+@mixin typography-mobile-headline-md {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-3xl;
+  line-height: $responsive-mobile-typescale-line-height-3xl;
+}
+
+@mixin typography-mobile-headline-sm {
+  font-family: $fonts-font-family-primary, 'Times New Roman', Times, serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-2xl;
+  line-height: 120%;
+}
+
+@mixin typography-mobile-price-lg {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-4xl;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-price-lg-strikethrough {
+  @include typography-mobile-price-lg;
+  text-decoration: $fonts-text-decoration-line-through;
+}
+
+@mixin typography-mobile-price-md {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-2xl;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-price-md-strikethrough {
+  @include typography-mobile-price-md;
+  text-decoration: $fonts-text-decoration-line-through;
+}
+
+@mixin typography-mobile-price-sm {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-medium;
+  font-size: $responsive-mobile-typescale-font-size-lg;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-price-sm-strikethrough {
+  @include typography-mobile-price-sm;
+  text-decoration: $fonts-text-decoration-line-through;
+}
+
+@mixin typography-mobile-text-xl-regular {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-xl;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-text-xl-bold {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-bold;
+  font-size: $responsive-mobile-typescale-font-size-xl;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-text-xl-underline {
+  @include typography-mobile-text-xl-regular;
+  text-decoration: $fonts-text-decoration-underline;
+}
+
+@mixin typography-mobile-text-lg-regular {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-lg;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-text-lg-bold {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-bold;
+  font-size: $responsive-mobile-typescale-font-size-lg;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-text-lg-underline {
+  @include typography-mobile-text-lg-regular;
+  text-decoration: $fonts-text-decoration-underline;
+}
+
+@mixin typography-mobile-text-md-regular {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-md;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-text-md-bold {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-bold;
+  font-size: $responsive-mobile-typescale-font-size-md;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-text-md-underline {
+  @include typography-mobile-text-md-regular;
+  text-decoration: $fonts-text-decoration-underline;
+}
+
+@mixin typography-mobile-text-sm-regular {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-regular;
+  font-size: $responsive-mobile-typescale-font-size-sm;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-text-sm-bold {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-bold;
+  font-size: $responsive-mobile-typescale-font-size-sm;
+  line-height: 150%;
+}
+
+@mixin typography-mobile-text-sm-underline {
+  @include typography-mobile-text-sm-regular;
+  text-decoration: $fonts-text-decoration-underline;
+}
+
+@mixin typography-mobile-cta-md {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-medium;
+  font-size: $responsive-mobile-typescale-font-size-md;
+  line-height: 100%;
+}
+
+@mixin typography-mobile-cta-sm {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-medium;
+  font-size: $responsive-mobile-typescale-font-size-sm;
+  line-height: 100%;
+}
+
+@mixin typography-mobile-eyebrow {
+  font-family: $fonts-font-family-secondary, Arial, Helvetica, sans-serif;
+  font-weight: $fonts-font-weight-medium;
+  font-size: $responsive-mobile-typescale-font-size-xs;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  text-transform: $fonts-text-transform-uppercase;
+}

@@ -3,9 +3,31 @@
   "scripts": {
     "build:tokens": "node build-tokens.js",
     "sync:tokens": "./sync-tokens.sh",
-    "watch:tokens": "./watch-tokens.sh"
+    "watch:tokens": "./watch-tokens.sh",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@tokens-studio/sd-transforms": "^2.0.1"
+    "@tokens-studio/sd-transforms": "^2.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.1",
+    "@storybook/addon-a11y": "^10.0.0",
+    "@storybook/addon-docs": "^10.0.0",
+    "@storybook/addon-vitest": "^10.0.0",
+    "@storybook/react-vite": "^10.0.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "@vitest/browser-playwright": "^4.0.4",
+    "@vitest/coverage-v8": "^4.0.4",
+    "playwright": "^1.56.1",
+    "sass": "^1.93.2",
+    "storybook": "^10.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12",
+    "vitest": "^4.0.4"
   }
 }

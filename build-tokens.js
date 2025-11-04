@@ -30,12 +30,10 @@ const TOKEN_GROUPS = [
   { key: 'Responsive/Mobile' },
   { key: 'Motion' },
   { key: 'Breakpoints' },
-  { key: 'Z-Index' },
   { key: 'Ratios' },
-  { key: 'Container' },
 ];
 
-const tokensFile = 'export-from-figma/tokens-dtcg.json';
+const tokensFile = 'export-from-figma/tokens-from-ts.json';
 const allTokens = JSON.parse(fs.readFileSync(tokensFile, 'utf-8'));
 
 // Fix known missing prefixes in focus-fx error layers.
