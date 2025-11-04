@@ -1,4 +1,3 @@
-import primitivesRaw from '../../build/scss/_primitives.scss?raw';
 import tokensRaw from '../../build/scss/_tokens.scss?raw';
 import numericTokensRaw from '../../build/scss/_numeric-tokens.scss?raw';
 import fontsRaw from '../../build/scss/_fonts.scss?raw';
@@ -18,7 +17,6 @@ type TokenEntry = {
 };
 
 const RAW_SHEETS = [
-  primitivesRaw,
   tokensRaw,
   numericTokensRaw,
   fontsRaw,
