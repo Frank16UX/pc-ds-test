@@ -1,16 +1,16 @@
 /**
  * Do not edit directly, this file was auto-generated.
- * Generated: 2025-11-04 T 15:49:24
+ * Generated: 2025-11-04 T 19:58:23
  * Group: Ratios
  */
 
 :root {
-  --ratios-vertical-2-3: '2 / 3';
-  --ratios-vertical-9-16: '9 / 16';
-  --ratios-vertical-3-4: '3 / 4';
-  --ratios-vertical-1-1: '1 / 1';
-  --ratios-horizontal-3-2: '3 / 2';
-  --ratios-horizontal-16-9: '16 / 9';
-  --ratios-horizontal-4-3: '4 / 3';
-  --ratios-horizontal-1-1: '1 / 1';
+  --vertical-2-3: '2 / 3';
+  --vertical-9-16: '9 / 16';
+  --vertical-3-4: '3 / 4';
+  --vertical-1-1: '1 / 1';
+  --horizontal-3-2: '3 / 2';
+  --horizontal-16-9: '16 / 9';
+  --horizontal-4-3: '4 / 3';
+  --horizontal-1-1: '1 / 1';
 }

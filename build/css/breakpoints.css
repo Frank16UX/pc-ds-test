@@ -1,14 +1,14 @@
 /**
  * Do not edit directly, this file was auto-generated.
- * Generated: 2025-11-04 T 15:49:24
+ * Generated: 2025-11-04 T 19:58:23
  * Group: Breakpoints
  */
 
 :root {
-  --breakpoints-breakpoints-xs: 360px;
-  --breakpoints-breakpoints-sm: 576px;
-  --breakpoints-breakpoints-md: 768px;
-  --breakpoints-breakpoints-lg: 992px;
-  --breakpoints-breakpoints-xl: 1200px;
-  --breakpoints-breakpoints-xxl: 1728px;
+  --breakpoints-xs: 360px;
+  --breakpoints-sm: 576px;
+  --breakpoints-md: 768px;
+  --breakpoints-lg: 992px;
+  --breakpoints-xl: 1200px;
+  --breakpoints-xxl: 1728px;
 }

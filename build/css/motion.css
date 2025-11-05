@@ -1,37 +1,37 @@
 /**
  * Do not edit directly, this file was auto-generated.
- * Generated: 2025-11-04 T 15:49:24
+ * Generated: 2025-11-04 T 19:58:24
  * Group: Motion
  */
 
 :root {
-  --motion-delays-expressive-lg: 180ms;
-  --motion-delays-expressive-md: 140ms;
-  --motion-delays-expressive-sm: 100ms;
-  --motion-delays-expressive-xl: 220ms;
-  --motion-delays-expressive-xs: 60ms;
-  --motion-delays-expressive-xxl: 260ms;
-  --motion-delays-productive-lg: 90ms;
-  --motion-delays-productive-md: 70ms;
-  --motion-delays-productive-sm: 50ms;
-  --motion-delays-productive-xl: 110ms;
-  --motion-delays-productive-xs: 30ms;
-  --motion-delays-productive-xxl: 130ms;
-  --motion-durations-expressive-lg: 900ms;
-  --motion-durations-expressive-md: 700ms;
-  --motion-durations-expressive-sm: 500ms;
-  --motion-durations-expressive-xl: 1100ms;
-  --motion-durations-expressive-xs: 300ms;
-  --motion-durations-expressive-xxl: 1300ms;
-  --motion-durations-productive-lg: 450ms;
-  --motion-durations-productive-md: 350ms;
-  --motion-durations-productive-sm: 250ms;
-  --motion-durations-productive-xl: 550ms;
-  --motion-durations-productive-xs: 150ms;
-  --motion-durations-productive-xxl: 650ms;
-  --motion-easings-direct-direct-curve: cubic-bezier(0.1, 0.25, 0.25, 1);
-  --motion-easings-indirect-enter-curve: cubic-bezier(0.2, 0.6, 0.25, 1);
-  --motion-easings-indirect-exit-curve: cubic-bezier(0.65, 0, 0.75, 0);
-  --motion-easings-indirect-linear-curve: cubic-bezier(0, 0, 1, 1);
-  --motion-easings-indirect-standard-curve: cubic-bezier(0.5, 0, 0, 1);
+  --delays-expressive-lg: 180ms;
+  --delays-expressive-md: 140ms;
+  --delays-expressive-sm: 100ms;
+  --delays-expressive-xl: 220ms;
+  --delays-expressive-xs: 60ms;
+  --delays-expressive-xxl: 260ms;
+  --delays-productive-lg: 90ms;
+  --delays-productive-md: 70ms;
+  --delays-productive-sm: 50ms;
+  --delays-productive-xl: 110ms;
+  --delays-productive-xs: 30ms;
+  --delays-productive-xxl: 130ms;
+  --durations-expressive-lg: 900ms;
+  --durations-expressive-md: 700ms;
+  --durations-expressive-sm: 500ms;
+  --durations-expressive-xl: 1100ms;
+  --durations-expressive-xs: 300ms;
+  --durations-expressive-xxl: 1300ms;
+  --durations-productive-lg: 450ms;
+  --durations-productive-md: 350ms;
+  --durations-productive-sm: 250ms;
+  --durations-productive-xl: 550ms;
+  --durations-productive-xs: 150ms;
+  --durations-productive-xxl: 650ms;
+  --easings-direct-direct-curve: cubic-bezier(0.1, 0.25, 0.25, 1);
+  --easings-indirect-enter-curve: cubic-bezier(0.2, 0.6, 0.25, 1);
+  --easings-indirect-exit-curve: cubic-bezier(0.65, 0, 0.75, 0);
+  --easings-indirect-linear-curve: cubic-bezier(0, 0, 1, 1);
+  --easings-indirect-standard-curve: cubic-bezier(0.5, 0, 0, 1);
 }

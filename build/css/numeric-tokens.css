@@ -1,34 +1,34 @@
 /**
  * Do not edit directly, this file was auto-generated.
- * Generated: 2025-11-04 T 15:49:24
+ * Generated: 2025-11-04 T 19:58:23
  * Group: Numeric Tokens
  */
 
 :root {
-  --numeric-tokens-spacing-none: 0px;
-  --numeric-tokens-spacing-2xs: 4px;
-  --numeric-tokens-spacing-xs: 8px;
-  --numeric-tokens-spacing-sm: 12px;
-  --numeric-tokens-spacing-md: 16px;
-  --numeric-tokens-spacing-lg: 24px;
-  --numeric-tokens-spacing-xl: 32px;
-  --numeric-tokens-spacing-2xl: 40px;
-  --numeric-tokens-spacing-3xl: 48px;
-  --numeric-tokens-spacing-4xl: 64px;
-  --numeric-tokens-radius-square: 0px;
-  --numeric-tokens-radius-sm: 6px;
-  --numeric-tokens-radius-md: 8px;
-  --numeric-tokens-radius-full: 1000px;
-  --numeric-tokens-size-height-lg: 48px;
-  --numeric-tokens-size-height-sm: 32px;
-  --numeric-tokens-size-height-xs: 24px;
-  --numeric-tokens-size-height-md: 40px;
-  --numeric-tokens-size-height-icon-sm: 20px;
-  --numeric-tokens-size-height-icon-xs: 16px;
-  --numeric-tokens-size-height-icon-md: 24px;
-  --numeric-tokens-size-height-icon-lg: 32px;
-  --numeric-tokens-size-height-icon-2xl: 64px;
-  --numeric-tokens-size-height-icon-4xl: 80px;
-  --numeric-tokens-size-width-button-mw-lg: 128px;
-  --numeric-tokens-size-width-button-mw-sm: 96px;
+  --spacing-none: 0px;
+  --spacing-2xs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 40px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+  --radius-square: 0px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-full: 1000px;
+  --size-height-lg: 48px;
+  --size-height-sm: 32px;
+  --size-height-xs: 24px;
+  --size-height-md: 40px;
+  --size-height-icon-sm: 20px;
+  --size-height-icon-xs: 16px;
+  --size-height-icon-md: 24px;
+  --size-height-icon-lg: 32px;
+  --size-height-icon-2xl: 64px;
+  --size-height-icon-4xl: 80px;
+  --size-width-button-mw-lg: 128px;
+  --size-width-button-mw-sm: 96px;
 }

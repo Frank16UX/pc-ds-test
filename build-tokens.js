@@ -137,6 +137,7 @@ function nameSegmentsFromPath(path) {
 
   const [group, ...rest] = path;
 
+  // Remove the group prefix from all paths (only use the nested path)
   if (group === 'Primitives') {
     if (rest[0] === 'colors') {
       return rest.slice(1).map(sanitizeSegment).filter(Boolean);
@@ -144,7 +145,17 @@ function nameSegmentsFromPath(path) {
     return rest.map(sanitizeSegment).filter(Boolean);
   }
 
-  return path.map(sanitizeSegment).filter(Boolean);
+  // For Responsive groups, include the context (desktop/mobile) as prefix
+  if (group === 'Responsive/Desktop') {
+    return ['desktop', ...rest.map(sanitizeSegment).filter(Boolean)];
+  }
+
+  if (group === 'Responsive/Mobile') {
+    return ['mobile', ...rest.map(sanitizeSegment).filter(Boolean)];
+  }
+
+  // For all other groups, exclude the group name and use only the nested path
+  return rest.map(sanitizeSegment).filter(Boolean);
 }
 
 function buildName(path) {
@@ -430,6 +441,8 @@ StyleDictionary.registerFormat({
   format: ({ dictionary, options }) => {
     const timestamp = getTimestamp();
     const groupName = options.groupName || 'Tokens';
+    const useReferences = options.outputReferences ?? false;
+    
     let output = `// Do not edit directly, this file was auto-generated.\n`;
     output += `// Generated: ${timestamp}\n`;
     output += `// Group: ${groupName}\n\n`;
@@ -442,8 +455,9 @@ StyleDictionary.registerFormat({
 
         const pathKey = token.path.join('.');
         const entry = tokenEntries.get(pathKey);
+        const target = useReferences ? 'scss' : 'css';
         const resolvedValue = entry
-          ? resolveEntryValue(entry, 'scss')
+          ? resolveEntryValue(entry, target)
           : token.original?.value ?? token.original?.$value ?? token.value;
 
   const valueString = stringifyValue(resolvedValue, 'scss');
@@ -503,7 +517,7 @@ const scssFileDefinitions = STYLE_DICTIONARY_GROUPS.map((group) => ({
   format: 'scss/variables-with-timestamp',
   filter: (token) => tokenBelongsToGroup(token, group.key),
   options: {
-    outputReferences: true,
+    outputReferences: false,
     groupName: group.key,
   },
 }));
