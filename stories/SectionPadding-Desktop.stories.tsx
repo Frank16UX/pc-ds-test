@@ -10,17 +10,17 @@ type PaddingToken = {
 
 const paddingTokens: Record<string, PaddingToken[]> = {
   vertical: [
-    { name: 'XL', scssVar: '$responsive-desktop-section-padding-vertical-xl', description: 'Extra large vertical padding' },
-    { name: 'LG', scssVar: '$responsive-desktop-section-padding-vertical-lg', description: 'Large vertical padding' },
-    { name: 'MD', scssVar: '$responsive-desktop-section-padding-vertical-md', description: 'Medium vertical padding' },
-    { name: 'SM', scssVar: '$responsive-desktop-section-padding-vertical-sm', description: 'Small vertical padding' },
-    { name: 'XS', scssVar: '$responsive-desktop-section-padding-vertical-xs', description: 'Extra small vertical padding' },
+    { name: 'XL', scssVar: '$desktop-section-padding-vertical-xl', description: 'Extra large vertical padding' },
+    { name: 'LG', scssVar: '$desktop-section-padding-vertical-lg', description: 'Large vertical padding' },
+    { name: 'MD', scssVar: '$desktop-section-padding-vertical-md', description: 'Medium vertical padding' },
+    { name: 'SM', scssVar: '$desktop-section-padding-vertical-sm', description: 'Small vertical padding' },
+    { name: 'XS', scssVar: '$desktop-section-padding-vertical-xs', description: 'Extra small vertical padding' },
   ],
   horizontal: [
-    { name: 'LG', scssVar: '$responsive-desktop-section-padding-horizontal-lg', description: 'Large horizontal padding' },
-    { name: 'MD', scssVar: '$responsive-desktop-section-padding-horizontal-md', description: 'Medium horizontal padding' },
-    { name: 'SM', scssVar: '$responsive-desktop-section-padding-horizontal-sm', description: 'Small horizontal padding' },
-    { name: 'XS', scssVar: '$responsive-desktop-section-padding-horizontal-xs', description: 'Extra small horizontal padding' },
+    { name: 'LG', scssVar: '$desktop-section-padding-horizontal-lg', description: 'Large horizontal padding' },
+    { name: 'MD', scssVar: '$desktop-section-padding-horizontal-md', description: 'Medium horizontal padding' },
+    { name: 'SM', scssVar: '$desktop-section-padding-horizontal-sm', description: 'Small horizontal padding' },
+    { name: 'XS', scssVar: '$desktop-section-padding-horizontal-xs', description: 'Extra small horizontal padding' },
   ],
 };
 
@@ -106,10 +106,10 @@ const SectionPaddingComponent = () => {
           overflow: 'auto'
         }}>
 {`.section {
-  padding-top: $responsive-desktop-section-padding-vertical-lg;
-  padding-bottom: $responsive-desktop-section-padding-vertical-lg;
-  padding-left: $responsive-desktop-section-padding-horizontal-md;
-  padding-right: $responsive-desktop-section-padding-horizontal-md;
+  padding-top: $desktop-section-padding-vertical-lg;
+  padding-bottom: $desktop-section-padding-vertical-lg;
+  padding-left: $desktop-section-padding-horizontal-md;
+  padding-right: $desktop-section-padding-horizontal-md;
 }`}
         </pre>
       </div>

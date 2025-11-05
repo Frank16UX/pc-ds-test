@@ -10,17 +10,17 @@ type PaddingToken = {
 
 const paddingTokens: Record<string, PaddingToken[]> = {
   vertical: [
-    { name: 'XL', scssVar: '$responsive-mobile-section-padding-vertical-xl', description: 'Extra large vertical padding' },
-    { name: 'LG', scssVar: '$responsive-mobile-section-padding-vertical-lg', description: 'Large vertical padding' },
-    { name: 'MD', scssVar: '$responsive-mobile-section-padding-vertical-md', description: 'Medium vertical padding' },
-    { name: 'SM', scssVar: '$responsive-mobile-section-padding-vertical-sm', description: 'Small vertical padding' },
-    { name: 'XS', scssVar: '$responsive-mobile-section-padding-vertical-xs', description: 'Extra small vertical padding' },
+    { name: 'XL', scssVar: '$mobile-section-padding-vertical-xl', description: 'Extra large vertical padding' },
+    { name: 'LG', scssVar: '$mobile-section-padding-vertical-lg', description: 'Large vertical padding' },
+    { name: 'MD', scssVar: '$mobile-section-padding-vertical-md', description: 'Medium vertical padding' },
+    { name: 'SM', scssVar: '$mobile-section-padding-vertical-sm', description: 'Small vertical padding' },
+    { name: 'XS', scssVar: '$mobile-section-padding-vertical-xs', description: 'Extra small vertical padding' },
   ],
   horizontal: [
-    { name: 'LG', scssVar: '$responsive-mobile-section-padding-horizontal-lg', description: 'Large horizontal padding' },
-    { name: 'MD', scssVar: '$responsive-mobile-section-padding-horizontal-md', description: 'Medium horizontal padding' },
-    { name: 'SM', scssVar: '$responsive-mobile-section-padding-horizontal-sm', description: 'Small horizontal padding' },
-    { name: 'XS', scssVar: '$responsive-mobile-section-padding-horizontal-xs', description: 'Extra small horizontal padding' },
+    { name: 'LG', scssVar: '$mobile-section-padding-horizontal-lg', description: 'Large horizontal padding' },
+    { name: 'MD', scssVar: '$mobile-section-padding-horizontal-md', description: 'Medium horizontal padding' },
+    { name: 'SM', scssVar: '$mobile-section-padding-horizontal-sm', description: 'Small horizontal padding' },
+    { name: 'XS', scssVar: '$mobile-section-padding-horizontal-xs', description: 'Extra small horizontal padding' },
   ],
 };
 
@@ -106,16 +106,16 @@ const SectionPaddingComponent = () => {
           overflow: 'auto'
         }}>
 {`.section {
-  padding-top: $responsive-mobile-section-padding-vertical-lg;
-  padding-bottom: $responsive-mobile-section-padding-vertical-lg;
-  padding-left: $responsive-mobile-section-padding-horizontal-md;
-  padding-right: $responsive-mobile-section-padding-horizontal-md;
+  padding-top: $mobile-section-padding-vertical-lg;
+  padding-bottom: $mobile-section-padding-vertical-lg;
+  padding-left: $mobile-section-padding-horizontal-md;
+  padding-right: $mobile-section-padding-horizontal-md;
   
   @media (min-width: 768px) {
-    padding-top: $responsive-desktop-section-padding-vertical-lg;
-    padding-bottom: $responsive-desktop-section-padding-vertical-lg;
-    padding-left: $responsive-desktop-section-padding-horizontal-md;
-    padding-right: $responsive-desktop-section-padding-horizontal-md;
+    padding-top: $desktop-section-padding-vertical-lg;
+    padding-bottom: $desktop-section-padding-vertical-lg;
+    padding-left: $desktop-section-padding-horizontal-md;
+    padding-right: $desktop-section-padding-horizontal-md;
   }
 }`}
         </pre>

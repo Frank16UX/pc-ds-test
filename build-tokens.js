@@ -145,6 +145,15 @@ function nameSegmentsFromPath(path) {
     return rest.map(sanitizeSegment).filter(Boolean);
   }
 
+  // For Responsive groups, include the context (desktop/mobile) as prefix
+  if (group === 'Responsive/Desktop') {
+    return ['desktop', ...rest.map(sanitizeSegment).filter(Boolean)];
+  }
+
+  if (group === 'Responsive/Mobile') {
+    return ['mobile', ...rest.map(sanitizeSegment).filter(Boolean)];
+  }
+
   // For all other groups, exclude the group name and use only the nested path
   return rest.map(sanitizeSegment).filter(Boolean);
 }

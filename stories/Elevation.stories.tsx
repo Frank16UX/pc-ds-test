@@ -11,52 +11,52 @@ type ElevationToken = {
 const elevationTokens: ElevationToken[] = [
   {
     name: 'Primary Button',
-    scssVar: '$elevation-elevation-primary-button',
+    scssVar: '$elevation-primary-button',
     description: 'Purpose-built for primary actions to add separation from the surface while staying compact.',
   },
   {
     name: 'Sharp SM',
-    scssVar: '$elevation-elevation-sharp-sm',
+    scssVar: '$elevation-sharp-sm',
     description: 'Subtle elevation for compact surfaces such as cards, badges, and contextual popovers.',
   },
   {
     name: 'Sharp MD',
-    scssVar: '$elevation-elevation-sharp-md',
+    scssVar: '$elevation-sharp-md',
     description: 'Medium intensity shadow for menus, dropdowns, and floating utility panels.',
   },
   {
     name: 'Sharp LG',
-    scssVar: '$elevation-elevation-sharp-lg',
+    scssVar: '$elevation-sharp-lg',
     description: 'High-elevation layer that keeps larger panels like navigation drawers off the canvas.',
   },
   {
     name: 'Sharp XL',
-    scssVar: '$elevation-elevation-sharp-xl',
+    scssVar: '$elevation-sharp-xl',
     description: 'Maximum depth used for modals and overlays that must feel detached from the background.',
   },
   {
     name: 'Focus Default',
-    scssVar: '$elevation-focus-default',
+    scssVar: '$focus-default',
     description: 'Default focus ring with white inner border and dark outer ring for standard interactive elements.',
   },
   {
     name: 'Focus Default Inverted',
-    scssVar: '$elevation-focus-default-inverted',
+    scssVar: '$focus-default-inverted',
     description: 'Inverted focus ring with dark inner border and accent outer ring for light-on-dark contexts.',
   },
   {
     name: 'Focus Accent',
-    scssVar: '$elevation-focus-accent',
+    scssVar: '$focus-accent',
     description: 'Accent focus ring with white inner border and teal outer ring to highlight primary actions.',
   },
   {
     name: 'Focus Accent Inverted',
-    scssVar: '$elevation-focus-accent-inverted',
+    scssVar: '$focus-accent-inverted',
     description: 'Inverted accent focus ring with dark inner border and teal outer ring for contrast scenarios.',
   },
   {
     name: 'Focus Error',
-    scssVar: '$elevation-focus-error',
+    scssVar: '$focus-error',
     description: 'Error focus ring with white inner border and red outer ring to signal validation issues.',
   },
 ];
