@@ -65,9 +65,9 @@ const ElevationSwatch = ({ token }: { token: ElevationToken }) => {
   const shadowValue = useMemo(() => resolveTokenValue(token.scssVar), [token.scssVar]);
   const formattedShadow = useMemo(() => formatBoxShadow(shadowValue), [shadowValue]);
   
-  const surfaceTintedColor = useMemo(() => resolveTokenValue('$tokens-color-surface-tinted-1'), []);
-  const backgroundSolidColor = useMemo(() => resolveTokenValue('$tokens-color-background-default-solid'), []);
-  const textSecondaryColor = useMemo(() => resolveTokenValue('$tokens-color-text-default-secondary'), []);
+  const surfaceTintedColor = useMemo(() => resolveTokenValue('$color-surface-tinted-1'), []);
+  const backgroundSolidColor = useMemo(() => resolveTokenValue('$color-background-default-solid'), []);
+  const textSecondaryColor = useMemo(() => resolveTokenValue('$color-text-default-secondary'), []);
 
   return (
     <div className="token-sample-row">
@@ -117,7 +117,7 @@ const ElevationComponent = () => (
     <h1 style={{ marginBottom: '16px', fontSize: '32px', fontWeight: 700 }}>Elevation</h1>
     <p style={{ marginBottom: '48px', color: '#5b6164', maxWidth: '820px' }}>
       Elevation tokens define the shadow recipes used to layer content. Each token is applied to a white surface using
-      <code style={{ marginLeft: '4px' }}>var(--tokens-color-background-default-solid)</code> so you can evaluate depth and softness.
+      <code style={{ marginLeft: '4px' }}>var(--color-background-default-solid)</code> so you can evaluate depth and softness.
     </p>
 
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
@@ -126,7 +126,7 @@ const ElevationComponent = () => (
       ))}
     </div>
 
-    <section style={{ marginTop: '48px', padding: '24px', backgroundColor: 'var(--tokens-color-surface-secondary)', borderRadius: '16px' }}>
+    <section style={{ marginTop: '48px', padding: '24px', backgroundColor: 'var(--color-surface-secondary)', borderRadius: '16px' }}>
       <h2 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 600 }}>Usage Guidelines</h2>
       <ul style={{ color: '#5b6164', lineHeight: 1.6, paddingLeft: '24px' }}>
         <li><strong>Primary Button:</strong> Applies only to the flagship CTA to keep it distinguished without overpowering content.</li>

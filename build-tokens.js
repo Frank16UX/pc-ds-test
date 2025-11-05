@@ -137,6 +137,7 @@ function nameSegmentsFromPath(path) {
 
   const [group, ...rest] = path;
 
+  // Remove the group prefix from all paths (only use the nested path)
   if (group === 'Primitives') {
     if (rest[0] === 'colors') {
       return rest.slice(1).map(sanitizeSegment).filter(Boolean);
@@ -144,7 +145,8 @@ function nameSegmentsFromPath(path) {
     return rest.map(sanitizeSegment).filter(Boolean);
   }
 
-  return path.map(sanitizeSegment).filter(Boolean);
+  // For all other groups, exclude the group name and use only the nested path
+  return rest.map(sanitizeSegment).filter(Boolean);
 }
 
 function buildName(path) {

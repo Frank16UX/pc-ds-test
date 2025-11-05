@@ -40,8 +40,8 @@ const PrimitivesComponent = () => {
           <li><code style={{ backgroundColor: '#e0f2fe', padding: '2px 6px', borderRadius: '3px' }}>build/css/tokens.css</code></li>
         </ul>
         <p style={{ fontSize: '14px', color: '#0c4a6e', lineHeight: '1.6', marginTop: '12px' }}>
-          Examples: <code style={{ backgroundColor: '#e0f2fe', padding: '2px 6px', borderRadius: '3px' }}>$tokens-color-text-default-primary</code>, 
-          <code style={{ backgroundColor: '#e0f2fe', padding: '2px 6px', borderRadius: '3px', marginLeft: '4px' }}>$tokens-color-background-accent-solid</code>
+          Examples: <code style={{ backgroundColor: '#e0f2fe', padding: '2px 6px', borderRadius: '3px' }}>$color-text-default-primary</code>, 
+          <code style={{ backgroundColor: '#e0f2fe', padding: '2px 6px', borderRadius: '3px', marginLeft: '4px' }}>$color-background-accent-solid</code>
         </p>
       </div>
     </div>

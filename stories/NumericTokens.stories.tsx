@@ -9,49 +9,49 @@ interface NumericToken {
 }
 
 const spacingTokens: NumericToken[] = [
-  { name: 'None', scssVar: '$numeric-tokens-spacing-none', description: 'No spacing between elements.' },
-  { name: '2XS', scssVar: '$numeric-tokens-spacing-2xs', description: 'Micro adjustments such as icon padding or dividers.' },
-  { name: 'XS', scssVar: '$numeric-tokens-spacing-xs', description: 'Tight spacing between related text or iconography.' },
-  { name: 'SM', scssVar: '$numeric-tokens-spacing-sm', description: 'Compact gaps for stacked labels and inputs.' },
-  { name: 'MD', scssVar: '$numeric-tokens-spacing-md', description: 'Default spacing for text blocks and form controls.' },
-  { name: 'LG', scssVar: '$numeric-tokens-spacing-lg', description: 'Breathing room for cards or vertically grouped content.' },
-  { name: 'XL', scssVar: '$numeric-tokens-spacing-xl', description: 'Large gutters around sections and hero content.' },
-  { name: '2XL', scssVar: '$numeric-tokens-spacing-2xl', description: 'Used sparingly for page level padding.' },
-  { name: '3XL', scssVar: '$numeric-tokens-spacing-3xl', description: 'Generous spacing for full-bleed layouts or modals.' },
-  { name: '4XL', scssVar: '$numeric-tokens-spacing-4xl', description: 'Max spacing for immersive hero layouts.' },
+  { name: 'None', scssVar: '$spacing-none', description: 'No spacing between elements.' },
+  { name: '2XS', scssVar: '$spacing-2xs', description: 'Micro adjustments such as icon padding or dividers.' },
+  { name: 'XS', scssVar: '$spacing-xs', description: 'Tight spacing between related text or iconography.' },
+  { name: 'SM', scssVar: '$spacing-sm', description: 'Compact gaps for stacked labels and inputs.' },
+  { name: 'MD', scssVar: '$spacing-md', description: 'Default spacing for text blocks and form controls.' },
+  { name: 'LG', scssVar: '$spacing-lg', description: 'Breathing room for cards or vertically grouped content.' },
+  { name: 'XL', scssVar: '$spacing-xl', description: 'Large gutters around sections and hero content.' },
+  { name: '2XL', scssVar: '$spacing-2xl', description: 'Used sparingly for page level padding.' },
+  { name: '3XL', scssVar: '$spacing-3xl', description: 'Generous spacing for full-bleed layouts or modals.' },
+  { name: '4XL', scssVar: '$spacing-4xl', description: 'Max spacing for immersive hero layouts.' },
 ];
 
 const radiusTokens: NumericToken[] = [
-  { name: 'Square', scssVar: '$numeric-tokens-radius-square', description: 'Squared corners for tables and hard-edged surfaces.' },
-  { name: 'SM', scssVar: '$numeric-tokens-radius-sm', description: 'Subtle rounding for inputs and chips.' },
-  { name: 'MD', scssVar: '$numeric-tokens-radius-md', description: 'System default for cards, modals, and panels.' },
-  { name: 'Full', scssVar: '$numeric-tokens-radius-full', description: 'Capsules and fully rounded controls.' },
+  { name: 'Square', scssVar: '$radius-square', description: 'Squared corners for tables and hard-edged surfaces.' },
+  { name: 'SM', scssVar: '$radius-sm', description: 'Subtle rounding for inputs and chips.' },
+  { name: 'MD', scssVar: '$radius-md', description: 'System default for cards, modals, and panels.' },
+  { name: 'Full', scssVar: '$radius-full', description: 'Capsules and fully rounded controls.' },
 ];
 
 const sizeHeightTokens: NumericToken[] = [
-  { name: 'Height LG', scssVar: '$numeric-tokens-size-height-lg', description: 'Large control height for desktop buttons or inputs.' },
-  { name: 'Height MD', scssVar: '$numeric-tokens-size-height-md', description: 'Default control height used across most UI.' },
-  { name: 'Height SM', scssVar: '$numeric-tokens-size-height-sm', description: 'Compact control height for dense surfaces.' },
-  { name: 'Height XS', scssVar: '$numeric-tokens-size-height-xs', description: 'Use for micro controls or compact toolbars.' },
-  { name: 'Icon Height XS', scssVar: '$numeric-tokens-size-height-icon-xs', description: 'Icon-only control height for subtle actions.' },
-  { name: 'Icon Height SM', scssVar: '$numeric-tokens-size-height-icon-sm', description: 'Primary icon button height.' },
-  { name: 'Icon Height MD', scssVar: '$numeric-tokens-size-height-icon-md', description: 'Medium icon control height.' },
-  { name: 'Icon Height LG', scssVar: '$numeric-tokens-size-height-icon-lg', description: 'Large icon control height.' },
-  { name: 'Icon Height 2XL', scssVar: '$numeric-tokens-size-height-icon-2xl', description: 'Hero icon height for badges or spot illustrations.' },
-  { name: 'Icon Height 4XL', scssVar: '$numeric-tokens-size-height-icon-4xl', description: 'Presentation icon height for marketing surfaces.' },
+  { name: 'Height LG', scssVar: '$size-height-lg', description: 'Large control height for desktop buttons or inputs.' },
+  { name: 'Height MD', scssVar: '$size-height-md', description: 'Default control height used across most UI.' },
+  { name: 'Height SM', scssVar: '$size-height-sm', description: 'Compact control height for dense surfaces.' },
+  { name: 'Height XS', scssVar: '$size-height-xs', description: 'Use for micro controls or compact toolbars.' },
+  { name: 'Icon Height XS', scssVar: '$size-height-icon-xs', description: 'Icon-only control height for subtle actions.' },
+  { name: 'Icon Height SM', scssVar: '$size-height-icon-sm', description: 'Primary icon button height.' },
+  { name: 'Icon Height MD', scssVar: '$size-height-icon-md', description: 'Medium icon control height.' },
+  { name: 'Icon Height LG', scssVar: '$size-height-icon-lg', description: 'Large icon control height.' },
+  { name: 'Icon Height 2XL', scssVar: '$size-height-icon-2xl', description: 'Hero icon height for badges or spot illustrations.' },
+  { name: 'Icon Height 4XL', scssVar: '$size-height-icon-4xl', description: 'Presentation icon height for marketing surfaces.' },
 ];
 
 const sizeWidthTokens: NumericToken[] = [
-  { name: 'Button Min-Width LG', scssVar: '$numeric-tokens-size-width-button-mw-lg', description: 'Minimum width for large CTAs and layout anchors.' },
-  { name: 'Button Min-Width SM', scssVar: '$numeric-tokens-size-width-button-mw-sm', description: 'Minimum width for small buttons and responsive stacks.' },
+  { name: 'Button Min-Width LG', scssVar: '$size-width-button-mw-lg', description: 'Minimum width for large CTAs and layout anchors.' },
+  { name: 'Button Min-Width SM', scssVar: '$size-width-button-mw-sm', description: 'Minimum width for small buttons and responsive stacks.' },
 ];
 
-const surfaceTinted1 = getTokenValueOr('$tokens-color-surface-tinted-1', '#f5f5f5');
-const surfaceTinted2 = getTokenValueOr('$tokens-color-surface-tinted-2', '#f0f0f0');
-const backgroundDefault = getTokenValueOr('$tokens-color-background-default-solid', '#ffffff');
-const backgroundAlt = getTokenValueOr('$tokens-color-background-alt-solid', '#f7f2e8');
-const borderDividerStrong = getTokenValueOr('$tokens-color-border-divider-strong', '#d1d5db');
-const textSecondary = getTokenValueOr('$tokens-color-text-default-secondary', '#5b6164');
+const surfaceTinted1 = getTokenValueOr('$color-surface-tinted-1', '#f5f5f5');
+const surfaceTinted2 = getTokenValueOr('$color-surface-tinted-2', '#f0f0f0');
+const backgroundDefault = getTokenValueOr('$color-background-default-solid', '#ffffff');
+const backgroundAlt = getTokenValueOr('$color-background-alt-solid', '#f7f2e8');
+const borderDividerStrong = getTokenValueOr('$color-border-divider-strong', '#d1d5db');
+const textSecondary = getTokenValueOr('$color-text-default-secondary', '#5b6164');
 
 type PreviewRenderer = (value: string | undefined, token: NumericToken) => React.ReactNode;
 
