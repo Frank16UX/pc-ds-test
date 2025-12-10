@@ -78,6 +78,24 @@ Continuously monitors the GitHub repository (every 5 minutes) and auto-syncs whe
 
 See [SYNC_GUIDE.md](SYNC_GUIDE.md) for detailed documentation on the sync workflow.
 
+## 📖 Storybook
+
+### Development Server
+
+```bash
+npm run storybook
+```
+
+Starts the Storybook development server at `http://localhost:6006` with live reloading.
+
+### Build Storybook
+
+```bash
+npm run build-storybook
+```
+
+Builds a static version of Storybook to the `storybook-static` directory.
+
 ## 📁 Project Structure
 
 ```

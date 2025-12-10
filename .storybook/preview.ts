@@ -2,6 +2,12 @@ import type { Preview } from '@storybook/react';
 
 // Inline critical base styles including fonts
 if (typeof document !== 'undefined') {
+  // Load dotlottie-player script
+  const script = document.createElement('script');
+  script.src = 'https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs';
+  script.type = 'module';
+  document.head.appendChild(script);
+
   const style = document.createElement('style');
   style.textContent = `
     /* Font faces */
