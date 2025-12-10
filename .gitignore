@@ -1,6 +1,10 @@
 # Dependencies
 node_modules/
 
+# Instructions for LLM
+_instructions/
+_instructions/component docu/
+
 # Sync script temporary files
 .token-sync-temp/
 .last-commit-hash
@@ -26,3 +30,8 @@ storybook-static
 
 # Old Sass variables file
 src/styles/variables-old.scss
+
+# Primitives
+build/scss/_primitives.scss
+build/scss/primitives.css
+
