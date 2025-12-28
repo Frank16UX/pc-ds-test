@@ -1,0 +1,16 @@
+[build]
+  # Build Storybook instead of Vite app
+  command = "npm run build-storybook"
+
+  # Publish the Storybook static output
+  publish = "storybook-static"
+
+# Optional: Set Node.js version (Netlify already uses 22.x by default, but explicit is better)
+[build.environment]
+  NODE_VERSION = "22"
+
+# Optional: Redirect rules (if you want clean URLs)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
