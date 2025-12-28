@@ -22,6 +22,19 @@ npm run storybook
 npm run build-storybook
 ```
 
+### Token Sync (Manual)
+
+To update design tokens from the source repository:
+
+```bash
+npm run sync:tokens
+```
+
+This command:
+1. Fetches the latest tokens from `https://github.com/Frank16UX/pc-ds-tokens`
+2. Copies files from the repo's `export-from-figma` folder to local `export-from-figma/`
+3. Automatically runs `npm run build:tokens` to regenerate SCSS/CSS outputs
+
 ## Architecture
 
 ### Token Pipeline
@@ -81,3 +94,18 @@ Reference the `_instructions/` directory for component specifications:
 - Responsive tokens have Desktop and Mobile variants
 - Focus FX tokens emit as JSON strings (layer arrays)
 - Tokens sync from external repo via `sync-tokens.sh`
+
+## Folder Structure Rationale
+
+The project structure follows design system best practices (Style Dictionary, Tokens Studio patterns):
+
+| Directory | Purpose | Why at Root Level |
+|-----------|---------|-------------------|
+| `build/` | Generated token outputs | Generated artifacts ≠ source code. Industry standard for Style Dictionary. |
+| `assets/` | Static resources (fonts, icons, imgs) | Served by Storybook via `staticDirs`. Root level is conventional. |
+| `export-from-figma/` | Token source data | External input from Figma Tokens Studio, not application code. |
+| `src/` | React components | Application source code only. |
+| `stories/` | Storybook documentation | Separate from component source (Storybook convention). |
+| `_instructions/` | Component design specs | Reference documentation, not runtime code. |
+
+**Key principle**: Keep generated files (`build/`) and external data (`export-from-figma/`) separate from source code (`src/`). This maintains clear separation of concerns and aligns with industry standards.

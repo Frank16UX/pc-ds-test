@@ -7,6 +7,7 @@ import responsiveMobileRaw from '../../build/scss/_responsive-mobile.scss?raw';
 import motionRaw from '../../build/scss/_motion.scss?raw';
 import breakpointsRaw from '../../build/scss/_breakpoints.scss?raw';
 import ratiosRaw from '../../build/scss/_ratios.scss?raw';
+import focusRaw from '../../build/scss/_focus.scss?raw';
 
 type TokenMap = Map<string, string>;
 
@@ -26,6 +27,7 @@ const RAW_SHEETS = [
   motionRaw,
   breakpointsRaw,
   ratiosRaw,
+  focusRaw,
 ];
 
 const tokenMap: TokenMap = new Map();
