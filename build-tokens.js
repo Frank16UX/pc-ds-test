@@ -19,22 +19,94 @@ function getTimestamp() {
   return `${year}-${month}-${day} T ${hours}:${minutes}:${seconds}`;
 }
 
-// Configuration describing each output group.
-const TOKEN_GROUPS = [
-  { key: 'Primitives' },
-  { key: 'Tokens' },
-  { key: 'Numeric Tokens' },
-  { key: 'Fonts' },
-  { key: 'Elevation' },
-  { key: 'Responsive/Desktop' },
-  { key: 'Responsive/Mobile' },
-  { key: 'Motion' },
-  { key: 'Breakpoints' },
-  { key: 'Ratios' },
-];
+// Configuration for groups with special processing requirements.
+const GROUP_CONFIGS = {
+  'Motion': {
+    sourceFile: 'animation.json',
+    processor: 'buildMotionOutputs',
+    includeInStyleDictionary: false,
+    includeInIndex: true
+  },
+  'Responsive/Desktop': {
+    preprocessor: 'normalizeResponsiveRefs',
+    includeInIndex: true
+  },
+  'Responsive/Mobile': {
+    preprocessor: 'normalizeResponsiveRefs',
+    includeInIndex: true
+  },
+  'Primitives': {
+    flatten: true,
+    includeInIndex: true
+  },
+  'Fonts': {
+    flatten: true,
+    includeInIndex: true
+  },
+  'Numeric Tokens': {
+    flatten: true,
+    includeInIndex: true
+  },
+  'Elevation': {
+    flatten: true,
+    includeInIndex: true
+  },
+  'Focus': {
+    includeInIndex: true,
+    description: 'Focus ring box shadows'
+  }
+};
+
+// Auto-detect token groups from the source tokens file.
+function detectTokenGroups(sourceTokens) {
+  const EXCLUDED_KEYS = ['$metadata', '$themes'];
+
+  // Try to use metadata ordering first (respects Figma's intended order).
+  if (sourceTokens.$metadata?.tokenSetOrder) {
+    return sourceTokens.$metadata.tokenSetOrder.map(key => ({
+      key,
+      source: 'tokens-from-ts.json'
+    }));
+  }
+
+  // Fallback: auto-detect from top-level keys.
+  const detectedGroups = Object.keys(sourceTokens)
+    .filter(key => !EXCLUDED_KEYS.includes(key))
+    .filter(key => {
+      const value = sourceTokens[key];
+      return value && typeof value === 'object' && !Array.isArray(value);
+    })
+    .map(key => ({
+      key,
+      source: 'tokens-from-ts.json'
+    }));
+
+  return detectedGroups;
+}
 
 const tokensFile = 'export-from-figma/tokens-from-ts.json';
 const allTokens = JSON.parse(fs.readFileSync(tokensFile, 'utf-8'));
+const animationFile = 'export-from-figma/animation.json';
+
+// Auto-detect groups and apply configurations.
+const detectedGroups = detectTokenGroups(allTokens);
+let TOKEN_GROUPS = detectedGroups.map(group => ({
+  key: group.key,
+  ...(GROUP_CONFIGS[group.key] || {})
+}));
+
+// Add Motion group manually if animation.json exists and Motion not already detected.
+if (fs.existsSync(animationFile) && !TOKEN_GROUPS.find(g => g.key === 'Motion')) {
+  TOKEN_GROUPS.push({
+    key: 'Motion',
+    sourceFile: 'animation.json',
+    processor: 'buildMotionOutputs',
+    includeInStyleDictionary: false,
+    includeInIndex: true
+  });
+}
+
+console.log('📋 Detected token groups:', TOKEN_GROUPS.map(g => g.key).join(', '));
 
 // Fix known missing prefixes in focus-fx error layers.
 try {
@@ -88,17 +160,20 @@ function normalizeResponsiveRefs(group, groupName) {
   walk(group);
 }
 
-if (allTokens['Responsive/Desktop']) {
-  normalizeResponsiveRefs(allTokens['Responsive/Desktop'], 'Responsive/Desktop');
-}
-
-if (allTokens['Responsive/Mobile']) {
-  normalizeResponsiveRefs(allTokens['Responsive/Mobile'], 'Responsive/Mobile');
+// Apply preprocessors dynamically based on group configuration.
+for (const group of TOKEN_GROUPS) {
+  if (group.preprocessor === 'normalizeResponsiveRefs' && allTokens[group.key]) {
+    normalizeResponsiveRefs(allTokens[group.key], group.key);
+  }
 }
 
 function prepareTokensForDictionary(sourceTokens) {
   const prepared = { ...sourceTokens };
-  const groupsToFlatten = ['Primitives', 'Fonts', 'Numeric Tokens', 'Elevation'];
+
+  // Dynamically determine which groups to flatten based on config.
+  const groupsToFlatten = TOKEN_GROUPS
+    .filter(g => g.flatten === true)
+    .map(g => g.key);
 
   for (const groupKey of groupsToFlatten) {
     const group = sourceTokens[groupKey];
@@ -322,6 +397,57 @@ function resolveEntryValue(entry, target, stack = []) {
   return resolved;
 }
 
+function isShadowToken(value) {
+  // Helper to check if an object is a valid shadow layer
+  const isShadowLayer = (item) =>
+    item &&
+    typeof item === 'object' &&
+    'type' in item &&
+    (item.type === 'dropShadow' || item.type === 'innerShadow') &&
+    'color' in item &&
+    'x' in item &&
+    'y' in item &&
+    'blur' in item &&
+    'spread' in item;
+
+  // Check if value is a single shadow object
+  if (isShadowLayer(value)) {
+    return true;
+  }
+
+  // Check if value is an array of shadow layer objects
+  return (
+    Array.isArray(value) &&
+    value.length > 0 &&
+    value.every(isShadowLayer)
+  );
+}
+
+function convertShadowToCSS(shadowValue) {
+  // Convert Tokens Studio shadow format to CSS box-shadow
+  // Handle both single shadow objects and arrays
+  const shadowArray = Array.isArray(shadowValue) ? shadowValue : [shadowValue];
+
+  return shadowArray
+    .map((layer) => {
+      const x = layer.x || 0;
+      const y = layer.y || 0;
+      const blur = layer.blur || 0;
+      const spread = layer.spread || 0;
+      const color = layer.color || 'transparent';
+      const inset = layer.type === 'innerShadow' ? 'inset ' : '';
+
+      // Add px unit to numeric values
+      const xPx = typeof x === 'number' || !isNaN(Number(x)) ? `${x}px` : x;
+      const yPx = typeof y === 'number' || !isNaN(Number(y)) ? `${y}px` : y;
+      const blurPx = typeof blur === 'number' || !isNaN(Number(blur)) ? `${blur}px` : blur;
+      const spreadPx = typeof spread === 'number' || !isNaN(Number(spread)) ? `${spread}px` : spread;
+
+      return `${inset}${xPx} ${yPx} ${blurPx} ${spreadPx} ${color}`.trim();
+    })
+    .join(', ');
+}
+
 function stringifyValue(value, target) {
   if (typeof value === 'string') {
     return value;
@@ -335,6 +461,11 @@ function stringifyValue(value, target) {
     return 'null';
   }
 
+  // Convert shadow tokens to CSS box-shadow format
+  if (isShadowToken(value)) {
+    return convertShadowToCSS(value);
+  }
+
   const jsonValue = JSON.stringify(value);
   if (target === 'scss') {
     const escaped = jsonValue.replace(/'/g, "\\'");
@@ -343,8 +474,6 @@ function stringifyValue(value, target) {
 
   return jsonValue;
 }
-
-const animationFile = 'export-from-figma/animation.json';
 
 function formatMotionValue(pathSegments, value) {
   if (Array.isArray(value)) {
@@ -503,14 +632,22 @@ StyleDictionary.registerFormat({
   },
 });
 
-const scssFiles = TOKEN_GROUPS.map((group) => `_${getFileName(group.key)}.scss`);
-const cssFiles = TOKEN_GROUPS.map((group) => `${getFileName(group.key)}.css`);
+// Filter groups for inclusion in Style Dictionary and index files.
+const STYLE_DICTIONARY_GROUPS = TOKEN_GROUPS.filter(
+  group => group.includeInStyleDictionary !== false &&
+           group.sourceFile !== 'animation.json'
+);
+
+const INDEX_GROUPS = TOKEN_GROUPS.filter(
+  group => group.includeInIndex !== false
+);
+
+const scssFiles = INDEX_GROUPS.map((group) => `_${getFileName(group.key)}.scss`);
+const cssFiles = INDEX_GROUPS.map((group) => `${getFileName(group.key)}.css`);
 
 function tokenBelongsToGroup(token, groupKey) {
   return token.path?.[0] === groupKey;
 }
-
-const STYLE_DICTIONARY_GROUPS = TOKEN_GROUPS.filter((group) => group.key !== 'Motion');
 
 const scssFileDefinitions = STYLE_DICTIONARY_GROUPS.map((group) => ({
   destination: `_${getFileName(group.key)}.scss`,

@@ -44,10 +44,10 @@ const typographyTokens: Record<string, TokenDefinition[]> = {
     { name: 'Price SM', scssVar: '$desktop-typography-price-sm', sample: '$99.99' },
     { name: 'Price SM Strikethrough', scssVar: '$desktop-typography-price-sm-strikethrough', sample: '$99.99' },
   ],
-  other: [
-    { name: 'CTA MD', scssVar: '$desktop-typography-cta-md', sample: 'Click Here' },
-    { name: 'CTA SM', scssVar: '$desktop-typography-cta-sm', sample: 'Click Here' },
-    { name: 'Eyebrow', scssVar: '$desktop-typography-eyebrow', sample: 'NEW ARRIVAL' },
+  utility: [
+    { name: 'CTA MD', scssVar: '$desktop-typography-utility-cta-md', sample: 'Click Here' },
+    { name: 'CTA SM', scssVar: '$desktop-typography-utility-cta-sm', sample: 'Click Here' },
+    { name: 'Eyebrow', scssVar: '$desktop-typography-utility-eyebrow', sample: 'NEW ARRIVAL' },
   ],
 };
 
@@ -148,7 +148,7 @@ const TypographyDesktopComponent = () => (
     <TypographyGroup title="Headlines" tokens={typographyTokens.headline} />
     <TypographyGroup title="Body Text" tokens={typographyTokens.text} />
     <TypographyGroup title="Price" tokens={typographyTokens.price} />
-    <TypographyGroup title="Utility" tokens={typographyTokens.other} />
+    <TypographyGroup title="Utility" tokens={typographyTokens.utility} />
   </div>
 );
 

@@ -788,10 +788,6 @@
           "$type": "dimension",
           "$value": "6px"
         },
-        "max": {
-          "$type": "dimension",
-          "$value": "1000px"
-        },
         "3a": {
           "$type": "dimension",
           "$value": "14px"
@@ -837,95 +833,135 @@
         "default": {
           "primary": {
             "$type": "color",
-            "$value": "{colors.neutral.900}"
+            "$value": "{colors.neutral.900}",
+            "$description": "Use for primary text, such as sentence case headers, and buttons."
           },
           "primary-inverted": {
             "$type": "color",
-            "$value": "{colors.base.white}"
-          },
-          "disabled-on-surface": {
-            "$type": "color",
-            "$value": "{colors.neutral.700}"
+            "$value": "{colors.base.white}",
+            "$description": "Use for primary text on dark or shaded surfaces."
           },
           "secondary": {
             "$type": "color",
-            "$value": "{colors.neutral.800}"
+            "$value": "{colors.neutral.800}",
+            "$description": "Use for secondary text such as body paragraphs."
           },
           "tertiary": {
             "$type": "color",
-            "$value": "{colors.neutral.700}"
+            "$value": "{colors.neutral.700}",
+            "$description": "Use for less important texts such as meta data, breadcrumbs, input field placeholder and helper text."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{colors.neutral.500}"
+            "$value": "{colors.neutral.500}",
+            "$description": "Use for text in a disabled state."
+          },
+          "disabled-on-surface": {
+            "$type": "color",
+            "$value": "{colors.neutral.700}",
+            "$description": "Use for text in a disabled state but on color surfaces."
           }
         },
         "accent": {
           "default": {
             "$type": "color",
-            "$value": "{colors.teal.700}"
+            "$value": "{colors.teal.700}",
+            "$description": "Use to highlight titles or words on a text block."
           },
           "on-surface": {
             "$type": "color",
-            "$value": "{colors.teal.800}"
+            "$value": "{colors.teal.800}",
+            "$description": "Use it when the accent text is over a teal tinted surface (e.g. the label on a Secondary or Tertiary Button on hover state)."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.teal.900}"
+            "$value": "{colors.teal.900}",
+            "$description": "Use it when the accent text needs a higher contrast against a surface (e.g. the label on a Secondary or Tertiary Button on pressed state)."
           }
         },
         "error": {
           "default": {
             "$type": "color",
-            "$value": "{colors.red.700}"
+            "$value": "{colors.red.700}",
+            "$description": "Use for critical text, such as input field error messaging."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.red.900}"
+            "$value": "{colors.red.900}",
+            "$description": "Use for critical text on lighter red surfaces."
           },
           "high-contrast-inverted": {
             "$type": "color",
-            "$value": "{colors.red.400}"
+            "$value": "{colors.red.400}",
+            "$description": "Use for critical text on inverted surfaces."
           }
         },
         "info": {
           "default": {
             "$type": "color",
-            "$value": "{colors.blue.700}"
+            "$value": "{colors.blue.700}",
+            "$description": "Use for informational text on inline content."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.blue.900}"
+            "$value": "{colors.blue.900}",
+            "$description": "Use for informational text on lighter blue surfaces."
+          },
+          "high-contrast-inverted": {
+            "$type": "color",
+            "$value": "{colors.blue.300}",
+            "$description": "Use for informational text on inverted surfaces."
           }
         },
         "success": {
           "default": {
             "$type": "color",
-            "$value": "{colors.green.700}"
+            "$value": "{colors.green.700}",
+            "$description": "Use for success text on inline content."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.green.900}"
+            "$value": "{colors.green.900}",
+            "$description": "Use for success text on lighter surfaces."
+          },
+          "high-contrast-inverted": {
+            "$type": "color",
+            "$value": "{colors.green.400}",
+            "$description": "Use for success text on inverted surfaces."
           }
         },
         "warning": {
           "default": {
             "$type": "color",
-            "$value": "{colors.orange.700}"
+            "$value": "{colors.orange.700}",
+            "$description": "Use for warning text on inline content."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.orange.900}"
+            "$value": "{colors.orange.900}",
+            "$description": "Use for warning text on lighter orange surfaces."
+          },
+          "high-contrast-inverted": {
+            "$type": "color",
+            "$value": "{colors.orange.400}",
+            "$description": "Use for warning text on inverted surfaces."
           }
         },
         "emphasis": {
           "default": {
             "$type": "color",
-            "$value": "{colors.purple.700}"
+            "$value": "{colors.purple.700}",
+            "$description": "Use for emphasis text on inline content."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.purple.900}"
+            "$value": "{colors.purple.900}",
+            "$description": "Use for emphasis text on lighter purple surfaces."
+          },
+          "high-contrast-inverted": {
+            "$type": "color",
+            "$value": "{colors.purple.400}",
+            "$description": "Use for emphasis text on inverted surfaces."
           }
         }
       },
@@ -933,51 +969,102 @@
         "primary": {
           "default": {
             "$type": "color",
-            "$value": "{colors.gold.500}"
+            "$value": "{colors.gold.500}",
+            "$description": "Use it as the fill for Primary Buttons on Default state."
           },
           "hovered": {
             "$type": "color",
-            "$value": "{colors.gold.600}"
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{colors.neutral.300}"
+            "$value": "{colors.gold.600}",
+            "$description": "Use it as the fill for Primary Buttons on Hover state."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{colors.gold.700}"
+            "$value": "{colors.gold.700}",
+            "$description": "Use it as the fill for Primary Buttons on Pressed state."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{colors.neutral.300}",
+            "$description": "Use it as the fill for Primary Buttons on Disabled state."
+          },
+          "default-inverted": {
+            "$type": "color",
+            "$value": "{colors.base.white}",
+            "$description": "Use it as the fill for Primary Buttons on Default state on inverted surface."
+          },
+          "hovered-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.50}",
+            "$description": "Use it as the fill for Primary Buttons on Hover state on inverted surface."
+          },
+          "pressed-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.100}",
+            "$description": "Use it as the fill for Primary Buttons on Pressed state on inverted surface."
+          },
+          "disabled-inverted": {
+            "$type": "color",
+            "$value": "{colors.neutral.300}",
+            "$description": "Use it as the fill for Primary Buttons on Disabled state on inverted surface."
           }
         },
         "secondary": {
+          "default": {
+            "$type": "color",
+            "$value": "{colors.alpha.white.50}",
+            "$description": "Use it as the fill for Secondary Buttons on Default state."
+          },
           "hovered": {
             "$type": "color",
-            "$value": "{colors.teal.50}"
+            "$value": "{colors.teal.50}",
+            "$description": "Use it as the fill for Secondary Buttons on Hover state."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{colors.teal.100}"
+            "$value": "{colors.teal.100}",
+            "$description": "Use it as the fill for Secondary Buttons on Pressed state."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{colors.neutral.100}"
+            "$value": "{colors.neutral.100}",
+            "$description": "Use it as the fill for Secondary Buttons on Disabled state."
           },
-          "default": {
+          "default-inverted": {
             "$type": "color",
-            "$value": "{colors.alpha.white.50}"
+            "$value": "{colors.alpha.grey.50}",
+            "$description": "Use it as the fill for Secondary Buttons on Default state on inverted surfaces."
+          },
+          "hovered-inverted": {
+            "$type": "color",
+            "$value": "{colors.alpha.white.100}",
+            "$description": "Use it as the fill for Secondary Buttons on Hover state on inverted surfaces."
+          },
+          "pressed-inverted": {
+            "$type": "color",
+            "$value": "{colors.alpha.white.200}",
+            "$description": "Use it as the fill for Secondary Buttons on Pressed state on inverted surfaces."
+          },
+          "disabled-inverted": {
+            "$type": "color",
+            "$value": "{colors.alpha.white.50}",
+            "$description": "Use it as the fill for Secondary Buttons on Disabled state on inverted surfaces."
           }
         },
         "destructive": {
           "default": {
             "$type": "color",
-            "$value": "{colors.red.700}"
+            "$value": "{colors.red.700}",
+            "$description": "Use it as the fill for Destructive Buttons on Default state."
           },
           "hovered": {
             "$type": "color",
-            "$value": "{colors.red.800}"
+            "$value": "{colors.red.800}",
+            "$description": "Use it as the fill for Destructive Buttons on Hover state."
           },
           "pressed": {
             "$type": "color",
-            "$value": "{colors.red.900}"
+            "$value": "{colors.red.900}",
+            "$description": "Use it as the fill for Destructive Buttons on Pressed state."
           }
         }
       },
@@ -985,201 +1072,319 @@
         "button": {
           "default": {
             "$type": "color",
-            "$value": "{colors.teal.700}"
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{colors.neutral.500}"
+            "$value": "{colors.teal.700}",
+            "$description": "Use it for the border of a Secondary Button on Default state."
           },
           "hovered": {
             "$type": "color",
-            "$value": "{colors.teal.800}"
+            "$value": "{colors.teal.800}",
+            "$description": "Use it for the border of a Secondary Button on Hover state."
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{colors.teal.900}",
+            "$description": "Use it for the border of a Secondary Button on Pressed state."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{colors.neutral.500}",
+            "$description": "Use it for the border of a Secondary Button on Disabled state."
+          },
+          "default-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.100}",
+            "$description": "Use it for the border of a Secondary Button on Default state on inverted surface."
+          },
+          "hovered-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.200}",
+            "$description": "Use it for the border of a Secondary Button on Hover state on inverted surface."
+          },
+          "pressed-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.300}",
+            "$description": "Use it for the border of a Secondary Button on Pressed state on inverted surface."
+          },
+          "disabled-inverted": {
+            "$type": "color",
+            "$value": "{colors.neutral.500}",
+            "$description": "Use it for the border of a Secondary Button on Disabled state on inverted surface."
           }
         },
         "focus": {
           "default": {
             "$type": "color",
-            "$value": "{colors.neutral.900}"
-          },
-          "error": {
-            "$type": "color",
-            "$value": "{colors.red.900}"
+            "$value": "{colors.neutral.900}",
+            "$description": "Use it in the Focus effect for the Focus state of a component."
           },
           "accent": {
             "$type": "color",
-            "$value": "{colors.teal.700}"
+            "$value": "{colors.teal.700}",
+            "$description": "Use it in the Focus effect for the Focus state of a component (highlight)."
+          },
+          "accent-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.300}",
+            "$description": "Use it in the Focus effect for the Focus state of a component (highlight) on solid bg."
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{colors.red.900}",
+            "$description": "Use it in the Focus effect for the Error state of a component."
           },
           "error-inverted": {
             "$type": "color",
-            "$value": "{colors.red.700}"
+            "$value": "{colors.red.700}",
+            "$description": "Use it in the Focus effect for the Error state of a component (on dark mode)."
           }
         },
         "scroll": {
           "active": {
             "$type": "color",
-            "$value": "{colors.teal.700}"
+            "$value": "{colors.teal.700}",
+            "$description": "Use it on the Active handle of a Scrollbar component."
           },
           "inactive": {
             "$type": "color",
-            "$value": "{colors.neutral-tinted.200}"
+            "$value": "{colors.neutral-tinted.200}",
+            "$description": "Use it on the Inactive handle of a Scrollbar component."
           }
         },
         "input": {
-          "error": {
-            "$type": "color",
-            "$value": "{colors.red.700}"
-          },
           "default": {
             "$type": "color",
-            "$value": "{colors.neutral.400}"
+            "$value": "{colors.neutral.400}",
+            "$description": "Use it for the border of an Input, Dropdown, Select or Text Area field on Default state."
           },
-          "disabled": {
+          "default-inverted": {
             "$type": "color",
-            "$value": "{colors.neutral-tinted.200}"
+            "$value": "{colors.neutral.300}",
+            "$description": "Use it for inverted input fields on inverted surface."
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{colors.neutral-tinted.700}",
+            "$description": "Use it for the border of an Input on hover state."
+          },
+          "hover-inverted": {
+            "$type": "color",
+            "$value": "{colors.neutral-tinted.100}",
+            "$description": "Use it for the border of an Input on hover state on inverted surface"
           },
           "active": {
             "$type": "color",
-            "$value": "{colors.neutral.900}"
+            "$value": "{colors.neutral.900}",
+            "$description": "Use it for the border of an Input, Dropdown, Select or Text Area field on Active state."
+          },
+          "active-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.600}",
+            "$description": "Use it for the border of an Input, Dropdown, Select or Text Area field on Active state on inverted surface."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{colors.neutral-tinted.200}",
+            "$description": "Use it for the border of an Input, Dropdown, Select or Text Area field on Disabled state."
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{colors.red.700}",
+            "$description": "Use it for the border of an Input, Dropdown, Select or Text Area field on Error state."
+          },
+          "error-inverted": {
+            "$type": "color",
+            "$value": "{colors.red.400}",
+            "$description": "Use it for the border of an Input, Dropdown, Select or Text Area field on Error state on inverted surface."
           }
         },
         "icon-button": {
           "default": {
             "$type": "color",
-            "$value": "{colors.neutral.400}"
+            "$value": "{colors.neutral.400}",
+            "$description": "Use it for the border of an Icon Button on Default state."
           },
           "hovered": {
             "$type": "color",
-            "$value": "{colors.teal.700}"
+            "$value": "{colors.teal.700}",
+            "$description": "Use it for the border of an Icon Button on Hover state."
           },
           "active": {
             "$type": "color",
-            "$value": "{colors.teal.800}"
+            "$value": "{colors.teal.800}",
+            "$description": "Use it for the border of an Icon Button on Pressed or Active state."
           }
         },
         "divider": {
           "subtle": {
             "$type": "color",
-            "$value": "{colors.neutral-tinted.100}"
+            "$value": "{colors.neutral-tinted.100}",
+            "$description": "Use it for dividers between sections, cards, tables (e.g. separate groups on a menu, etc)."
           },
           "strong": {
             "$type": "color",
-            "$value": "{colors.neutral-tinted.400}"
+            "$value": "{colors.neutral-tinted.400}",
+            "$description": "Use it for dividers with higher emphasis (e.g. dividers over tinted backgrounds, table cell dividers, cards)."
           },
           "inverted": {
             "$type": "color",
-            "$value": "{colors.base.white}"
+            "$value": "{colors.base.white}",
+            "$description": "Use it for inverted dividers on solid backgrounds."
           }
         },
         "accent": {
           "default": {
             "$type": "color",
-            "$value": "{colors.teal.700}"
+            "$value": "{colors.teal.700}",
+            "$description": "Use it for accented icons or containers with stroke."
           },
           "strong": {
             "$type": "color",
-            "$value": "{colors.teal.900}"
+            "$value": "{colors.teal.900}",
+            "$description": "Use it for accented icons or containers with stroke that requires higher contrast."
           }
         }
       },
       "links": {
         "default": {
           "$type": "color",
-          "$value": "{colors.teal.700}"
+          "$value": "{colors.teal.700}",
+          "$description": "Use it for links on default state."
         },
         "hovered": {
           "$type": "color",
-          "$value": "{colors.teal.800}"
-        },
-        "disabled": {
-          "$type": "color",
-          "$value": "{colors.neutral.500}"
+          "$value": "{colors.teal.800}",
+          "$description": "Use it for links on hover state."
         },
         "pressed": {
           "$type": "color",
-          "$value": "{colors.teal.900}"
+          "$value": "{colors.teal.900}",
+          "$description": "Use it for links on pressed state."
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{colors.neutral.500}",
+          "$description": "Use it for links on a disabled state."
+        },
+        "default-inverted": {
+          "$type": "color",
+          "$value": "{colors.teal.100}",
+          "$description": "Use it for links on default state."
+        },
+        "hovered-inverted": {
+          "$type": "color",
+          "$value": "{colors.teal.200}",
+          "$description": "Use it for links on hover state."
+        },
+        "pressed-inverted": {
+          "$type": "color",
+          "$value": "{colors.teal.300}",
+          "$description": "Use it for links on pressed state."
+        },
+        "disabled-inverted": {
+          "$type": "color",
+          "$value": "{colors.neutral.700}",
+          "$description": "Use it for links on a disabled state."
         }
       },
       "surface": {
         "primary": {
           "$type": "color",
-          "$value": "{colors.base.white}"
+          "$value": "{colors.base.white}",
+          "$description": "Use it as the fill color for elevated elements (menus, modals, drawers, popovers, etc)."
         },
         "secondary": {
           "$type": "color",
-          "$value": "{colors.neutral.50}"
+          "$value": "{colors.neutral.50}",
+          "$description": "Use it as the fill color for elevated elements that needs a subtle contrast against the background without the use of drop shadows (e.g. cards)."
         },
         "interactive": {
-          "selected": {
-            "$type": "color",
-            "$value": "{colors.teal.100}"
-          },
-          "selected-hover": {
-            "$type": "color",
-            "$value": "{colors.teal.200}"
-          },
           "default": {
             "$type": "color",
-            "$value": "{colors.base.white}"
-          },
-          "disabled": {
-            "$type": "color",
-            "$value": "{colors.neutral.100}"
+            "$value": "{colors.base.white}",
+            "$description": "Use it as the fill color for default interactive items (e.g. Menu items, Cards, etc)."
           },
           "hovered": {
             "$type": "color",
-            "$value": "{colors.teal.50}"
+            "$value": "{colors.teal.50}",
+            "$description": "Use it as the fill color for interactive items on Hover state."
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{colors.teal.100}",
+            "$description": "Use it as the fill color for interactive items on Selected state."
+          },
+          "selected-hover": {
+            "$type": "color",
+            "$value": "{colors.teal.200}",
+            "$description": "Use it as the fill color for Selected interactive items on Hover state."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{colors.neutral.100}",
+            "$description": "Use it as the fill color for disabled interactive elements (e.g. a disabled option on a menu)."
           }
         },
         "tinted-1": {
           "$type": "color",
-          "$value": "{colors.neutral-tinted.50}"
+          "$value": "{colors.neutral-tinted.50}",
+          "$description": "Use it as the fill color for elevated elements that needs a subtle tinted contrast against the background without the use of drop shadows (banner or highlighted section container)."
         },
         "tinted-2": {
           "$type": "color",
-          "$value": "{colors.neutral-tinted.100}"
+          "$value": "{colors.neutral-tinted.100}",
+          "$description": "Use it as the fill color for elevated elements that require a slightly higher contrast against the background (banners or highlighted sections)."
         },
         "overlay": {
           "$type": "color",
-          "$value": "{colors.alpha.grey.600}"
+          "$value": "{colors.alpha.grey.600}",
+          "$description": "Use it as the dimm fill overlay for modals and other panels that needs the full focus from the user."
         }
       },
       "background": {
         "accent": {
           "solid": {
             "$type": "color",
-            "$value": "{colors.teal.800}"
+            "$value": "{colors.teal.800}",
+            "$description": "Use it as the background fill for sections that require a solid teal background (e.g full width promo banners, hero sections, etc)."
           },
           "subtle": {
             "$type": "color",
-            "$value": "{colors.teal.50}"
+            "$value": "{colors.teal.50}",
+            "$description": "Use it as an alternative background fill for sections that require a subtle teal background (e.g full width promo banners, hero sections, etc)."
           }
         },
         "default": {
+          "solid": {
+            "$type": "color",
+            "$value": "{colors.base.white}",
+            "$description": "Use it as the main background fill for pages and sections."
+          },
+          "subtle": {
+            "$type": "color",
+            "$value": "{colors.neutral.50}",
+            "$description": "Use it as an alternative background to create contrast with other cards or sections (e.g a Dashboard)."
+          },
           "static-black": {
             "$type": "color",
-            "$value": "{colors.neutral.900}"
+            "$value": "{colors.neutral.900}",
+            "$description": "Use it as a fixed dark background."
           },
           "static-white": {
             "$type": "color",
-            "$value": "{colors.base.white}"
-          },
-          "solid": {
-            "$type": "color",
-            "$value": "{colors.base.white}"
-          },
-          "subtle": {
-            "$type": "color",
-            "$value": "{colors.neutral.50}"
+            "$value": "{colors.base.white}",
+            "$description": "Use it as a fixed white background."
           }
         },
         "alt": {
-          "subtle": {
-            "$type": "color",
-            "$value": "{colors.limited.themes.standard.cream-beige}"
-          },
           "solid": {
             "$type": "color",
-            "$value": "{colors.limited.themes.standard.golden-cream}"
+            "$value": "{colors.limited.themes.standard.golden-cream}",
+            "$description": "Use it as an alternative background fill for sections that require a solid warm background (e.g full width promo banners, hero sections, etc)."
+          },
+          "subtle": {
+            "$type": "color",
+            "$value": "{colors.limited.themes.standard.cream-beige}",
+            "$description": "Use it as an alternative background fill for sections that require a subtle warm background (e.g full width promo banners, hero sections, etc)."
           }
         }
       },
@@ -1187,91 +1392,162 @@
         "default": {
           "primary": {
             "$type": "color",
-            "$value": "{colors.neutral.900}"
+            "$value": "{colors.neutral.900}",
+            "$description": "Use for isolated icons with higher hierarchy"
           },
           "primary-inverted": {
             "$type": "color",
-            "$value": "{colors.base.white}"
+            "$value": "{colors.base.white}",
+            "$description": "Use for isolated icons on dark or shaded surfaces."
           },
           "secondary": {
             "$type": "color",
-            "$value": "{colors.neutral.800}"
+            "$value": "{colors.neutral.800}",
+            "$description": "Use for icon buttons on default state."
           },
           "tertiary": {
             "$type": "color",
-            "$value": "{colors.neutral.700}"
+            "$value": "{colors.neutral.700}",
+            "$description": "Use for less important icons, that might be incorporated inline with text blocks or caption texts."
           },
           "disabled-on-surface": {
             "$type": "color",
-            "$value": "{colors.neutral.700}"
+            "$value": "{colors.neutral.700}",
+            "$description": "Use for icons on a disabled state but on color surfaces."
           },
           "disabled": {
             "$type": "color",
-            "$value": "{colors.neutral.500}"
+            "$value": "{colors.neutral.500}",
+            "$description": "Use for icons on a disabled state."
           }
         },
         "accent": {
           "default": {
             "$type": "color",
-            "$value": "{colors.teal.700}"
+            "$value": "{colors.teal.700}",
+            "$description": "Use to highlight icons and icon buttons on hover state."
           },
           "on-surface": {
             "$type": "color",
-            "$value": "{colors.teal.800}"
+            "$value": "{colors.teal.800}",
+            "$description": "Use to highlight icons and icon buttons on pressed state or applied over a tinted $teal surface."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.teal.900}"
+            "$value": "{colors.teal.900}",
+            "$description": "Use it to create icons with higher contrast against tinted $teal surface or pressed states."
+          },
+          "default-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.100}",
+            "$description": "Use to highlight icons on inverted surfaces."
+          },
+          "on-surface-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.200}",
+            "$description": "Use to highlight icons and icon buttons on pressed state on inverted surfaces."
+          },
+          "high-contrast-inverted": {
+            "$type": "color",
+            "$value": "{colors.teal.300}",
+            "$description": "Use it to create icons with higher contrast on inverted surfaces."
           }
         },
         "error": {
           "default": {
             "$type": "color",
-            "$value": "{colors.red.700}"
+            "$value": "{colors.red.700}",
+            "$description": "Use it to accompany helper texts in a component s error messages."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.red.900}"
+            "$value": "{colors.red.900}",
+            "$description": "Use it to accompany helper texts in a component s error messages that require higher contrast (e.g. a tinted red surface)."
+          },
+          "high-contrast-inverted": {
+            "$type": "color",
+            "$value": "{colors.red.400}",
+            "$description": "Use it to accompany helper texts in a component s error messages on inverted surface."
           }
         },
         "info": {
           "default": {
             "$type": "color",
-            "$value": "{colors.blue.700}"
+            "$value": "{colors.blue.700}",
+            "$description": "Use for informational icons."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.blue.900}"
+            "$value": "{colors.blue.900}",
+            "$description": "Use for informational icons on lighter blue surfaces."
+          },
+          "high-contrast-inverted": {
+            "$type": "color",
+            "$value": "{colors.blue.300}",
+            "$description": "Use for informational icons on inverted surfaces."
           }
         },
         "warning": {
           "default": {
             "$type": "color",
-            "$value": "{colors.orange.700}"
+            "$value": "{colors.orange.700}",
+            "$description": "Use for warning icons."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.orange.900}"
+            "$value": "{colors.orange.900}",
+            "$description": "Use for warning icons on lighter orange surfaces."
+          },
+          "high-contrast-inverted": {
+            "$type": "color",
+            "$value": "{colors.orange.400}",
+            "$description": "Use for warning icons on lighter orange surfaces."
           }
         },
         "success": {
           "default": {
             "$type": "color",
-            "$value": "{colors.green.700}"
+            "$value": "{colors.green.700}",
+            "$description": "Use for success icons."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.green.900}"
+            "$value": "{colors.green.900}",
+            "$description": "Use for success icons on lighter $green surfaces."
+          },
+          "high-contrast-inverted": {
+            "$type": "color",
+            "$value": "{colors.green.400}",
+            "$description": "Use for success icons on inverted surfaces."
           }
         },
         "emphasis": {
           "default": {
             "$type": "color",
-            "$value": "{colors.purple.700}"
+            "$value": "{colors.purple.700}",
+            "$description": "Use for emphasis icons."
           },
           "high-contrast": {
             "$type": "color",
-            "$value": "{colors.purple.900}"
+            "$value": "{colors.purple.900}",
+            "$description": "Use for emphasis icons on lighter purple surfaces."
+          }
+        },
+        "subtle": {
+          "primary": {
+            "$type": "color",
+            "$value": "{colors.neutral-tinted.400}",
+            "$description": "Use for subtle icons."
+          },
+          "secondary": {
+            "$type": "color",
+            "$value": "{colors.neutral-tinted.600}",
+            "$description": "Use for subtle icons on hover states."
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{colors.neutral.300}",
+            "$description": "Use for subtle icons when disabled."
           }
         }
       },
@@ -1279,279 +1555,289 @@
         "complementary": {
           "1": {
             "$type": "color",
-            "$value": "{colors.teal.900}"
+            "$value": "{colors.teal.900}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "2": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.emerald}"
+            "$value": "{colors.limited.complementary.emerald}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "3": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.sage-green}"
+            "$value": "{colors.limited.complementary.sage-green}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "4": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.lime-green}"
+            "$value": "{colors.limited.complementary.lime-green}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "5": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.light-green}"
+            "$value": "{colors.limited.complementary.light-green}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "6": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.aqua}"
+            "$value": "{colors.limited.complementary.aqua}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "7": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.powder-blue}"
+            "$value": "{colors.limited.complementary.powder-blue}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "8": {
             "$type": "color",
-            "$value": "{colors.purple.700}"
+            "$value": "{colors.purple.700}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "9": {
             "$type": "color",
-            "$value": "{colors.purple.50}"
+            "$value": "{colors.purple.50}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "10": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.golden-yellow}"
+            "$value": "{colors.limited.complementary.golden-yellow}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "11": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.coral-red}"
+            "$value": "{colors.limited.complementary.coral-red}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "12": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.salmon}"
+            "$value": "{colors.limited.complementary.salmon}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "13": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.peach}"
+            "$value": "{colors.limited.complementary.peach}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "14": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.navy-blue}"
+            "$value": "{colors.limited.complementary.navy-blue}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "15": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.royal-blue}"
+            "$value": "{colors.limited.complementary.royal-blue}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           },
           "16": {
             "$type": "color",
-            "$value": "{colors.limited.complementary.light-blue}"
+            "$value": "{colors.limited.complementary.light-blue}",
+            "$description": "These colors should not be used as part of prominent elements or sections of the interface. Their purpose is to be supportive accent colors in a dynamic composition, such as a promotional banner, an interactive chart, a discount tag, or small decorative graphic elements. Avoid using them in buttons, pages or sections background fills."
           }
         },
         "consultant": {
           "advanced-director": {
             "$type": "color",
-            "$value": "{colors.limited.consultants.dark-navy}"
+            "$value": "{colors.limited.consultants.dark-navy}",
+            "$description": "These color should only be used to represent the hierarchy of a consultant in an UI (e.g. the color fill of their Avatars)."
           },
           "consultant": {
             "$type": "color",
-            "$value": "{colors.limited.consultants.light-sage}"
+            "$value": "{colors.limited.consultants.light-sage}",
+            "$description": "These color should only be used to represent the hierarchy of a consultant in an UI (e.g. the color fill of their Avatars)."
           },
           "director": {
             "$type": "color",
-            "$value": "{colors.limited.consultants.crimson-red}"
+            "$value": "{colors.limited.consultants.crimson-red}",
+            "$description": "These color should only be used to represent the hierarchy of a consultant in an UI (e.g. the color fill of their Avatars)."
           },
           "executive-director": {
             "$type": "color",
-            "$value": "{colors.limited.consultants.turquoise}"
+            "$value": "{colors.limited.consultants.turquoise}",
+            "$description": "These color should only be used to represent the hierarchy of a consultant in an UI (e.g. the color fill of their Avatars)."
           },
           "national-executive-director": {
             "$type": "color",
-            "$value": "{colors.limited.consultants.cyan-blue}"
+            "$value": "{colors.limited.consultants.cyan-blue}",
+            "$description": "These color should only be used to represent the hierarchy of a consultant in an UI (e.g. the color fill of their Avatars)."
           },
           "senior-consultant": {
             "$type": "color",
-            "$value": "{colors.limited.consultants.sky-blue}"
+            "$value": "{colors.limited.consultants.sky-blue}",
+            "$description": "These color should only be used to represent the hierarchy of a consultant in an UI (e.g. the color fill of their Avatars)."
           },
           "senior-director": {
             "$type": "color",
-            "$value": "{colors.limited.consultants.golden-amber}"
+            "$value": "{colors.limited.consultants.golden-amber}",
+            "$description": "These color should only be used to represent the hierarchy of a consultant in an UI (e.g. the color fill of their Avatars)."
           },
           "senior-executive-director": {
             "$type": "color",
-            "$value": "{colors.limited.consultants.royal-purple}"
+            "$value": "{colors.limited.consultants.royal-purple}",
+            "$description": "These color should only be used to represent the hierarchy of a consultant in an UI (e.g. the color fill of their Avatars)."
           },
           "team-leader": {
             "$type": "color",
-            "$value": "{colors.limited.consultants.bright-pink}"
+            "$value": "{colors.limited.consultants.bright-pink}",
+            "$description": "These color should only be used to represent the hierarchy of a consultant in an UI (e.g. the color fill of their Avatars)."
           }
         },
         "party-status": {
           "coming-up": {
             "$type": "color",
-            "$value": "{colors.limited.party-status.olive-yellow}"
+            "$value": "{colors.limited.party-status.olive-yellow}",
+            "$description": "These colors should only be used to represent the status of the party or order in Consultant's Corner. (e.g. a Status Tag or Chip)."
           },
           "needs-attention": {
             "$type": "color",
-            "$value": "{colors.limited.party-status.alert-red}"
+            "$value": "{colors.limited.party-status.alert-red}",
+            "$description": "These colors should only be used to represent the status of the party or order in Consultant's Corner. (e.g. a Status Tag or Chip)."
           },
           "open": {
             "$type": "color",
-            "$value": "{colors.limited.party-status.teal-blue}"
+            "$value": "{colors.limited.party-status.teal-blue}",
+            "$description": "These colors should only be used to represent the status of the party or order in Consultant's Corner. (e.g. a Status Tag or Chip)."
           },
           "submitted": {
             "$type": "color",
-            "$value": "{colors.limited.party-status.neutral-gray}"
+            "$value": "{colors.limited.party-status.neutral-gray}",
+            "$description": "These colors should only be used to represent the status of the party or order in Consultant's Corner. (e.g. a Status Tag or Chip)."
           },
           "unsubmitted": {
             "$type": "color",
-            "$value": "{colors.limited.party-status.bright-orange}"
+            "$value": "{colors.limited.party-status.bright-orange}",
+            "$description": "These colors should only be used to represent the status of the party or order in Consultant's Corner. (e.g. a Status Tag or Chip)."
           }
         },
         "themes": {
           "fall-winter": {
             "graphic": {
               "$type": "color",
-              "$value": "{colors.limited.themes.fall-winter.sea-foam}"
+              "$value": "{colors.limited.themes.fall-winter.sea-foam}",
+              "$description": "Color fill of graphic elements on selected theme (Illustration)."
             },
             "line": {
               "$type": "color",
-              "$value": "{colors.limited.themes.fall-winter.ice-blue}"
+              "$value": "{colors.limited.themes.fall-winter.ice-blue}",
+              "$description": "Line color on selected theme (Illustration)."
             },
             "primary-background": {
               "$type": "color",
-              "$value": "{colors.limited.themes.fall-winter.cool-mint}"
+              "$value": "{colors.limited.themes.fall-winter.cool-mint}",
+              "$description": "Main background on selected theme."
             },
             "secondary-background": {
               "$type": "color",
-              "$value": "{colors.limited.themes.fall-winter.pale-blue}"
+              "$value": "{colors.limited.themes.fall-winter.pale-blue}",
+              "$description": "Alt background on selected theme."
             },
             "shape": {
               "$type": "color",
-              "$value": "{colors.limited.themes.fall-winter.frost-blue}"
+              "$value": "{colors.limited.themes.fall-winter.frost-blue}",
+              "$description": "Shape fill on selected theme (Illustration)."
             },
             "surface": {
               "$type": "color",
-              "$value": "{colors.limited.themes.fall-winter.aqua-mint}"
+              "$value": "{colors.limited.themes.fall-winter.aqua-mint}",
+              "$description": "Surface on selected theme."
             }
           },
           "spring-summer": {
             "graphic": {
               "$type": "color",
-              "$value": "{colors.limited.themes.spring-summer.warm-yellow}"
+              "$value": "{colors.limited.themes.spring-summer.warm-yellow}",
+              "$description": "Color fill of graphic elements on selected theme (Illustration)."
             },
             "line": {
               "$type": "color",
-              "$value": "{colors.limited.themes.spring-summer.light-moss}"
+              "$value": "{colors.limited.themes.spring-summer.light-moss}",
+              "$description": "Line color on selected theme (Illustration)."
             },
             "primary-background": {
               "$type": "color",
-              "$value": "{colors.limited.themes.spring-summer.pale-mint}"
+              "$value": "{colors.limited.themes.spring-summer.pale-mint}",
+              "$description": "Main background on selected theme."
             },
             "secondary-background": {
               "$type": "color",
-              "$value": "{colors.limited.themes.spring-summer.soft-white}"
+              "$value": "{colors.limited.themes.spring-summer.soft-white}",
+              "$description": "Alt background on selected theme."
             },
             "shape": {
               "$type": "color",
-              "$value": "{colors.limited.themes.spring-summer.pale-sage}"
+              "$value": "{colors.limited.themes.spring-summer.pale-sage}",
+              "$description": "Shape fill on selected theme (Illustration)."
             },
             "surface": {
               "$type": "color",
-              "$value": "{colors.limited.themes.spring-summer.light-peach}"
+              "$value": "{colors.limited.themes.spring-summer.light-peach}",
+              "$description": "Surface on selected theme."
             }
           },
           "standard": {
             "graphic": {
               "$type": "color",
-              "$value": "{colors.gold.600}"
+              "$value": "{colors.gold.600}",
+              "$description": "Color fill of graphic elements on selected theme (Illustration)."
             },
             "line": {
               "$type": "color",
-              "$value": "{colors.limited.themes.standard.soft-beige}"
+              "$value": "{colors.limited.themes.standard.soft-beige}",
+              "$description": "Line color on selected theme (Illustration)."
             },
             "primary-background": {
               "$type": "color",
-              "$value": "{colors.limited.themes.standard.cream-beige}"
+              "$value": "{colors.limited.themes.standard.cream-beige}",
+              "$description": "Main background on selected theme."
             },
             "secondary-background": {
               "$type": "color",
-              "$value": "{colors.limited.themes.standard.warm-ivory}"
+              "$value": "{colors.limited.themes.standard.warm-ivory}",
+              "$description": "Alt background on selected theme."
             },
             "shape": {
               "$type": "color",
-              "$value": "{colors.limited.themes.standard.light-tan}"
+              "$value": "{colors.limited.themes.standard.light-tan}",
+              "$description": "Shape fill on selected theme (Illustration)."
             },
             "surface": {
               "$type": "color",
-              "$value": "{colors.limited.themes.standard.golden-cream}"
+              "$value": "{colors.limited.themes.standard.golden-cream}",
+              "$description": "Surface on selected theme."
             }
           },
           "summer-fall": {
             "graphic": {
               "$type": "color",
-              "$value": "{colors.limited.themes.summer-fall.terracotta}"
+              "$value": "{colors.limited.themes.summer-fall.terracotta}",
+              "$description": "Color fill of graphic elements on selected theme (Illustration)."
             },
             "line": {
               "$type": "color",
-              "$value": "{colors.limited.themes.summer-fall.sandy-beige}"
+              "$value": "{colors.limited.themes.summer-fall.sandy-beige}",
+              "$description": "Line color on selected theme (Illustration)."
             },
             "primary-background": {
               "$type": "color",
-              "$value": "{colors.limited.themes.summer-fall.warm-cream}"
+              "$value": "{colors.limited.themes.summer-fall.warm-cream}",
+              "$description": "Main background on selected theme."
             },
             "secondary-background": {
               "$type": "color",
-              "$value": "{colors.limited.themes.summer-fall.soft-ivory}"
+              "$value": "{colors.limited.themes.summer-fall.soft-ivory}",
+              "$description": "Alt background on selected theme."
             },
             "shape": {
               "$type": "color",
-              "$value": "{colors.limited.themes.summer-fall.dusty-cream}"
+              "$value": "{colors.limited.themes.summer-fall.dusty-cream}",
+              "$description": "Shape fill on selected theme (Illustration)."
             },
             "surface": {
               "$type": "color",
-              "$value": "{colors.limited.themes.summer-fall.coral-cream}"
+              "$value": "{colors.limited.themes.summer-fall.coral-cream}",
+              "$description": "Surface on selected theme."
             }
           }
         }
-      }
-    },
-    "focus-fx": {
-      "default": {
-        "$type": "boxShadow",
-        "$value": [
-          {
-            "color": "{colors.base.white}",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "0",
-            "blur": "0",
-            "spread": "2"
-          },
-          {
-            "color": "{colors.neutral.900}",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "0",
-            "blur": "0",
-            "spread": "6"
-          }
-        ]
-      },
-      "error": {
-        "$type": "boxShadow",
-        "$value": [
-          {
-            "color": "{colors.base.white}",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "0",
-            "blur": "0",
-            "spread": "2"
-          },
-          {
-            "color": "{color.border.focus.error}",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "0",
-            "blur": "0",
-            "spread": "6"
-          }
-        ]
       }
     }
   },
@@ -1559,431 +1845,413 @@
     "spacing": {
       "none": {
         "$type": "dimension",
-        "$value": "{scale.0}"
+        "$value": "{scale.0}",
+        "$description": "(0px). Use when elements should have no gap or padding between them (e.g both consecutive sections have white bg, so the next section will have a 0px top padding to avoid an excessive spacing)."
       },
       "2xs": {
         "$type": "dimension",
-        "$value": "{scale.1}"
+        "$value": "{scale.1}",
+        "$description": "(4px). Use for very tight spacing like icon-to-text gaps or subtle padding."
       },
       "xs": {
         "$type": "dimension",
-        "$value": "{scale.2}"
+        "$value": "{scale.2}",
+        "$description": "(8px). Use for compact component internal spacing or small gaps between related elements."
       },
       "sm": {
         "$type": "dimension",
-        "$value": "{scale.3}"
+        "$value": "{scale.3}",
+        "$description": "(12px). Use for moderate padding within components or gaps between closely related items."
       },
       "md": {
         "$type": "dimension",
-        "$value": "{scale.4}"
+        "$value": "{scale.4}",
+        "$description": "(16px). Default spacing for most component padding and gaps. Our baseline spacing unit."
       },
       "lg": {
         "$type": "dimension",
-        "$value": "{scale.6}"
+        "$value": "{scale.6}",
+        "$description": "(24px). Use for generous component padding or gaps between distinct sections."
       },
       "xl": {
         "$type": "dimension",
-        "$value": "{scale.8}"
+        "$value": "{scale.8}",
+        "$description": "(32px). Use for significant separation between components or section padding."
       },
       "2xl": {
         "$type": "dimension",
-        "$value": "{scale.10}"
+        "$value": "{scale.10}",
+        "$description": "(40px). Use for separation between content blocks within a section."
       },
       "3xl": {
         "$type": "dimension",
-        "$value": "{scale.12}"
+        "$value": "{scale.12}",
+        "$description": "(48px). Use for vertical separation between sections."
       },
       "4xl": {
         "$type": "dimension",
-        "$value": "{scale.16}"
+        "$value": "{scale.16}",
+        "$description": "(64px). Use for maximum spacing between distinct page areas or special layout needs."
       }
     },
     "radius": {
       "square": {
         "$type": "borderRadius",
-        "$value": "{scale.0}"
+        "$value": "{scale.0}",
+        "$description": "Sharp corners with no rounding (0px). Use for rectangular elements requiring hard edges."
       },
       "sm": {
         "$type": "borderRadius",
-        "$value": "{scale.custom.min}"
+        "$value": "{scale.custom.min}",
+        "$description": "Small corner radius (6px). Use for subtle rounding on cards and other UI elements."
       },
       "md": {
         "$type": "borderRadius",
-        "$value": "{scale.2}"
+        "$value": "{scale.2}",
+        "$description": "Medium corner radius (8px). Standard rounding for most components like inputs, bigger cards, and containers."
+      },
+      "xl": {
+        "$type": "borderRadius",
+        "$value": "{scale.6}",
+        "$description": "Use it only for Search Typeahead menus and pill shaped items (e.g Quantity Stepper)."
       },
       "full": {
         "$type": "borderRadius",
-        "$value": "{scale.custom.max}"
+        "$value": "50%",
+        "$description": "Creates fully rounded borders (pill-shaped buttons, circular avatars). Outputs as 50% in CSS. The 1000px Figma value is a placeholder—actual roundness is percentage-based."
       }
     },
     "size": {
       "height": {
-        "lg": {
+        "xs": {
           "$type": "dimension",
-          "$value": "{scale.12}"
+          "$value": "{scale.6}",
+          "$description": "(24px). Use as the base icon height and smaller elements."
         },
         "sm": {
           "$type": "dimension",
-          "$value": "{scale.8}"
-        },
-        "xs": {
-          "$type": "dimension",
-          "$value": "{scale.6}"
+          "$value": "{scale.8}",
+          "$description": "(32px). Use it as the fixed height for Small Buttons and sm variants."
         },
         "md": {
           "$type": "dimension",
-          "$value": "{scale.10}"
+          "$value": "{scale.10}",
+          "$description": "(40px). Fixed height for Input/Text fields and default Chips (md)."
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": "{scale.12}",
+          "$description": "(48px). Fixed height for Large Buttons, Input/Text fields, and other large component variants (lg)."
+        },
+        "xl": {
+          "$type": "dimension",
+          "$value": "{scale.18}",
+          "$description": "(72px). Height for xl icon buttons and chips."
         },
         "icon": {
-          "sm": {
-            "$type": "dimension",
-            "$value": "{scale.5}"
-          },
           "xs": {
             "$type": "dimension",
-            "$value": "{scale.4}"
+            "$value": "{scale.4}",
+            "$description": "(16px). Height for the smallest icon size (Small Button)."
+          },
+          "sm": {
+            "$type": "dimension",
+            "$value": "{scale.5}",
+            "$description": "(20px). Height for the icon in a Large Button."
           },
           "md": {
             "$type": "dimension",
-            "$value": "{scale.6}"
+            "$value": "{scale.6}",
+            "$description": "(24px). Default size for most standalone icons and instances in icon buttons."
           },
           "lg": {
             "$type": "dimension",
-            "$value": "{scale.8}"
+            "$value": "{scale.8}",
+            "$description": "(32px). Default size for most standalone icons and instances in icon buttons."
           },
           "2xl": {
             "$type": "dimension",
-            "$value": "{scale.16}"
+            "$value": "{scale.16}",
+            "$description": "(64px). Default size for most standalone icons and instances in icon buttons."
           },
           "4xl": {
             "$type": "dimension",
-            "$value": "{scale.20}"
+            "$value": "{scale.20}",
+            "$description": "(80px). Max height of a highlighted icon (e.g. a more detailed icon of a feature of benefit on a landing page)."
           }
         }
       },
       "width": {
-        "button-mw-lg": {
-          "$type": "dimension",
-          "$value": "{scale.32}"
-        },
         "button-mw-sm": {
           "$type": "dimension",
-          "$value": "{scale.24}"
+          "$value": "{scale.24}",
+          "$description": "(96px). Ensures small buttons have adequate clickable area and visual presence."
+        },
+        "button-mw-lg": {
+          "$type": "dimension",
+          "$value": "{scale.32}",
+          "$description": "(128px). Ensures large buttons have substantial clickable area and prominent visual hierarchy."
         }
       }
     }
   },
   "Elevation": {
     "elevation": {
-      "primary-button": {
-        "$type": "boxShadow",
-        "$value": [
-          {
-            "color": "rgba(0,0,0,0.4)",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "1",
-            "blur": "2",
-            "spread": "0"
-          },
-          {
-            "color": "rgba(0,0,0,0.15)",
-            "type": "dropShadow",
-            "x": "0",
-            "y": "4",
-            "blur": "6",
-            "spread": "0"
-          }
-        ]
-      },
-      "sharp": {
-        "sm": {
+      "component": {
+        "primary-button": {
           "$type": "boxShadow",
           "$value": [
             {
-              "color": "#21212105",
+              "color": "rgba(0,0,0,0.4)",
+              "type": "dropShadow",
+              "x": "0",
+              "y": "1",
+              "blur": "2",
+              "spread": "0"
+            },
+            {
+              "color": "rgba(0,0,0,0.15)",
               "type": "dropShadow",
               "x": "0",
               "y": "4",
-              "blur": "4",
-              "spread": "0"
-            },
-            {
-              "color": "#2121210a",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "3",
-              "blur": "3",
-              "spread": "0"
-            },
-            {
-              "color": "#2121210f",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "1",
-              "blur": "1",
-              "spread": "0"
-            },
-            {
-              "color": "#21212114",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "1",
-              "blur": "1",
-              "spread": "0"
-            },
-            {
-              "color": "#2121211a",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "0",
-              "blur": "0",
-              "spread": "0"
-            }
-          ]
-        },
-        "md": {
-          "$type": "boxShadow",
-          "$value": [
-            {
-              "color": "#21212105",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "8",
-              "blur": "8",
-              "spread": "0"
-            },
-            {
-              "color": "#2121210a",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "5",
-              "blur": "5",
-              "spread": "0"
-            },
-            {
-              "color": "#2121210f",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "3",
-              "blur": "3",
-              "spread": "0"
-            },
-            {
-              "color": "#21212114",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "1",
-              "blur": "1",
-              "spread": "0"
-            },
-            {
-              "color": "#2121211a",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "0",
-              "blur": "0",
-              "spread": "0"
-            }
-          ]
-        },
-        "lg": {
-          "$type": "boxShadow",
-          "$value": [
-            {
-              "color": "#21212105",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "16",
-              "blur": "16",
-              "spread": "0"
-            },
-            {
-              "color": "#2121210a",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "10",
-              "blur": "10",
-              "spread": "0"
-            },
-            {
-              "color": "#2121210f",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "6",
               "blur": "6",
               "spread": "0"
-            },
-            {
-              "color": "#21212114",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "3",
-              "blur": "3",
-              "spread": "0"
-            },
-            {
-              "color": "#2121211a",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "1",
-              "blur": "1",
-              "spread": "0"
             }
-          ]
+          ],
+          "$description": "Use it for Primary buttons."
         },
-        "xl": {
+        "header": {
           "$type": "boxShadow",
-          "$value": [
-            {
-              "color": "#21212105",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "32",
-              "blur": "32",
-              "spread": "0"
-            },
-            {
-              "color": "#2121210a",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "20",
-              "blur": "20",
-              "spread": "0"
-            },
-            {
-              "color": "#2121210f",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "12",
-              "blur": "12",
-              "spread": "0"
-            },
-            {
-              "color": "#21212114",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "5",
-              "blur": "5",
-              "spread": "0"
-            },
-            {
-              "color": "#2121211a",
-              "type": "dropShadow",
-              "x": "0",
-              "y": "1",
-              "blur": "1",
-              "spread": "0"
-            }
-          ]
+          "$value": {
+            "color": "#0b191c0d",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "4",
+            "blur": "10",
+            "spread": "0"
+          },
+          "$description": "$elevation-component-header\n\nHeader nav bar."
+        },
+        "bottom-sheet": {
+          "$type": "boxShadow",
+          "$value": {
+            "color": "#00000014",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "-6",
+            "blur": "16",
+            "spread": "0"
+          },
+          "$description": "$elevation-component-bottom-sheet\n\nBottom sheets, fixed elements to the bottom."
+        },
+        "bottom-sticky": {
+          "$type": "boxShadow",
+          "$value": {
+            "color": "#0000001a",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "-2",
+            "blur": "2",
+            "spread": "0"
+          },
+          "$description": "$elevation-component-pd-sticky-bar\n\nProduct details sticky bar."
+        },
+        "bottom-right": {
+          "$type": "boxShadow",
+          "$value": {
+            "color": "#0b191c1f",
+            "type": "dropShadow",
+            "x": "-4",
+            "y": "-4",
+            "blur": "12",
+            "spread": "0"
+          },
+          "$description": "$elevation-component-bottom-right\n\nHighlighted card overlays on the bottom right corner."
         }
-      }
-    },
-    "focus": {
-      "default": {
-        "$type": "boxShadow",
-        "$value": [
-          {
-            "color": "#ffffff",
-            "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 2
-          },
-          {
-            "color": "#2e3030",
-            "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 6
-          }
-        ]
       },
-      "default-inverted": {
+      "sm": {
         "$type": "boxShadow",
         "$value": [
           {
-            "color": "#2e3030",
+            "color": "#21212105",
             "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 2
+            "x": "0",
+            "y": "4",
+            "blur": "4",
+            "spread": "0"
           },
           {
-            "color": "#2b7a87",
+            "color": "#2121210a",
             "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 6
+            "x": "0",
+            "y": "3",
+            "blur": "3",
+            "spread": "0"
+          },
+          {
+            "color": "#2121210f",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "1",
+            "spread": "0"
+          },
+          {
+            "color": "#21212114",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "1",
+            "spread": "0"
+          },
+          {
+            "color": "#2121211a",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "0"
           }
-        ]
+        ],
+        "$description": "Subtle elevation, tooltips, cards."
       },
-      "accent": {
+      "md": {
         "$type": "boxShadow",
         "$value": [
           {
-            "color": "#ffffff",
+            "color": "#21212105",
             "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 2
+            "x": "0",
+            "y": "8",
+            "blur": "8",
+            "spread": "0"
           },
           {
-            "color": "#2b7a87",
+            "color": "#2121210a",
             "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 6
+            "x": "0",
+            "y": "5",
+            "blur": "5",
+            "spread": "0"
+          },
+          {
+            "color": "#2121210f",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "3",
+            "blur": "3",
+            "spread": "0"
+          },
+          {
+            "color": "#21212114",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "1",
+            "spread": "0"
+          },
+          {
+            "color": "#2121211a",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "0"
           }
-        ]
+        ],
+        "$description": "Dropdown menus."
       },
-      "accent-inverted": {
+      "lg": {
         "$type": "boxShadow",
         "$value": [
           {
-            "color": "#2e3030",
+            "color": "#21212105",
             "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 2
+            "x": "0",
+            "y": "16",
+            "blur": "16",
+            "spread": "0"
           },
           {
-            "color": "#2b7a87",
+            "color": "#2121210a",
             "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 6
+            "x": "0",
+            "y": "10",
+            "blur": "10",
+            "spread": "0"
+          },
+          {
+            "color": "#2121210f",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "6",
+            "blur": "6",
+            "spread": "0"
+          },
+          {
+            "color": "#21212114",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "3",
+            "blur": "3",
+            "spread": "0"
+          },
+          {
+            "color": "#2121211a",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "1",
+            "spread": "0"
           }
-        ]
+        ],
+        "$description": "Surfaced elements, panels."
       },
-      "error": {
+      "xl": {
         "$type": "boxShadow",
         "$value": [
           {
-            "color": "#ffffff",
+            "color": "#21212105",
             "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 2
+            "x": "0",
+            "y": "32",
+            "blur": "32",
+            "spread": "0"
           },
           {
-            "color": "#7a0f00",
+            "color": "#2121210a",
             "type": "dropShadow",
-            "x": 0,
-            "y": 0,
-            "blur": 0,
-            "spread": 6
+            "x": "0",
+            "y": "20",
+            "blur": "20",
+            "spread": "0"
+          },
+          {
+            "color": "#2121210f",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "12",
+            "blur": "12",
+            "spread": "0"
+          },
+          {
+            "color": "#21212114",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "5",
+            "blur": "5",
+            "spread": "0"
+          },
+          {
+            "color": "#2121211a",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "1",
+            "blur": "1",
+            "spread": "0"
           }
-        ]
+        ],
+        "$description": "Modals."
       }
     }
   },
@@ -2399,11 +2667,13 @@
     "font-family": {
       "primary": {
         "$type": "fontFamilies",
-        "$value": "Questa"
+        "$value": "Questa",
+        "$description": "Use it for the primary typography styles (Displays, headings)."
       },
       "secondary": {
         "$type": "fontFamilies",
-        "$value": "Lexend"
+        "$value": "Lexend",
+        "$description": "Use it for the secondary typography styles (labels, body copy, captions, etc)."
       }
     },
     "font-weight": {
@@ -2411,19 +2681,20 @@
         "$type": "fontWeights",
         "$value": "400"
       },
-      "bold": {
-        "$type": "fontWeights",
-        "$value": "700"
-      },
       "medium": {
         "$type": "fontWeights",
         "$value": "500"
+      },
+      "bold": {
+        "$type": "fontWeights",
+        "$value": "700"
       }
     },
     "text-transform": {
       "uppercase": {
         "$type": "textCase",
-        "$value": "uppercase"
+        "$value": "uppercase",
+        "$description": "Use it only for the Eyebrow typography style."
       },
       "none": {
         "$type": "textCase",
@@ -2433,11 +2704,13 @@
     "text-decoration": {
       "underline": {
         "$type": "textDecoration",
-        "$value": "underline"
+        "$value": "underline",
+        "$description": "Use it for links (text-underline styles)."
       },
       "line-through": {
         "$type": "textDecoration",
-        "$value": "line-through"
+        "$value": "line-through",
+        "$description": "Use it for the discounted price (text-strikethrough styles)."
       },
       "none": {
         "$type": "textDecoration",
@@ -2456,7 +2729,8 @@
             "fontSize": "{typescale.font-size.10xl}",
             "lineHeight": "{typescale.line-height.10xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-display-xl\n\nUse for the largest display text in hero sections and major headings."
         },
         "lg": {
           "$type": "typography",
@@ -2466,7 +2740,8 @@
             "fontSize": "{typescale.font-size.9xl}",
             "lineHeight": "{typescale.line-height.9xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-display-lg\n\nUse for large display text in prominent hero sections."
         },
         "md": {
           "$type": "typography",
@@ -2476,7 +2751,8 @@
             "fontSize": "{typescale.font-size.8xl}",
             "lineHeight": "{typescale.line-height.8xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-display-md\n\nUse for medium display text in featured sections and banners."
         },
         "sm": {
           "$type": "typography",
@@ -2486,7 +2762,8 @@
             "fontSize": "{typescale.font-size.7xl}",
             "lineHeight": "{typescale.line-height.7xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-display-sm\n\nUse for smaller display text in secondary hero sections."
         },
         "xs": {
           "$type": "typography",
@@ -2496,7 +2773,8 @@
             "fontSize": "{typescale.font-size.6xl}",
             "lineHeight": "{typescale.line-height.6xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-display-xs\n\nUse for the smallest display text in tertiary featured content."
         }
       },
       "headline": {
@@ -2508,7 +2786,8 @@
             "fontSize": "{typescale.font-size.5xl}",
             "lineHeight": "{typescale.line-height.5xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-headline-xl\n\nUse for extra large section headlines and page titles."
         },
         "lg": {
           "$type": "typography",
@@ -2518,7 +2797,8 @@
             "fontSize": "{typescale.font-size.4xl}",
             "lineHeight": "{typescale.line-height.4xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-headline-lg\n\nUse for large section headlines and major content groupings."
         },
         "md": {
           "$type": "typography",
@@ -2528,7 +2808,8 @@
             "fontSize": "{typescale.font-size.3xl}",
             "lineHeight": "{typescale.line-height.3xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-headline-md\n\nUse for medium section headlines and subsection titles."
         },
         "sm": {
           "$type": "typography",
@@ -2538,7 +2819,8 @@
             "fontSize": "{typescale.font-size.2xl}",
             "lineHeight": "120%",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-headline-sm\n\nUse for small section headlines and card titles."
         }
       },
       "price": {
@@ -2550,7 +2832,8 @@
             "fontSize": "{typescale.font-size.4xl}",
             "lineHeight": "150%",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-price-lg\n\nUse to display current product’s PDP."
         },
         "lg-strikethrough": {
           "$type": "typography",
@@ -2561,7 +2844,8 @@
             "lineHeight": "150%",
             "paragraphSpacing": "20px",
             "textDecoration": "{text-decoration.line-through}"
-          }
+          },
+          "$description": "$desktop-typography-price-lg-strikethrough\n\nUse for display previous product’s price on PDP."
         },
         "md": {
           "$type": "typography",
@@ -2571,7 +2855,8 @@
             "fontSize": "{typescale.font-size.2xl}",
             "lineHeight": "150%",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-price-md\n\nUse to display current product’s price on standard product cards."
         },
         "md-strikethrough": {
           "$type": "typography",
@@ -2582,7 +2867,8 @@
             "lineHeight": "150%",
             "paragraphSpacing": "20px",
             "textDecoration": "{text-decoration.line-through}"
-          }
+          },
+          "$description": "$desktop-typography-price-md-strikethrough\n\nUse to display previous product’s price on standard product cards."
         },
         "sm": {
           "$type": "typography",
@@ -2592,9 +2878,10 @@
             "fontSize": "{typescale.font-size.lg}",
             "lineHeight": "150%",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$desktop-typography-price-sm\n\nUse for small pricing display in compact layouts."
         },
-        "sm-srikethrough": {
+        "sm-strikethrough": {
           "$type": "typography",
           "$value": {
             "fontFamily": "{font-family.secondary}",
@@ -2603,7 +2890,8 @@
             "lineHeight": "150%",
             "paragraphSpacing": "20px",
             "textDecoration": "{text-decoration.line-through}"
-          }
+          },
+          "$description": "$desktop-typography-price-sm-strikethrough\n\nUse for small crossed-out original prices in compact views."
         }
       },
       "text": {
@@ -2616,7 +2904,8 @@
               "fontSize": "{typescale.font-size.xl}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$desktop-typography-text-xl-regular \n\nUse for extra large body text in introductory paragraphs."
           },
           "bold": {
             "$type": "typography",
@@ -2626,7 +2915,8 @@
               "fontSize": "{typescale.font-size.xl}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$desktop-typography-text-xl-bold\n\nUse for emphasized extra large body text."
           },
           "underline": {
             "$type": "typography",
@@ -2637,7 +2927,8 @@
               "lineHeight": "150%",
               "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
-            }
+            },
+            "$description": "$desktop-typography-text-xl-underline\n\nUse for underlined extra large text links."
           }
         },
         "lg": {
@@ -2649,7 +2940,8 @@
               "fontSize": "{typescale.font-size.lg}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$desktop-typography-text-lg-regular\n\nUse for large body text in feature descriptions."
           },
           "bold": {
             "$type": "typography",
@@ -2659,7 +2951,8 @@
               "fontSize": "{typescale.font-size.lg}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$desktop-typography-text-lg-bold\n\nUse for emphasized large body text and subheadings."
           },
           "underline": {
             "$type": "typography",
@@ -2670,7 +2963,8 @@
               "lineHeight": "150%",
               "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
-            }
+            },
+            "$description": "$desktop-typography-text-lg-underline\n\nUse for underlined large text links."
           }
         },
         "md": {
@@ -2682,7 +2976,8 @@
               "fontSize": "{typescale.font-size.md}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$desktop-typography-text-md-regular\n\nUse for standard body text and paragraph content."
           },
           "bold": {
             "$type": "typography",
@@ -2692,7 +2987,8 @@
               "fontSize": "{typescale.font-size.md}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$desktop-typography-text-md-bold\n\nUse for emphasized medium body text and inline headings."
           },
           "underline": {
             "$type": "typography",
@@ -2703,7 +2999,8 @@
               "lineHeight": "150%",
               "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
-            }
+            },
+            "$description": "$desktop-typography-text-md-underline\n\nUse for underlined medium text links."
           }
         },
         "sm": {
@@ -2715,7 +3012,8 @@
               "fontSize": "{typescale.font-size.sm}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$desktop-typography-text-sm-regular\n\nUse for small body text captions and secondary information."
           },
           "bold": {
             "$type": "typography",
@@ -2725,7 +3023,8 @@
               "fontSize": "{typescale.font-size.sm}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$desktop-typography-text-sm-bold\n\nUse for emphasized small text and labels."
           },
           "underline": {
             "$type": "typography",
@@ -2736,11 +3035,12 @@
               "lineHeight": "150%",
               "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
-            }
+            },
+            "$description": "$desktop-typography-text-sm-underline\n\nUse for underlined small text links and footnotes."
           }
         }
       },
-      "other": {
+      "utility": {
         "cta": {
           "md": {
             "$type": "typography",
@@ -2750,7 +3050,8 @@
               "fontSize": "{typescale.font-size.md}",
               "lineHeight": "100%",
               "paragraphSpacing": "0"
-            }
+            },
+            "$description": "$desktop-typography-utility-cta-md\n\nUse for for lg buttons."
           },
           "sm": {
             "$type": "typography",
@@ -2760,7 +3061,8 @@
               "fontSize": "{typescale.font-size.sm}",
               "lineHeight": "100%",
               "paragraphSpacing": "0"
-            }
+            },
+            "$description": "$desktop-typography-utility-cta-sm\n\nUse for sm buttons."
           }
         },
         "eyebrow": {
@@ -2773,50 +3075,59 @@
             "paragraphSpacing": "20px",
             "letterSpacing": "2%",
             "textCase": "{text-transform.uppercase}"
-          }
+          },
+          "$description": "$desktop-typography-utility-eyebrow\n\nUse for small uppercase labels above headlines and sections."
         }
       }
     },
     "section-padding": {
       "vertical": {
+        "xl": {
+          "$type": "number",
+          "$value": "{scale.32}",
+          "$description": "$desktop-section-padding-vertical-xl\n\nUse for extra large vertical spacing in hero and feature sections."
+        },
         "lg": {
           "$type": "number",
-          "$value": "{scale.20}"
+          "$value": "{scale.20}",
+          "$description": "$desktop-section-padding-vertical-lg\n\nUse for default vertical spacing (top and bottom padding) in major sections."
         },
         "md": {
           "$type": "number",
-          "$value": "{scale.16}"
+          "$value": "{scale.16}",
+          "$description": "$desktop-section-padding-vertical-md\n\nUse for medium vertical spacing in standard sections."
         },
         "sm": {
           "$type": "number",
-          "$value": "{scale.14}"
+          "$value": "{scale.14}",
+          "$description": "$desktop-section-padding-vertical-sm\n\nUse for small vertical spacing in compact sections."
         },
         "xs": {
           "$type": "number",
-          "$value": "{scale.10}"
-        },
-        "xl": {
-          "$type": "number",
-          "$value": "{scale.32}"
+          "$value": "{scale.10}",
+          "$description": "$desktop-section-padding-vertical-xs\n\nUse for extra small vertical spacing in tight layouts. Apply to top/bottom padding for adjacent sections with white bg."
         }
       },
       "horizontal": {
         "lg": {
           "$type": "number",
           "$value": "{scale.50}",
-          "$description": "Default horizontal padding"
-        },
-        "sm": {
-          "$type": "number",
-          "$value": "{scale.32}"
-        },
-        "xs": {
-          "$type": "number",
-          "$value": "{scale.24}"
+          "$description": "$desktop-section-padding-horizontal-lg\n\nDefault horizontal padding for main content areas."
         },
         "md": {
           "$type": "number",
-          "$value": "{scale.42}"
+          "$value": "{scale.42}",
+          "$description": "$desktop-section-padding-horizontal-md\n\nUse for medium horizontal padding in standard containers."
+        },
+        "sm": {
+          "$type": "number",
+          "$value": "{scale.32}",
+          "$description": "$desktop-section-padding-horizontal-sm\n\nUse for small horizontal padding in narrow containers."
+        },
+        "xs": {
+          "$type": "number",
+          "$value": "{scale.24}",
+          "$description": "$desktop-section-padding-horizontal-xs\n\nUse for extra small horizontal padding in compact layouts."
         }
       }
     },
@@ -2940,44 +3251,52 @@
   "Responsive/Mobile": {
     "section-padding": {
       "vertical": {
+        "xl": {
+          "$type": "number",
+          "$value": "{scale.18}",
+          "$description": "$mobile-section-padding-vertical-xl\n\nUse for extra large vertical spacing in hero and feature sections."
+        },
         "lg": {
           "$type": "number",
-          "$value": "{scale.16}"
+          "$value": "{scale.16}",
+          "$description": "$mobile-section-padding-vertical-lg\n\nUse for default vertical spacing (top and bottom padding) in major sections."
         },
         "md": {
           "$type": "number",
-          "$value": "{scale.12}"
+          "$value": "{scale.12}",
+          "$description": "$mobile-section-padding-vertical-md\n\nUse for medium vertical spacing in standard sections."
         },
         "sm": {
           "$type": "number",
-          "$value": "{scale.10}"
+          "$value": "{scale.10}",
+          "$description": "$mobile-section-padding-vertical-sm\n\nUse for small vertical spacing in compact sections."
         },
         "xs": {
           "$type": "number",
-          "$value": "{scale.8}"
-        },
-        "xl": {
-          "$type": "number",
-          "$value": "{scale.18}"
+          "$value": "{scale.8}",
+          "$description": "$mobile-section-padding-vertical-xs\n\nUse for extra small vertical spacing in tight layouts. Apply to top/bottom padding for adjacent sections with white bg."
         }
       },
       "horizontal": {
         "lg": {
           "$type": "number",
           "$value": "{scale.12}",
-          "$description": "Default horizontal padding"
-        },
-        "sm": {
-          "$type": "number",
-          "$value": "{scale.6}"
-        },
-        "xs": {
-          "$type": "number",
-          "$value": "{scale.4}"
+          "$description": "$mobile-section-padding-horizontal-lg\n\nDefault horizontal padding for main content areas."
         },
         "md": {
           "$type": "number",
-          "$value": "{scale.6}"
+          "$value": "{scale.6}",
+          "$description": "$mobile-section-padding-horizontal-md\n\nUse for medium horizontal padding in standard containers."
+        },
+        "sm": {
+          "$type": "number",
+          "$value": "{scale.6}",
+          "$description": "$mobile-section-padding-horizontal-sm\n\nUse for small horizontal padding in narrow containers."
+        },
+        "xs": {
+          "$type": "number",
+          "$value": "{scale.4}",
+          "$description": "$mobile-section-padding-horizontal-xs\n\nUse for extra small horizontal padding in compact layouts."
         }
       }
     },
@@ -3107,7 +3426,8 @@
             "fontSize": "{typescale.font-size.10xl}",
             "lineHeight": "{typescale.line-height.10xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-display-xl\n\nUse for the largest display text in hero sections and major headings."
         },
         "lg": {
           "$type": "typography",
@@ -3117,7 +3437,8 @@
             "fontSize": "{typescale.font-size.9xl}",
             "lineHeight": "{typescale.line-height.9xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-display-lg\n\nUse for large display text in prominent hero sections."
         },
         "md": {
           "$type": "typography",
@@ -3127,7 +3448,8 @@
             "fontSize": "{typescale.font-size.8xl}",
             "lineHeight": "{typescale.line-height.8xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-display-md\n\nUse for medium display text in featured sections and banners."
         },
         "sm": {
           "$type": "typography",
@@ -3137,7 +3459,8 @@
             "fontSize": "{typescale.font-size.7xl}",
             "lineHeight": "{typescale.line-height.7xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-display-sm\n\nUse for smaller display text in secondary hero sections."
         },
         "xs": {
           "$type": "typography",
@@ -3147,7 +3470,8 @@
             "fontSize": "{typescale.font-size.6xl}",
             "lineHeight": "{typescale.line-height.6xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-display-xs\n\nUse for the smallest display text in tertiary featured content."
         }
       },
       "headline": {
@@ -3159,7 +3483,8 @@
             "fontSize": "{typescale.font-size.5xl}",
             "lineHeight": "{typescale.line-height.5xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-headline-xl\n\nUse for extra large section headlines and page titles."
         },
         "lg": {
           "$type": "typography",
@@ -3169,7 +3494,8 @@
             "fontSize": "{typescale.font-size.4xl}",
             "lineHeight": "{typescale.line-height.4xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-headline-lg\n\nUse for large section headlines and major content groupings."
         },
         "md": {
           "$type": "typography",
@@ -3179,7 +3505,8 @@
             "fontSize": "{typescale.font-size.3xl}",
             "lineHeight": "{typescale.line-height.3xl}",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-headline-md\n\nUse for medium section headlines and subsection titles."
         },
         "sm": {
           "$type": "typography",
@@ -3189,7 +3516,8 @@
             "fontSize": "{typescale.font-size.2xl}",
             "lineHeight": "120%",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-headline-sm\n\nUse for small section headlines and card titles."
         }
       },
       "price": {
@@ -3201,7 +3529,8 @@
             "fontSize": "{typescale.font-size.4xl}",
             "lineHeight": "150%",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-price-lg\n\nUse to display current product's PDP."
         },
         "lg-strikethrough": {
           "$type": "typography",
@@ -3212,7 +3541,8 @@
             "lineHeight": "150%",
             "paragraphSpacing": "20px",
             "textDecoration": "{text-decoration.line-through}"
-          }
+          },
+          "$description": "$mobile-typography-price-lg-strikethrough\n\nUse for display previous product's price on PDP."
         },
         "md": {
           "$type": "typography",
@@ -3222,7 +3552,8 @@
             "fontSize": "{typescale.font-size.2xl}",
             "lineHeight": "150%",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-price-md\n\nUse to display current product's price on standard product cards."
         },
         "md-strikethrough": {
           "$type": "typography",
@@ -3233,7 +3564,8 @@
             "lineHeight": "150%",
             "paragraphSpacing": "20px",
             "textDecoration": "{text-decoration.line-through}"
-          }
+          },
+          "$description": "$mobile-typography-price-md-strikethrough\n\nUse to display previous product's price on standard product cards."
         },
         "sm": {
           "$type": "typography",
@@ -3243,9 +3575,10 @@
             "fontSize": "{typescale.font-size.lg}",
             "lineHeight": "150%",
             "paragraphSpacing": "20px"
-          }
+          },
+          "$description": "$mobile-typography-price-sm\n\nUse for small pricing display in compact layouts."
         },
-        "sm-srikethrough": {
+        "sm-strikethrough": {
           "$type": "typography",
           "$value": {
             "fontFamily": "{font-family.secondary}",
@@ -3254,7 +3587,8 @@
             "lineHeight": "150%",
             "paragraphSpacing": "20px",
             "textDecoration": "{text-decoration.line-through}"
-          }
+          },
+          "$description": "$mobile-typography-price-sm-strikethrough\n\nUse for small crossed-out original prices in compact views."
         }
       },
       "text": {
@@ -3267,7 +3601,8 @@
               "fontSize": "{typescale.font-size.xl}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$mobile-typography-text-xl-regular \n\nUse for extra large body text in introductory paragraphs."
           },
           "bold": {
             "$type": "typography",
@@ -3277,7 +3612,8 @@
               "fontSize": "{typescale.font-size.xl}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$mobile-typography-text-xl-bold\n\nUse for emphasized extra large body text."
           },
           "underline": {
             "$type": "typography",
@@ -3288,7 +3624,8 @@
               "lineHeight": "150%",
               "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
-            }
+            },
+            "$description": "$mobile-typography-text-xl-underline\n\nUse for underlined extra large text links."
           }
         },
         "lg": {
@@ -3300,7 +3637,8 @@
               "fontSize": "{typescale.font-size.lg}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$mobile-typography-text-lg-regular\n\nUse for large body text in feature descriptions."
           },
           "bold": {
             "$type": "typography",
@@ -3310,7 +3648,8 @@
               "fontSize": "{typescale.font-size.lg}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$mobile-typography-text-lg-bold\n\nUse for emphasized large body text and subheadings."
           },
           "underline": {
             "$type": "typography",
@@ -3321,7 +3660,8 @@
               "lineHeight": "150%",
               "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
-            }
+            },
+            "$description": "$mobile-typography-text-lg-underline\n\nUse for underlined large text links."
           }
         },
         "md": {
@@ -3333,7 +3673,8 @@
               "fontSize": "{typescale.font-size.md}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$mobile-typography-text-md-regular\n\nUse for standard body text and paragraph content."
           },
           "bold": {
             "$type": "typography",
@@ -3343,7 +3684,8 @@
               "fontSize": "{typescale.font-size.md}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$mobile-typography-text-md-bold\n\nUse for emphasized medium body text and inline headings."
           },
           "underline": {
             "$type": "typography",
@@ -3354,7 +3696,8 @@
               "lineHeight": "150%",
               "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
-            }
+            },
+            "$description": "$mobile-typography-text-md-underline\n\nUse for underlined medium text links."
           }
         },
         "sm": {
@@ -3366,7 +3709,8 @@
               "fontSize": "{typescale.font-size.sm}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$mobile-typography-text-sm-regular\n\nUse for small body text captions and secondary information."
           },
           "bold": {
             "$type": "typography",
@@ -3376,7 +3720,8 @@
               "fontSize": "{typescale.font-size.sm}",
               "lineHeight": "150%",
               "paragraphSpacing": "20px"
-            }
+            },
+            "$description": "$mobile-typography-text-sm-bold\n\nUse for emphasized small text and labels."
           },
           "underline": {
             "$type": "typography",
@@ -3387,11 +3732,12 @@
               "lineHeight": "150%",
               "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
-            }
+            },
+            "$description": "$mobile-typography-text-sm-underline\n\nUse for underlined small text links and footnotes."
           }
         }
       },
-      "other": {
+      "utility": {
         "cta": {
           "md": {
             "$type": "typography",
@@ -3401,7 +3747,8 @@
               "fontSize": "{typescale.font-size.md}",
               "lineHeight": "100%",
               "paragraphSpacing": "0"
-            }
+            },
+            "$description": "$mobile-typography-utility-cta-md\n\nUse for for lg buttons."
           },
           "sm": {
             "$type": "typography",
@@ -3411,7 +3758,8 @@
               "fontSize": "{typescale.font-size.sm}",
               "lineHeight": "100%",
               "paragraphSpacing": "0"
-            }
+            },
+            "$description": "$mobile-typography-utility-cta-sm\n\nUse for sm buttons."
           }
         },
         "eyebrow": {
@@ -3424,7 +3772,8 @@
             "paragraphSpacing": "20px",
             "letterSpacing": "2%",
             "textCase": "{text-transform.uppercase}"
-          }
+          },
+          "$description": "$mobile-typography-utility-eyebrow\n\nUse for small uppercase labels above headlines and sections."
         }
       }
     }
@@ -3467,37 +3816,159 @@
     "vertical": {
       "2:3": {
         "$type": "other",
-        "$value": "'2 / 3'"
+        "$value": "'2 / 3'",
+        "$description": "Vertical 2:3 aspect ratio."
       },
       "9:16": {
         "$type": "other",
-        "$value": "'9 / 16'"
+        "$value": "'9 / 16'",
+        "$description": "Vertical 9:16 aspect ratio."
       },
       "3:4": {
         "$type": "other",
-        "$value": "'3 / 4'"
+        "$value": "'3 / 4'",
+        "$description": "Vertical 3:4 aspect ratio."
       },
       "1:1": {
         "$type": "other",
-        "$value": "'1 / 1'"
+        "$value": "'1 / 1'",
+        "$description": "Square aspect ratio. Default illustrations, product or recipe thumbnail, also used for avatar pictures."
       }
     },
     "horizontal": {
       "3:2": {
         "$type": "other",
-        "$value": "'3 / 2'"
+        "$value": "'3 / 2'",
+        "$description": "Horizontal 3:2 aspect ratio. Use it for illustrations or images on mobile, it's not restricted for desktop either."
       },
       "16:9": {
         "$type": "other",
-        "$value": "'16 / 9'"
+        "$value": "'16 / 9'",
+        "$description": "Horizontal 16:9 aspect ratio. Use it for featured images or product shots (mostly sets) where the cropping area affects visibility of the entire image."
       },
       "4:3": {
         "$type": "other",
-        "$value": "'4 / 3'"
+        "$value": "'4 / 3'",
+        "$description": "Horizontal 4:3. Default use for single images on Hero sections."
       },
       "1:1": {
         "$type": "other",
-        "$value": "'1 / 1'"
+        "$value": "'1 / 1'",
+        "$description": "Square aspect ratio. Default illustrations, product or recipe thumbnail, also used for avatar pictures."
+      }
+    }
+  },
+  "Focus": {
+    "focus": {
+      "default": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "{color.background.default.solid}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "2"
+          },
+          {
+            "color": "{color.border.focus.default}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "6"
+          }
+        ],
+        "$description": "Use for default focus ring."
+      },
+      "default-inverted": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "{color.background.default.static-black}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "2"
+          },
+          {
+            "color": "{color.border.focus.accent-inverted}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "6"
+          }
+        ],
+        "$description": "Use for default focus ring on inverted surfaces."
+      },
+      "accent": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "{color.background.default.solid}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "2"
+          },
+          {
+            "color": "{color.border.focus.accent}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "6"
+          }
+        ],
+        "$description": "Use for the focus ring of highlighted components."
+      },
+      "error": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "{color.background.default.solid}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "2"
+          },
+          {
+            "color": "{color.border.focus.error}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "6"
+          }
+        ],
+        "$description": "Use for the focus ring of error state components."
+      },
+      "error-inverted": {
+        "$type": "boxShadow",
+        "$value": [
+          {
+            "color": "{color.background.default.static-black}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "2"
+          },
+          {
+            "color": "{color.border.focus.error-inverted}",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "6"
+          }
+        ],
+        "$description": "Use for the focus ring of error state components on inverted surfaces."
       }
     }
   },
@@ -3512,7 +3983,8 @@
       "Responsive/Desktop",
       "Responsive/Mobile",
       "Breakpoints",
-      "Ratios"
+      "Ratios",
+      "Focus"
     ]
   }
 }

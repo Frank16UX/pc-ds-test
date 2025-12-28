@@ -28,7 +28,7 @@ const meta: Meta<typeof Button> = {
     },
     tags: ['autodocs'],
     argTypes: {
-        hierarchy: {
+        kind: {
             control: 'select',
             options: ['primary', 'secondary', 'tertiary', 'destructive'],
         },
@@ -46,8 +46,20 @@ const meta: Meta<typeof Button> = {
         isLoading: {
             control: 'boolean',
         },
-        isSuccess: {
+        success: {
             control: 'boolean',
+        },
+        successStaysActive: {
+            control: 'boolean',
+            if: { arg: 'success', truthy: true },
+        },
+        successLabel: {
+            control: 'text',
+            if: { arg: 'success', truthy: true },
+        },
+        successDuration: {
+            control: { type: 'number', min: 2000, step: 100 },
+            if: { arg: 'success', truthy: true },
         },
         iconLeading: {
             control: 'boolean',
@@ -65,6 +77,10 @@ const meta: Meta<typeof Button> = {
             options: iconNames,
             mapping: iconOptions,
         },
+        flag: {
+            control: 'select',
+            options: ['none', 'USA', 'Canada', 'France', 'Germany', 'Austria'],
+        },
         onPress: { action: 'pressed' },
     },
 };
@@ -74,28 +90,28 @@ type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
     args: {
-        hierarchy: 'primary',
+        kind: 'primary',
         children: 'Button CTA',
     },
 };
 
 export const Secondary: Story = {
     args: {
-        hierarchy: 'secondary',
+        kind: 'secondary',
         children: 'Secondary Action',
     },
 };
 
 export const Tertiary: Story = {
     args: {
-        hierarchy: 'tertiary',
+        kind: 'tertiary',
         children: 'Tertiary Action',
     },
 };
 
 export const Destructive: Story = {
     args: {
-        hierarchy: 'destructive',
+        kind: 'destructive',
         children: 'Delete',
     },
 };
@@ -123,7 +139,75 @@ export const Loading: Story = {
 
 export const Success: Story = {
     args: {
-        isSuccess: true,
-        children: 'Success!',
+        success: true,
+        successLabel: 'Success!',
+        successDuration: 2000,
+        children: 'Submit',
+    },
+};
+
+// Inverted surface stories with dark background
+const invertedDecorator = (Story: React.ComponentType) => (
+    <div style={{
+        backgroundColor: '#1a5961',
+        padding: '32px',
+        borderRadius: '8px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }}>
+        <Story />
+    </div>
+);
+
+export const PrimaryInverted: Story = {
+    args: {
+        kind: 'primary',
+        surface: 'inverted',
+        children: 'Primary Inverted',
+    },
+    decorators: [invertedDecorator],
+};
+
+export const SecondaryInverted: Story = {
+    args: {
+        kind: 'secondary',
+        surface: 'inverted',
+        children: 'Secondary Inverted',
+    },
+    decorators: [invertedDecorator],
+};
+
+export const TertiaryInverted: Story = {
+    args: {
+        kind: 'tertiary',
+        surface: 'inverted',
+        children: 'Tertiary Inverted',
+    },
+    decorators: [invertedDecorator],
+};
+
+export const WithLeadingIcon: Story = {
+    args: {
+        kind: 'primary',
+        iconLeading: true,
+        children: 'With Icon',
+    },
+};
+
+export const WithTrailingIcon: Story = {
+    args: {
+        kind: 'primary',
+        iconTrailing: true,
+        children: 'Continue',
+    },
+};
+
+export const WithBothIcons: Story = {
+    args: {
+        kind: 'secondary',
+        iconLeading: true,
+        iconTrailing: true,
+        children: 'Both Icons',
     },
 };

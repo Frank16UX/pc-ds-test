@@ -1,67 +1,54 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { resolveTokenValue } from './utils/scssTokens';
 
-type ElevationToken = {
+type FocusToken = {
   name: string;
   scssVar: string;
   description: string;
 };
 
-const elevationTokens: ElevationToken[] = [
+const focusTokens: FocusToken[] = [
   {
-    name: 'Component: Primary Button',
-    scssVar: '$elevation-component-primary-button',
-    description: 'Purpose-built for primary actions to add separation from the surface while staying compact.',
+    name: 'Focus: Default',
+    scssVar: '$focus-default',
+    description: 'Default focus ring for interactive elements on light backgrounds.',
   },
   {
-    name: 'Component: Header',
-    scssVar: '$elevation-component-header',
-    description: 'Subtle shadow for fixed headers to separate them from scrolling content.',
+    name: 'Focus: Default Inverted',
+    scssVar: '$focus-default-inverted',
+    description: 'Default focus ring for interactive elements on dark backgrounds.',
   },
   {
-    name: 'Component: Bottom Sheet',
-    scssVar: '$elevation-component-bottom-sheet',
-    description: 'Upward shadow for bottom sheets and slide-up panels.',
+    name: 'Focus: Accent',
+    scssVar: '$focus-accent',
+    description: 'Accent/highlight focus ring to draw attention to primary interactive elements.',
   },
   {
-    name: 'Component: Bottom Sticky',
-    scssVar: '$elevation-component-bottom-sticky',
-    description: 'Compact upward shadow for sticky bottom bars and navigation.',
+    name: 'Focus: Error',
+    scssVar: '$focus-error',
+    description: 'Focus ring for error state on interactive elements.',
   },
   {
-    name: 'Component: Bottom Right',
-    scssVar: '$elevation-component-bottom-right',
-    description: 'Directional shadow for elements anchored to bottom-right corners.',
-  },
-  {
-    name: 'Elevation SM',
-    scssVar: '$elevation-sm',
-    description: 'Subtle elevation for compact surfaces such as cards, badges, and contextual popovers.',
-  },
-  {
-    name: 'Elevation MD',
-    scssVar: '$elevation-md',
-    description: 'Medium intensity shadow for menus, dropdowns, and floating utility panels.',
-  },
-  {
-    name: 'Elevation LG',
-    scssVar: '$elevation-lg',
-    description: 'High-elevation layer that keeps larger panels like navigation drawers off the canvas.',
-  },
-  {
-    name: 'Elevation XL',
-    scssVar: '$elevation-xl',
-    description: 'Maximum depth used for modals and overlays that must feel detached from the background.',
+    name: 'Focus: Error Inverted',
+    scssVar: '$focus-error-inverted',
+    description: 'Focus ring for error state on interactive elements with dark backgrounds.',
   },
 ];
 
-const ElevationSwatch = ({ token }: { token: ElevationToken }) => {
+const FocusSwatch = ({ token }: { token: FocusToken }) => {
   const shadowValue = useMemo(() => resolveTokenValue(token.scssVar), [token.scssVar]);
   const formattedShadow = useMemo(() => formatBoxShadow(shadowValue), [shadowValue]);
 
   const surfaceTintedColor = useMemo(() => resolveTokenValue('$color-surface-tinted-1'), []);
   const backgroundSolidColor = useMemo(() => resolveTokenValue('$color-background-default-solid'), []);
+  const textSecondaryColor = useMemo(() => resolveTokenValue('$color-text-default-secondary'), []);
+  const textPrimaryColor = useMemo(() => resolveTokenValue('$color-text-default-primary'), []);
+
+  // Determine if this is an inverted variant for background color
+  const isInverted = token.name.toLowerCase().includes('inverted');
+  const buttonBgColor = isInverted ? '#2e3030' : backgroundSolidColor;
+  const buttonTextColor = isInverted ? '#ffffff' : textPrimaryColor;
 
   return (
     <div className="token-sample-row">
@@ -71,21 +58,29 @@ const ElevationSwatch = ({ token }: { token: ElevationToken }) => {
           style={{
             width: '100%',
             borderRadius: '20px',
-            padding: '24px',
+            padding: '32px',
             backgroundColor: surfaceTintedColor,
             display: 'flex',
             justifyContent: 'center',
           }}
         >
-          <div
+          <button
+            type="button"
             style={{
-              width: '200px',
-              height: '140px',
-              borderRadius: '16px',
-              backgroundColor: backgroundSolidColor,
+              padding: '12px 24px',
+              borderRadius: '8px',
+              backgroundColor: buttonBgColor,
+              color: buttonTextColor,
+              border: 'none',
+              fontSize: '16px',
+              fontWeight: 600,
+              cursor: 'pointer',
               boxShadow: formattedShadow ?? shadowValue,
+              outline: 'none',
             }}
-          />
+          >
+            Interactive Element
+          </button>
         </div>
         <code className="token-sample-code">{token.scssVar}</code>
       </div>
@@ -93,53 +88,55 @@ const ElevationSwatch = ({ token }: { token: ElevationToken }) => {
         <dt>Description</dt>
         <dd>{token.description}</dd>
         <dt>Box Shadow</dt>
-        <dd style={{ wordBreak: 'break-all', overflowWrap: 'break-word', maxWidth: '100%' }}>
-          {formattedShadow ?? shadowValue ?? '—'}
-        </dd>
+        <dd>{formattedShadow ?? shadowValue ?? '—'}</dd>
       </dl>
     </div>
   );
 };
 
-const ElevationComponent = () => (
+const FocusComponent = () => (
   <div style={{ padding: '32px', maxWidth: '1200px', margin: '0 auto' }}>
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-      {elevationTokens.map((token) => (
-        <ElevationSwatch key={token.name} token={token} />
+      {focusTokens.map((token) => (
+        <FocusSwatch key={token.name} token={token} />
       ))}
     </div>
 
     <section style={{ marginTop: '48px', padding: '24px', backgroundColor: 'var(--color-surface-secondary)', borderRadius: '16px' }}>
       <h2 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 600 }}>Usage Guidelines</h2>
       <ul style={{ color: '#5b6164', lineHeight: 1.6, paddingLeft: '24px' }}>
-        <li><strong>Component tokens:</strong> Purpose-built shadows for specific UI elements (buttons, headers, bottom sheets).</li>
-        <li><strong>Elevation SM:</strong> Ideal for compact surfaces such as cards, popovers, and tooltips that need delicate separation.</li>
-        <li><strong>Elevation MD:</strong> Adds clarity to mid-sized floating elements including dropdowns and anchored menus.</li>
-        <li><strong>Elevation LG:</strong> Reserves extra depth for navigation drawers, mega menus, or sticky summaries.</li>
-        <li><strong>Elevation XL:</strong> Use only for modals and blocking overlays where full attention is required.</li>
+        <li><strong>Focus: Default</strong> - Use for standard interactive elements (buttons, links, inputs) on light backgrounds to meet WCAG accessibility requirements.</li>
+        <li><strong>Focus: Default Inverted</strong> - Apply to interactive elements on dark or solid color backgrounds to ensure focus visibility.</li>
+        <li><strong>Focus: Accent</strong> - Reserve for primary CTAs and high-priority interactive elements to draw attention during keyboard navigation.</li>
+        <li><strong>Focus: Error</strong> - Use exclusively for form fields and interactive elements in an error or invalid state.</li>
+        <li><strong>Focus: Error Inverted</strong> - Apply to error state elements on dark backgrounds for consistent error communication.</li>
       </ul>
+      <div style={{ marginTop: '16px', padding: '16px', backgroundColor: '#fff3cd', borderRadius: '8px', color: '#856404' }}>
+        <strong>Accessibility Note:</strong> Focus indicators are critical for keyboard navigation and must always be visible.
+        Never remove focus styles with <code>outline: none</code> unless providing an equally visible alternative.
+      </div>
     </section>
   </div>
 );
 
 const meta = {
-  title: 'Foundations/Elevation',
-  component: ElevationComponent,
+  title: 'Foundations/Focus',
+  component: FocusComponent,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Elevation tokens apply design system shadows to neutral surfaces so you can evaluate depth in context.',
+        component: 'Focus tokens provide accessible keyboard focus indicators for all interactive elements in the design system.',
       },
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof ElevationComponent>;
+} satisfies Meta<typeof FocusComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Shadows: Story = {};
+export const FocusRings: Story = {};
 
 function formatBoxShadow(rawValue: string | undefined): string | undefined {
   if (!rawValue) {
