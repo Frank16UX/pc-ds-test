@@ -1,6 +1,18 @@
 @use '../../../build/scss/tokens' as t;
 @use '../../../build/scss/numeric-tokens' as nt;
 @use '../../../build/scss/elevation' as e;
+@use '../../../build/scss/fonts' as f;
+@use '../../../build/scss/responsive-desktop' as dt;
+
+// CSS spinner keyframes for loading fallback
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .button {
   display: inline-flex;
@@ -12,11 +24,11 @@
   text-decoration: none;
   white-space: nowrap;
   transition: all 0.2s ease;
-  font-family: var(--typography-font-family-primary, 'Lexend', sans-serif); // Fallback
-  font-weight: 500;
+  font-family: f.$font-family-secondary;
+  font-weight: f.$font-weight-medium;
   line-height: 1;
   box-sizing: border-box;
-  border-radius: nt.$radius-full;
+  border-radius: 1000px; // Pill shape - large fixed value prevents elliptical deformation
 
   // Focus ring
   &:focus-visible {
@@ -27,21 +39,22 @@
   // Disabled state (common)
   &[data-disabled] {
     cursor: not-allowed;
-    opacity: 0.6;
   }
 
   // Sizes
   &.size-lg {
     height: nt.$size-height-lg;
+    min-width: nt.$size-width-button-mw-lg;
     padding: 0 nt.$spacing-lg;
-    font-size: 16px;
+    font-size: dt.$desktop-typescale-font-size-md; // 16px
     gap: nt.$spacing-xs;
   }
 
   &.size-sm {
     height: nt.$size-height-sm;
+    min-width: nt.$size-width-button-mw-sm;
     padding: 0 nt.$spacing-md;
-    font-size: 14px;
+    font-size: dt.$desktop-typescale-font-size-sm; // 14px
     gap: nt.$spacing-2xs;
   }
 
@@ -49,7 +62,11 @@
   &.primary {
     background-color: t.$color-buttons-primary-default;
     color: t.$color-text-default-primary;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), 0 4px 6px 0 rgba(0, 0, 0, 0.15); // e.$elevation-primary-button
+    box-shadow: e.$elevation-component-primary-button;
+
+    &:focus-visible {
+      outline-color: t.$color-border-focus-default;
+    }
 
     &:hover:not([data-disabled]) {
       background-color: t.$color-buttons-primary-hovered;
@@ -71,6 +88,10 @@
     border: 2px solid t.$color-border-button-default;
     color: t.$color-text-accent-default;
 
+    &:focus-visible {
+      outline-color: t.$color-border-focus-accent;
+    }
+
     &:hover:not([data-disabled]) {
       background-color: t.$color-buttons-secondary-hovered;
       border-color: t.$color-border-button-hovered;
@@ -79,9 +100,12 @@
 
     &:active:not([data-disabled]) {
       background-color: t.$color-buttons-secondary-pressed;
+      border-color: t.$color-border-button-pressed;
+      color: t.$color-text-accent-high-contrast;
     }
 
     &[data-disabled] {
+      background-color: t.$color-buttons-secondary-disabled;
       border-color: t.$color-border-button-disabled;
       color: t.$color-text-default-disabled;
     }
@@ -90,14 +114,31 @@
   &.tertiary {
     background-color: transparent;
     color: t.$color-links-default;
+    position: relative;
+
+    // Extended touch target for accessibility (44px minimum)
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-height: 44px;
+      min-width: 100%;
+      width: calc(100% + #{nt.$spacing-md});
+    }
+
+    &:focus-visible {
+      outline-color: t.$color-border-focus-accent;
+    }
 
     &:hover:not([data-disabled]) {
-      background-color: t.$color-surface-interactive-hovered;
+      // Tertiary buttons remain transparent on hover
       color: t.$color-links-hovered;
     }
 
     &:active:not([data-disabled]) {
-      background-color: t.$color-surface-interactive-selected;
+      // Tertiary buttons remain transparent when pressed
       color: t.$color-links-pressed;
     }
 
@@ -110,6 +151,10 @@
     background-color: t.$color-buttons-destructive-default;
     color: t.$color-text-default-primary-inverted;
 
+    &:focus-visible {
+      outline-color: t.$color-border-focus-default;
+    }
+
     &:hover:not([data-disabled]) {
       background-color: t.$color-buttons-destructive-hovered;
     }
@@ -117,12 +162,88 @@
     &:active:not([data-disabled]) {
       background-color: t.$color-buttons-destructive-pressed;
     }
+
+    &[data-disabled] {
+      background-color: t.$color-buttons-primary-disabled;
+      color: t.$color-text-default-disabled;
+    }
   }
 
   // Surface Inverted
-  // &.surface-inverted {
-  //   // Adjust colors for inverted surface if needed
-  // }
+  &.surface-inverted {
+    &.primary {
+      background-color: t.$color-buttons-primary-default-inverted;
+      color: t.$color-text-default-primary;
+      box-shadow: none;
+
+      &:focus-visible {
+        outline-color: t.$color-border-focus-accent-inverted;
+      }
+
+      &:hover:not([data-disabled]) {
+        background-color: t.$color-buttons-primary-hovered-inverted;
+      }
+
+      &:active:not([data-disabled]) {
+        background-color: t.$color-buttons-primary-pressed-inverted;
+      }
+
+      &[data-disabled] {
+        background-color: t.$color-buttons-primary-disabled-inverted;
+        color: t.$color-text-default-disabled-on-surface;
+      }
+    }
+
+    &.secondary {
+      background-color: t.$color-buttons-secondary-default-inverted;
+      border-color: t.$color-border-button-default-inverted;
+      color: t.$color-links-default-inverted;
+
+      &:focus-visible {
+        outline-color: t.$color-border-focus-accent-inverted;
+      }
+
+      &:hover:not([data-disabled]) {
+        background-color: t.$color-buttons-secondary-hovered-inverted;
+        border-color: t.$color-border-button-hovered-inverted;
+        color: t.$color-links-hovered-inverted;
+      }
+
+      &:active:not([data-disabled]) {
+        background-color: t.$color-buttons-secondary-pressed-inverted;
+        border-color: t.$color-border-button-pressed-inverted;
+        color: t.$color-links-pressed-inverted;
+      }
+
+      &[data-disabled] {
+        background-color: t.$color-buttons-secondary-disabled-inverted;
+        border-color: t.$color-border-button-disabled-inverted;
+        color: t.$color-links-disabled-inverted;
+      }
+    }
+
+    &.tertiary {
+      color: t.$color-links-default-inverted;
+
+      &:focus-visible {
+        outline-color: t.$color-border-focus-accent-inverted;
+      }
+
+      &:hover:not([data-disabled]) {
+        // Tertiary inverted remains transparent on hover
+        color: t.$color-links-hovered-inverted;
+      }
+
+      &:active:not([data-disabled]) {
+        // Tertiary inverted remains transparent when pressed
+        color: t.$color-links-pressed-inverted;
+      }
+
+      &[data-disabled] {
+        color: t.$color-links-disabled-inverted;
+      }
+    }
+  }
 
   // Button content wrapper
   .button-content {
@@ -138,7 +259,7 @@
     align-items: center;
     justify-content: center;
     color: inherit;
-    
+
     svg {
       display: block;
       width: 100%;
@@ -162,6 +283,33 @@
   &.size-sm .icon {
     width: nt.$size-height-icon-xs;
     height: nt.$size-height-icon-xs;
+  }
+
+  // Flag styling
+  .flag {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 2px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &.size-lg .flag {
+    width: 24px;
+    height: 16px;
+  }
+
+  &.size-sm .flag {
+    width: 18px;
+    height: 12px;
   }
 
   // Icon color inheritance for different hierarchies
@@ -214,8 +362,34 @@
     height: 14px;
   }
 
-  // Hide content when loading
+  // CSS spinner fallback (when Lottie doesn't load)
+  .spinner-fallback {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    animation: spin 0.8s linear infinite;
+
+    &[data-color="black"] {
+      border-top-color: t.$color-text-default-primary;
+    }
+
+    &[data-color="white"] {
+      border-top-color: t.$color-text-default-primary-inverted;
+    }
+
+    &[data-color="teal"] {
+      border-top-color: t.$color-text-accent-default;
+    }
+  }
+
+  // Loading state handling
   &[data-loading] {
+    // Prevent clicks without triggering disabled styles
+    pointer-events: none;
+    cursor: default;
+
     .button-content {
       opacity: 0;
     }
