@@ -3,23 +3,28 @@ import React, { useMemo } from 'react';
 import { resolveTokenValue } from './utils/scssTokens';
 
 const breakpointTokens = [
-  { name: 'XS', scssVar: '$breakpoints-breakpoints-xs', description: 'Extra small devices (small phones)' },
-  { name: 'SM', scssVar: '$breakpoints-breakpoints-sm', description: 'Small devices (phones)' },
-  { name: 'MD', scssVar: '$breakpoints-breakpoints-md', description: 'Medium devices (tablets)' },
-  { name: 'LG', scssVar: '$breakpoints-breakpoints-lg', description: 'Large devices (desktops)' },
-  { name: 'XL', scssVar: '$breakpoints-breakpoints-xl', description: 'Extra large devices (large desktops)' },
-  { name: 'XXL', scssVar: '$breakpoints-breakpoints-xxl', description: 'Extra extra large devices (larger desktops)' },
+  { name: 'XS', scssVar: '$breakpoints-xs', description: 'Extra small devices (small phones)' },
+  { name: 'SM', scssVar: '$breakpoints-sm', description: 'Small devices (phones)' },
+  { name: 'MD', scssVar: '$breakpoints-md', description: 'Medium devices (tablets)' },
+  { name: 'LG', scssVar: '$breakpoints-lg', description: 'Large devices (desktops)' },
+  { name: 'XL', scssVar: '$breakpoints-xl', description: 'Extra large devices (large desktops)' },
+  { name: 'XXL', scssVar: '$breakpoints-xxl', description: 'Extra extra large devices (larger desktops)' },
 ];
+
+// Maximum breakpoint value for calculating proportions
+const MAX_BREAKPOINT = 1728; // XXL breakpoint
 
 const BreakpointCard = ({ name, scssVar, description }: { name: string; scssVar: string; description: string }) => {
   const value = useMemo(() => resolveTokenValue(scssVar) ?? '0px', [scssVar]);
-  
+  const numericValue = useMemo(() => parseInt(value.replace('px', ''), 10) || 0, [value]);
+  const percentage = useMemo(() => (numericValue / MAX_BREAKPOINT) * 100, [numericValue]);
+
   return (
-    <div 
-      style={{ 
-        padding: '24px', 
-        backgroundColor: '#ffffff', 
-        borderRadius: '8px', 
+    <div
+      style={{
+        padding: '24px',
+        backgroundColor: '#ffffff',
+        borderRadius: '8px',
         border: '2px solid #2b7a87',
         marginBottom: '16px',
       }}
@@ -30,15 +35,29 @@ const BreakpointCard = ({ name, scssVar, description }: { name: string; scssVar:
       </div>
       <div style={{ fontSize: '14px', color: '#666', marginBottom: '8px' }}>{description}</div>
       <div style={{ fontSize: '12px', color: '#999', fontFamily: 'monospace' }}>{scssVar}</div>
-      <div 
-        style={{ 
-          marginTop: '16px', 
-          height: '8px', 
-          backgroundColor: '#2b7a87', 
-          borderRadius: '4px',
-          width: `min(100%, ${value})`,
+      <div
+        style={{
+          marginTop: '16px',
+          height: '12px',
+          backgroundColor: '#e3ebed',
+          borderRadius: '6px',
+          overflow: 'hidden',
+          position: 'relative',
         }}
-      />
+      >
+        <div
+          style={{
+            height: '100%',
+            backgroundColor: '#2b7a87',
+            borderRadius: '6px',
+            width: `${percentage}%`,
+            transition: 'width 0.3s ease',
+          }}
+        />
+      </div>
+      <div style={{ fontSize: '11px', color: '#666', marginTop: '4px', textAlign: 'right' }}>
+        {percentage.toFixed(1)}% of max ({MAX_BREAKPOINT}px)
+      </div>
     </div>
   );
 };

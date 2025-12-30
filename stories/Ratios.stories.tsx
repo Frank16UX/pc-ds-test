@@ -17,16 +17,16 @@ const ratioTokens = {
   ],
 };
 
-const RatioDemo = ({ name, scssVar, ratio, description }: { 
-  name: string; 
-  scssVar: string; 
+const RatioDemo = ({ name, scssVar, ratio, description }: {
+  name: string;
+  scssVar: string;
   ratio: number;
   description: string;
 }) => {
   const value = useMemo(() => resolveTokenValue(scssVar) ?? '1 / 1', [scssVar]);
   const containerWidth = 200;
   const height = containerWidth / ratio;
-  
+
   return (
     <div style={{ marginBottom: '32px' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '250px', marginBottom: '12px' }}>
@@ -34,29 +34,19 @@ const RatioDemo = ({ name, scssVar, ratio, description }: {
           style={{
             width: `${containerWidth}px`,
             height: `${height}px`,
-            backgroundColor: '#2b7a87',
+            backgroundImage: 'url(https://www.pamperedchef.com/iceberg/com/product/100125-1-lg.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             borderRadius: '8px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#ffffff',
-            fontSize: '14px',
-            fontWeight: '600',
-            padding: '16px',
-            textAlign: 'center',
           }}
-        >
-          <div>
-            <div style={{ fontSize: '18px', marginBottom: '4px' }}>{value}</div>
-            <div style={{ fontSize: '12px', opacity: 0.8 }}>aspect-ratio</div>
-          </div>
-        </div>
+        />
       </div>
-      
+
       <div>
         <div style={{ fontSize: '14px', fontWeight: '600', marginBottom: '4px' }}>{name}</div>
         <div style={{ fontSize: '12px', color: '#666', marginBottom: '4px' }}>{description}</div>
         <div style={{ fontSize: '11px', color: '#999', fontFamily: 'monospace' }}>{scssVar}</div>
+        <div style={{ fontSize: '11px', color: '#2b7a87', fontFamily: 'monospace', marginTop: '2px' }}>aspect-ratio: {value}</div>
       </div>
     </div>
   );

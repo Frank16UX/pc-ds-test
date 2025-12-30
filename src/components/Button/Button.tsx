@@ -23,6 +23,12 @@ export interface ButtonProps extends AriaButtonProps {
     surface?: 'default' | 'inverted';
 
     /**
+     * If true, button expands to fill the width of its container.
+     * @default false
+     */
+    fullWidth?: boolean;
+
+    /**
      * Whether the button is in a loading state.
      */
     isLoading?: boolean;
@@ -97,6 +103,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             kind = 'primary',
             size = 'lg',
             surface = 'default',
+            fullWidth = false,
             isLoading,
             success,
             successStaysActive = false,
@@ -139,6 +146,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             styles[kind],
             styles[`size-${size}`],
             surface === 'inverted' ? styles['surface-inverted'] : '',
+            fullWidth ? styles['full-width'] : '',
             className
         ]
             .filter(Boolean)
@@ -181,8 +189,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         let trailingIconElement = iconTrailing ? (iconTrailingSwap || <ChevronRightIcon />) : null;
 
         // Handle flag element - support both ReactNode and string country codes
+        // Flag is disabled when iconTrailing is true or both icons are enabled
+        const shouldShowFlag = flag && !iconTrailing;
         let flagElement: React.ReactNode = null;
-        if (flag) {
+        if (shouldShowFlag) {
             if (typeof flag === 'string' && flag !== 'none') {
                 flagElement = <img src={`/assets/icons/Flags/${flag}.svg`} alt={flag} style={{ width: '100%', height: '100%' }} />;
             } else if (typeof flag !== 'string') {
@@ -223,7 +233,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                     {leadingIconElement && <span className={styles.icon}>{leadingIconElement}</span>}
                     {buttonText}
                     {trailingIconElement && <span className={styles.icon}>{trailingIconElement}</span>}
-                    {flag && <span className={styles.flag}>{flagElement}</span>}
+                    {shouldShowFlag && <span className={styles.flag}>{flagElement}</span>}
                 </span>
             </AriaButton>
         );

@@ -100,22 +100,90 @@ Builds a static version of Storybook to the `storybook-static` directory.
 
 ```
 pc-design-tokens/
-├── export-from-figma/
-│   ├── tokens-dtcg.json        # Raw tokens from Tokens Studio (DTCG export)
-│   └── animation.json          # Supplemental motion tokens
-├── build-tokens.js              # Build script with sd-transforms
-├── build/
+├── export-from-figma/           # Token source data from Figma (Tokens Studio)
+│   ├── tokens-from-ts.json      # Main token export (synced from GitHub)
+│   └── animation.json           # Supplemental motion tokens
+├── build/                       # Generated token outputs (do not edit)
 │   ├── scss/
-│   │   ├── _tokens.scss         # Generated SCSS partials per group
-│   │   ├── _primitives.scss
-│   │   ├── _motion.scss
+│   │   ├── _tokens.scss         # Semantic tokens (use these!)
+│   │   ├── _primitives.scss     # Primitives (not imported in index)
+│   │   ├── _motion.scss         # Motion tokens
+│   │   ├── _fonts.scss          # Typography tokens
+│   │   ├── _elevation.scss      # Shadow/elevation tokens
 │   │   └── index.scss           # Aggregated SCSS entry point
 │   └── css/
-│       ├── tokens.css           # Generated CSS files per group
-│       ├── motion.css
-│       └── primitives.css
+│       ├── tokens.css           # CSS custom properties version
+│       └── ...                  # Other CSS token files
+├── src/                         # React component source code
+│   └── components/
+│       └── Button/
+│           ├── Button.tsx       # Component implementation
+│           ├── Button.module.scss  # Component styles
+│           └── index.ts         # Re-export barrel file
+├── stories/                     # Storybook documentation
+│   ├── Tokens.stories.tsx       # Token showcase
+│   └── components/
+│       └── Button.stories.tsx   # Component documentation
+├── assets/                      # Static resources (fonts, icons, images)
+├── _instructions/               # Component design specs (reference docs)
+│   └── component docu/          # Figma component specifications
+├── build-tokens.js              # Token build script
 └── package.json
 ```
+
+## 🧩 Component Architecture
+
+### Component Structure
+
+Components follow a consistent folder pattern:
+
+```
+src/components/ComponentName/
+├── ComponentName.tsx          # React component (uses React Aria)
+├── ComponentName.module.scss  # CSS Modules styling
+└── index.ts                   # Re-export barrel file
+```
+
+**Why include `index.ts`?**
+
+The barrel file provides several benefits:
+- **Cleaner imports**: `import { Button } from '@/components/Button'` vs `import { Button } from '@/components/Button/Button'`
+- **Encapsulation**: The folder acts as a public API - internals can be reorganized without breaking imports
+- **Future extensibility**: Easy to add related exports (e.g., `ButtonGroup`, `ButtonIcon`) to the same import
+
+While optional (modern bundlers handle direct imports fine), this pattern provides consistency and better developer experience across the design system.
+
+### Component Development Patterns
+
+1. **Extend React Aria Components** - Use React Aria primitives for built-in accessibility
+2. **CSS Modules with SCSS** - Scoped styles using `.module.scss` files
+3. **Use Semantic Tokens** - Import via `@import '~build/scss/index'`, reference semantic tokens only
+4. **Never use Primitive Tokens** - Always use context-aware semantic tokens (e.g., `$tokens-color-buttons-primary-default`)
+
+**Example:**
+
+```tsx
+// Button.tsx
+import { Button as AriaButton } from 'react-aria-components';
+import styles from './Button.module.scss';
+
+export function Button({ children, ...props }) {
+  return <AriaButton {...props} className={styles.button}>{children}</AriaButton>;
+}
+```
+
+```scss
+// Button.module.scss
+@import '~build/scss/index';
+
+.button {
+  background-color: $tokens-color-buttons-primary-default;
+  color: $tokens-color-text-default-primary-inverted;
+  border-radius: $numeric-tokens-radius-md;
+}
+```
+
+See `_instructions/spec_driven_component.md` and `_instructions/component docu/` for detailed component specifications.
 
 ## 🎨 Using the Tokens
 
@@ -208,7 +276,6 @@ This allows semantic tokens in the `Tokens` group to reference primitive values 
 ## 📝 Notes
 
 - **Responsive tokens included**: The build normalizes references inside the `Responsive/Desktop` and `Responsive/Mobile` groups so their typography tokens resolve correctly.
-- **Focus FX tokens**: Layer arrays are emitted as JSON strings in SCSS (and raw JSON in CSS) to keep shadow settings intact.
 
 ## 🔗 Resources
 
