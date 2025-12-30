@@ -5,18 +5,30 @@ import { resolveTokenValue } from '../utils/scssTokens';
 
 // Import all icons using Vite's glob import
 const iconModules = import.meta.glob('/assets/icons/base/*.svg', { eager: true, as: 'url' });
+const consumableIcons = import.meta.glob('/assets/icons/consumables/*.svg', { eager: true, as: 'url' });
+const customIcons = import.meta.glob('/assets/icons/custom/*.svg', { eager: true, as: 'url' });
+const filledIcons = import.meta.glob('/assets/icons/filled/*.svg', { eager: true, as: 'url' });
+const graphicIcons = import.meta.glob('/assets/icons/graphic/*.svg', { eager: true, as: 'url' });
+const socialIcons = import.meta.glob('/assets/icons/social/*.svg', { eager: true, as: 'url' });
+// Force Vite to include Flags directory in build output (used by Button component at runtime)
+const flagModules = import.meta.glob('/assets/icons/Flags/*.svg', { eager: true });
+// @ts-ignore - flagModules is intentionally unused but required for build
+void flagModules;
 
 // Create icon mapping
 const iconOptions: Record<string, React.ReactNode> = {
     none: null,
 };
 
-Object.keys(iconModules).forEach((path) => {
-    const iconName = path.split('/').pop()?.replace('.svg', '') || '';
-    const iconPath = iconModules[path] as string;
-    iconOptions[iconName] = (
-        <img src={iconPath} alt={iconName} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-    );
+// Process all icon sets
+[iconModules, consumableIcons, customIcons, filledIcons, graphicIcons, socialIcons].forEach((iconSet) => {
+    Object.keys(iconSet).forEach((path) => {
+        const iconName = path.split('/').pop()?.replace('.svg', '') || '';
+        const iconPath = iconSet[path] as string;
+        iconOptions[iconName] = (
+            <img src={iconPath} alt={iconName} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+        );
+    });
 });
 
 const iconNames = Object.keys(iconOptions).sort();
@@ -96,6 +108,7 @@ const meta: Meta<typeof Button> = {
             control: 'select',
             options: iconNames,
             mapping: iconOptions,
+            if: { arg: 'iconLeading', truthy: true },
         },
         iconTrailing: {
             control: 'boolean',
@@ -104,6 +117,7 @@ const meta: Meta<typeof Button> = {
             control: 'select',
             options: iconNames,
             mapping: iconOptions,
+            if: { arg: 'iconTrailing', truthy: true },
         },
         flag: {
             control: 'select',

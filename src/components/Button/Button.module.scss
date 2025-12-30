@@ -179,19 +179,22 @@
   &.surface-inverted {
     &.primary {
       background-color: t.$color-buttons-primary-default-inverted;
-      color: t.$color-text-default-primary;
+      color: t.$color-links-default;
       box-shadow: none;
 
       &:focus-visible {
         outline-color: t.$color-border-focus-accent-inverted;
+        color: t.$color-links-default;
       }
 
       &:hover:not([data-disabled]) {
         background-color: t.$color-buttons-primary-hovered-inverted;
+        color: t.$color-links-hovered;
       }
 
       &:active:not([data-disabled]) {
         background-color: t.$color-buttons-primary-pressed-inverted;
+        color: t.$color-links-pressed;
       }
 
       &[data-disabled] {

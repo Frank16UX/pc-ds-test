@@ -16,55 +16,55 @@ if (typeof document !== 'undefined') {
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url('/assets/fonts/Questa_Regular.otf') format('opentype');
+      src: url('/fonts/Questa_Regular.otf') format('opentype');
     }
-    
+
     @font-face {
       font-family: 'Questa';
       font-style: italic;
       font-weight: 400;
       font-display: swap;
-      src: url('/assets/fonts/Questa_Regular_Italic.otf') format('opentype');
+      src: url('/fonts/Questa_Regular_Italic.otf') format('opentype');
     }
-    
+
     @font-face {
       font-family: 'Questa';
       font-style: normal;
       font-weight: 500;
       font-display: swap;
-      src: url('/assets/fonts/Questa_Medium.otf') format('opentype');
+      src: url('/fonts/Questa_Medium.otf') format('opentype');
     }
-    
+
     @font-face {
       font-family: 'Questa';
       font-style: italic;
       font-weight: 500;
       font-display: swap;
-      src: url('/assets/fonts/Questa_Medium_Italic.otf') format('opentype');
+      src: url('/fonts/Questa_Medium_Italic.otf') format('opentype');
     }
-    
+
     @font-face {
       font-family: 'Lexend';
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url('/assets/fonts/Lexend-Regular.ttf') format('truetype');
+      src: url('/fonts/Lexend-Regular.ttf') format('truetype');
     }
-    
+
     @font-face {
       font-family: 'Lexend';
       font-style: normal;
       font-weight: 500;
       font-display: swap;
-      src: url('/assets/fonts/Lexend-Medium.ttf') format('truetype');
+      src: url('/fonts/Lexend-Medium.ttf') format('truetype');
     }
-    
+
     @font-face {
       font-family: 'Lexend';
       font-style: normal;
       font-weight: 700;
       font-display: swap;
-      src: url('/assets/fonts/Lexend-Bold.ttf') format('truetype');
+      src: url('/fonts/Lexend-Bold.ttf') format('truetype');
     }
     
     :root {

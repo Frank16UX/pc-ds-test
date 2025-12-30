@@ -155,13 +155,15 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         // Determine which loader to use based on kind and surface
         const getLoaderPath = () => {
             if (kind === 'destructive') {
-                return '/assets/icons/animated-icons/loader-white.lottie';
+                return '/icons/animated-icons/loader-white.lottie';
+            } else if (kind === 'primary' && surface === 'inverted') {
+                return '/icons/animated-icons/loader-teal.lottie';
             } else if (kind === 'primary') {
-                return '/assets/icons/animated-icons/loader-black.lottie';
+                return '/icons/animated-icons/loader-black.lottie';
             } else if (surface === 'inverted') {
-                return '/assets/icons/animated-icons/loader-white.lottie';
+                return '/icons/animated-icons/loader-white.lottie';
             } else {
-                return '/assets/icons/animated-icons/loader-teal.lottie';
+                return '/icons/animated-icons/loader-teal.lottie';
             }
         };
 
@@ -194,7 +196,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         let flagElement: React.ReactNode = null;
         if (shouldShowFlag) {
             if (typeof flag === 'string' && flag !== 'none') {
-                flagElement = <img src={`/assets/icons/Flags/${flag}.svg`} alt={flag} style={{ width: '100%', height: '100%' }} />;
+                flagElement = <img src={`/icons/Flags/${flag}.svg`} alt={flag} style={{ width: '100%', height: '100%' }} />;
             } else if (typeof flag !== 'string') {
                 flagElement = flag;
             }
