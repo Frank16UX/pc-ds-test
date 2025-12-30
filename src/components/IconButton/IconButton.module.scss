@@ -1,0 +1,262 @@
+@use '../../../build/scss/tokens' as t;
+@use '../../../build/scss/numeric-tokens' as nt;
+@use '../../../build/scss/fonts' as f;
+@use '../../../build/scss/responsive-desktop' as dt;
+
+.iconButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    background-color: t.$color-surface-primary;
+    border: 1px solid t.$color-border-icon-button-default;
+    padding: 0;
+    border-radius: 48px;
+
+    // Focus ring
+    &:focus-visible {
+        outline: 4px solid t.$color-border-focus-default;
+        outline-offset: 2px;
+    }
+
+    // Hover state
+    &:hover:not([data-disabled]) {
+        background-color: t.$color-surface-interactive-hovered;
+        border-color: t.$color-border-icon-button-hovered;
+        cursor: pointer;
+
+        .icon {
+            color: t.$color-icon-accent-default;
+
+            svg {
+                color: t.$color-icon-accent-default;
+            }
+
+            img {
+                // Teal color filter for hover
+                filter: brightness(0) saturate(100%) invert(40%) sepia(15%) saturate(1500%) hue-rotate(145deg) brightness(95%) contrast(90%);
+            }
+        }
+    }
+
+    // Active/pressed state
+    &:active:not([data-disabled]) {
+        background-color: t.$color-surface-interactive-selected;
+        border-color: t.$color-border-icon-button-active;
+
+        .icon {
+            color: t.$color-icon-accent-on-surface;
+
+            svg {
+                color: t.$color-icon-accent-on-surface;
+            }
+
+            img {
+                // Dark teal color filter for active
+                filter: brightness(0) saturate(100%) invert(25%) sepia(20%) saturate(1800%) hue-rotate(145deg) brightness(90%) contrast(95%);
+            }
+        }
+    }
+
+    // Disabled state
+    &[data-disabled] {
+        cursor: not-allowed;
+        background-color: t.$color-buttons-secondary-disabled;
+        border-color: t.$color-border-icon-button-default;
+
+        .icon {
+            color: t.$color-icon-default-disabled;
+
+            svg {
+                color: t.$color-icon-default-disabled;
+            }
+
+            img {
+                filter: brightness(0) saturate(100%) invert(70%) sepia(0%) saturate(378%) hue-rotate(162deg) brightness(95%) contrast(89%);
+            }
+        }
+
+        .counter {
+            color: t.$color-text-default-disabled;
+        }
+    }
+
+    // Size: Small (32x32, no border)
+    &.size-sm {
+        width: nt.$size-height-sm;
+        height: nt.$size-height-sm;
+        border: none;
+        background-color: transparent;
+
+        .icon {
+            width: nt.$size-height-icon-md;
+            height: nt.$size-height-icon-md;
+        }
+
+        // Indicator: 8x8px, top-right corner
+        .indicator {
+            width: 8px !important;
+            height: 8px !important;
+            right: 0;
+            top: 0;
+        }
+
+        // Hit target for accessibility (44px minimum)
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            opacity: 0;
+        }
+    }
+
+    // Size: Medium (40x40, 1px border)
+    &.size-md {
+        width: nt.$size-height-md;
+        height: nt.$size-height-md;
+        padding: nt.$spacing-xs;
+        border-width: 1px;
+
+        .icon {
+            width: nt.$size-height-icon-md;
+            height: nt.$size-height-icon-md;
+        }
+
+        // Indicator: 12x12px, top-right corner
+        .indicator {
+            width: 12px !important;
+            height: 12px !important;
+            right: -1px;
+            top: -1px;
+        }
+
+        // Hit target for accessibility
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            opacity: 0;
+        }
+    }
+
+    // Size: Large (48x48, 1px border)
+    &.size-lg {
+        width: nt.$size-height-lg;
+        height: nt.$size-height-lg;
+        padding: nt.$spacing-xs;
+        border-width: 1px;
+
+        .icon {
+            width: nt.$size-height-icon-md;
+            height: nt.$size-height-icon-md;
+        }
+
+        // Indicator: 12x12px, top-right corner
+        .indicator {
+            width: 12px !important;
+            height: 12px !important;
+            right: -1px;
+            top: -1px;
+        }
+    }
+
+    // Size: Extra Large (72x72, 2px border)
+    &.size-xl {
+        width: nt.$size-height-xl;
+        height: nt.$size-height-xl;
+        padding: nt.$spacing-md nt.$spacing-lg;
+        border-width: 2px;
+
+        .icon {
+            width: nt.$size-height-icon-lg;
+            height: nt.$size-height-icon-lg;
+        }
+
+        // Indicator: 16x16px, 4px from top, 8px from right
+        .indicator {
+            width: 16px !important;
+            height: 16px !important;
+            right: 4px;
+            top: 0px;
+        }
+    }
+
+    // With counter modifier - only available for md size
+    // Expands width, uses pill shape
+    &.withCounter.size-md {
+        width: auto;
+        height: 48px;
+        gap: 2px;
+        padding: nt.$spacing-xs nt.$spacing-xs nt.$spacing-xs nt.$spacing-sm;
+        min-width: 64px;
+    }
+}
+
+// Icon container
+.icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: t.$color-icon-default-secondary;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: inherit;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        // Default gray filter
+        filter: brightness(0) saturate(100%) invert(30%) sepia(5%) saturate(400%) hue-rotate(180deg) brightness(95%) contrast(90%);
+    }
+}
+
+// Counter text
+.counter {
+    font-family: f.$font-family-secondary;
+    font-weight: f.$font-weight-medium;
+    font-size: dt.$desktop-typescale-font-size-md;
+    line-height: 1;
+    min-width: 18px;
+    text-align: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    // Default: showIndicator=false shows "0" in tertiary color
+    color: t.$color-text-default-tertiary;
+
+    // When showIndicator=true, counter uses accent color
+    &[data-has-indicator] {
+        color: t.$color-text-accent-default;
+    }
+}
+
+// Dot indicator (notification badge)
+// Border is OUTSIDE the dot (box-sizing: content-box)
+// Size is set per variant in the size classes above
+.indicator {
+    position: absolute;
+    border-radius: 1000px;
+    border: 2px solid t.$color-border-divider-inverted;
+    box-sizing: content-box;
+    background-color: t.$color-icon-accent-on-surface;
+    // Default size (will be overridden by size-specific rules)
+    width: 12px;
+    height: 12px;
+}

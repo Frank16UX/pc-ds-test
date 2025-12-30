@@ -58,6 +58,12 @@
     gap: nt.$spacing-2xs;
   }
 
+  // Full width modifier
+  &.full-width {
+    width: 100%;
+    display: flex;
+  }
+
   // Hierarchies
   &.primary {
     background-color: t.$color-buttons-primary-default;

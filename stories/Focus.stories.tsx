@@ -41,12 +41,13 @@ const FocusSwatch = ({ token }: { token: FocusToken }) => {
   const formattedShadow = useMemo(() => formatBoxShadow(shadowValue), [shadowValue]);
 
   const surfaceTintedColor = useMemo(() => resolveTokenValue('$color-surface-tinted-1'), []);
+  const backgroundAccentSolid = useMemo(() => resolveTokenValue('$color-background-accent-solid'), []);
   const backgroundSolidColor = useMemo(() => resolveTokenValue('$color-background-default-solid'), []);
-  const textSecondaryColor = useMemo(() => resolveTokenValue('$color-text-default-secondary'), []);
   const textPrimaryColor = useMemo(() => resolveTokenValue('$color-text-default-primary'), []);
 
   // Determine if this is an inverted variant for background color
   const isInverted = token.name.toLowerCase().includes('inverted');
+  const containerBgColor = isInverted ? backgroundAccentSolid : surfaceTintedColor;
   const buttonBgColor = isInverted ? '#2e3030' : backgroundSolidColor;
   const buttonTextColor = isInverted ? '#ffffff' : textPrimaryColor;
 
@@ -59,7 +60,7 @@ const FocusSwatch = ({ token }: { token: FocusToken }) => {
             width: '100%',
             borderRadius: '20px',
             padding: '32px',
-            backgroundColor: surfaceTintedColor,
+            backgroundColor: containerBgColor,
             display: 'flex',
             justifyContent: 'center',
           }}

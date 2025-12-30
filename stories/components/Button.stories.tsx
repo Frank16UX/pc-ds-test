@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '../../src/components/Button';
 import React from 'react';
+import { resolveTokenValue } from '../utils/scssTokens';
 
 // Import all icons using Vite's glob import
 const iconModules = import.meta.glob('/assets/icons/base/*.svg', { eager: true, as: 'url' });
@@ -27,6 +28,26 @@ const meta: Meta<typeof Button> = {
         layout: 'centered',
     },
     tags: ['autodocs'],
+    decorators: [
+        (Story, context) => {
+            const isInverted = context.args.surface === 'inverted';
+            if (isInverted) {
+                return (
+                    <div style={{
+                        backgroundColor: resolveTokenValue('$color-background-accent-solid') ?? '#1a5961',
+                        padding: '32px',
+                        borderRadius: '8px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}>
+                        <Story />
+                    </div>
+                );
+            }
+            return <Story />;
+        },
+    ],
     argTypes: {
         kind: {
             control: 'select',
@@ -39,6 +60,13 @@ const meta: Meta<typeof Button> = {
         surface: {
             control: 'radio',
             options: ['default', 'inverted'],
+        },
+        fullWidth: {
+            control: 'boolean',
+            description: 'If true, button expands to fill the width of its container.',
+            table: {
+                defaultValue: { summary: 'false' },
+            },
         },
         isDisabled: {
             control: 'boolean',
@@ -80,6 +108,7 @@ const meta: Meta<typeof Button> = {
         flag: {
             control: 'select',
             options: ['none', 'USA', 'Canada', 'France', 'Germany', 'Austria'],
+            if: { arg: 'iconTrailing', truthy: false },
         },
         onPress: { action: 'pressed' },
     },
@@ -146,15 +175,15 @@ export const Success: Story = {
     },
 };
 
-// Inverted surface stories with dark background
-const invertedDecorator = (Story: React.ComponentType) => (
+// Full width decorator with vertical centering
+const fullWidthDecorator = (Story: React.ComponentType) => (
     <div style={{
-        backgroundColor: '#1a5961',
-        padding: '32px',
-        borderRadius: '8px',
+        width: '100%',
+        minHeight: '200px',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: '32px',
+        boxSizing: 'border-box',
     }}>
         <Story />
     </div>
@@ -166,7 +195,6 @@ export const PrimaryInverted: Story = {
         surface: 'inverted',
         children: 'Primary Inverted',
     },
-    decorators: [invertedDecorator],
 };
 
 export const SecondaryInverted: Story = {
@@ -175,7 +203,6 @@ export const SecondaryInverted: Story = {
         surface: 'inverted',
         children: 'Secondary Inverted',
     },
-    decorators: [invertedDecorator],
 };
 
 export const TertiaryInverted: Story = {
@@ -184,7 +211,6 @@ export const TertiaryInverted: Story = {
         surface: 'inverted',
         children: 'Tertiary Inverted',
     },
-    decorators: [invertedDecorator],
 };
 
 export const WithLeadingIcon: Story = {
@@ -210,4 +236,17 @@ export const WithBothIcons: Story = {
         iconTrailing: true,
         children: 'Both Icons',
     },
+};
+
+export const FullWidth: Story = {
+    args: {
+        children: 'Full Width Button',
+        kind: 'primary',
+        size: 'lg',
+        fullWidth: true,
+    },
+    parameters: {
+        layout: 'padded',
+    },
+    decorators: [fullWidthDecorator],
 };
