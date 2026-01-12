@@ -1,7 +1,7 @@
-@use '../../../build/scss/tokens' as t;
-@use '../../../build/scss/numeric-tokens' as nt;
-@use '../../../build/scss/fonts' as f;
-@use '../../../build/scss/responsive-desktop' as dt;
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/fonts' as f;
+@use '../../../../build/scss/responsive-desktop' as dt;
 
 .iconButton {
     display: inline-flex;

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '../../src/components/Button';
+import { Button } from '../../src/components/actions/Button';
 import React from 'react';
 import { resolveTokenValue } from '../utils/scssTokens';
 

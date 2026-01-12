@@ -35,3 +35,6 @@ src/styles/variables-old.scss
 build/scss/_primitives.scss
 build/scss/primitives.css
 
+# Claude internal files
+.claude/
+

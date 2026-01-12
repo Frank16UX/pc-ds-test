@@ -59,10 +59,15 @@ Token groups: Tokens, Numeric Tokens, Fonts, Elevation, Responsive/Desktop, Resp
 
 ```
 src/components/
-  Button/
-    Button.tsx          # React Aria component
-    Button.module.scss  # CSS Modules styling
-    index.ts
+  actions/
+    Button/
+      Button.tsx          # React Aria component
+      Button.module.scss  # CSS Modules styling
+      index.ts
+    IconButton/
+      IconButton.tsx
+      IconButton.module.scss
+      index.ts
 ```
 
 Components use React Aria primitives for accessibility and CSS Modules with SCSS tokens for styling.

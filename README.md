@@ -116,10 +116,15 @@ pc-design-tokens/
 │       └── ...                  # Other CSS token files
 ├── src/                         # React component source code
 │   └── components/
-│       └── Button/
-│           ├── Button.tsx       # Component implementation
-│           ├── Button.module.scss  # Component styles
-│           └── index.ts         # Re-export barrel file
+│       └── actions/
+│           ├── Button/
+│           │   ├── Button.tsx       # Component implementation
+│           │   ├── Button.module.scss  # Component styles
+│           │   └── index.ts         # Re-export barrel file
+│           └── IconButton/
+│               ├── IconButton.tsx
+│               ├── IconButton.module.scss
+│               └── index.ts
 ├── stories/                     # Storybook documentation
 │   ├── Tokens.stories.tsx       # Token showcase
 │   └── components/
@@ -138,7 +143,7 @@ pc-design-tokens/
 Components follow a consistent folder pattern:
 
 ```
-src/components/ComponentName/
+src/components/actions/ComponentName/
 ├── ComponentName.tsx          # React component (uses React Aria)
 ├── ComponentName.module.scss  # CSS Modules styling
 └── index.ts                   # Re-export barrel file
@@ -147,7 +152,7 @@ src/components/ComponentName/
 **Why include `index.ts`?**
 
 The barrel file provides several benefits:
-- **Cleaner imports**: `import { Button } from '@/components/Button'` vs `import { Button } from '@/components/Button/Button'`
+- **Cleaner imports**: `import { Button } from '@/components/actions/Button'` vs `import { Button } from '@/components/actions/Button/Button'`
 - **Encapsulation**: The folder acts as a public API - internals can be reorganized without breaking imports
 - **Future extensibility**: Easy to add related exports (e.g., `ButtonGroup`, `ButtonIcon`) to the same import
 

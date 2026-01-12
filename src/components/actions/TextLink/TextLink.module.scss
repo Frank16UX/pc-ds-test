@@ -1,0 +1,151 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/fonts' as f;
+@use '../../../../build/scss/responsive-desktop' as dt;
+@use '../../../../build/scss/focus' as focus;
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: underline;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+  font-family: f.$font-family-secondary;
+  font-weight: f.$font-weight-regular;
+  line-height: 1.5;
+  color: t.$color-links-default;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.15s ease;
+  position: relative;
+
+  // Focus ring - pill shape with background
+  &:focus-visible {
+    outline: none;
+    border-radius: 44px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -4px -8px;
+      background-color: t.$color-background-default-solid;
+      border-radius: 44px;
+      box-shadow: focus.$focus-default;
+      z-index: -1;
+    }
+  }
+
+  // Hover state
+  &:hover:not([data-disabled]) {
+    color: t.$color-links-hovered;
+    cursor: pointer;
+  }
+
+  // Pressed/Active state
+  &:active:not([data-disabled]) {
+    color: t.$color-links-pressed;
+  }
+
+  // Disabled state
+  &[data-disabled] {
+    color: t.$color-links-disabled;
+    cursor: not-allowed;
+    text-decoration: underline;
+  }
+
+  // Size: sm (14px font, 16px icon, 0px gap)
+  &.size-sm {
+    font-size: dt.$desktop-typescale-font-size-sm;
+    gap: nt.$spacing-none;
+
+    .icon {
+      width: nt.$size-height-icon-xs;
+      height: nt.$size-height-icon-xs;
+    }
+  }
+
+  // Size: md (16px font, 20px icon, 4px gap)
+  &.size-md {
+    font-size: dt.$desktop-typescale-font-size-md;
+    gap: nt.$spacing-2xs;
+
+    .icon {
+      width: nt.$size-height-icon-sm;
+      height: nt.$size-height-icon-sm;
+    }
+  }
+
+  // Size: lg (18px font, 20px icon, 4px gap)
+  &.size-lg {
+    font-size: dt.$desktop-typescale-font-size-lg;
+    gap: nt.$spacing-2xs;
+
+    .icon {
+      width: nt.$size-height-icon-sm;
+      height: nt.$size-height-icon-sm;
+    }
+  }
+
+  // Size: xl (20px font, 20px icon, 4px gap)
+  &.size-xl {
+    font-size: dt.$desktop-typescale-font-size-xl;
+    gap: nt.$spacing-2xs;
+
+    .icon {
+      width: nt.$size-height-icon-sm;
+      height: nt.$size-height-icon-sm;
+    }
+  }
+
+  // Surface: Inverted
+  &.surface-inverted {
+    color: t.$color-links-default-inverted;
+
+    &:focus-visible::before {
+      background-color: t.$color-background-default-static-black;
+      box-shadow: focus.$focus-default-inverted;
+    }
+
+    &:hover:not([data-disabled]) {
+      color: t.$color-links-hovered-inverted;
+    }
+
+    &:active:not([data-disabled]) {
+      color: t.$color-links-pressed-inverted;
+    }
+
+    &[data-disabled] {
+      color: t.$color-text-default-disabled-on-surface;
+    }
+  }
+}
+
+// Label - text content (inherits underline from parent)
+.label {
+  text-decoration: inherit;
+  white-space: nowrap;
+}
+
+// Icon styling
+.icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

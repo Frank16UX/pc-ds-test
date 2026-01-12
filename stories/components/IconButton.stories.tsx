@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { IconButton } from '../../src/components/IconButton';
+import { IconButton } from '../../src/components/actions/IconButton';
 import React from 'react';
 
 // Import all icons using Vite's glob import (base and custom)

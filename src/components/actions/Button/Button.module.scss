@@ -1,8 +1,8 @@
-@use '../../../build/scss/tokens' as t;
-@use '../../../build/scss/numeric-tokens' as nt;
-@use '../../../build/scss/elevation' as e;
-@use '../../../build/scss/fonts' as f;
-@use '../../../build/scss/responsive-desktop' as dt;
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/elevation' as e;
+@use '../../../../build/scss/fonts' as f;
+@use '../../../../build/scss/responsive-desktop' as dt;
 
 // CSS spinner keyframes for loading fallback
 @keyframes spin {
