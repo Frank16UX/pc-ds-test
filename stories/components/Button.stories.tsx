@@ -10,8 +10,8 @@ const customIcons = import.meta.glob('/assets/icons/custom/*.svg', { eager: true
 const filledIcons = import.meta.glob('/assets/icons/filled/*.svg', { eager: true, as: 'url' });
 const graphicIcons = import.meta.glob('/assets/icons/graphic/*.svg', { eager: true, as: 'url' });
 const socialIcons = import.meta.glob('/assets/icons/social/*.svg', { eager: true, as: 'url' });
-// Force Vite to include Flags directory in build output (used by Button component at runtime)
-const flagModules = import.meta.glob('/assets/icons/Flags/*.svg', { eager: true });
+// Force Vite to include flags directory in build output (used by Button component at runtime)
+const flagModules = import.meta.glob('/assets/icons/flags/*.svg', { eager: true });
 // @ts-ignore - flagModules is intentionally unused but required for build
 void flagModules;
 

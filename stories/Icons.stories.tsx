@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 // Import all icons from all directories using Vite's glob import
 const baseIcons = import.meta.glob('/assets/icons/base/*.svg', { eager: true, as: 'url' });
 const graphicIcons = import.meta.glob('/assets/icons/graphic/*.svg', { eager: true, as: 'url' });
-const flagIcons = import.meta.glob('/assets/icons/Flags/*.svg', { eager: true, as: 'url' });
+const flagIcons = import.meta.glob('/assets/icons/flags/*.svg', { eager: true, as: 'url' });
 const consumableIcons = import.meta.glob('/assets/icons/consumables/*.svg', { eager: true, as: 'url' });
 const filledIcons = import.meta.glob('/assets/icons/filled/*.svg', { eager: true, as: 'url' });
 const customIcons = import.meta.glob('/assets/icons/custom/*.svg', { eager: true, as: 'url' });
