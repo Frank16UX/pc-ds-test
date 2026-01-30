@@ -28,7 +28,7 @@
   font-weight: f.$font-weight-medium;
   line-height: 1;
   box-sizing: border-box;
-  border-radius: 1000px; // Pill shape - large fixed value prevents elliptical deformation
+  border-radius: nt.$radius-2xl; // Pill shape using 2XL radius token
 
   // Focus ring
   &:focus-visible {

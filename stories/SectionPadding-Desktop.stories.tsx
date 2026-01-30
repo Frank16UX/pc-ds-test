@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { resolveTokenValue } from './utils/scssTokens';
+import { getTokenDescription } from './utils/tokenDescriptions';
 
 type PaddingToken = {
   name: string;
@@ -10,17 +11,17 @@ type PaddingToken = {
 
 const paddingTokens: Record<string, PaddingToken[]> = {
   vertical: [
-    { name: 'XL', scssVar: '$desktop-section-padding-vertical-xl', description: 'Extra large vertical padding' },
-    { name: 'LG', scssVar: '$desktop-section-padding-vertical-lg', description: 'Large vertical padding' },
-    { name: 'MD', scssVar: '$desktop-section-padding-vertical-md', description: 'Medium vertical padding' },
-    { name: 'SM', scssVar: '$desktop-section-padding-vertical-sm', description: 'Small vertical padding' },
-    { name: 'XS', scssVar: '$desktop-section-padding-vertical-xs', description: 'Extra small vertical padding' },
+    { name: 'XL', scssVar: '$desktop-section-padding-vertical-xl', description: getTokenDescription('$responsive-desktop-section-padding-vertical-xl') ?? 'Extra large vertical padding' },
+    { name: 'LG', scssVar: '$desktop-section-padding-vertical-lg', description: getTokenDescription('$responsive-desktop-section-padding-vertical-lg') ?? 'Large vertical padding' },
+    { name: 'MD', scssVar: '$desktop-section-padding-vertical-md', description: getTokenDescription('$responsive-desktop-section-padding-vertical-md') ?? 'Medium vertical padding' },
+    { name: 'SM', scssVar: '$desktop-section-padding-vertical-sm', description: getTokenDescription('$responsive-desktop-section-padding-vertical-sm') ?? 'Small vertical padding' },
+    { name: 'XS', scssVar: '$desktop-section-padding-vertical-xs', description: getTokenDescription('$responsive-desktop-section-padding-vertical-xs') ?? 'Extra small vertical padding' },
   ],
   horizontal: [
-    { name: 'LG', scssVar: '$desktop-section-padding-horizontal-lg', description: 'Large horizontal padding' },
-    { name: 'MD', scssVar: '$desktop-section-padding-horizontal-md', description: 'Medium horizontal padding' },
-    { name: 'SM', scssVar: '$desktop-section-padding-horizontal-sm', description: 'Small horizontal padding' },
-    { name: 'XS', scssVar: '$desktop-section-padding-horizontal-xs', description: 'Extra small horizontal padding' },
+    { name: 'LG', scssVar: '$desktop-section-padding-horizontal-lg', description: getTokenDescription('$responsive-desktop-section-padding-horizontal-lg') ?? 'Large horizontal padding' },
+    { name: 'MD', scssVar: '$desktop-section-padding-horizontal-md', description: getTokenDescription('$responsive-desktop-section-padding-horizontal-md') ?? 'Medium horizontal padding' },
+    { name: 'SM', scssVar: '$desktop-section-padding-horizontal-sm', description: getTokenDescription('$responsive-desktop-section-padding-horizontal-sm') ?? 'Small horizontal padding' },
+    { name: 'XS', scssVar: '$desktop-section-padding-horizontal-xs', description: getTokenDescription('$responsive-desktop-section-padding-horizontal-xs') ?? 'Extra small horizontal padding' },
   ],
 };
 

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly, this file was auto-generated.
- * Generated: 2025-12-29 T 16:27:32
+ * Generated: 2026-01-19 T 13:00:11
  * Group: Responsive/Desktop
  */
 
@@ -20,20 +20,20 @@
   --desktop-typography-price-md-strikethrough: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"24px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"line-through"};
   --desktop-typography-price-sm: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"18px","lineHeight":"150%","paragraphSpacing":"20px"};
   --desktop-typography-price-sm-strikethrough: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"line-through"};
-  --desktop-typography-text-xl-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"20px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --desktop-typography-text-xl-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"20px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --desktop-typography-text-xl-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"20px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"underline"};
-  --desktop-typography-text-lg-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --desktop-typography-text-lg-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"18px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --desktop-typography-text-lg-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"underline"};
-  --desktop-typography-text-md-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"16px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --desktop-typography-text-md-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"16px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --desktop-typography-text-md-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"16px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"underline"};
-  --desktop-typography-text-sm-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"14px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --desktop-typography-text-sm-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"14px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --desktop-typography-text-sm-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"14px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"underline"};
-  --desktop-typography-utility-cta-md: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"16px","lineHeight":"100%","paragraphSpacing":"0"};
-  --desktop-typography-utility-cta-sm: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"14px","lineHeight":"100%","paragraphSpacing":"0"};
+  --desktop-typography-text-xl-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"20px","lineHeight":"150%"};
+  --desktop-typography-text-xl-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"20px","lineHeight":"150%"};
+  --desktop-typography-text-xl-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"20px","lineHeight":"150%","textDecoration":"underline"};
+  --desktop-typography-text-lg-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%"};
+  --desktop-typography-text-lg-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"18px","lineHeight":"150%"};
+  --desktop-typography-text-lg-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%","textDecoration":"underline"};
+  --desktop-typography-text-md-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"16px","lineHeight":"150%"};
+  --desktop-typography-text-md-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"16px","lineHeight":"150%"};
+  --desktop-typography-text-md-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"16px","lineHeight":"150%","textDecoration":"underline"};
+  --desktop-typography-text-sm-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"14px","lineHeight":"150%"};
+  --desktop-typography-text-sm-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"14px","lineHeight":"150%"};
+  --desktop-typography-text-sm-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"14px","lineHeight":"150%","textDecoration":"underline"};
+  --desktop-typography-utility-cta-md: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"16px","lineHeight":"100%"};
+  --desktop-typography-utility-cta-sm: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"14px","lineHeight":"100%"};
   --desktop-typography-utility-eyebrow: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"14px","lineHeight":"150%","paragraphSpacing":"20px","letterSpacing":"2%","textCase":"uppercase"};
   --desktop-section-padding-vertical-xl: 128px;
   --desktop-section-padding-vertical-lg: 80px;

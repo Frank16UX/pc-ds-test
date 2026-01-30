@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useMemo } from 'react';
 import { resolveTokenValue } from './utils/scssTokens';
+import { getTokenDescription } from './utils/tokenDescriptions';
 
 type ElevationToken = {
   name: string;
@@ -12,47 +13,42 @@ const elevationTokens: ElevationToken[] = [
   {
     name: 'Component: Primary Button',
     scssVar: '$elevation-component-primary-button',
-    description: 'Purpose-built for primary actions to add separation from the surface while staying compact.',
+    description: getTokenDescription('$elevation-component-primary-button') ?? 'Component-specific elevation token',
   },
   {
     name: 'Component: Header',
     scssVar: '$elevation-component-header',
-    description: 'Subtle shadow for fixed headers to separate them from scrolling content.',
+    description: getTokenDescription('$elevation-component-header') ?? 'Component-specific elevation token',
   },
   {
-    name: 'Component: Bottom Sheet',
-    scssVar: '$elevation-component-bottom-sheet',
-    description: 'Upward shadow for bottom sheets and slide-up panels.',
+    name: 'Component: Bottom Fixed',
+    scssVar: '$elevation-component-bottom-fixed',
+    description: getTokenDescription('$elevation-component-bottom-fixed') ?? 'Component-specific elevation token',
   },
   {
-    name: 'Component: Bottom Sticky',
-    scssVar: '$elevation-component-bottom-sticky',
-    description: 'Compact upward shadow for sticky bottom bars and navigation.',
-  },
-  {
-    name: 'Component: Bottom Right',
-    scssVar: '$elevation-component-bottom-right',
-    description: 'Directional shadow for elements anchored to bottom-right corners.',
+    name: 'Component: Bottom Sticky Bar',
+    scssVar: '$elevation-component-bottom-sticky-bar',
+    description: getTokenDescription('$elevation-component-bottom-sticky-bar') ?? 'Component-specific elevation token',
   },
   {
     name: 'Elevation SM',
     scssVar: '$elevation-sm',
-    description: 'Subtle elevation for compact surfaces such as cards, badges, and contextual popovers.',
+    description: getTokenDescription('$elevation-sm') ?? 'Small elevation shadow',
   },
   {
     name: 'Elevation MD',
     scssVar: '$elevation-md',
-    description: 'Medium intensity shadow for menus, dropdowns, and floating utility panels.',
+    description: getTokenDescription('$elevation-md') ?? 'Medium elevation shadow',
   },
   {
     name: 'Elevation LG',
     scssVar: '$elevation-lg',
-    description: 'High-elevation layer that keeps larger panels like navigation drawers off the canvas.',
+    description: getTokenDescription('$elevation-lg') ?? 'Large elevation shadow',
   },
   {
     name: 'Elevation XL',
     scssVar: '$elevation-xl',
-    description: 'Maximum depth used for modals and overlays that must feel detached from the background.',
+    description: getTokenDescription('$elevation-xl') ?? 'Extra large elevation shadow',
   },
 ];
 

@@ -16,7 +16,7 @@
         },
         "300": {
           "$type": "color",
-          "$value": "#fcde99"
+          "$value": "#fcdc9c"
         },
         "400": {
           "$type": "color",
@@ -1333,11 +1333,18 @@
           "$type": "color",
           "$value": "{colors.neutral-tinted.100}",
           "$description": "Use it as the fill color for elevated elements that require a slightly higher contrast against the background (banners or highlighted sections)."
-        },
-        "overlay": {
+        }
+      },
+      "overlays": {
+        "dark": {
           "$type": "color",
           "$value": "{colors.alpha.grey.600}",
           "$description": "Use it as the dimm fill overlay for modals and other panels that needs the full focus from the user."
+        },
+        "light": {
+          "$type": "color",
+          "$value": "{colors.alpha.white.800}",
+          "$description": "Use for the background blur effect."
         }
       },
       "background": {
@@ -1915,6 +1922,11 @@
         "$value": "{scale.6}",
         "$description": "Use it only for Search Typeahead menus and pill shaped items (e.g Quantity Stepper)."
       },
+      "2xl": {
+        "$type": "borderRadius",
+        "$value": "{scale.12}",
+        "$description": "Use it for pill-shaped elements like buttons and chips."
+      },
       "full": {
         "$type": "borderRadius",
         "$value": "50%",
@@ -2002,7 +2014,7 @@
           "$type": "boxShadow",
           "$value": [
             {
-              "color": "rgba(0,0,0,0.4)",
+              "color": "#00000066",
               "type": "dropShadow",
               "x": "0",
               "y": "1",
@@ -2010,7 +2022,7 @@
               "spread": "0"
             },
             {
-              "color": "rgba(0,0,0,0.15)",
+              "color": "#00000026",
               "type": "dropShadow",
               "x": "0",
               "y": "4",
@@ -2018,7 +2030,7 @@
               "spread": "0"
             }
           ],
-          "$description": "Use it for Primary buttons."
+          "$description": "$elevation-component-primary-button — Use it for Primary buttons."
         },
         "header": {
           "$type": "boxShadow",
@@ -2032,10 +2044,10 @@
           },
           "$description": "$elevation-component-header — Header nav bar."
         },
-        "bottom-sheet": {
+        "bottom-fixed": {
           "$type": "boxShadow",
           "$value": {
-            "color": "#00000014",
+            "color": "#0b191c14",
             "type": "dropShadow",
             "x": "0",
             "y": "-6",
@@ -2044,34 +2056,30 @@
           },
           "$description": "$elevation-component-bottom-sheet — Bottom sheets, fixed elements to the bottom."
         },
-        "bottom-sticky": {
+        "bottom-sticky-bar": {
           "$type": "boxShadow",
           "$value": {
-            "color": "#0000001a",
+            "color": "#0b191c0d",
             "type": "dropShadow",
             "x": "0",
-            "y": "-2",
-            "blur": "2",
-            "spread": "0"
-          },
-          "$description": "$elevation-component-pd-sticky-bar — Product details sticky bar."
-        },
-        "bottom-right": {
-          "$type": "boxShadow",
-          "$value": {
-            "color": "#0b191c1f",
-            "type": "dropShadow",
-            "x": "-4",
             "y": "-4",
-            "blur": "12",
+            "blur": "10",
             "spread": "0"
           },
-          "$description": "$elevation-component-bottom-right — Highlighted card overlays on the bottom right corner."
+          "$description": "$elevation-component-bottom-sticky-bar — Product details sticky bar."
         }
       },
       "sm": {
         "$type": "boxShadow",
         "$value": [
+          {
+            "color": "#2121210f",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "1"
+          },
           {
             "color": "#21212105",
             "type": "dropShadow",
@@ -2105,19 +2113,27 @@
             "spread": "0"
           },
           {
-            "color": "#2121211a",
+            "color": "#21212114",
             "type": "dropShadow",
             "x": "0",
-            "y": "0",
-            "blur": "0",
-            "spread": "0"
+            "y": "8",
+            "blur": "20",
+            "spread": "-6"
           }
         ],
-        "$description": "Subtle elevation, tooltips, cards."
+        "$description": "$elevation-sm — Subtle elevation, tooltips, cards."
       },
       "md": {
         "$type": "boxShadow",
         "$value": [
+          {
+            "color": "#2121210f",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "1"
+          },
           {
             "color": "#21212105",
             "type": "dropShadow",
@@ -2159,11 +2175,19 @@
             "spread": "0"
           }
         ],
-        "$description": "Dropdown menus."
+        "$description": "$elevation-md — Dropdown menus."
       },
       "lg": {
         "$type": "boxShadow",
         "$value": [
+          {
+            "color": "#2121210f",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "1"
+          },
           {
             "color": "#21212105",
             "type": "dropShadow",
@@ -2205,11 +2229,19 @@
             "spread": "0"
           }
         ],
-        "$description": "Surfaced elements, panels."
+        "$description": "$elevation-lg — Surfaced elements, panels."
       },
       "xl": {
         "$type": "boxShadow",
         "$value": [
+          {
+            "color": "#2121210f",
+            "type": "dropShadow",
+            "x": "0",
+            "y": "0",
+            "blur": "0",
+            "spread": "1"
+          },
           {
             "color": "#21212105",
             "type": "dropShadow",
@@ -2251,7 +2283,7 @@
             "spread": "0"
           }
         ],
-        "$description": "Modals."
+        "$description": "$elevation-xl — Modals."
       }
     }
   },
@@ -2902,8 +2934,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.xl}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$desktop-typography-text-xl-regular  — Use for extra large body text in introductory paragraphs."
           },
@@ -2913,8 +2944,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.bold}",
               "fontSize": "{typescale.font-size.xl}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$desktop-typography-text-xl-bold — Use for emphasized extra large body text."
           },
@@ -2925,7 +2955,6 @@
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.xl}",
               "lineHeight": "150%",
-              "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
             },
             "$description": "$desktop-typography-text-xl-underline — Use for underlined extra large text links."
@@ -2938,8 +2967,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.lg}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$desktop-typography-text-lg-regular — Use for large body text in feature descriptions."
           },
@@ -2949,8 +2977,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.bold}",
               "fontSize": "{typescale.font-size.lg}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$desktop-typography-text-lg-bold — Use for emphasized large body text and subheadings."
           },
@@ -2961,7 +2988,6 @@
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.lg}",
               "lineHeight": "150%",
-              "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
             },
             "$description": "$desktop-typography-text-lg-underline — Use for underlined large text links."
@@ -2974,8 +3000,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.md}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$desktop-typography-text-md-regular — Use for standard body text and paragraph content."
           },
@@ -2985,8 +3010,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.bold}",
               "fontSize": "{typescale.font-size.md}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$desktop-typography-text-md-bold — Use for emphasized medium body text and inline headings."
           },
@@ -2997,7 +3021,6 @@
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.md}",
               "lineHeight": "150%",
-              "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
             },
             "$description": "$desktop-typography-text-md-underline — Use for underlined medium text links."
@@ -3010,8 +3033,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.sm}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$desktop-typography-text-sm-regular — Use for small body text captions and secondary information."
           },
@@ -3021,8 +3043,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.bold}",
               "fontSize": "{typescale.font-size.sm}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$desktop-typography-text-sm-bold — Use for emphasized small text and labels."
           },
@@ -3033,7 +3054,6 @@
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.sm}",
               "lineHeight": "150%",
-              "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
             },
             "$description": "$desktop-typography-text-sm-underline — Use for underlined small text links and footnotes."
@@ -3048,8 +3068,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.medium}",
               "fontSize": "{typescale.font-size.md}",
-              "lineHeight": "100%",
-              "paragraphSpacing": "0"
+              "lineHeight": "100%"
             },
             "$description": "$desktop-typography-utility-cta-md — Use for for lg buttons."
           },
@@ -3059,8 +3078,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.medium}",
               "fontSize": "{typescale.font-size.sm}",
-              "lineHeight": "100%",
-              "paragraphSpacing": "0"
+              "lineHeight": "100%"
             },
             "$description": "$desktop-typography-utility-cta-sm — Use for sm buttons."
           }
@@ -3599,8 +3617,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.xl}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$mobile-typography-text-xl-regular  — Use for extra large body text in introductory paragraphs."
           },
@@ -3610,8 +3627,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.bold}",
               "fontSize": "{typescale.font-size.xl}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$mobile-typography-text-xl-bold — Use for emphasized extra large body text."
           },
@@ -3622,7 +3638,6 @@
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.xl}",
               "lineHeight": "150%",
-              "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
             },
             "$description": "$mobile-typography-text-xl-underline — Use for underlined extra large text links."
@@ -3635,8 +3650,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.lg}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$mobile-typography-text-lg-regular — Use for large body text in feature descriptions."
           },
@@ -3646,8 +3660,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.bold}",
               "fontSize": "{typescale.font-size.lg}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$mobile-typography-text-lg-bold — Use for emphasized large body text and subheadings."
           },
@@ -3658,7 +3671,6 @@
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.lg}",
               "lineHeight": "150%",
-              "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
             },
             "$description": "$mobile-typography-text-lg-underline — Use for underlined large text links."
@@ -3671,8 +3683,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.md}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$mobile-typography-text-md-regular — Use for standard body text and paragraph content."
           },
@@ -3682,8 +3693,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.bold}",
               "fontSize": "{typescale.font-size.md}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$mobile-typography-text-md-bold — Use for emphasized medium body text and inline headings."
           },
@@ -3694,7 +3704,6 @@
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.md}",
               "lineHeight": "150%",
-              "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
             },
             "$description": "$mobile-typography-text-md-underline — Use for underlined medium text links."
@@ -3707,8 +3716,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.sm}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$mobile-typography-text-sm-regular — Use for small body text captions and secondary information."
           },
@@ -3718,8 +3726,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.bold}",
               "fontSize": "{typescale.font-size.sm}",
-              "lineHeight": "150%",
-              "paragraphSpacing": "20px"
+              "lineHeight": "150%"
             },
             "$description": "$mobile-typography-text-sm-bold — Use for emphasized small text and labels."
           },
@@ -3730,7 +3737,6 @@
               "fontWeight": "{font-weight.regular}",
               "fontSize": "{typescale.font-size.sm}",
               "lineHeight": "150%",
-              "paragraphSpacing": "20px",
               "textDecoration": "{text-decoration.underline}"
             },
             "$description": "$mobile-typography-text-sm-underline — Use for underlined small text links and footnotes."
@@ -3745,8 +3751,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.medium}",
               "fontSize": "{typescale.font-size.md}",
-              "lineHeight": "100%",
-              "paragraphSpacing": "0"
+              "lineHeight": "100%"
             },
             "$description": "$mobile-typography-utility-cta-md — Use for for lg buttons."
           },
@@ -3756,8 +3761,7 @@
               "fontFamily": "{font-family.secondary}",
               "fontWeight": "{font-weight.medium}",
               "fontSize": "{typescale.font-size.sm}",
-              "lineHeight": "100%",
-              "paragraphSpacing": "0"
+              "lineHeight": "100%"
             },
             "$description": "$mobile-typography-utility-cta-sm — Use for sm buttons."
           }
@@ -3769,7 +3773,7 @@
             "fontWeight": "{font-weight.medium}",
             "fontSize": "{typescale.font-size.xs}",
             "lineHeight": "150%",
-            "paragraphSpacing": "20px",
+            "paragraphSpacing": "16px",
             "letterSpacing": "2%",
             "textCase": "{text-transform.uppercase}"
           },

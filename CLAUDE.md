@@ -15,12 +15,25 @@ npm run build:tokens
 # Sync tokens from GitHub repository (Frank16UX/pc-ds-tokens)
 npm run sync:tokens
 
+# Watch GitHub repository for token updates (polls every 5 minutes)
+npm run watch:tokens
+
 # Development server for Storybook
 npm run storybook
 
 # Build static Storybook
 npm run build-storybook
 ```
+
+### Storybook Troubleshooting
+
+**Overlapping Pages Glitch**: If you see the Docs page and Canvas overlapping in Storybook:
+
+1. Kill the Storybook process: `pkill -f "npm run storybook"`
+2. Restart Storybook: `npm run storybook`
+3. Hard refresh the browser: `Cmd + Shift + R` (Mac) or `Ctrl + Shift + R` (Windows/Linux)
+
+This is a known Storybook hot-reload issue that occurs when making significant changes to story files.
 
 ### Token Sync (Manual)
 
@@ -53,7 +66,9 @@ The `build-tokens.js` script uses `@tokens-studio/sd-transforms` to preprocess T
 
 **Primitive tokens** are generated but intentionally NOT exported in `build/scss/index.scss` - never reference primitives directly.
 
-Token groups: Tokens, Numeric Tokens, Fonts, Elevation, Responsive/Desktop, Responsive/Mobile, Motion, Breakpoints, Ratios.
+Token groups: Tokens, Numeric Tokens, Fonts, Elevation, Responsive/Desktop, Responsive/Mobile, Motion, Breakpoints, Ratios, Focus.
+
+**Important**: The build script auto-detects token groups from `export-from-figma/tokens-from-ts.json` using the `$metadata.tokenSetOrder` field (respects Figma's ordering) or falls back to detecting top-level keys.
 
 ### Component Structure
 
@@ -82,9 +97,14 @@ Components use React Aria primitives for accessibility and CSS Modules with SCSS
 
 ## Component Development Guidelines
 
-Reference the `_instructions/` directory for component specifications:
-- `spec_driven_component.md` - Template for building components with Figma MCP
-- `component docu/` - Specs for Button, Checkbox, Dropdown, TextInput, etc.
+Reference the `instructions/component docu/` directory for component specifications and prop definitions:
+- `button/` - Button component specs and guidelines
+- `icon-button/` - IconButton specs
+- `checkbox/`, `radio-button/`, `switch/` - Form control specs
+- `text-input/`, `text-area/` - Input field specs
+- `dropdown-menu/`, `dropdown-list-item/` - Dropdown specs
+- `chip/`, `quantity-stepper/`, `text-link/` - Additional component specs
+- `props-template.md` - Template for documenting component props
 
 ### Patterns
 
@@ -93,12 +113,24 @@ Reference the `_instructions/` directory for component specifications:
 3. Import tokens via `@import '~build/scss/index'`
 4. Never reference primitive tokens directly
 
+### Testing
+
+Run Storybook tests with Vitest + Playwright:
+```bash
+npx vitest
+```
+
+Tests run against stories defined in `.storybook/` using browser testing with Chromium.
+
 ## Token Build Notes
 
-- All output values are **flattened** (no variable references)
-- Responsive tokens have Desktop and Mobile variants
-- Focus FX tokens emit as JSON strings (layer arrays)
+- All output values are **flattened** (no variable references) - set via `outputReferences: false`
+- Responsive tokens have Desktop and Mobile variants with normalized references
+- Focus FX tokens emit as JSON strings (layer arrays) representing box-shadow layers
+- Shadow tokens are automatically converted to CSS `box-shadow` format from Tokens Studio's layer objects
+- Motion tokens (durations, delays, easings) are processed separately from `animation.json`
 - Tokens sync from external repo via `sync-tokens.sh`
+- The build script fixes known reference issues (e.g., missing `Tokens.` prefix in focus-fx error colors)
 
 ## Folder Structure Rationale
 
@@ -111,6 +143,6 @@ The project structure follows design system best practices (Style Dictionary, To
 | `export-from-figma/` | Token source data | External input from Figma Tokens Studio, not application code. |
 | `src/` | React components | Application source code only. |
 | `stories/` | Storybook documentation | Separate from component source (Storybook convention). |
-| `_instructions/` | Component design specs | Reference documentation, not runtime code. |
+| `instructions/` | Component design specs | Reference documentation, not runtime code. |
 
 **Key principle**: Keep generated files (`build/`) and external data (`export-from-figma/`) separate from source code (`src/`). This maintains clear separation of concerns and aligns with industry standards.
