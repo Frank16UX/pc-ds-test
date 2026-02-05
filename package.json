@@ -1,20 +1,64 @@
 {
+  "name": "@frank16ux/pc-design-system",
+  "version": "1.0.0",
+  "description": "Pampered Chef Design System - React components and design tokens",
+  "author": "Frank16UX",
+  "license": "UNLICENSED",
   "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./tokens": "./build/scss/index.scss",
+    "./tokens/css": "./build/css/tokens.css",
+    "./tokens/scss/*": "./build/scss/*",
+    "./tokens/css/*": "./build/css/*",
+    "./assets/*": "./assets/*",
+    "./dist/index.css": "./dist/index.css"
+  },
+  "files": [
+    "dist",
+    "build/scss",
+    "build/css",
+    "assets"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Frank16UX/pc-ds-test.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
   "scripts": {
     "build:tokens": "node build-tokens.js",
+    "build:lib": "vite build --config vite.config.lib.ts && tsc --project tsconfig.build.json",
+    "build": "npm run build:tokens && npm run build:lib",
+    "prepublishOnly": "npm run build",
     "sync:tokens": "./sync-tokens.sh",
     "watch:tokens": "./watch-tokens.sh",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "react-aria-components": "^1.0.0",
+    "react-stately": "^3.0.0"
+  },
   "dependencies": {
     "@dotlottie/player-component": "^2.7.12",
-    "@lottiefiles/dotlottie-react": "^0.17.12",
-    "@tokens-studio/sd-transforms": "^2.0.1",
-    "react": "^19.2.1",
-    "react-aria-components": "^1.13.0",
-    "react-dom": "^19.2.1",
-    "react-stately": "^3.42.0"
+    "@lottiefiles/dotlottie-react": "^0.17.12"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
@@ -23,12 +67,17 @@
     "@storybook/addon-vitest": "^10.0.0",
     "@storybook/react": "^10.1.10",
     "@storybook/react-vite": "^10.1.10",
+    "@tokens-studio/sd-transforms": "^2.0.1",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.1.0",
     "@vitest/browser-playwright": "^4.0.4",
     "@vitest/coverage-v8": "^4.0.4",
     "playwright": "^1.56.1",
+    "react": "^19.2.1",
+    "react-aria-components": "^1.13.0",
+    "react-dom": "^19.2.1",
+    "react-stately": "^3.42.0",
     "sass": "^1.93.2",
     "storybook": "^10.1.10",
     "typescript": "^5.9.3",

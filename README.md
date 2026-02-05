@@ -1,4 +1,79 @@
-# PC Design Tokens
+# PC Design System
+
+A private design system package providing React components and design tokens for Pampered Chef applications.
+
+## Installation
+
+### 1. Configure npm registry
+
+Create or update `.npmrc` in your project root (or your home directory for global config):
+
+```
+@frank16ux:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_PAT
+```
+
+Replace `YOUR_GITHUB_PAT` with a [GitHub Personal Access Token](https://github.com/settings/tokens) that has `read:packages` scope.
+
+### 2. Install the package
+
+```bash
+npm install @frank16ux/pc-design-system
+```
+
+### 3. Usage
+
+**Import components:**
+
+```tsx
+import { Button, IconButton, TextLink } from '@frank16ux/pc-design-system';
+```
+
+**Import component styles** (required — include once in your app entry point):
+
+```tsx
+import '@frank16ux/pc-design-system/dist/index.css';
+```
+
+**Import design tokens (SCSS):**
+
+```scss
+@import '@frank16ux/pc-design-system/tokens';
+
+.my-element {
+  color: $tokens-color-text-default-primary;
+  padding: $numeric-tokens-spacing-md;
+}
+```
+
+**Import design tokens (CSS):**
+
+```css
+@import '@frank16ux/pc-design-system/tokens/css';
+
+.my-element {
+  color: var(--tokens-color-text-default-primary);
+  padding: var(--numeric-tokens-spacing-md);
+}
+```
+
+**Access individual token files:**
+
+```scss
+@import '@frank16ux/pc-design-system/tokens/scss/_elevation.scss';
+@import '@frank16ux/pc-design-system/tokens/scss/_motion.scss';
+```
+
+**Reference static assets (icons, fonts, images):**
+
+```tsx
+// In code
+import iconUrl from '@frank16ux/pc-design-system/assets/icons/base/check.svg';
+```
+
+---
+
+## Development
 
 This project converts design tokens exported from Tokens Studio (Figma plugin) into SCSS and CSS variables using Style Dictionary with the sd-transforms package.
 
