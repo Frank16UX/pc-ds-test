@@ -12,6 +12,12 @@ This is the **Pampered Chef Design Tokens System** - a design token library that
 # Build design tokens from Figma exports
 npm run build:tokens
 
+# Build library (components) for npm publishing
+npm run build:lib
+
+# Build both tokens and library
+npm run build
+
 # Sync tokens from GitHub repository (Frank16UX/pc-ds-tokens)
 npm run sync:tokens
 
@@ -20,6 +26,9 @@ npm run storybook
 
 # Build static Storybook
 npm run build-storybook
+
+# Publish to npm (handled by GitHub Actions on version tags)
+npm publish
 ```
 
 ### Storybook Troubleshooting
@@ -124,3 +133,41 @@ The project structure follows design system best practices (Style Dictionary, To
 | `_instructions/` | Component design specs | Reference documentation, not runtime code. |
 
 **Key principle**: Keep generated files (`build/`) and external data (`export-from-figma/`) separate from source code (`src/`). This maintains clear separation of concerns and aligns with industry standards.
+
+## Package Publishing
+
+The design system is published as a private npm package on GitHub Packages: **`@frank16ux/pc-design-system`**
+
+### Publishing Infrastructure
+
+- **Entry point**: `src/index.ts` (barrel export of all components)
+- **Build outputs**:
+  - `dist/index.js` (ESM)
+  - `dist/index.cjs` (CommonJS)
+  - `dist/index.d.ts` (TypeScript declarations)
+  - `dist/index.css` (component styles)
+- **Build configs**:
+  - `vite.config.lib.ts` — Vite library bundling
+  - `tsconfig.build.json` — TypeScript declarations
+- **Registry**: GitHub Packages (https://npm.pkg.github.com)
+- **CI/CD**: `.github/workflows/publish.yml` — Automatic publishing on version tags (`v*.*.*`)
+
+### Publishing a New Version
+
+1. Make changes, commit to a feature branch, create PR and merge to `main`
+2. Update version: `npm version patch` (or `minor`/`major`)
+3. Push tag: `git push origin vX.X.X`
+4. GitHub Actions automatically builds and publishes
+5. Verify on https://github.com/Frank16UX/pc-ds-test/packages
+
+### Using the Package in Consumer Projects
+
+See `PACKAGE_GUIDE.md` for complete setup and usage instructions. Quick start:
+
+1. Create GitHub PAT with `read:packages` scope
+2. Create `.npmrc` with registry config
+3. `npm install @frank16ux/pc-design-system`
+4. Import components: `import { Button } from '@frank16ux/pc-design-system'`
+5. Import styles: `import '@frank16ux/pc-design-system/dist/index.css'`
+
+Full guide: See `PACKAGE_GUIDE.md` for detailed setup, publishing, and update workflows.
