@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Build output
+dist/
+
 # Instructions for LLM
 _instructions/
 _instructions/component docu/
