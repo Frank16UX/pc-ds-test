@@ -47,6 +47,7 @@ const tokenCategories: CategoryConfig[] = [
   },
   { prefix: 'color-links', label: 'Link Colors' },
   { prefix: 'color-surface', label: 'Surface Colors' },
+  { prefix: 'color-overlays', label: 'Overlay Colors' },
   {
     prefix: 'color-background',
     label: 'Background Colors',
@@ -101,7 +102,12 @@ const TokenSwatch = ({ token }: { token: TokenEntry }) => {
         <div style={{ fontSize: '13px', fontWeight: '600', marginBottom: '2px', wordBreak: 'break-word' }}>
           {displayName}
         </div>
-        <code style={{ fontSize: '10px', color: '#999', fontFamily: 'monospace' }}>{token.name}</code>
+        <code style={{ fontSize: '10px', color: '#999', fontFamily: 'monospace', display: 'block', marginBottom: '4px' }}>{token.name}</code>
+        {token.description && (
+          <div style={{ fontSize: '11px', color: '#666', lineHeight: '1.4' }}>
+            {token.description}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -22,6 +22,16 @@ npm run storybook
 npm run build-storybook
 ```
 
+### Storybook Troubleshooting
+
+**Overlapping Pages Glitch**: If you see the Docs page and Canvas overlapping in Storybook:
+
+1. Kill the Storybook process: `pkill -f "npm run storybook"`
+2. Restart Storybook: `npm run storybook`
+3. Hard refresh the browser: `Cmd + Shift + R` (Mac) or `Ctrl + Shift + R` (Windows/Linux)
+
+This is a known Storybook hot-reload issue that occurs when making significant changes to story files.
+
 ### Token Sync (Manual)
 
 To update design tokens from the source repository:
