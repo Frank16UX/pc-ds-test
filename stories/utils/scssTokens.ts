@@ -8,6 +8,7 @@ import motionRaw from '../../build/scss/_motion.scss?raw';
 import breakpointsRaw from '../../build/scss/_breakpoints.scss?raw';
 import ratiosRaw from '../../build/scss/_ratios.scss?raw';
 import focusRaw from '../../build/scss/_focus.scss?raw';
+import { getTokenDescription } from './tokenDescriptions';
 
 type TokenMap = Map<string, string>;
 
@@ -15,6 +16,7 @@ type TokenEntry = {
   name: string;
   value: string;
   raw: string;
+  description?: string;
 };
 
 const RAW_SHEETS = [
@@ -115,10 +117,12 @@ export function getTokensByPrefix(prefix: string): TokenEntry[] {
   for (const [name, raw] of tokenMap.entries()) {
     if (name.startsWith(normalizedPrefix)) {
       const resolved = resolveTokenValue(name);
+      const tokenName = `$${name}`;
       results.push({
-        name: `$${name}`,
+        name: tokenName,
         raw,
         value: resolved ?? raw,
+        description: getTokenDescription(tokenName),
       });
     }
   }
@@ -130,10 +134,12 @@ export function getTokensByPrefix(prefix: string): TokenEntry[] {
 export function getAllTokens(): TokenEntry[] {
   const entries: TokenEntry[] = [];
   for (const [name, raw] of tokenMap.entries()) {
+    const tokenName = `$${name}`;
     entries.push({
-      name: `$${name}`,
+      name: tokenName,
       raw,
       value: resolveTokenValue(name) ?? raw,
+      description: getTokenDescription(tokenName),
     });
   }
   entries.sort((a, b) => a.name.localeCompare(b.name));
