@@ -1,8 +1,7 @@
 @use '../../../../build/scss/tokens' as t;
 @use '../../../../build/scss/numeric-tokens' as nt;
 @use '../../../../build/scss/elevation' as e;
-@use '../../../../build/scss/fonts' as f;
-@use '../../../../build/scss/responsive-desktop' as dt;
+@use '../../../../build/scss/typography-desktop' as typo;
 
 // CSS spinner keyframes for loading fallback
 @keyframes spin {
@@ -24,9 +23,6 @@
   text-decoration: none;
   white-space: nowrap;
   transition: all 0.2s ease;
-  font-family: f.$font-family-secondary;
-  font-weight: f.$font-weight-medium;
-  line-height: 1;
   box-sizing: border-box;
   border-radius: 1000px; // Pill shape - large fixed value prevents elliptical deformation
 
@@ -46,7 +42,7 @@
     height: nt.$size-height-lg;
     min-width: nt.$size-width-button-mw-lg;
     padding: 0 nt.$spacing-lg;
-    font-size: dt.$desktop-typescale-font-size-md; // 16px
+    @include typo.desktop-typography-utility-cta-md;
     gap: nt.$spacing-xs;
   }
 
@@ -54,7 +50,7 @@
     height: nt.$size-height-sm;
     min-width: nt.$size-width-button-mw-sm;
     padding: 0 nt.$spacing-md;
-    font-size: dt.$desktop-typescale-font-size-sm; // 14px
+    @include typo.desktop-typography-utility-cta-sm;
     gap: nt.$spacing-2xs;
   }
 

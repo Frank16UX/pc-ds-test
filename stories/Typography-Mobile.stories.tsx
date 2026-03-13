@@ -110,6 +110,9 @@ const TypographySample = ({ name, scssVar, sample }: TokenDefinition) => {
           {sample}
         </span>
   <code className="token-sample-code">{scssVar}</code>
+        <code className="token-sample-code" style={{ color: '#6b21a8' }}>
+          @include typo.{scssVar.replace('$', '')}
+        </code>
       </div>
       <dl className="token-spec-grid">
         {specs.map((spec) => (

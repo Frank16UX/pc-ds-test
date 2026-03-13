@@ -14,15 +14,16 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Import all icons from all directories using Vite's glob import
-const baseIcons = import.meta.glob('/assets/icons/base/*.svg', { eager: true, as: 'url' });
-const graphicIcons = import.meta.glob('/assets/icons/graphic/*.svg', { eager: true, as: 'url' });
-const flagIcons = import.meta.glob('/assets/icons/flags/*.svg', { eager: true, as: 'url' });
-const consumableIcons = import.meta.glob('/assets/icons/consumables/*.svg', { eager: true, as: 'url' });
-const filledIcons = import.meta.glob('/assets/icons/filled/*.svg', { eager: true, as: 'url' });
-const customIcons = import.meta.glob('/assets/icons/custom/*.svg', { eager: true, as: 'url' });
-const socialIcons = import.meta.glob('/assets/icons/social/*.svg', { eager: true, as: 'url' });
+const baseIcons = import.meta.glob('/assets/icons/base/*.svg', { eager: true, query: '?url', import: 'default' });
+const graphicIcons = import.meta.glob('/assets/icons/graphic/*.svg', { eager: true, query: '?url', import: 'default' });
+const flagIcons = import.meta.glob('/assets/icons/flags/*.svg', { eager: true, query: '?url', import: 'default' });
+const consumableIcons = import.meta.glob('/assets/icons/consumables/*.svg', { eager: true, query: '?url', import: 'default' });
+const filledIcons = import.meta.glob('/assets/icons/filled/*.svg', { eager: true, query: '?url', import: 'default' });
+const customIcons = import.meta.glob('/assets/icons/custom/*.svg', { eager: true, query: '?url', import: 'default' });
+const socialIcons = import.meta.glob('/assets/icons/social/*.svg', { eager: true, query: '?url', import: 'default' });
+const helperIcons = import.meta.glob('/assets/icons/helper-icons/*.svg', { eager: true, query: '?url', import: 'default' });
 // Import Lottie animations (exclude JSON fallbacks)
-const animatedIcons = import.meta.glob('/assets/icons/animated-icons/*.lottie', { eager: true, as: 'url' });
+const animatedIcons = import.meta.glob('/assets/icons/animated-icons/*.lottie', { eager: true, query: '?url', import: 'default' });
 
 type IconCategory = {
   name: string;
@@ -38,6 +39,7 @@ const iconCategories: IconCategory[] = [
   { name: 'Filled', icons: filledIcons, type: 'svg' },
   { name: 'Custom', icons: customIcons, type: 'svg' },
   { name: 'Social', icons: socialIcons, type: 'svg' },
+  { name: 'Helper', icons: helperIcons, type: 'svg' },
   { name: 'Animated', icons: animatedIcons, type: 'lottie' },
 ];
 
@@ -184,106 +186,118 @@ const IconGallery = () => {
           gap: '1rem',
         }}
       >
-        {filteredIcons.map((icon) => (
-          <div
-            key={`${icon.category}-${icon.name}`}
-            onClick={() => handleCopyName(icon.name)}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              padding: '1.5rem 1rem',
-              border: '2px solid #e0e0e0',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-              backgroundColor: copiedIcon === icon.name ? '#f0f9ff' : 'white',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#2b7a87';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={(e) => {
-              if (copiedIcon !== icon.name) {
-                e.currentTarget.style.borderColor = '#e0e0e0';
-              }
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-          >
+        {filteredIcons.map((icon) => {
+          const isInverted = icon.name.includes('inverted');
+          const isLoaderWhite = icon.name.includes('loader') && icon.name.includes('white');
+          const isDarkBg = isInverted || isLoaderWhite;
+          const accentColor = resolveTokenValue('$color-background-accent-strong') ?? '#2b7a87';
+          return (
             <div
+              key={`${icon.category}-${icon.name}`}
+              role="button"
+              tabIndex={0}
+              onClick={() => handleCopyName(icon.name)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleCopyName(icon.name);
+                }
+              }}
               style={{
-                width: '40px',
-                height: '40px',
-                marginBottom: '0.75rem',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center',
+                padding: '1.5rem 1rem',
+                border: `2px solid ${isDarkBg ? accentColor : '#e0e0e0'}`,
+                borderRadius: '8px',
+                cursor: 'pointer',
+                transition: 'border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease',
+                backgroundColor: isDarkBg ? accentColor : copiedIcon === icon.name ? '#f0f9ff' : 'white',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#2b7a87';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                if (copiedIcon !== icon.name) {
+                  e.currentTarget.style.borderColor = isDarkBg ? accentColor : '#e0e0e0';
+                }
+                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              {icon.type === 'lottie' ? (
-                <div
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: icon.name.includes('white')
-                      ? resolveTokenValue('$color-background-default-subtle') ?? '#f5f5f5'
-                      : 'transparent',
-                    borderRadius: '4px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <DotLottieReact
+              <div
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  marginBottom: '0.75rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                {icon.type === 'lottie' ? (
+                  <div
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: 'transparent',
+                      borderRadius: '4px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <DotLottieReact
+                      src={icon.path}
+                      loop
+                      autoplay
+                      style={{ width: '100%', height: '100%' }}
+                    />
+                  </div>
+                ) : (
+                  <img
                     src={icon.path}
-                    loop
-                    autoplay
-                    style={{ width: '100%', height: '100%' }}
+                    alt={icon.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                   />
-                </div>
-              ) : (
-                <img
-                  src={icon.path}
-                  alt={icon.name}
-                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                />
-              )}
-            </div>
-            <span
-              style={{
-                fontSize: '0.75rem',
-                textAlign: 'center',
-                color: '#333',
-                wordBreak: 'break-word',
-                lineHeight: '1.3',
-              }}
-              title={icon.name}
-            >
-              {icon.name}
-            </span>
-            <span
-              style={{
-                fontSize: '0.625rem',
-                color: '#999',
-                marginTop: '0.25rem',
-              }}
-            >
-              {icon.category}
-            </span>
-            {copiedIcon === icon.name && (
+                )}
+              </div>
+              <span
+                style={{
+                  fontSize: '0.75rem',
+                  textAlign: 'center',
+                  color: isDarkBg ? '#fff' : '#333',
+                  wordBreak: 'break-word',
+                  lineHeight: '1.3',
+                }}
+                title={icon.name}
+              >
+                {icon.name}
+              </span>
               <span
                 style={{
                   fontSize: '0.625rem',
-                  color: '#2b7a87',
+                  color: isDarkBg ? 'rgba(255, 255, 255, 0.7)' : '#999',
                   marginTop: '0.25rem',
-                  fontWeight: 600,
                 }}
               >
-                Copied!
+                {icon.category}
               </span>
-            )}
-          </div>
-        ))}
+              {copiedIcon === icon.name && (
+                <span
+                  style={{
+                    fontSize: '0.625rem',
+                    color: isDarkBg ? '#fff' : '#2b7a87',
+                    marginTop: '0.25rem',
+                    fontWeight: 600,
+                  }}
+                >
+                  Copied!
+                </span>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {filteredIcons.length === 0 && (

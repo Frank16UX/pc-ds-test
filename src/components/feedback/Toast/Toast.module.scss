@@ -1,0 +1,264 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/elevation' as e;
+@use '../../../../build/scss/typography-desktop' as typo;
+@use '../../../../build/scss/motion' as m;
+@use '../../../../build/scss/breakpoints' as bp;
+
+// Entry animation — slides up from below and fades in
+@keyframes toast-enter {
+    from {
+        transform: translateY(80px) scale(1);
+        opacity: 0;
+    }
+}
+
+// Exit animation — slides down and fades out
+@keyframes toast-exit {
+    to {
+        transform: translateY(80px) scale(1);
+        opacity: 0;
+    }
+}
+
+// Progress bar fill animation
+@keyframes progress-fill {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+// Toaster container (portal)
+.toaster {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+
+    // Desktop: bottom-right
+    bottom: 32px;
+    right: 32px;
+    width: 360px;
+
+    // Mobile: bottom-center
+    @media (max-width: #{bp.$breakpoints-md - 1}px) {
+        width: auto;
+        left: nt.$spacing-md;
+        right: nt.$spacing-md;
+        bottom: nt.$spacing-md;
+    }
+}
+
+// Stack container — positions toasts relative to bottom
+.toast-stack {
+    position: relative;
+    width: 100%;
+    pointer-events: none;
+    transition: height 300ms cubic-bezier(0.2, 0.6, 0.25, 1);
+}
+
+// Wrapper for each toast in the stack — handles positioning/scale
+.toast-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform-origin: bottom center;
+    pointer-events: auto;
+    width: 360px;
+    animation: toast-enter 300ms cubic-bezier(0.2, 0.6, 0.25, 1);
+    transition: transform 300ms cubic-bezier(0.2, 0.6, 0.25, 1), opacity 300ms ease;
+
+    // Exit: use animation to slide down and fade out
+    &.wrapper-exiting {
+        animation: toast-exit 300ms cubic-bezier(0.2, 0.6, 0.25, 1) forwards !important;
+    }
+
+    @media (max-width: #{bp.$breakpoints-md - 1}px) {
+        width: 100%;
+        right: 0;
+        left: 0;
+    }
+}
+
+// Individual toast
+.toast {
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+    width: 360px;
+    border-radius: nt.$radius-md;
+    background-color: t.$color-background-accent-strongest;
+    box-shadow: e.$elevation-xl;
+    overflow: hidden;
+    pointer-events: auto;
+
+    @media (max-width: #{bp.$breakpoints-md - 1}px) {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+// Animation states (applied to toast-wrapper, not toast directly)
+// These are kept for the static Toast story previews
+.entering {
+    animation: toast-enter 300ms cubic-bezier(0.2, 0.6, 0.25, 1);
+}
+
+.visible {
+    opacity: 1;
+}
+
+.exiting {
+    animation: toast-exit 300ms cubic-bezier(0.2, 0.6, 0.25, 1) forwards;
+}
+
+// Toast inner content row
+.toast-content {
+    display: flex;
+    align-items: center;
+    padding: nt.$spacing-sm nt.$spacing-md;
+    gap: nt.$spacing-md;
+}
+
+// Status icon
+.status-icon {
+    flex-shrink: 0;
+    width: nt.$size-height-icon-md;
+    height: nt.$size-height-icon-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: t.$color-icon-default-primary-inverted;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// Per-status icon colors
+.info .status-icon {
+    color: t.$color-icon-info-high-contrast-inverted;
+}
+
+.success .status-icon {
+    color: t.$color-icon-success-high-contrast-inverted;
+}
+
+.warning .status-icon {
+    color: t.$color-icon-warning-high-contrast-inverted;
+}
+
+.error .status-icon {
+    color: t.$color-icon-error-high-contrast-inverted;
+}
+
+// Message area
+.message-area {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: nt.$spacing-sm;
+}
+
+.message {
+    flex: 1 0 0;
+    min-width: 0;
+    @include typo.desktop-typography-text-md-regular;
+    color: t.$color-text-default-primary-inverted;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.description {
+    flex-basis: 100%;
+    @include typo.desktop-typography-text-md-regular;
+    color: t.$color-text-default-primary-inverted;
+    opacity: 0.8;
+}
+
+// Action & close buttons
+.action-button,
+.close-button {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    @include typo.desktop-typography-utility-cta-sm;
+    color: t.$color-links-default-inverted;
+    white-space: nowrap;
+    position: relative;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Extended touch target (44px)
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-height: 44px;
+        min-width: 100%;
+        width: calc(100% + #{nt.$spacing-md});
+        border: 2px solid transparent;
+        border-radius: nt.$radius-full;
+        opacity: 0;
+    }
+
+    &:hover {
+        color: t.$color-links-hovered-inverted;
+    }
+
+    &:active {
+        color: t.$color-links-pressed-inverted;
+    }
+
+    &:focus-visible {
+        outline: 2px solid t.$color-border-focus-accent-inverted;
+        outline-offset: 2px;
+        border-radius: nt.$radius-sm;
+    }
+}
+
+// Loading progress bar
+.progress-bar {
+    height: 5px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: t.$color-graphics-complementary-6;
+    width: 0%;
+    animation: progress-fill var(--toast-duration, 5000ms) linear forwards;
+}
+
+// Loader animation
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-spinner {
+    width: nt.$size-height-icon-md;
+    height: nt.$size-height-icon-md;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: t.$color-icon-default-primary-inverted;
+    animation: spin 0.8s linear infinite;
+}

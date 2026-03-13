@@ -19,8 +19,8 @@ export { Button } from './components/actions/Button';
 export type { ButtonProps } from './components/actions/Button';
 export { IconButton } from './components/actions/IconButton';
 export type { IconButtonProps } from './components/actions/IconButton';
-export { TextLink } from './components/actions/TextLink';
-export type { TextLinkProps } from './components/actions/TextLink';
+export { Link } from './components/actions/Link';
+export type { LinkProps } from './components/actions/Link';
 ```
 
 **Why this matters:** Instead of writing `import { Button } from '@frank16ux/pc-design-system/components/actions/Button'`, users can now write `import { Button } from '@frank16ux/pc-design-system'`.
@@ -315,7 +315,7 @@ If it fails with a 404 error, check:
 In your React code:
 
 ```tsx
-import { Button, IconButton, TextLink } from '@frank16ux/pc-design-system';
+import { Button, IconButton, Link } from '@frank16ux/pc-design-system';
 import '@frank16ux/pc-design-system/dist/index.css';
 
 export function MyComponent() {

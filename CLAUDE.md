@@ -6,6 +6,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the **Pampered Chef Design Tokens System** - a design token library that converts Figma tokens (via Tokens Studio plugin) into SCSS and CSS variables. It also includes React components built with React Aria for accessibility.
 
+## Prompt Instructions
+
+Always follow these rules everytime I enter a new prompt that requires/uses the Plan Mode.
+
+1. **Save plans in structured folders**: Every time you use "Plan mode", save plans in `.claude/plans/` using this convention:
+   - Folder name: `{id}-{plan-name}` (e.g., `001-navigation-prototypes`) The id should be consecutive to any existing plans/todo.
+   - Inside each folder, create 2 markdown files:
+     - `{id}-plan.md` - The full plan content
+     - `{id}-todo.md` - The todo checklist with tasks and subtasks
+
+2. **Track progress systematically**:
+   - Mark tasks as completed in the todo file immediately after finishing them
+   - Use task hierarchy: tasks and subtasks with dependency relationships
+   - Each task/subtask has 4 statuses:
+     - **Pending** - Not started yet
+     - **In Progress** - Currently working on this
+     - **Failed** - Attempted but encountered blocking issues
+     - **Completed** - Successfully finished
+   - Update status as you work through tasks
+
+3. **Resume workflow after limits**:
+   - When continuing a session after reaching limits:
+     - Read the plan file (if multiple plans exist, ask which one to continue)
+     - Check the todo list to find the last status
+     - Continue with the next uncompleted task (prioritize "In Progress" or "Failed" tasks)
+     - Never start from scratch - always pick up where you left off
+
+After you finish building anything. Preview the result by opening the URL of the local server in the browser, and use the Claude on Desktop extension (/chrome) to review that everything is working as needed. Test the functionalities, appereance and identify any bugs or errors that might show up and automatically fix them.
+
 ## Commands
 
 ```bash
@@ -50,6 +79,7 @@ npm run sync:tokens
 ```
 
 This command:
+
 1. Fetches the latest tokens from `https://github.com/Frank16UX/pc-ds-tokens`
 2. Copies files from the repo's `export-from-figma` folder to local `export-from-figma/`
 3. Automatically runs `npm run build:tokens` to regenerate SCSS/CSS outputs
@@ -68,6 +98,7 @@ The `build-tokens.js` script uses `@tokens-studio/sd-transforms` to preprocess T
 ### Token Organization
 
 **Semantic tokens** (use these): `build/scss/_tokens.scss`, `build/css/tokens.css`
+
 - Examples: `$tokens-color-text-default-primary`, `var(--tokens-color-buttons-primary-default)`
 
 **Primitive tokens** are generated but intentionally NOT exported in `build/scss/index.scss` - never reference primitives directly.
@@ -102,6 +133,7 @@ Components use React Aria primitives for accessibility and CSS Modules with SCSS
 ## Component Development Guidelines
 
 Reference the `_instructions/` directory for component specifications:
+
 - `spec_driven_component.md` - Template for building components with Figma MCP
 - `component docu/` - Specs for Button, Checkbox, Dropdown, TextInput, etc.
 
@@ -123,14 +155,14 @@ Reference the `_instructions/` directory for component specifications:
 
 The project structure follows design system best practices (Style Dictionary, Tokens Studio patterns):
 
-| Directory | Purpose | Why at Root Level |
-|-----------|---------|-------------------|
-| `build/` | Generated token outputs | Generated artifacts ≠ source code. Industry standard for Style Dictionary. |
-| `assets/` | Static resources (fonts, icons, imgs) | Served by Storybook via `staticDirs`. Root level is conventional. |
-| `export-from-figma/` | Token source data | External input from Figma Tokens Studio, not application code. |
-| `src/` | React components | Application source code only. |
-| `stories/` | Storybook documentation | Separate from component source (Storybook convention). |
-| `_instructions/` | Component design specs | Reference documentation, not runtime code. |
+| Directory            | Purpose                               | Why at Root Level                                                          |
+| -------------------- | ------------------------------------- | -------------------------------------------------------------------------- |
+| `build/`             | Generated token outputs               | Generated artifacts ≠ source code. Industry standard for Style Dictionary. |
+| `assets/`            | Static resources (fonts, icons, imgs) | Served by Storybook via `staticDirs`. Root level is conventional.          |
+| `export-from-figma/` | Token source data                     | External input from Figma Tokens Studio, not application code.             |
+| `src/`               | React components                      | Application source code only.                                              |
+| `stories/`           | Storybook documentation               | Separate from component source (Storybook convention).                     |
+| `_instructions/`     | Component design specs                | Reference documentation, not runtime code.                                 |
 
 **Key principle**: Keep generated files (`build/`) and external data (`export-from-figma/`) separate from source code (`src/`). This maintains clear separation of concerns and aligns with industry standards.
 

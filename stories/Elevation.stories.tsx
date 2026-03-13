@@ -12,47 +12,42 @@ const elevationTokens: ElevationToken[] = [
   {
     name: 'Component: Primary Button',
     scssVar: '$elevation-component-primary-button',
-    description: 'Purpose-built for primary actions to add separation from the surface while staying compact.',
+    description: 'Use it for Primary buttons.',
   },
   {
     name: 'Component: Header',
     scssVar: '$elevation-component-header',
-    description: 'Subtle shadow for fixed headers to separate them from scrolling content.',
+    description: 'Header nav bar.',
   },
   {
-    name: 'Component: Bottom Sheet',
-    scssVar: '$elevation-component-bottom-sheet',
-    description: 'Upward shadow for bottom sheets and slide-up panels.',
+    name: 'Component: Bottom Fixed',
+    scssVar: '$elevation-component-bottom-fixed',
+    description: 'Bottom sheets, fixed elements to the bottom.',
   },
   {
-    name: 'Component: Bottom Sticky',
-    scssVar: '$elevation-component-bottom-sticky',
-    description: 'Compact upward shadow for sticky bottom bars and navigation.',
-  },
-  {
-    name: 'Component: Bottom Right',
-    scssVar: '$elevation-component-bottom-right',
-    description: 'Directional shadow for elements anchored to bottom-right corners.',
+    name: 'Component: Bottom Sticky Bar',
+    scssVar: '$elevation-component-bottom-sticky-bar',
+    description: 'Product details sticky bar.',
   },
   {
     name: 'Elevation SM',
     scssVar: '$elevation-sm',
-    description: 'Subtle elevation for compact surfaces such as cards, badges, and contextual popovers.',
+    description: 'Subtle elevation, tooltips, cards.',
   },
   {
     name: 'Elevation MD',
     scssVar: '$elevation-md',
-    description: 'Medium intensity shadow for menus, dropdowns, and floating utility panels.',
+    description: 'Dropdown menus.',
   },
   {
     name: 'Elevation LG',
     scssVar: '$elevation-lg',
-    description: 'High-elevation layer that keeps larger panels like navigation drawers off the canvas.',
+    description: 'Surfaced elements, panels.',
   },
   {
     name: 'Elevation XL',
     scssVar: '$elevation-xl',
-    description: 'Maximum depth used for modals and overlays that must feel detached from the background.',
+    description: 'Modals.',
   },
 ];
 
@@ -112,11 +107,11 @@ const ElevationComponent = () => (
     <section style={{ marginTop: '48px', padding: '24px', backgroundColor: 'var(--color-surface-secondary)', borderRadius: '16px' }}>
       <h2 style={{ marginBottom: '16px', fontSize: '24px', fontWeight: 600 }}>Usage Guidelines</h2>
       <ul style={{ color: '#5b6164', lineHeight: 1.6, paddingLeft: '24px' }}>
-        <li><strong>Component tokens:</strong> Purpose-built shadows for specific UI elements (buttons, headers, bottom sheets).</li>
-        <li><strong>Elevation SM:</strong> Ideal for compact surfaces such as cards, popovers, and tooltips that need delicate separation.</li>
-        <li><strong>Elevation MD:</strong> Adds clarity to mid-sized floating elements including dropdowns and anchored menus.</li>
-        <li><strong>Elevation LG:</strong> Reserves extra depth for navigation drawers, mega menus, or sticky summaries.</li>
-        <li><strong>Elevation XL:</strong> Use only for modals and blocking overlays where full attention is required.</li>
+        <li><strong>Component tokens:</strong> Purpose-built shadows for specific UI elements (buttons, headers, bottom fixed elements, sticky bars).</li>
+        <li><strong>Elevation SM:</strong> Subtle elevation for tooltips and cards.</li>
+        <li><strong>Elevation MD:</strong> For dropdown menus.</li>
+        <li><strong>Elevation LG:</strong> For surfaced elements and panels.</li>
+        <li><strong>Elevation XL:</strong> For modals.</li>
       </ul>
     </section>
   </div>

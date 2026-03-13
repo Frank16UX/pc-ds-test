@@ -3,8 +3,8 @@ import { IconButton } from '../../src/components/actions/IconButton';
 import React from 'react';
 
 // Import all icons using Vite's glob import (base and custom)
-const baseIconModules = import.meta.glob('/assets/icons/base/*.svg', { eager: true, as: 'url' });
-const customIconModules = import.meta.glob('/assets/icons/custom/*.svg', { eager: true, as: 'url' });
+const baseIconModules = import.meta.glob('/assets/icons/base/*.svg', { eager: true, query: '?url', import: 'default' });
+const customIconModules = import.meta.glob('/assets/icons/custom/*.svg', { eager: true, query: '?url', import: 'default' });
 
 // Create icon mapping
 const iconOptions: Record<string, React.ReactNode> = {};
@@ -33,7 +33,7 @@ const iconNames = Object.keys(iconOptions).sort();
 const defaultIconName = 'custom/cart';
 
 const meta: Meta<typeof IconButton> = {
-    title: 'Components/Icon Button',
+    title: 'Components/Actions/IconButton',
     component: IconButton,
     parameters: {
         layout: 'centered',
@@ -84,6 +84,44 @@ const meta: Meta<typeof IconButton> = {
         'aria-label': {
             control: 'text',
             description: 'Accessible label for the button (required)',
+            table: { category: 'React Aria' },
+        },
+        'aria-labelledby': {
+            control: 'text',
+            description: 'ID of element that labels this button. Alternative to aria-label.',
+            table: { category: 'React Aria' },
+        },
+        'aria-describedby': {
+            control: 'text',
+            description: 'ID of element that describes this button or provides additional context.',
+            table: { category: 'React Aria' },
+        },
+        'aria-pressed': {
+            control: 'boolean',
+            description: "Indicates button's pressed state for toggle icon buttons.",
+            table: { category: 'React Aria' },
+        },
+        'aria-expanded': {
+            control: 'boolean',
+            description: 'Indicates whether element controlled by button is expanded. Use for menu/dropdown triggers.',
+            table: { category: 'React Aria' },
+        },
+        'aria-haspopup': {
+            control: 'select',
+            options: ['true', 'menu', 'dialog', 'listbox'],
+            description: 'Indicates button opens a popup.',
+            table: { category: 'React Aria' },
+        },
+        'aria-controls': {
+            control: 'text',
+            description: 'ID of element controlled by this button.',
+            table: { category: 'React Aria' },
+        },
+        'aria-live': {
+            control: 'select',
+            options: ['off', 'polite', 'assertive'],
+            description: 'For item counter updates. Announces count changes to screen readers.',
+            table: { category: 'React Aria' },
         },
         onPress: { action: 'pressed' },
     },

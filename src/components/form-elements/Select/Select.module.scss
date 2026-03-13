@@ -1,0 +1,425 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+@use '../../../../build/scss/elevation' as e;
+@use '../../../../build/scss/motion' as m;
+
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: nt.$spacing-xs;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+// === Label Row ===
+
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: nt.$spacing-xs;
+  width: 100%;
+}
+
+.label-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.label {
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  flex-shrink: 0;
+}
+
+.required {
+  @include typo.desktop-typography-text-md-regular;
+  font-weight: 700;
+  color: t.$color-text-error-default;
+  flex-shrink: 0;
+}
+
+.tooltip-icon {
+  display: block;
+  flex-shrink: 0;
+  width: nt.$size-height-icon-sm;
+  height: nt.$size-height-icon-sm;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/help-circle.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/help-circle.svg') no-repeat center / contain;
+}
+
+// === Trigger Button ===
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: nt.$spacing-xs;
+  width: 100%;
+  height: 48px;
+  padding: 0 nt.$spacing-sm;
+  background-color: t.$color-surface-interactive-default;
+  border: 1px solid t.$color-border-input-default;
+  border-radius: nt.$radius-md;
+  cursor: pointer;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color m.$durations-productive-xs m.$easings-direct-direct-curve;
+
+  &[data-hovered] {
+    border-color: t.$color-border-input-hover;
+  }
+
+  &[data-focus-visible] {
+    border-color: t.$color-border-input-active;
+    box-shadow:
+      0px 0px 0px 2px t.$color-background-default-solid,
+      0px 0px 0px 4px t.$color-border-focus-default;
+  }
+
+  &[data-pressed] {
+    border-color: t.$color-border-input-active;
+  }
+}
+
+// Open state - chevron rotates
+.select[data-open] .trigger {
+  border-color: t.$color-border-input-active;
+  position: relative;
+  z-index: 100001;
+}
+
+.select[data-open] .chevron {
+  transform: rotate(180deg);
+}
+
+// Invalid state
+.select[data-invalid] .trigger {
+  border-color: t.$color-border-input-error;
+
+  &[data-focus-visible] {
+    box-shadow:
+      0px 0px 0px 2px t.$color-background-default-solid,
+      0px 0px 0px 4px t.$color-border-focus-error;
+  }
+}
+
+// Disabled state
+.select[data-disabled] .trigger {
+  background-color: t.$color-surface-secondary;
+  border-color: t.$color-border-input-disabled;
+  cursor: not-allowed;
+
+  &[data-hovered] {
+    border-color: t.$color-border-input-disabled;
+  }
+}
+
+.select[data-disabled] .label {
+  color: t.$color-text-default-disabled;
+}
+
+// === Select Value ===
+
+.select-value {
+  flex: 1 0 0;
+  min-width: 0;
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &[data-placeholder] {
+    color: t.$color-text-default-tertiary;
+  }
+}
+
+.select[data-disabled] .select-value {
+  color: t.$color-text-default-disabled;
+}
+
+// === Chevron Icon ===
+
+.chevron {
+  display: block;
+  flex-shrink: 0;
+  width: nt.$size-height-icon-sm;
+  height: nt.$size-height-icon-sm;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/chevron-down.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/chevron-down.svg') no-repeat center / contain;
+  transition: transform m.$durations-productive-xs m.$easings-direct-direct-curve;
+}
+
+.select[data-disabled] .chevron {
+  background-color: t.$color-icon-default-disabled;
+}
+
+// === Popover ===
+
+.popover {
+  display: flex;
+  flex-direction: column;
+  width: var(--trigger-width);
+  background-color: t.$color-surface-primary;
+  border-radius: nt.$radius-md;
+  box-shadow: e.$elevation-md;
+  outline: none;
+  overflow: hidden;
+
+  // Ensure popover renders OVER the trigger when opened upwards.
+  // The trigger has z-index: 100001, so we need > 100001 here.
+  // Also shift it -8px more up as requested.
+  &[data-placement="top"] {
+    z-index: 100002 !important;
+    transform: translateY(-8px);
+
+    &[data-entering] {
+      animation: popover-enter-top m.$durations-productive-xs m.$easings-direct-direct-curve;
+    }
+
+    &[data-exiting] {
+      animation: popover-exit-top m.$durations-productive-xs m.$easings-direct-direct-curve;
+    }
+  }
+
+  // When menu is BELOW the field: clip the top 12px so the field
+  // visually sits on top of the menu (the overlap zone is hidden).
+  // This is bulletproof for Storybook Docs stacking contexts.
+  &[data-placement="bottom"] {
+    clip-path: inset(12px -50px -50px -50px);
+  }
+
+  &[data-entering] {
+    animation: popover-enter m.$durations-productive-xs m.$easings-direct-direct-curve;
+  }
+
+  &[data-exiting] {
+    animation: popover-exit m.$durations-productive-xs m.$easings-direct-direct-curve;
+  }
+}
+
+@keyframes popover-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popover-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes popover-enter-top {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes popover-exit-top {
+  from {
+    opacity: 1;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+// === ListBox ===
+
+.listbox {
+  display: flex;
+  flex-direction: column;
+  padding: nt.$spacing-2xs 0;
+  max-height: 332px;
+  overflow-y: auto;
+  outline: none;
+  scrollbar-width: thin;
+  scrollbar-color: t.$color-border-scroll-active transparent;
+
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: t.$color-border-scroll-active;
+    border-radius: 8px;
+    border: 4px solid white;
+  }
+}
+
+// === Spacers (overlap zone between trigger and menu) ===
+
+.spacer-top,
+.spacer-bottom {
+  height: 16px;
+  flex-shrink: 0;
+  width: 100%;
+  background-color: t.$color-surface-primary;
+}
+
+// === Helper / Error Row ===
+
+.helper-row {
+  display: flex;
+  align-items: flex-start;
+  gap: nt.$spacing-2xs;
+  width: 100%;
+}
+
+.helper-icon-wrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 2.5px;
+}
+
+.helper-icon-error,
+.helper-icon-default {
+  display: block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.helper-icon-error {
+  background-color: t.$color-icon-error-default;
+  mask: url('/icons/helper-icons/error.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/helper-icons/error.svg') no-repeat center / contain;
+}
+
+.helper-icon-default {
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/helper-icons/default.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/helper-icons/default.svg') no-repeat center / contain;
+}
+
+.helper-text {
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+  @include typo.desktop-typography-text-sm-regular;
+  color: t.$color-text-default-tertiary;
+  white-space: pre-wrap;
+}
+
+.error-text {
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+  @include typo.desktop-typography-text-sm-regular;
+  color: t.$color-text-error-default;
+  white-space: pre-wrap;
+}
+
+// === Surface Inverted ===
+
+.surface-inverted {
+  .label {
+    color: t.$color-text-default-primary-inverted;
+  }
+
+  .required {
+    color: t.$color-text-error-high-contrast-inverted;
+  }
+
+  .trigger {
+    background-color: t.$color-surface-interactive-default;
+    border-color: t.$color-border-input-default-inverted;
+
+    &[data-hovered] {
+      border-color: t.$color-border-input-hover-inverted;
+    }
+
+    &[data-focus-visible] {
+      border-color: t.$color-border-input-active-inverted;
+      box-shadow:
+        0px 0px 0px 2px t.$color-surface-interactive-default,
+        0px 0px 0px 4px t.$color-border-focus-accent-inverted;
+    }
+  }
+
+  &[data-open] .trigger {
+    border-color: t.$color-border-input-active-inverted;
+  }
+
+  .select-value {
+    background: transparent;
+    color: t.$color-text-default-primary-inverted;
+
+    &[data-placeholder] {
+      color: t.$color-text-default-tertiary;
+    }
+  }
+
+  .chevron {
+    background-color: t.$color-icon-default-tertiary;
+  }
+
+  .helper-text {
+    color: t.$color-text-default-primary-inverted;
+  }
+
+  .helper-icon-default {
+    background-color: t.$color-icon-default-primary-inverted;
+  }
+
+  .tooltip-icon {
+    background-color: t.$color-icon-default-primary-inverted;
+  }
+
+  // Inverted error
+  &[data-invalid] .trigger {
+    border-color: t.$color-border-input-error-inverted;
+
+    &[data-focus-visible] {
+      box-shadow:
+        0px 0px 0px 2px t.$color-surface-interactive-default,
+        0px 0px 0px 4px t.$color-border-focus-error-inverted;
+    }
+  }
+
+  .error-text {
+    color: t.$color-text-error-high-contrast-inverted;
+  }
+
+  &[data-invalid] .helper-icon-error {
+    background-color: t.$color-icon-error-high-contrast-inverted;
+  }
+
+  // Inverted disabled
+  &[data-disabled] .trigger {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: t.$color-border-button-disabled-inverted;
+  }
+
+  &[data-disabled] .label {
+    color: t.$color-text-default-disabled-on-surface;
+  }
+}

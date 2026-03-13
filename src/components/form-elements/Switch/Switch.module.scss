@@ -1,0 +1,93 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+@use '../../../../build/scss/motion' as m;
+
+.switch {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: nt.$spacing-sm;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .control {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding-top: 2px;
+  }
+
+  .track {
+    position: relative;
+    width: 48px;
+    height: nt.$size-height-icon-md;
+    border-radius: nt.$radius-xl;
+    background-color: t.$color-icon-subtle-primary;
+    transition:
+      background-color m.$durations-productive-xs m.$easings-direct-direct-curve,
+      box-shadow m.$durations-productive-xs m.$easings-direct-direct-curve;
+  }
+
+  .thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: nt.$size-height-icon-sm;
+    height: nt.$size-height-icon-sm;
+    border-radius: nt.$radius-xl;
+    background-color: t.$color-surface-interactive-default;
+    transition:
+      transform m.$durations-expressive-xs m.$easings-indirect-standard-curve,
+      background-color m.$durations-productive-xs m.$easings-direct-direct-curve;
+  }
+
+  &[data-selected] .track {
+    background-color: t.$color-icon-accent-default;
+  }
+
+  &[data-selected] .thumb {
+    transform: translateX(24px);
+  }
+
+  &[data-hovered]:not([data-disabled]):not([data-selected]) .track {
+    background-color: t.$color-icon-subtle-secondary;
+  }
+
+  &[data-hovered]:not([data-disabled])[data-selected] .track {
+    background-color: t.$color-icon-accent-on-surface;
+  }
+
+  &[data-focus-visible] .track {
+    box-shadow: 0 0 0 2px t.$color-background-default-solid, 0 0 0 6px t.$color-border-focus-default;
+  }
+
+  &[data-disabled] .track {
+    background-color: t.$color-icon-subtle-disabled;
+  }
+
+  &[data-disabled] .thumb {
+    background-color: t.$color-icon-default-disabled-on-surface;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: nt.$spacing-none;
+    min-width: 0;
+  }
+
+  .label {
+    @include typo.desktop-typography-text-md-regular;
+    color: t.$color-text-default-secondary;
+  }
+
+  .supporting-text {
+    @include typo.desktop-typography-text-sm-regular;
+    color: t.$color-text-default-tertiary;
+  }
+}

@@ -26,7 +26,7 @@ npm install @frank16ux/pc-design-system
 **Import components:**
 
 ```tsx
-import { Button, IconButton, TextLink } from '@frank16ux/pc-design-system';
+import { Button, IconButton, Link } from '@frank16ux/pc-design-system';
 ```
 
 **Import component styles** (required — include once in your app entry point):

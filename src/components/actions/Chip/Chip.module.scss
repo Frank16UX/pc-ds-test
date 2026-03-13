@@ -1,0 +1,322 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+@use '../../../../build/scss/motion' as m;
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all m.$durations-productive-xs m.$easings-direct-direct-curve;
+  box-sizing: border-box;
+  border-radius: nt.$radius-2xl; // 48px pill
+  background: transparent;
+
+  // Focus ring (box-shadow approach like Figma)
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+      0px 0px 0px 2px t.$color-background-default-solid,
+      0px 0px 0px 6px t.$color-border-focus-default;
+  }
+
+  // Disabled state
+  &[data-disabled] {
+    cursor: not-allowed;
+  }
+
+  // === Sizes ===
+
+  &.size-md {
+    min-height: nt.$size-height-md; // 40px
+    padding: nt.$spacing-2xs nt.$spacing-sm; // 4px 12px
+    @include typo.desktop-typography-text-md-regular;
+
+    // When leading=image, asymmetric padding
+    &.leading-image {
+      padding-left: nt.$spacing-2xs; // 4px
+      padding-right: nt.$spacing-sm; // 12px
+    }
+  }
+
+  &.size-xl {
+    min-height: nt.$size-height-xl; // 72px
+    padding: nt.$spacing-2xs nt.$spacing-lg; // 4px 24px
+    @include typo.desktop-typography-text-xl-regular;
+
+    // When leading=image, asymmetric padding
+    &.leading-image {
+      padding-left: nt.$spacing-2xs; // 4px
+      padding-right: nt.$spacing-lg; // 24px
+    }
+  }
+
+  // When selected with trailing indicators, adjust right padding
+  &.size-md.has-trailing {
+    padding-right: nt.$spacing-sm; // 12px
+  }
+
+  &.size-xl.has-trailing {
+    padding-right: nt.$spacing-lg; // 24px
+  }
+
+  // === Kind: Outline ===
+
+  &.outline {
+    border: 1px solid t.$color-border-divider-strong;
+    background-color: t.$color-surface-primary;
+    color: t.$color-text-default-secondary;
+
+    &:hover:not([data-disabled]) {
+      border-color: t.$color-border-button-hovered;
+      background-color: t.$color-surface-interactive-hovered;
+      color: t.$color-text-default-primary;
+    }
+
+    &[data-selected] {
+      border-color: t.$color-border-button-default;
+      background-color: t.$color-surface-interactive-selected;
+      color: t.$color-text-default-primary;
+
+      .leading-icon-wrapper {
+        color: t.$color-icon-accent-default;
+      }
+
+      &:hover:not([data-disabled]) {
+        background-color: t.$color-surface-interactive-selected-hover;
+        border-color: t.$color-border-button-hovered;
+        color: t.$color-text-accent-high-contrast;
+
+        .leading-icon-wrapper {
+          color: t.$color-icon-accent-high-contrast;
+        }
+
+        .trailing-check {
+          color: t.$color-icon-accent-high-contrast;
+        }
+      }
+    }
+
+    &[data-disabled] {
+      border-color: t.$color-border-button-disabled;
+      background-color: t.$color-surface-interactive-disabled;
+      color: t.$color-text-default-disabled;
+
+      .leading-icon-wrapper {
+        color: t.$color-icon-default-disabled;
+      }
+    }
+  }
+
+  // === Kind: Filled ===
+
+  &.filled {
+    border: 1px solid transparent;
+    background-color: t.$color-surface-secondary;
+    color: t.$color-text-default-secondary;
+
+    .leading-icon-wrapper {
+      color: t.$color-icon-default-tertiary;
+    }
+
+    &:hover:not([data-disabled]) {
+      background-color: t.$color-surface-interactive-hovered;
+      color: t.$color-text-accent-on-surface;
+
+      .leading-icon-wrapper {
+        color: t.$color-icon-accent-on-surface;
+      }
+    }
+
+    // Selected: same bg, text stays secondary; primary only on hover/focus
+    &[data-selected] {
+      background-color: t.$color-surface-secondary;
+      color: t.$color-text-default-secondary;
+
+      .leading-icon-wrapper {
+        color: t.$color-icon-accent-default;
+      }
+
+      .dismiss-icon-wrapper {
+        color: t.$color-icon-default-secondary;
+      }
+
+      &:hover:not([data-disabled]) {
+        background-color: t.$color-surface-interactive-selected-hover;
+        color: t.$color-text-accent-high-contrast;
+
+        .leading-icon-wrapper {
+          color: t.$color-icon-accent-high-contrast;
+        }
+      }
+    }
+
+    &[data-disabled] {
+      background-color: t.$color-surface-interactive-disabled;
+      color: t.$color-text-default-disabled;
+
+      .leading-icon-wrapper {
+        color: t.$color-icon-default-disabled;
+      }
+    }
+  }
+
+  // === Label ===
+
+  .label {
+    display: inline-block;
+  }
+
+  // === Leading Icon ===
+
+  .leading-icon-wrapper {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: t.$color-icon-default-tertiary;
+
+    svg,
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .default-leading-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    mask: url('/icons/base/shopping-bag.svg') no-repeat center / contain;
+    -webkit-mask: url('/icons/base/shopping-bag.svg') no-repeat center / contain;
+  }
+
+  // MD: leading icon 16px, gap to label 4px
+  &.size-md .leading-icon-wrapper {
+    width: nt.$size-height-icon-xs; // 16px
+    height: nt.$size-height-icon-xs;
+    margin-right: nt.$spacing-2xs; // 4px
+  }
+
+  // XL: leading icon 24px, gap to label 8px
+  &.size-xl .leading-icon-wrapper {
+    width: nt.$size-height-icon-md; // 24px
+    height: nt.$size-height-icon-md;
+    margin-right: nt.$spacing-xs; // 8px
+  }
+
+  // === Leading Image ===
+
+  .leading-image-wrapper {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // MD: leading image 32px, gap to label 4px
+  &.size-md .leading-image-wrapper {
+    width: nt.$size-height-icon-lg;
+    height: nt.$size-height-icon-lg;
+    margin-right: nt.$spacing-2xs; // 4px
+  }
+
+  // XL: leading image 64px, gap to label 12px
+  &.size-xl .leading-image-wrapper {
+    width: nt.$size-height-icon-2xl;
+    height: nt.$size-height-icon-2xl;
+    margin-right: nt.$spacing-sm; // 12px
+  }
+
+  &[data-disabled] .leading-image-wrapper img {
+    opacity: 0.5;
+  }
+
+  // Custom icons loaded as <img> don't inherit CSS color;
+  // apply opacity to visually match the disabled state.
+  &[data-disabled] .leading-icon-wrapper img {
+    opacity: 0.5;
+  }
+
+  // === Trailing Check Icon (outline + selected) ===
+
+  .trailing-check {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: t.$color-icon-accent-default;
+  }
+
+  .check-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    mask: url('/icons/base/check.svg') no-repeat center / contain;
+    -webkit-mask: url('/icons/base/check.svg') no-repeat center / contain;
+  }
+
+  // MD: check 16px, gap from label 8px
+  &.size-md .trailing-check {
+    width: nt.$size-height-icon-xs; // 16px
+    height: nt.$size-height-icon-xs;
+    margin-left: nt.$spacing-xs; // 8px
+  }
+
+  // XL: check 24px, gap from label 12px
+  &.size-xl .trailing-check {
+    width: nt.$size-height-icon-md; // 24px
+    height: nt.$size-height-icon-md;
+    margin-left: nt.$spacing-sm; // 12px
+  }
+
+  // === Dismiss Icon (filled + selected) ===
+
+  .dismiss-icon-wrapper {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: t.$color-icon-default-secondary;
+    cursor: pointer;
+  }
+
+  .dismiss-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: currentColor;
+    mask: url('/icons/base/x.svg') no-repeat center / contain;
+    -webkit-mask: url('/icons/base/x.svg') no-repeat center / contain;
+  }
+
+  // MD: dismiss icon 16px, gap from label 8px
+  &.size-md .dismiss-icon-wrapper {
+    width: nt.$size-height-icon-xs; // 16px
+    height: nt.$size-height-icon-xs;
+    margin-left: nt.$spacing-xs; // 8px
+  }
+
+  // XL: dismiss icon 32px, gap from label 12px
+  &.size-xl .dismiss-icon-wrapper {
+    width: nt.$size-height-icon-lg; // 32px
+    height: nt.$size-height-icon-lg;
+    margin-left: nt.$spacing-sm; // 12px
+  }
+}

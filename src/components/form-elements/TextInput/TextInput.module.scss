@@ -1,0 +1,329 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+@use '../../../../build/scss/motion' as m;
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: nt.$spacing-xs;
+  align-items: flex-start;
+  width: 100%;
+}
+
+// === Label Row ===
+
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: nt.$spacing-xs;
+  width: 100%;
+}
+
+.label-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.label {
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  flex-shrink: 0;
+}
+
+.required {
+  @include typo.desktop-typography-text-md-regular;
+  font-weight: 700;
+  color: t.$color-text-error-default;
+  flex-shrink: 0;
+}
+
+.tooltip-icon {
+  display: block;
+  flex-shrink: 0;
+  width: nt.$size-height-icon-sm;
+  height: nt.$size-height-icon-sm;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/help-circle.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/help-circle.svg') no-repeat center / contain;
+}
+
+// === Input Wrapper ===
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: nt.$spacing-xs;
+  width: 100%;
+  height: 48px;
+  padding: 0 nt.$spacing-sm;
+  background-color: t.$color-surface-interactive-default;
+  border: 1px solid t.$color-border-input-default;
+  border-radius: nt.$radius-md;
+  overflow: clip;
+  box-sizing: border-box;
+  transition: border-color m.$durations-productive-xs m.$easings-direct-direct-curve;
+
+  // Hover state
+  &:hover {
+    border-color: t.$color-border-input-hover;
+  }
+}
+
+// Focus-within state on input wrapper
+.text-input:focus-within .input-wrapper {
+  border-color: t.$color-border-input-active;
+  box-shadow:
+    0px 0px 0px 2px t.$color-background-default-solid,
+    0px 0px 0px 4px t.$color-border-focus-default;
+}
+
+// Invalid state
+.text-input[data-invalid] .input-wrapper {
+  border-color: t.$color-border-input-error;
+}
+
+.text-input[data-invalid]:focus-within .input-wrapper {
+  box-shadow:
+    0px 0px 0px 2px t.$color-background-default-solid,
+    0px 0px 0px 4px t.$color-border-focus-error;
+}
+
+// Disabled state
+.text-input[data-disabled] .input-wrapper {
+  background-color: t.$color-surface-secondary;
+  border-color: t.$color-border-input-disabled;
+  cursor: not-allowed;
+
+  &:hover {
+    border-color: t.$color-border-input-disabled;
+  }
+}
+
+.text-input[data-disabled] .label {
+  color: t.$color-text-default-disabled;
+}
+
+// Read-only state
+.text-input[data-readonly] .input-wrapper {
+  background-color: t.$color-surface-secondary;
+
+  &:hover {
+    border-color: t.$color-border-input-default;
+  }
+}
+
+// === Input Element ===
+
+.input {
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 0;
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &::placeholder {
+    color: t.$color-text-default-tertiary;
+  }
+
+  &:disabled {
+    color: t.$color-text-default-disabled;
+    cursor: not-allowed;
+
+    &::placeholder {
+      color: t.$color-text-default-disabled;
+    }
+  }
+}
+
+// === Icons ===
+
+.leading-icon,
+.trailing-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: nt.$size-height-icon-sm;
+  height: nt.$size-height-icon-sm;
+  color: t.$color-icon-default-tertiary;
+
+  svg,
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// Error state icon color
+.text-input[data-invalid] .leading-icon {
+  color: t.$color-icon-error-default;
+}
+
+
+
+// Disabled icon color
+.text-input[data-disabled] .leading-icon,
+.text-input[data-disabled] .trailing-icon {
+  color: t.$color-icon-default-disabled;
+}
+
+// === Helper / Error Row ===
+
+.helper-row {
+  display: flex;
+  align-items: flex-start;
+  gap: nt.$spacing-2xs;
+  width: 100%;
+}
+
+.helper-icon-wrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 2.5px;
+}
+
+.helper-icon-error,
+.helper-icon-default {
+  display: block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.helper-icon-error {
+  background-color: t.$color-icon-error-default;
+  mask: url('/icons/helper-icons/error.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/helper-icons/error.svg') no-repeat center / contain;
+}
+
+.helper-icon-default {
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/helper-icons/default.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/helper-icons/default.svg') no-repeat center / contain;
+}
+
+.helper-text {
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+  @include typo.desktop-typography-text-sm-regular;
+  color: t.$color-text-default-tertiary;
+  white-space: pre-wrap;
+}
+
+.error-text {
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+  @include typo.desktop-typography-text-sm-regular;
+  color: t.$color-text-error-default;
+  white-space: pre-wrap;
+}
+
+// === Surface Inverted ===
+
+.surface-inverted {
+  .label {
+    color: t.$color-text-default-primary-inverted;
+  }
+
+  .required {
+    color: t.$color-text-error-high-contrast-inverted;
+  }
+
+  .input-wrapper {
+    background-color: t.$color-surface-interactive-default;
+    border-color: t.$color-border-input-default-inverted;
+
+    &:hover {
+      border-color: t.$color-border-input-hover-inverted;
+    }
+  }
+
+  &:focus-within .input-wrapper {
+    border-color: t.$color-border-input-active-inverted;
+    box-shadow:
+      0px 0px 0px 2px t.$color-surface-interactive-default,
+      0px 0px 0px 4px t.$color-border-focus-accent-inverted;
+  }
+
+  .input {
+    background: transparent;
+    color: t.$color-text-default-primary-inverted;
+
+    &::placeholder {
+      color: t.$color-text-default-tertiary;
+    }
+  }
+
+  .leading-icon,
+  .trailing-icon {
+    color: t.$color-icon-default-primary-inverted;
+  }
+
+  .helper-text {
+    color: t.$color-text-default-primary-inverted;
+    opacity: 0.7;
+  }
+
+  .helper-icon-wrapper {
+    opacity: 0.7;
+  }
+
+  .helper-icon-default {
+    background-color: t.$color-icon-default-primary-inverted;
+  }
+
+  .tooltip-icon {
+    background-color: t.$color-icon-default-primary-inverted;
+  }
+
+  // Inverted error
+  &[data-invalid] .input-wrapper {
+    border-color: t.$color-border-input-error-inverted;
+  }
+
+  &[data-invalid]:focus-within .input-wrapper {
+    box-shadow:
+      0px 0px 0px 2px t.$color-surface-interactive-default,
+      0px 0px 0px 4px t.$color-border-focus-error-inverted;
+  }
+
+  .error-text {
+    color: t.$color-text-error-high-contrast-inverted;
+  }
+
+  // Error state: restore full opacity for error helper row and use high-contrast icon color
+  &[data-invalid] .helper-row {
+    .helper-text,
+    .helper-icon-wrapper {
+      opacity: 1;
+    }
+
+    .helper-icon-error {
+      background-color: t.$color-icon-error-high-contrast-inverted;
+    }
+  }
+
+  // Inverted disabled
+  &[data-disabled] .input-wrapper {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: t.$color-border-button-disabled-inverted;
+  }
+
+  &[data-disabled] .label {
+    color: t.$color-text-default-disabled-on-surface;
+  }
+}

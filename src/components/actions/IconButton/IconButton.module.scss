@@ -1,7 +1,6 @@
 @use '../../../../build/scss/tokens' as t;
 @use '../../../../build/scss/numeric-tokens' as nt;
-@use '../../../../build/scss/fonts' as f;
-@use '../../../../build/scss/responsive-desktop' as dt;
+@use '../../../../build/scss/typography-desktop' as typo;
 
 .iconButton {
     display: inline-flex;
@@ -230,10 +229,7 @@
 
 // Counter text
 .counter {
-    font-family: f.$font-family-secondary;
-    font-weight: f.$font-weight-medium;
-    font-size: dt.$desktop-typescale-font-size-md;
-    line-height: 1;
+    @include typo.desktop-typography-utility-cta-md;
     min-width: 18px;
     text-align: center;
     white-space: nowrap;

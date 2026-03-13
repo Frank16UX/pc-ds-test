@@ -1,0 +1,218 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+@use '../../../../build/scss/motion' as m;
+
+.radio {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: nt.$spacing-sm; // 12px
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &[data-disabled] {
+    cursor: not-allowed;
+  }
+
+  // === Control (radio circle wrapper) ===
+
+  .control {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // Align circle center with first line of label text
+    // line-height 150% of $desktop-typescale-font-size-md (16px) = 24px; circle = 18px → (24 - 18) / 2 = 3px
+    padding-top: 3px;
+  }
+
+  .circle {
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: nt.$radius-full;
+    border: 1px solid t.$color-border-input-default;
+    background-color: transparent;
+    transition: all m.$durations-productive-xs m.$easings-direct-direct-curve;
+    box-sizing: border-box;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: nt.$radius-full;
+    background-color: t.$color-icon-accent-default;
+  }
+
+  // === Focus ring (box-shadow approach from Figma) ===
+
+  &[data-focus-visible] .circle {
+    border-color: t.$color-border-button-hovered;
+    background-color: t.$color-buttons-secondary-hovered;
+    box-shadow:
+      0px 0px 0px 2px t.$color-background-default-solid,
+      0px 0px 0px 6px t.$color-border-focus-default;
+  }
+
+  // === Typography ===
+  .label {
+    @include typo.desktop-typography-text-md-regular;
+    color: t.$color-text-default-secondary;
+  }
+
+  .label-row {
+    display: flex;
+    align-items: center;
+    gap: nt.$spacing-none;
+    white-space: nowrap;
+  }
+
+  .required {
+    color: t.$color-text-error-default;
+  }
+
+  .supporting-text {
+    @include typo.desktop-typography-text-sm-regular;
+    color: t.$color-text-default-tertiary;
+  }
+
+  .text-block {
+    display: flex;
+    flex-direction: column;
+    gap: nt.$spacing-none;
+  }
+
+  .error-row {
+    display: flex;
+    align-items: flex-start;
+    gap: nt.$spacing-2xs;
+  }
+
+  .error-icon {
+    flex-shrink: 0;
+    width: nt.$size-height-icon-xs;
+    height: nt.$size-height-icon-xs;
+    // Align icon center with first line of error text
+    // line-height 150% of $desktop-typescale-font-size-sm (14px) = 21px; icon = 16px → (21 - 16) / 2 ≈ 2.5px
+    margin-top: 2.5px;
+  }
+
+  .error-text {
+    @include typo.desktop-typography-text-sm-regular;
+    color: t.$color-text-error-default;
+  }
+
+  // === Content ===
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: nt.$spacing-xs; // gap between text block and error
+    flex: 1 0 0;
+    min-width: 0;
+    min-height: 1px;
+  }
+
+  // No error → collapse gap
+  .content:not(:has(.error-row)) {
+    gap: nt.$spacing-none;
+  }
+
+  // === States ===
+
+  // Hover (unselected)
+  &:hover:not([data-disabled]) .circle {
+    border-color: t.$color-links-hovered;
+    background-color: t.$color-buttons-secondary-hovered;
+  }
+
+  // Selected
+  &[data-selected] .circle {
+    border-color: t.$color-border-button-default;
+  }
+
+  &[data-selected]:hover:not([data-disabled]) .circle {
+    border-color: t.$color-border-button-hovered;
+  }
+
+  &[data-selected]:hover:not([data-disabled]) .dot {
+    background-color: t.$color-icon-accent-on-surface;
+  }
+
+  // Disabled
+  &[data-disabled] .circle {
+    border-color: t.$color-buttons-primary-disabled;
+    background-color: t.$color-buttons-secondary-disabled;
+  }
+
+  &[data-disabled][data-selected] .dot {
+    background-color: t.$color-icon-default-disabled;
+  }
+
+  // Disabled text
+  &[data-disabled] .label,
+  &[data-disabled] .supporting-text {
+    color: t.$color-text-default-tertiary;
+  }
+
+  // === Error State ===
+
+  &.error .circle {
+    border-color: t.$color-border-button-default;
+  }
+
+  // === Surface: Inverted ===
+
+  &.surface-inverted {
+    .label {
+      color: t.$color-text-default-primary-inverted;
+    }
+
+    .supporting-text {
+      color: t.$color-text-default-primary-inverted;
+      opacity: 0.7;
+    }
+
+    .required {
+      color: t.$color-text-error-high-contrast-inverted;
+    }
+
+    .error-text {
+      color: t.$color-text-error-high-contrast-inverted;
+    }
+
+    .error-icon {
+      filter: brightness(0) saturate(100%) invert(70%) sepia(38%) saturate(1118%) hue-rotate(318deg) brightness(103%) contrast(101%);
+    }
+
+    .circle {
+      border-color: t.$color-border-input-default;
+    }
+
+    &[data-selected] .circle {
+      border-color: t.$color-border-divider-inverted;
+    }
+
+    &[data-selected] .dot {
+      background-color: t.$color-icon-default-primary-inverted;
+    }
+
+    &[data-focus-visible] .circle {
+      border-color: t.$color-border-divider-subtle;
+      background-color: t.$color-background-default-static-black;
+      box-shadow:
+        0px 0px 0px 2px t.$color-background-default-static-black,
+        0px 0px 0px 6px t.$color-border-focus-accent-inverted;
+    }
+
+    &[data-disabled] .label,
+    &[data-disabled] .supporting-text {
+      opacity: 0.4;
+    }
+
+    &[data-disabled] .circle {
+      opacity: 0.3;
+    }
+  }
+}
