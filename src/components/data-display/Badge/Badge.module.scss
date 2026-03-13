@@ -1,0 +1,126 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  border: 1px solid t.$color-border-divider-strong;
+  border-radius: nt.$radius-sm;
+  background-color: t.$color-surface-primary;
+  box-sizing: border-box;
+
+  // === Sizes ===
+
+  &.size-md {
+    gap: nt.$spacing-xs;
+    padding: nt.$spacing-xs nt.$spacing-md;
+
+    &.icon-only {
+      padding: nt.$spacing-xs;
+      gap: 0;
+    }
+  }
+
+  &.size-sm {
+    height: nt.$size-height-sm;
+    gap: nt.$spacing-2xs;
+    padding: 0 nt.$spacing-xs;
+
+    &.icon-only {
+      gap: 0;
+    }
+  }
+
+  // === Surface Inverted ===
+
+  &.surface-inverted {
+    background-color: transparent;
+    border-color: t.$color-border-button-default-inverted;
+    backdrop-filter: blur(22.5px);
+
+    .label {
+      color: t.$color-text-default-primary-inverted;
+    }
+
+    .leading-icon-wrapper {
+      color: t.$color-icon-default-primary-inverted;
+    }
+  }
+}
+
+// === Background Overlay (inverted only) ===
+
+.bg-overlay {
+  position: absolute;
+  inset: -1px;
+  border-radius: nt.$radius-sm;
+  background-color: t.$color-graphics-complementary-14;
+  opacity: 0.7;
+  z-index: 1;
+  pointer-events: none;
+}
+
+// === Label ===
+
+.label {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-height: 24px;
+  color: t.$color-text-default-secondary;
+
+  .size-md & {
+    @include typo.desktop-typography-text-md-regular;
+  }
+
+  .size-sm & {
+    @include typo.desktop-typography-text-sm-regular;
+  }
+}
+
+// === Leading Icon ===
+
+.leading-icon-wrapper {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: t.$color-icon-accent-default;
+
+  svg,
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .size-md & {
+    width: nt.$size-height-icon-md;
+    height: nt.$size-height-icon-md;
+  }
+
+  .size-sm & {
+    width: nt.$size-height-icon-xs;
+    height: nt.$size-height-icon-xs;
+  }
+}
+
+.default-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  mask: url('/icons/custom/guarantee.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/custom/guarantee.svg') no-repeat center / contain;
+}

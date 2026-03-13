@@ -565,6 +565,124 @@ function buildMotionOutputs() {
   fs.writeFileSync('build/css/motion.css', `${cssHeader}:root {\n${cssLines.join('\n')}\n}\n`);
 }
 
+// Typography property name → CSS property name mapping.
+const TYPOGRAPHY_PROPERTY_MAP = {
+  fontFamily: 'font-family',
+  fontWeight: 'font-weight',
+  fontSize: 'font-size',
+  lineHeight: 'line-height',
+  letterSpacing: 'letter-spacing',
+  textDecoration: 'text-decoration',
+  textCase: 'text-transform',
+  paragraphSpacing: 'margin-bottom',
+};
+
+// Keyword → numeric weight for compound font-weight values like "Medium Italic".
+const WEIGHT_KEYWORDS = {
+  thin: '100',
+  light: '300',
+  regular: '400',
+  medium: '500',
+  'semi bold': '600',
+  semibold: '600',
+  bold: '700',
+  'extra bold': '800',
+  extrabold: '800',
+  black: '900',
+};
+
+function parseFontWeight(value) {
+  if (typeof value !== 'string') {
+    return { weight: String(value), isItalic: false };
+  }
+
+  // If it's already a SCSS variable reference, use as-is.
+  if (value.startsWith('$')) {
+    return { weight: value, isItalic: false };
+  }
+
+  // If it's a plain number, use as-is.
+  if (/^\d+$/.test(value.trim())) {
+    return { weight: value.trim(), isItalic: false };
+  }
+
+  const lower = value.toLowerCase().trim();
+  const isItalic = lower.includes('italic');
+  const withoutItalic = lower.replace(/italic/gi, '').trim();
+
+  // Try to match the remaining text to a keyword.
+  for (const [keyword, numericWeight] of Object.entries(WEIGHT_KEYWORDS)) {
+    if (withoutItalic === keyword || lower === keyword) {
+      return { weight: numericWeight, isItalic };
+    }
+  }
+
+  // Fallback: return the original value.
+  return { weight: value, isItalic };
+}
+
+function buildTypographyMixins() {
+  const desktopMixins = [];
+  const mobileMixins = [];
+
+  for (const [, entry] of tokenEntries) {
+    if (entry.type !== 'typography') continue;
+    if (typeof entry.rawValue !== 'object' || entry.rawValue === null || Array.isArray(entry.rawValue)) continue;
+
+    const resolved = resolveValueDeep(entry.rawValue, 'scss', []);
+    const lines = [];
+
+    // Process properties in a fixed order for consistent output.
+    for (const [tokenProp, cssProperty] of Object.entries(TYPOGRAPHY_PROPERTY_MAP)) {
+      const value = resolved[tokenProp];
+      if (value === undefined || value === null || value === '' || value === 'none') continue;
+
+      if (tokenProp === 'fontWeight') {
+        const { weight, isItalic } = parseFontWeight(String(value));
+        lines.push(`  ${cssProperty}: ${weight};`);
+        if (isItalic) {
+          lines.push(`  font-style: italic;`);
+        }
+      } else if (tokenProp === 'letterSpacing' && typeof value === 'string' && value.endsWith('%')) {
+        const numeric = parseFloat(value);
+        if (!Number.isNaN(numeric)) {
+          lines.push(`  ${cssProperty}: ${numeric / 100}em;`);
+        } else {
+          lines.push(`  ${cssProperty}: ${value};`);
+        }
+      } else {
+        lines.push(`  ${cssProperty}: ${value};`);
+      }
+    }
+
+    if (lines.length === 0) continue;
+
+    const mixinBlock = `@mixin ${entry.scssName} {\n${lines.join('\n')}\n}`;
+
+    if (entry.scssName.startsWith('desktop-typography-')) {
+      desktopMixins.push(mixinBlock);
+    } else if (entry.scssName.startsWith('mobile-typography-')) {
+      mobileMixins.push(mixinBlock);
+    }
+  }
+
+  const timestamp = getTimestamp();
+
+  if (desktopMixins.length > 0) {
+    const header = `// Do not edit directly, this file was auto-generated.\n// Generated: ${timestamp}\n// Typography Mixins: Responsive/Desktop\n\n@use 'fonts' as *;\n@use 'responsive-desktop' as *;\n\n`;
+    fs.mkdirSync('build/scss', { recursive: true });
+    fs.writeFileSync('build/scss/_typography-desktop.scss', `${header}${desktopMixins.join('\n\n')}\n`);
+    console.log(`   ✅ Generated ${desktopMixins.length} desktop typography mixins`);
+  }
+
+  if (mobileMixins.length > 0) {
+    const header = `// Do not edit directly, this file was auto-generated.\n// Generated: ${timestamp}\n// Typography Mixins: Responsive/Mobile\n\n@use 'fonts' as *;\n@use 'responsive-mobile' as *;\n\n`;
+    fs.mkdirSync('build/scss', { recursive: true });
+    fs.writeFileSync('build/scss/_typography-mobile.scss', `${header}${mobileMixins.join('\n\n')}\n`);
+    console.log(`   ✅ Generated ${mobileMixins.length} mobile typography mixins`);
+  }
+}
+
 StyleDictionary.registerFormat({
   name: 'scss/variables-with-timestamp',
   format: ({ dictionary, options }) => {
@@ -702,9 +820,13 @@ async function build() {
     await styleDictionary.cleanAllPlatforms();
     await styleDictionary.buildAllPlatforms();
   buildMotionOutputs();
+  buildTypographyMixins();
+
+    const typographyScssFiles = ['_typography-desktop.scss', '_typography-mobile.scss'];
+    const allScssFiles = scssFiles.concat(typographyScssFiles);
 
     const indexHeader = `// Do not edit directly, this file was auto-generated.\n// Generated: ${getTimestamp()}\n// Index file importing all token groups\n\n`;
-    const indexBody = scssFiles
+    const indexBody = allScssFiles
       .map((file) => {
         const importPath = file.replace(/^_/, '').replace(/\.scss$/, '');
         return `@import '${importPath}';`;
@@ -715,7 +837,7 @@ async function build() {
 
     console.log('✅ Design tokens built successfully!');
     console.log('\n📁 Generated SCSS files:');
-    scssFiles.concat('index.scss').forEach((file) => {
+    allScssFiles.concat('index.scss').forEach((file) => {
       console.log(`   - build/scss/${file}`);
     });
 

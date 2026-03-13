@@ -4,12 +4,12 @@ import React from 'react';
 import { resolveTokenValue } from '../utils/scssTokens';
 
 // Import all icons using Vite's glob import
-const iconModules = import.meta.glob('/assets/icons/base/*.svg', { eager: true, as: 'url' });
-const consumableIcons = import.meta.glob('/assets/icons/consumables/*.svg', { eager: true, as: 'url' });
-const customIcons = import.meta.glob('/assets/icons/custom/*.svg', { eager: true, as: 'url' });
-const filledIcons = import.meta.glob('/assets/icons/filled/*.svg', { eager: true, as: 'url' });
-const graphicIcons = import.meta.glob('/assets/icons/graphic/*.svg', { eager: true, as: 'url' });
-const socialIcons = import.meta.glob('/assets/icons/social/*.svg', { eager: true, as: 'url' });
+const iconModules = import.meta.glob('/assets/icons/base/*.svg', { eager: true, query: '?url', import: 'default' });
+const consumableIcons = import.meta.glob('/assets/icons/consumables/*.svg', { eager: true, query: '?url', import: 'default' });
+const customIcons = import.meta.glob('/assets/icons/custom/*.svg', { eager: true, query: '?url', import: 'default' });
+const filledIcons = import.meta.glob('/assets/icons/filled/*.svg', { eager: true, query: '?url', import: 'default' });
+const graphicIcons = import.meta.glob('/assets/icons/graphic/*.svg', { eager: true, query: '?url', import: 'default' });
+const socialIcons = import.meta.glob('/assets/icons/social/*.svg', { eager: true, query: '?url', import: 'default' });
 // Force Vite to include flags directory in build output (used by Button component at runtime)
 const flagModules = import.meta.glob('/assets/icons/flags/*.svg', { eager: true });
 // @ts-ignore - flagModules is intentionally unused but required for build
@@ -34,7 +34,7 @@ const iconOptions: Record<string, React.ReactNode> = {
 const iconNames = Object.keys(iconOptions).sort();
 
 const meta: Meta<typeof Button> = {
-    title: 'Components/Button',
+    title: 'Components/Actions/Button',
     component: Button,
     parameters: {
         layout: 'centered',
@@ -46,7 +46,7 @@ const meta: Meta<typeof Button> = {
             if (isInverted) {
                 return (
                     <div style={{
-                        backgroundColor: resolveTokenValue('$color-background-accent-solid') ?? '#1a5961',
+                        backgroundColor: resolveTokenValue('$color-background-accent-strongest') ?? '#1a5961',
                         padding: '32px',
                         borderRadius: '8px',
                         display: 'flex',
@@ -125,6 +125,47 @@ const meta: Meta<typeof Button> = {
             if: { arg: 'iconTrailing', truthy: false },
         },
         onPress: { action: 'pressed' },
+        'aria-label': {
+            control: 'text',
+            description: 'Accessible label for the button. Overrides visible text for screen readers.',
+            table: { category: 'React Aria' },
+        },
+        'aria-labelledby': {
+            control: 'text',
+            description: 'ID of element that labels this button.',
+            table: { category: 'React Aria' },
+        },
+        'aria-describedby': {
+            control: 'text',
+            description: 'ID of element that describes this button.',
+            table: { category: 'React Aria' },
+        },
+        'aria-pressed': {
+            control: 'boolean',
+            description: "Indicates button's pressed state for toggle buttons.",
+            table: { category: 'React Aria' },
+        },
+        'aria-expanded': {
+            control: 'boolean',
+            description: 'Indicates whether element controlled by button is expanded.',
+            table: { category: 'React Aria' },
+        },
+        'aria-haspopup': {
+            control: 'select',
+            options: ['true', 'menu', 'dialog', 'listbox', 'tree', 'grid'],
+            description: 'Indicates button opens a menu, dialog, or other popup.',
+            table: { category: 'React Aria' },
+        },
+        'aria-controls': {
+            control: 'text',
+            description: 'ID of element controlled by this button.',
+            table: { category: 'React Aria' },
+        },
+        'aria-busy': {
+            control: 'boolean',
+            description: 'Indicates button is loading or processing. Should be true when isLoading={true}.',
+            table: { category: 'React Aria' },
+        },
     },
 };
 

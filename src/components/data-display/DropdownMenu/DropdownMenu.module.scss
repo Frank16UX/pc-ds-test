@@ -1,0 +1,72 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/elevation' as e;
+@use '../../../../build/scss/typography-desktop' as typo;
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 200px;
+  background-color: t.$color-surface-primary;
+  border-radius: nt.$radius-md;
+  box-shadow: e.$elevation-md;
+  overflow: hidden;
+}
+
+// === Content Sizing ===
+
+.content-overflow {
+  max-height: 332px;
+  overflow-x: clip;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: t.$color-border-scroll-active transparent;
+
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: t.$color-border-scroll-active;
+    border-radius: 8px;
+    border: 4px solid white;
+  }
+
+  .container {
+    flex-shrink: 0;
+    overflow: visible;
+  }
+}
+
+.content-hug {
+  .container {
+    overflow: clip;
+    flex-shrink: 0;
+  }
+}
+
+// === Container (ListBox) ===
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: nt.$spacing-2xs 0;
+  outline: none;
+}
+
+// === Spacers ===
+
+.spacer-top,
+.spacer-bottom {
+  height: 16px;
+  flex-shrink: 0;
+  width: 100%;
+  background-color: t.$color-surface-primary;
+}

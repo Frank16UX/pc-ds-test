@@ -1,0 +1,192 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  background-color: t.$color-surface-interactive-default;
+  padding: nt.$spacing-md nt.$spacing-4xl;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: nt.$spacing-md;
+  max-width: 1600px;
+  flex: 1 0 0;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+// === Back Button ===
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: nt.$spacing-2xs;
+  height: 24px;
+  overflow: clip;
+  position: relative;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  @include typo.desktop-typography-utility-cta-md;
+  color: t.$color-links-default;
+
+  &:hover {
+    color: t.$color-links-hovered;
+  }
+
+  &:active {
+    color: t.$color-links-pressed;
+  }
+
+  &:focus-visible {
+    outline: 4px solid t.$color-border-focus-accent;
+    outline-offset: 2px;
+    border-radius: nt.$radius-sm;
+  }
+}
+
+.back-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  mask: url('/icons/base/arrow-left.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/arrow-left.svg') no-repeat center / contain;
+}
+
+.back-label {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+// Invisible 44px touch target area
+.back-target-area {
+  position: absolute;
+  top: 50%;
+  left: -21px;
+  right: -22px;
+  height: 44px;
+  transform: translateY(-50%);
+  border-radius: nt.$radius-full;
+  opacity: 0;
+}
+
+// === Divider ===
+
+.divider {
+  display: block;
+  flex-shrink: 0;
+  width: 1px;
+  height: 16px;
+  background-color: t.$color-border-divider-strong;
+}
+
+// === Breadcrumb Links ===
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.crumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.crumb-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 nt.$spacing-2xs;
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-tertiary;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: t.$color-links-hovered;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 4px solid t.$color-border-focus-accent;
+    outline-offset: 2px;
+    border-radius: nt.$radius-sm;
+  }
+}
+
+.crumb-current {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 nt.$spacing-2xs;
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-primary;
+}
+
+// === Separator ===
+
+.separator {
+  display: block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/chevron-right.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/chevron-right.svg') no-repeat center / contain;
+}
+
+// === Mobile Responsive ===
+
+@media (max-width: 767px) {
+  .breadcrumb {
+    padding: 0;
+    height: nt.$size-height-md;
+  }
+
+  .wrapper {
+    gap: 0;
+  }
+
+  .back-button {
+    padding-left: nt.$spacing-md;
+  }
+
+  .divider {
+    margin: 0 nt.$spacing-xs;
+  }
+
+  .links {
+    overflow-x: auto;
+    overflow-y: clip;
+    flex: 1 0 0;
+    min-width: 1px;
+    padding: nt.$spacing-xs;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .crumb-item {
+    white-space: nowrap;
+  }
+}

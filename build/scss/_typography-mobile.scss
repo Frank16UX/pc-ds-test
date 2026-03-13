@@ -1,0 +1,246 @@
+// Do not edit directly, this file was auto-generated.
+// Generated: 2026-02-27 T 12:17:32
+// Typography Mixins: Responsive/Mobile
+
+@use 'fonts' as *;
+@use 'responsive-mobile' as *;
+
+@mixin mobile-typography-display-xl {
+  font-family: $font-family-primary;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $mobile-typescale-font-size-10xl;
+  line-height: $mobile-typescale-line-height-10xl;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-display-lg {
+  font-family: $font-family-primary;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $mobile-typescale-font-size-9xl;
+  line-height: $mobile-typescale-line-height-9xl;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-display-md {
+  font-family: $font-family-primary;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $mobile-typescale-font-size-8xl;
+  line-height: $mobile-typescale-line-height-8xl;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-display-sm {
+  font-family: $font-family-primary;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $mobile-typescale-font-size-7xl;
+  line-height: $mobile-typescale-line-height-7xl;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-display-xs {
+  font-family: $font-family-primary;
+  font-weight: 500;
+  font-style: italic;
+  font-size: $mobile-typescale-font-size-6xl;
+  line-height: $mobile-typescale-line-height-6xl;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-headline-xl {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-5xl;
+  line-height: $mobile-typescale-line-height-5xl;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-headline-lg {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-4xl;
+  line-height: $mobile-typescale-line-height-4xl;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-headline-md {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-3xl;
+  line-height: $mobile-typescale-line-height-3xl;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-headline-sm {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-2xl;
+  line-height: 120%;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-price-lg {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-4xl;
+  line-height: 150%;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-price-lg-strikethrough {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-4xl;
+  line-height: 150%;
+  text-decoration: $text-decoration-line-through;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-price-md {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-2xl;
+  line-height: 150%;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-price-md-strikethrough {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-2xl;
+  line-height: 150%;
+  text-decoration: $text-decoration-line-through;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-price-sm {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-medium;
+  font-size: $mobile-typescale-font-size-lg;
+  line-height: 150%;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-price-sm-strikethrough {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-lg;
+  line-height: 150%;
+  text-decoration: $text-decoration-line-through;
+  margin-bottom: 20px;
+}
+
+@mixin mobile-typography-text-xl-regular {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-xl;
+  line-height: 150%;
+}
+
+@mixin mobile-typography-text-xl-bold {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  font-size: $mobile-typescale-font-size-xl;
+  line-height: 150%;
+}
+
+@mixin mobile-typography-text-xl-underline {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-xl;
+  line-height: 150%;
+  text-decoration: $text-decoration-underline;
+}
+
+@mixin mobile-typography-text-lg-regular {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-lg;
+  line-height: 150%;
+}
+
+@mixin mobile-typography-text-lg-bold {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  font-size: $mobile-typescale-font-size-lg;
+  line-height: 150%;
+}
+
+@mixin mobile-typography-text-lg-underline {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-lg;
+  line-height: 150%;
+  text-decoration: $text-decoration-underline;
+}
+
+@mixin mobile-typography-text-md-regular {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-md;
+  line-height: 150%;
+}
+
+@mixin mobile-typography-text-md-bold {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  font-size: $mobile-typescale-font-size-md;
+  line-height: 150%;
+}
+
+@mixin mobile-typography-text-md-underline {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-md;
+  line-height: 150%;
+  text-decoration: $text-decoration-underline;
+}
+
+@mixin mobile-typography-text-sm-regular {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-sm;
+  line-height: 150%;
+}
+
+@mixin mobile-typography-text-sm-bold {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-bold;
+  font-size: $mobile-typescale-font-size-sm;
+  line-height: 150%;
+}
+
+@mixin mobile-typography-text-sm-underline {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  font-size: $mobile-typescale-font-size-sm;
+  line-height: 150%;
+  text-decoration: $text-decoration-underline;
+}
+
+@mixin mobile-typography-utility-cta-md {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-medium;
+  font-size: $mobile-typescale-font-size-md;
+  line-height: 100%;
+}
+
+@mixin mobile-typography-utility-cta-sm {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-medium;
+  font-size: $mobile-typescale-font-size-sm;
+  line-height: 100%;
+}
+
+@mixin mobile-typography-utility-eyebrow {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-medium;
+  font-size: $mobile-typescale-font-size-xs;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  text-transform: $text-transform-uppercase;
+  margin-bottom: 16px;
+}

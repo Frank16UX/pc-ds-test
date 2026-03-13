@@ -1,10 +1,40 @@
 /**
  * Do not edit directly, this file was auto-generated.
- * Generated: 2026-02-05 T 12:17:39
+ * Generated: 2026-02-27 T 12:17:32
  * Group: Responsive/Mobile
  */
 
 :root {
+  --mobile-typography-display-xl: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"64px","lineHeight":"64px","paragraphSpacing":"20px"};
+  --mobile-typography-display-lg: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"56px","lineHeight":"56px","paragraphSpacing":"20px"};
+  --mobile-typography-display-md: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"48px","lineHeight":"48px","paragraphSpacing":"20px"};
+  --mobile-typography-display-sm: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"40px","lineHeight":"40px","paragraphSpacing":"20px"};
+  --mobile-typography-display-xs: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"36px","lineHeight":"44px","paragraphSpacing":"20px"};
+  --mobile-typography-headline-xl: {"fontFamily":"Questa","fontWeight":"400","fontSize":"32px","lineHeight":"38px","paragraphSpacing":"20px"};
+  --mobile-typography-headline-lg: {"fontFamily":"Questa","fontWeight":"400","fontSize":"28px","lineHeight":"34px","paragraphSpacing":"20px"};
+  --mobile-typography-headline-md: {"fontFamily":"Questa","fontWeight":"400","fontSize":"24px","lineHeight":"28px","paragraphSpacing":"20px"};
+  --mobile-typography-headline-sm: {"fontFamily":"Questa","fontWeight":"400","fontSize":"22px","lineHeight":"120%","paragraphSpacing":"20px"};
+  --mobile-typography-price-lg: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"28px","lineHeight":"150%","paragraphSpacing":"20px"};
+  --mobile-typography-price-lg-strikethrough: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"28px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"line-through"};
+  --mobile-typography-price-md: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"22px","lineHeight":"150%","paragraphSpacing":"20px"};
+  --mobile-typography-price-md-strikethrough: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"22px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"line-through"};
+  --mobile-typography-price-sm: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"18px","lineHeight":"150%","paragraphSpacing":"20px"};
+  --mobile-typography-price-sm-strikethrough: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"line-through"};
+  --mobile-typography-text-xl-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"20px","lineHeight":"150%"};
+  --mobile-typography-text-xl-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"20px","lineHeight":"150%"};
+  --mobile-typography-text-xl-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"20px","lineHeight":"150%","textDecoration":"underline"};
+  --mobile-typography-text-lg-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%"};
+  --mobile-typography-text-lg-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"18px","lineHeight":"150%"};
+  --mobile-typography-text-lg-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%","textDecoration":"underline"};
+  --mobile-typography-text-md-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"16px","lineHeight":"150%"};
+  --mobile-typography-text-md-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"16px","lineHeight":"150%"};
+  --mobile-typography-text-md-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"16px","lineHeight":"150%","textDecoration":"underline"};
+  --mobile-typography-text-sm-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"14px","lineHeight":"150%"};
+  --mobile-typography-text-sm-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"14px","lineHeight":"150%"};
+  --mobile-typography-text-sm-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"14px","lineHeight":"150%","textDecoration":"underline"};
+  --mobile-typography-utility-cta-md: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"16px","lineHeight":"100%"};
+  --mobile-typography-utility-cta-sm: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"14px","lineHeight":"100%"};
+  --mobile-typography-utility-eyebrow: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"12px","lineHeight":"150%","paragraphSpacing":"16px","letterSpacing":"2%","textCase":"uppercase"};
   --mobile-section-padding-vertical-xl: 72px;
   --mobile-section-padding-vertical-lg: 64px;
   --mobile-section-padding-vertical-md: 48px;
@@ -36,34 +66,4 @@
   --mobile-typescale-line-height-8xl: 48px;
   --mobile-typescale-line-height-9xl: 56px;
   --mobile-typescale-line-height-10xl: 64px;
-  --mobile-typography-display-xl: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"64px","lineHeight":"64px","paragraphSpacing":"20px"};
-  --mobile-typography-display-lg: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"56px","lineHeight":"56px","paragraphSpacing":"20px"};
-  --mobile-typography-display-md: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"48px","lineHeight":"48px","paragraphSpacing":"20px"};
-  --mobile-typography-display-sm: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"40px","lineHeight":"40px","paragraphSpacing":"20px"};
-  --mobile-typography-display-xs: {"fontFamily":"Questa","fontWeight":"Medium Italic","fontSize":"36px","lineHeight":"44px","paragraphSpacing":"20px"};
-  --mobile-typography-headline-xl: {"fontFamily":"Questa","fontWeight":"400","fontSize":"32px","lineHeight":"38px","paragraphSpacing":"20px"};
-  --mobile-typography-headline-lg: {"fontFamily":"Questa","fontWeight":"400","fontSize":"28px","lineHeight":"34px","paragraphSpacing":"20px"};
-  --mobile-typography-headline-md: {"fontFamily":"Questa","fontWeight":"400","fontSize":"24px","lineHeight":"28px","paragraphSpacing":"20px"};
-  --mobile-typography-headline-sm: {"fontFamily":"Questa","fontWeight":"400","fontSize":"22px","lineHeight":"120%","paragraphSpacing":"20px"};
-  --mobile-typography-price-lg: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"28px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --mobile-typography-price-lg-strikethrough: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"28px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"line-through"};
-  --mobile-typography-price-md: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"22px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --mobile-typography-price-md-strikethrough: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"22px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"line-through"};
-  --mobile-typography-price-sm: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"18px","lineHeight":"150%","paragraphSpacing":"20px"};
-  --mobile-typography-price-sm-strikethrough: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%","paragraphSpacing":"20px","textDecoration":"line-through"};
-  --mobile-typography-text-xl-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"20px","lineHeight":"150%"};
-  --mobile-typography-text-xl-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"20px","lineHeight":"150%"};
-  --mobile-typography-text-xl-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"20px","lineHeight":"150%","textDecoration":"underline"};
-  --mobile-typography-text-lg-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%"};
-  --mobile-typography-text-lg-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"18px","lineHeight":"150%"};
-  --mobile-typography-text-lg-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"18px","lineHeight":"150%","textDecoration":"underline"};
-  --mobile-typography-text-md-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"16px","lineHeight":"150%"};
-  --mobile-typography-text-md-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"16px","lineHeight":"150%"};
-  --mobile-typography-text-md-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"16px","lineHeight":"150%","textDecoration":"underline"};
-  --mobile-typography-text-sm-regular: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"14px","lineHeight":"150%"};
-  --mobile-typography-text-sm-bold: {"fontFamily":"Lexend","fontWeight":"700","fontSize":"14px","lineHeight":"150%"};
-  --mobile-typography-text-sm-underline: {"fontFamily":"Lexend","fontWeight":"400","fontSize":"14px","lineHeight":"150%","textDecoration":"underline"};
-  --mobile-typography-utility-cta-md: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"16px","lineHeight":"100%"};
-  --mobile-typography-utility-cta-sm: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"14px","lineHeight":"100%"};
-  --mobile-typography-utility-eyebrow: {"fontFamily":"Lexend","fontWeight":"500","fontSize":"12px","lineHeight":"150%","paragraphSpacing":"16px","letterSpacing":"2%","textCase":"uppercase"};
 }

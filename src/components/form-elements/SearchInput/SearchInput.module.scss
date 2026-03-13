@@ -1,0 +1,437 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+@use '../../../../build/scss/elevation' as e;
+@use '../../../../build/scss/motion' as m;
+
+// === Root Container ===
+
+.search-input {
+  display: flex;
+  flex-direction: column;
+  gap: nt.$spacing-xs;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  gap: nt.$spacing-xs;
+  align-items: flex-start;
+  width: 100%;
+}
+
+// === Label ===
+
+.label {
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  flex-shrink: 0;
+}
+
+// === Input Wrapper (pill shape) ===
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  padding: 0 8px 0 16px;
+  background-color: t.$color-surface-interactive-default;
+  border: 1px solid t.$color-border-input-default;
+  border-radius: nt.$radius-2xl;
+  box-sizing: border-box;
+  overflow: clip;
+  transition: border-color m.$durations-productive-xs m.$easings-direct-direct-curve;
+  position: relative;
+  z-index: 2;
+}
+
+// Hover
+.search-field:hover .input-wrapper {
+  border-color: t.$color-border-input-hover;
+}
+
+// Focus
+.search-field:focus-within .input-wrapper {
+  border-color: t.$color-border-input-active;
+  box-shadow:
+    0px 0px 0px 2px t.$color-background-default-solid,
+    0px 0px 0px 6px t.$color-border-focus-default;
+}
+
+// === Content ===
+
+.content {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.input {
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  width: 100%;
+
+  &::placeholder {
+    color: t.$color-text-default-tertiary;
+  }
+}
+
+// === Icons Area ===
+
+.icons {
+  display: flex;
+  gap: nt.$spacing-2xs;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+// === Clear Button ===
+
+.clear-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: nt.$radius-full;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: t.$color-surface-tinted-1;
+  }
+}
+
+.clear-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/x.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/x.svg') no-repeat center / contain;
+}
+
+// === Search Button ===
+
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: nt.$radius-full;
+  border: none;
+  background-color: t.$color-surface-secondary;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color m.$durations-productive-xs m.$easings-direct-direct-curve;
+
+  &:hover {
+    background-color: t.$color-surface-tinted-1;
+  }
+}
+
+.search-button-active {
+  background-color: t.$color-background-accent-solid;
+
+  &:hover {
+    background-color: t.$color-background-accent-solid;
+  }
+}
+
+.search-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: t.$color-icon-default-secondary;
+  mask: url('/icons/base/search.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/search.svg') no-repeat center / contain;
+}
+
+.search-icon-active {
+  background-color: white;
+}
+
+// === Typeahead Menu ===
+
+.typeahead-menu {
+  position: absolute;
+  top: 58px;
+  left: -5px;
+  right: -5px;
+  z-index: 1;
+  background-color: t.$color-surface-primary;
+  border-radius: 0 0 nt.$radius-xl nt.$radius-xl;
+  box-shadow: e.$elevation-md;
+  overflow: clip;
+  padding-top: nt.$spacing-md;
+  animation: menu-enter m.$durations-productive-xs m.$easings-direct-direct-curve;
+}
+
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// === TypeaheadMenu Inner ===
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.menu-spacer-top {
+  width: 100%;
+  height: 16px;
+  background-color: t.$color-surface-primary;
+}
+
+.menu-content {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  overflow: clip;
+  padding: nt.$spacing-2xs 0;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: t.$color-border-scroll-active transparent;
+}
+
+// === Section Divider ===
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 nt.$spacing-sm;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-divider-content {
+  display: flex;
+  flex: 1 0 0;
+  gap: nt.$spacing-xs;
+  align-items: center;
+  justify-content: center;
+  padding: nt.$spacing-2xs 0;
+  border-top: 1px solid t.$color-border-divider-subtle;
+  min-width: 0;
+  min-height: 0;
+}
+
+.section-label {
+  flex: 1 0 0;
+  @include typo.desktop-typography-utility-eyebrow;
+  color: t.$color-text-default-tertiary;
+  text-transform: uppercase;
+  min-width: 0;
+  min-height: 0;
+}
+
+// === No Results ===
+
+.no-results {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: nt.$spacing-xs nt.$spacing-md;
+  box-sizing: border-box;
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-tertiary;
+}
+
+// === Skeleton Loading ===
+
+.skeleton-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: nt.$spacing-xs nt.$spacing-md;
+  box-sizing: border-box;
+}
+
+.skeleton-line {
+  height: 16px;
+  width: 70%;
+  border-radius: nt.$radius-sm;
+  background: linear-gradient(
+    90deg,
+    t.$color-surface-secondary 25%,
+    t.$color-surface-tinted-1 50%,
+    t.$color-surface-secondary 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// === PredictiveResultsItem ===
+
+.result-item {
+  display: flex;
+  gap: nt.$spacing-sm;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: nt.$spacing-xs nt.$spacing-md;
+  box-sizing: border-box;
+  background-color: t.$color-surface-interactive-default;
+  cursor: pointer;
+  outline: none;
+  transition: background-color m.$durations-productive-xs m.$easings-direct-direct-curve;
+
+  &:hover {
+    background-color: t.$color-surface-tinted-1;
+  }
+
+  &:focus-visible {
+    background-color: t.$color-surface-tinted-1;
+    box-shadow: inset 0 0 0 2px t.$color-border-focus-default;
+  }
+}
+
+// === History Icon (recent search leading icon) ===
+
+.history-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/rotate-ccw.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/rotate-ccw.svg') no-repeat center / contain;
+}
+
+// === Result Leading Icon ===
+
+.result-leading-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+// === Result Text ===
+
+.result-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+.result-primary-row {
+  display: flex;
+  gap: nt.$spacing-2xs;
+  align-items: center;
+  width: 100%;
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-primary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-highlight {
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.result-continuation {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-supporting {
+  @include typo.desktop-typography-text-sm-regular;
+  color: t.$color-text-default-tertiary;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+// === Remove Button (trash icon for recent searches) ===
+
+.remove-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: nt.$radius-full;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: t.$color-surface-tinted-1;
+  }
+}
+
+.remove-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/trash-2.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/trash-2.svg') no-repeat center / contain;
+}

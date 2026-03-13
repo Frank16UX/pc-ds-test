@@ -1,0 +1,264 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+@use '../../../../build/scss/motion' as m;
+@use '../../../../build/scss/focus' as f;
+
+.text-area {
+  display: flex;
+  flex-direction: column;
+  gap: nt.$spacing-xs;
+  align-items: flex-start;
+  width: 100%;
+}
+
+// === Label Row ===
+
+.label-row {
+  display: flex;
+  align-items: center;
+  gap: nt.$spacing-xs;
+  width: 100%;
+}
+
+.label-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.label {
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  flex-shrink: 0;
+}
+
+.required {
+  @include typo.desktop-typography-text-md-regular;
+  font-weight: 700;
+  color: t.$color-text-error-default;
+  flex-shrink: 0;
+}
+
+.tooltip-icon {
+  display: block;
+  flex-shrink: 0;
+  width: nt.$size-height-icon-sm;
+  height: nt.$size-height-icon-sm;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/help-circle.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/help-circle.svg') no-repeat center / contain;
+}
+
+// === Text Area Element ===
+
+.textarea {
+  display: block;
+  width: 100%;
+  min-height: 96px;
+  padding: nt.$spacing-sm;
+  background-color: t.$color-surface-interactive-default;
+  border: 1px solid t.$color-border-input-default;
+  border-radius: nt.$radius-md;
+  resize: vertical;
+  box-sizing: border-box;
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  outline: none;
+  overflow: auto;
+  transition: border-color m.$durations-productive-xs m.$easings-direct-direct-curve;
+
+  &::placeholder {
+    color: t.$color-text-default-tertiary;
+  }
+
+  // Hover state
+  &:hover:not(:focus):not(:disabled) {
+    border-color: t.$color-border-input-hover;
+  }
+
+  // Focus state
+  &:focus {
+    border-color: t.$color-border-input-active;
+    box-shadow:
+      0px 0px 0px 2px t.$color-background-default-solid,
+      0px 0px 0px 4px t.$color-border-focus-default;
+  }
+
+  &:disabled {
+    background-color: t.$color-surface-secondary;
+    border-color: t.$color-border-input-disabled;
+    color: t.$color-text-default-disabled;
+    cursor: not-allowed;
+
+    &::placeholder {
+      color: t.$color-text-default-disabled;
+    }
+  }
+}
+
+// Invalid state
+.text-area[data-invalid] .textarea {
+  border-color: t.$color-border-input-error;
+
+  &:focus {
+    box-shadow:
+      0px 0px 0px 2px t.$color-background-default-solid,
+      0px 0px 0px 4px t.$color-border-focus-error;
+  }
+}
+
+// Read-only state
+.text-area[data-readonly] .textarea {
+  background-color: t.$color-surface-secondary;
+
+  &:hover {
+    border-color: t.$color-border-input-default;
+  }
+}
+
+// Disabled label
+.text-area[data-disabled] .label {
+  color: t.$color-text-default-disabled;
+}
+
+// === Helper / Counter Row ===
+
+.helper-counter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: nt.$spacing-xs;
+  width: 100%;
+}
+
+.helper-row {
+  display: flex;
+  align-items: flex-start;
+  gap: nt.$spacing-2xs;
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+.helper-icon-wrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 2.5px;
+}
+
+.helper-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.helper-icon--error {
+  background-color: t.$color-icon-error-default;
+  mask: url('/icons/helper-icons/error.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/helper-icons/error.svg') no-repeat center / contain;
+}
+
+.helper-icon--default {
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/helper-icons/default.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/helper-icons/default.svg') no-repeat center / contain;
+}
+
+.helper-text {
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+  @include typo.desktop-typography-text-sm-regular;
+  color: t.$color-text-default-tertiary;
+  white-space: pre-wrap;
+}
+
+.error-text {
+  flex: 1 0 0;
+  min-width: 0;
+  min-height: 0;
+  @include typo.desktop-typography-text-sm-regular;
+  color: t.$color-text-error-default;
+  white-space: pre-wrap;
+}
+
+.counter {
+  @include typo.desktop-typography-text-sm-regular;
+  color: t.$color-text-default-secondary;
+  flex-shrink: 0;
+}
+
+// === Surface Inverted ===
+
+.surface-inverted {
+  .label {
+    color: t.$color-text-default-primary-inverted;
+  }
+
+  .required {
+    color: t.$color-text-error-high-contrast-inverted;
+  }
+
+  .textarea {
+    background-color: t.$color-surface-interactive-default;
+    border-color: t.$color-border-input-default-inverted;
+    color: t.$color-text-default-primary-inverted;
+
+    &::placeholder {
+      color: t.$color-text-default-tertiary;
+    }
+
+    &:hover:not(:focus):not(:disabled) {
+      border-color: t.$color-border-input-hover-inverted;
+    }
+
+    &:focus {
+      border-color: t.$color-border-input-active-inverted;
+      box-shadow:
+        0px 0px 0px 2px t.$color-text-default-primary,
+        0px 0px 0px 4px t.$color-border-focus-accent-inverted;
+    }
+  }
+
+  &[data-invalid] .textarea {
+    border-color: t.$color-border-input-error-inverted;
+
+    &:focus {
+      box-shadow: f.$focus-error-inverted;
+    }
+  }
+
+  &[data-invalid] .helper-icon--error {
+    background-color: t.$color-icon-error-high-contrast-inverted;
+  }
+
+  .helper-text {
+    color: t.$color-text-default-primary-inverted;
+  }
+
+  .error-text {
+    color: t.$color-text-error-high-contrast-inverted;
+  }
+
+  .counter {
+    color: t.$color-text-default-primary-inverted;
+  }
+
+  .tooltip-icon {
+    background-color: t.$color-icon-default-primary-inverted;
+  }
+
+  // Inverted disabled
+  &[data-disabled] .textarea {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: t.$color-border-button-disabled-inverted;
+  }
+
+  &[data-disabled] .label {
+    color: t.$color-text-default-disabled-on-surface;
+  }
+}

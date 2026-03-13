@@ -1,0 +1,250 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+
+.dropdown-list-item {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: nt.$spacing-xs nt.$spacing-sm;
+  background-color: t.$color-surface-primary;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+
+  &[data-hovered],
+  &[data-focused] {
+    background-color: t.$color-surface-tinted-1;
+  }
+
+  &.dropdown-list-item-submenu-open,
+  &.dropdown-list-item-hovered {
+    background-color: t.$color-surface-tinted-1;
+  }
+
+  &[data-selected] {
+    background-color: t.$color-surface-interactive-selected;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+
+.content {
+  display: flex;
+  flex: 1 0 0;
+  gap: nt.$spacing-sm;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.content-selected {
+  // Selected state styling applied via parent
+}
+
+// === Checkbox ===
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid t.$color-border-button-default;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.checkbox-selected {
+  background-color: t.$color-border-button-default;
+}
+
+.checkbox-icon {
+  display: block;
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+// === Leading Icon ===
+
+.leading-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: nt.$size-height-icon-sm;
+  height: nt.$size-height-icon-sm;
+  color: t.$color-icon-default-tertiary;
+
+  svg,
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// === Avatar ===
+
+.leading-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: nt.$size-height-md;
+  height: nt.$size-height-md;
+  border-radius: nt.$radius-full;
+  overflow: hidden;
+  background-color: t.$color-surface-secondary;
+}
+
+.leading-avatar-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/user.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/user.svg') no-repeat center / contain;
+}
+
+// === Thumbnail ===
+
+.leading-thumbnail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: nt.$size-height-md;
+  height: nt.$size-height-md;
+  border-radius: nt.$radius-full;
+  overflow: hidden;
+  background-color: t.$color-surface-secondary;
+}
+
+.leading-thumbnail-placeholder {
+  display: block;
+  width: 60%;
+  height: 60%;
+  background-color: t.$color-icon-default-tertiary;
+  mask: url('/icons/base/image.svg') no-repeat center / contain;
+  -webkit-mask: url('/icons/base/image.svg') no-repeat center / contain;
+}
+
+.leading-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// === Text ===
+
+.text {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: nt.$spacing-none;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.primary-text {
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-secondary;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+.primary-text-selected {
+  color: t.$color-text-accent-on-surface;
+}
+
+.supporting-text {
+  @include typo.desktop-typography-text-sm-regular;
+  color: t.$color-text-default-tertiary;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// === Trailing Checkmark (single-select selected state) ===
+
+.trailing-checkmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: nt.$size-height-icon-sm;
+  height: nt.$size-height-icon-sm;
+  margin-left: auto;
+}
+
+.trailing-checkmark-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  // Use accent color for the checkmark
+  filter: invert(38%) sepia(30%) saturate(1200%) hue-rotate(145deg) brightness(70%) contrast(90%);
+}
+
+// === Trailing Icon (Chevron) ===
+
+.trailing-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: nt.$size-height-icon-sm;
+  height: nt.$size-height-icon-sm;
+  margin-left: auto;
+}
+
+.trailing-icon-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+// === Suffix ===
+
+.suffix-text {
+  @include typo.desktop-typography-text-md-regular;
+  color: t.$color-text-default-tertiary;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+// === Submenu (Portal) ===
+
+.submenu {
+  position: fixed;
+  z-index: 9999;
+  min-width: 200px;
+  animation: submenu-fade-in 150ms ease-out;
+}
+
+@keyframes submenu-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

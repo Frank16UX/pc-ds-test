@@ -1,0 +1,227 @@
+@use '../../../../build/scss/tokens' as t;
+@use '../../../../build/scss/numeric-tokens' as nt;
+@use '../../../../build/scss/typography-desktop' as typo;
+@use '../../../../build/scss/motion' as m;
+
+.checkbox {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: nt.$spacing-sm; // 12px
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &[data-disabled] {
+    cursor: not-allowed;
+  }
+
+  // === Control (checkbox box wrapper) ===
+
+  .control {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2.5px; // align with text baseline
+  }
+
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: nt.$size-height-icon-xs;
+    height: nt.$size-height-icon-xs;
+    border-radius: 4px;
+    border: 1px solid t.$color-border-input-default;
+    background-color: t.$color-surface-primary;
+    transition: all m.$durations-productive-xs m.$easings-direct-direct-curve;
+    box-sizing: border-box;
+  }
+
+  .check-icon {
+    display: block;
+    width: nt.$size-height-icon-xs;
+    height: nt.$size-height-icon-xs;
+  }
+
+  // === Focus ring (box-shadow approach from Figma) ===
+
+  &[data-focus-visible] .box {
+    box-shadow:
+      0px 0px 0px 2px t.$color-background-default-solid,
+      0px 0px 0px 6px t.$color-border-focus-default;
+  }
+
+  // === Typography ===
+
+  .label {
+    @include typo.desktop-typography-text-md-regular;
+    color: t.$color-text-default-secondary;
+  }
+
+  .required {
+    color: t.$color-text-error-default;
+  }
+
+  .helper-text {
+    @include typo.desktop-typography-text-sm-regular;
+    color: t.$color-text-default-tertiary;
+  }
+
+  .error-row {
+    display: flex;
+    align-items: flex-start;
+    gap: nt.$spacing-2xs; // 4px
+  }
+
+  .error-icon {
+    flex-shrink: 0;
+    width: nt.$size-height-icon-xs;
+    height: nt.$size-height-icon-xs;
+    margin-top: 2.5px; // align with text
+  }
+
+  .error-text {
+    @include typo.desktop-typography-text-sm-regular;
+    color: t.$color-text-error-default;
+  }
+
+  // === States ===
+
+  // Hover (unselected)
+  &:hover:not([data-disabled]) .box {
+    border-color: t.$color-border-button-hovered;
+  }
+
+  // Selected
+  &[data-selected] .box {
+    border-color: t.$color-border-button-default;
+    background-color: t.$color-border-button-default;
+
+    .check-icon {
+      // Invert the icon to white
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &[data-selected]:hover:not([data-disabled]) .box {
+    border-color: t.$color-border-button-hovered;
+    background-color: t.$color-border-button-hovered;
+  }
+
+  // Indeterminate
+  &[data-indeterminate] .box {
+    border-color: t.$color-border-input-default;
+    background-color: t.$color-surface-primary;
+
+    .check-icon {
+      filter: none; // Keep dark color for minus icon
+    }
+  }
+
+  &[data-indeterminate]:hover:not([data-disabled]) .box {
+    border-color: t.$color-border-button-hovered;
+  }
+
+  // Disabled
+  &[data-disabled] .box {
+    border-color: t.$color-border-button-disabled;
+    background-color: t.$color-buttons-secondary-disabled;
+  }
+
+  &[data-disabled][data-selected] .box {
+    background-color: t.$color-buttons-primary-disabled;
+    border-color: t.$color-border-button-disabled;
+  }
+
+  // === Content ===
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  // Disabled text
+  &[data-disabled] .label,
+  &[data-disabled] .helper-text {
+    color: t.$color-icon-default-disabled-on-surface;
+  }
+
+  &[data-disabled] .error-text {
+    color: t.$color-icon-default-disabled-on-surface;
+  }
+
+  // === Error State ===
+
+  &.error .box {
+    border-color: t.$color-border-input-error;
+  }
+
+  &.error[data-selected] .box {
+    border-color: t.$color-border-input-error;
+    background-color: t.$color-border-input-error;
+  }
+
+  // === Surface: Inverted ===
+
+  &.surface-inverted {
+    .label {
+      color: t.$color-text-default-primary-inverted;
+    }
+
+    .helper-text {
+      color: t.$color-text-default-primary-inverted;
+      opacity: 0.7;
+    }
+
+    .required {
+      color: t.$color-text-error-high-contrast-inverted;
+    }
+
+    .error-text {
+      color: t.$color-text-error-high-contrast-inverted;
+    }
+
+    .error-icon {
+      // Tint the error icon to inverted error color
+      filter: brightness(0) saturate(100%) invert(70%) sepia(38%) saturate(1118%) hue-rotate(318deg) brightness(103%) contrast(101%);
+    }
+
+    .box {
+      border-color: t.$color-border-input-default-inverted;
+      background-color: transparent;
+    }
+
+    &[data-selected] .box {
+      border-color: t.$color-text-default-primary-inverted;
+      background-color: t.$color-text-default-primary-inverted;
+
+      .check-icon {
+        filter: brightness(0); // Dark icon on white bg
+      }
+    }
+
+    &[data-focus-visible] .box {
+      box-shadow:
+        0px 0px 0px 2px t.$color-background-default-static-black,
+        0px 0px 0px 6px t.$color-border-focus-accent-inverted;
+    }
+
+    &.error .box {
+      border-color: t.$color-border-input-error-inverted;
+    }
+
+    &.error[data-selected] .box {
+      border-color: t.$color-border-input-error-inverted;
+      background-color: t.$color-border-input-error-inverted;
+
+      .check-icon {
+        filter: brightness(0); // Dark icon on colored bg
+      }
+    }
+
+    &[data-disabled] .label,
+    &[data-disabled] .helper-text {
+      opacity: 0.4;
+    }
+  }
+}

@@ -9,41 +9,44 @@ interface NumericToken {
 }
 
 const spacingTokens: NumericToken[] = [
-  { name: 'None', scssVar: '$spacing-none', description: 'No spacing between elements.' },
-  { name: '2XS', scssVar: '$spacing-2xs', description: 'Micro adjustments such as icon padding or dividers.' },
-  { name: 'XS', scssVar: '$spacing-xs', description: 'Tight spacing between related text or iconography.' },
-  { name: 'SM', scssVar: '$spacing-sm', description: 'Compact gaps for stacked labels and inputs.' },
-  { name: 'MD', scssVar: '$spacing-md', description: 'Default spacing for text blocks and form controls.' },
-  { name: 'LG', scssVar: '$spacing-lg', description: 'Breathing room for cards or vertically grouped content.' },
-  { name: 'XL', scssVar: '$spacing-xl', description: 'Large gutters around sections and hero content.' },
-  { name: '2XL', scssVar: '$spacing-2xl', description: 'Used sparingly for page level padding.' },
-  { name: '3XL', scssVar: '$spacing-3xl', description: 'Generous spacing for full-bleed layouts or modals.' },
-  { name: '4XL', scssVar: '$spacing-4xl', description: 'Max spacing for immersive hero layouts.' },
+  { name: 'None', scssVar: '$spacing-none', description: '(0px). Use when elements should have no gap or padding between them (e.g both consecutive sections have white bg, so the next section will have a 0px top padding to avoid an excessive spacing).' },
+  { name: '2XS', scssVar: '$spacing-2xs', description: '(4px). Use for very tight spacing like icon-to-text gaps or subtle padding.' },
+  { name: 'XS', scssVar: '$spacing-xs', description: '(8px). Use for compact component internal spacing or small gaps between related elements.' },
+  { name: 'SM', scssVar: '$spacing-sm', description: '(12px). Use for moderate padding within components or gaps between closely related items.' },
+  { name: 'MD', scssVar: '$spacing-md', description: '(16px). Default spacing for most component padding and gaps. Our baseline spacing unit.' },
+  { name: 'LG', scssVar: '$spacing-lg', description: '(24px). Use for generous component padding or gaps between distinct sections.' },
+  { name: 'XL', scssVar: '$spacing-xl', description: '(32px). Use for significant separation between components or section padding.' },
+  { name: '2XL', scssVar: '$spacing-2xl', description: '(40px). Use for separation between content blocks within a section.' },
+  { name: '3XL', scssVar: '$spacing-3xl', description: '(48px). Use for vertical separation between sections.' },
+  { name: '4XL', scssVar: '$spacing-4xl', description: '(64px). Use for maximum spacing between distinct page areas or special layout needs.' },
 ];
 
 const radiusTokens: NumericToken[] = [
-  { name: 'Square', scssVar: '$radius-square', description: 'Squared corners for tables and hard-edged surfaces.' },
-  { name: 'SM', scssVar: '$radius-sm', description: 'Subtle rounding for inputs and chips.' },
-  { name: 'MD', scssVar: '$radius-md', description: 'System default for cards, modals, and panels.' },
-  { name: 'Full', scssVar: '$radius-full', description: 'Capsules and fully rounded controls.' },
+  { name: 'Square', scssVar: '$radius-square', description: 'Sharp corners with no rounding (0px). Use for rectangular elements requiring hard edges.' },
+  { name: 'SM', scssVar: '$radius-sm', description: 'Small corner radius (6px). Use for subtle rounding on cards and other UI elements.' },
+  { name: 'MD', scssVar: '$radius-md', description: 'Medium corner radius (8px). Standard rounding for most components like inputs.' },
+  { name: 'XL', scssVar: '$radius-xl', description: 'Use it only for Search Typeahead menus and pill shaped items (e.g Quantity Stepper).' },
+  { name: '2XL', scssVar: '$radius-2xl', description: 'Use it for pill-shaped elements like buttons and chips.' },
+  { name: 'Full', scssVar: '$radius-full', description: 'Fully rounded borders (pill-shaped buttons). Equals 1000px radius on Figma.' },
 ];
 
 const sizeHeightTokens: NumericToken[] = [
-  { name: 'Height LG', scssVar: '$size-height-lg', description: 'Large control height for desktop buttons or inputs.' },
-  { name: 'Height MD', scssVar: '$size-height-md', description: 'Default control height used across most UI.' },
-  { name: 'Height SM', scssVar: '$size-height-sm', description: 'Compact control height for dense surfaces.' },
-  { name: 'Height XS', scssVar: '$size-height-xs', description: 'Use for micro controls or compact toolbars.' },
-  { name: 'Icon Height XS', scssVar: '$size-height-icon-xs', description: 'Icon-only control height for subtle actions.' },
-  { name: 'Icon Height SM', scssVar: '$size-height-icon-sm', description: 'Primary icon button height.' },
-  { name: 'Icon Height MD', scssVar: '$size-height-icon-md', description: 'Medium icon control height.' },
-  { name: 'Icon Height LG', scssVar: '$size-height-icon-lg', description: 'Large icon control height.' },
-  { name: 'Icon Height 2XL', scssVar: '$size-height-icon-2xl', description: 'Hero icon height for badges or spot illustrations.' },
-  { name: 'Icon Height 4XL', scssVar: '$size-height-icon-4xl', description: 'Presentation icon height for marketing surfaces.' },
+  { name: 'Height XS', scssVar: '$size-height-xs', description: '(24px). Use as the base icon height and smaller elements.' },
+  { name: 'Height SM', scssVar: '$size-height-sm', description: '(32px). Use it as the fixed height for Small Buttons and sm variants.' },
+  { name: 'Height MD', scssVar: '$size-height-md', description: '(40px). Fixed height for default Chips (md).' },
+  { name: 'Height LG', scssVar: '$size-height-lg', description: '(48px). Fixed height for Large Buttons and other large component variants (lg).' },
+  { name: 'Height XL', scssVar: '$size-height-xl', description: '(72px). Height for xl icon buttons and chips.' },
+  { name: 'Icon Height XS', scssVar: '$size-height-icon-xs', description: '(16px). Height for the smallest icon size (Small Button).' },
+  { name: 'Icon Height SM', scssVar: '$size-height-icon-sm', description: '(20px). Height for the icon in a Large Button.' },
+  { name: 'Icon Height MD', scssVar: '$size-height-icon-md', description: '(24px). Default size for most standalone icons and instances in icon buttons.' },
+  { name: 'Icon Height LG', scssVar: '$size-height-icon-lg', description: '(32px). Default size for most standalone icons and instances in icon buttons.' },
+  { name: 'Icon Height 2XL', scssVar: '$size-height-icon-2xl', description: '(64px). Default size for most standalone icons and instances in icon buttons.' },
+  { name: 'Icon Height 4XL', scssVar: '$size-height-icon-4xl', description: '(80px). Max height of a highlighted icon (e.g. a more detailed icon of a feature of benefit on a landing page).' },
 ];
 
 const sizeWidthTokens: NumericToken[] = [
-  { name: 'Button Min-Width LG', scssVar: '$size-width-button-mw-lg', description: 'Minimum width for large CTAs and layout anchors.' },
-  { name: 'Button Min-Width SM', scssVar: '$size-width-button-mw-sm', description: 'Minimum width for small buttons and responsive stacks.' },
+  { name: 'Button Min-Width LG', scssVar: '$size-width-button-mw-lg', description: '(128px). Ensures large buttons have substantial clickable area and prominent visual hierarchy.' },
+  { name: 'Button Min-Width SM', scssVar: '$size-width-button-mw-sm', description: '(96px). Ensures small buttons have adequate clickable area and visual presence.' },
 ];
 
 const surfaceTinted1 = getTokenValueOr('$color-surface-tinted-1', '#f5f5f5');
@@ -57,11 +60,10 @@ type PreviewRenderer = (value: string | undefined, token: NumericToken) => React
 
 const TokenRow = ({ token, renderPreview }: { token: NumericToken; renderPreview: PreviewRenderer }) => {
   const resolvedValue = useMemo(() => resolveTokenValue(token.scssVar), [token.scssVar]);
-  const rawValue = useMemo(() => getRawTokenValue(token.scssVar), [token.scssVar]);
+  const preview = useMemo(() => renderPreview(resolvedValue, token), [renderPreview, resolvedValue, token]);
 
   const specs: Array<[string, string]> = [
-    ['Resolved value', resolvedValue ?? '—'],
-    ['Raw value', rawValue ?? '—'],
+    ['Value', resolvedValue ?? '—'],
   ];
 
   if (token.description) {
@@ -73,7 +75,7 @@ const TokenRow = ({ token, renderPreview }: { token: NumericToken; renderPreview
       <div className="token-sample-meta" style={{ maxWidth: '320px' }}>
         <span className="token-sample-label">{token.name}</span>
         <div className="token-sample-preview" style={{ width: '100%' }}>
-          {renderPreview(resolvedValue, token)}
+          {preview}
         </div>
         <code className="token-sample-code">{token.scssVar}</code>
       </div>
