@@ -113,7 +113,7 @@ export const DropdownListItem = React.forwardRef<HTMLDivElement, DropdownListIte
         const hasSubmenu = !!(showTrailingIcon && subItems);
         const itemRef = React.useRef<HTMLDivElement>(null);
         const submenuRef = React.useRef<HTMLDivElement>(null);
-        const hoverTimeoutRef = React.useRef<ReturnType<typeof setTimeout>>();
+        const hoverTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
         const [submenuOpen, setSubmenuOpen] = React.useState(false);
         const [submenuPosition, setSubmenuPosition] = React.useState<{
             top: number;
